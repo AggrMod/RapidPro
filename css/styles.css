@@ -50,6 +50,31 @@ body {
   max-width: 1400px; /* Increased container width for larger logo */
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phone-number {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.phone-number:hover {
+  color: var(--accent);
+}
+
+.phone-icon {
+  font-size: 1.2rem;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -161,8 +186,8 @@ ul {
 .btn:hover {
   background-color: var(--primary);
   color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn:hover::before {
@@ -360,7 +385,8 @@ ul {
 .service-list {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Modified to create nicer layout with 6 items - works well for 2 rows of 3 */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -376,8 +402,8 @@ ul {
 }
 
 .service-list li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .service-icon {
@@ -443,9 +469,12 @@ ul {
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* Modified to create even 2x2 layout with 4 items */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   counter-reset: step-counter;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .process-step {
@@ -461,8 +490,8 @@ ul {
 }
 
 .process-step:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
 .step-number {
@@ -612,9 +641,22 @@ ul {
   }
 
   .service-list {
-    grid-template-columns: 1fr;
+    /* Modified to create 2x3 grid on tablets */
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  .process-grid {
+    /* Modified to create 2x2 grid on tablets */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  /* Extra small devices */
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+  
   .process-grid {
     grid-template-columns: 1fr;
   }
@@ -625,8 +667,18 @@ ul {
     padding: 0.75rem 0;
   }
 
-  .logo-container {
+  .header-content {
     margin-bottom: 0.75rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .phone-number {
+    font-size: 1rem;
+  }
+
+  .logo-container {
+    margin-bottom: 0;
   }
 
   .main-nav ul {
@@ -639,7 +691,7 @@ ul {
 
   /* Adjust hero for mobile header */
   .hero {
-    padding-top: 160px; /* Increased for larger header (was 110px) */
+    padding-top: 180px; /* Increased for larger header with phone number */
   }
 
   /* Adjust logo size for mobile */
@@ -655,7 +707,7 @@ ul {
 
   .hero {
     height: auto;
-    padding-top: 160px; /* Increased for larger header (was 110px) */
+    padding-top: 180px; /* Increased for larger header with phone */
     padding-bottom: 4rem;
   }
 
@@ -667,5 +719,15 @@ ul {
   .main-nav ul {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .phone-number {
+    font-size: 0.9rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
   }
 }

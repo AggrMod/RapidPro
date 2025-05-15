@@ -1,0 +1,4340 @@
+[
+  {
+    "id": "amelia-gene-s",
+    "name": "Amelia Gene's",
+    "businessName": "Amelia Gene's",
+    "contactName": "William Wright",
+    "address": "255 S. Front St., Memphis, TN 38103",
+    "phone": "(901) 363-1786",
+    "equipmentCount": 5
+  },
+  {
+    "id": "bishop",
+    "name": "Bishop",
+    "businessName": "Bishop",
+    "contactName": "Anthony Garcia",
+    "address": "545 S. Main St., Memphis, TN 38103",
+    "phone": "(901) 887-7279",
+    "equipmentCount": 5
+  },
+  {
+    "id": "catherine---mary-s",
+    "name": "Catherine & Mary's",
+    "businessName": "Catherine & Mary's",
+    "contactName": "Karen King",
+    "address": "272 S. Main St., Suite 105, Memphis, TN 38106",
+    "phone": "(901) 968-1278",
+    "equipmentCount": 2
+  },
+  {
+    "id": "chez-philippe",
+    "name": "Chez Philippe",
+    "businessName": "Chez Philippe",
+    "contactName": "Donald Johnson",
+    "address": "149 Union Ave., Memphis, TN 38103",
+    "phone": "(901) 118-7613",
+    "equipmentCount": 4
+  },
+  {
+    "id": "curfew-memphis",
+    "name": "Curfew Memphis",
+    "businessName": "Curfew Memphis",
+    "contactName": "Melissa Nelson",
+    "address": "164 Union Ave., Memphis, TN 38103",
+    "phone": "(901) 195-2802",
+    "equipmentCount": 1
+  },
+  {
+    "id": "flight-restaurant---wine-bar",
+    "name": "Flight Restaurant & Wine Bar",
+    "businessName": "Flight Restaurant & Wine Bar",
+    "contactName": "Sharon Wright",
+    "address": "39 S. Main St., Memphis, TN 38103",
+    "phone": "(901) 510-7079",
+    "equipmentCount": 4
+  },
+  {
+    "id": "felicia-suzanne-s",
+    "name": "Felicia Suzanne's",
+    "businessName": "Felicia Suzanne's",
+    "contactName": "Mary Moore",
+    "address": "South Main District, Memphis, TN 38103",
+    "phone": "(901) 923-9649",
+    "equipmentCount": 1
+  },
+  {
+    "id": "good-fortune-co-",
+    "name": "Good Fortune Co.",
+    "businessName": "Good Fortune Co.",
+    "contactName": "Kimberly Martin",
+    "address": "361 S. Main St., Memphis, TN 38103",
+    "phone": "(901) 390-8406",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-gray-canary",
+    "name": "The Gray Canary",
+    "businessName": "The Gray Canary",
+    "contactName": "Mark Hall",
+    "address": "301 S. Front St., Memphis, TN 38103",
+    "phone": "(901) 262-6392",
+    "equipmentCount": 1
+  },
+  {
+    "id": "itta-bena",
+    "name": "Itta Bena",
+    "businessName": "Itta Bena",
+    "contactName": "Michael Wright",
+    "address": "145 Beale St., Memphis, TN 38103",
+    "phone": "(901) 133-1383",
+    "equipmentCount": 2
+  },
+  {
+    "id": "jem-dining",
+    "name": "JEM Dining",
+    "businessName": "JEM Dining",
+    "contactName": "Mark Thomas",
+    "address": "644 Madison Ave., Memphis, TN 38103",
+    "phone": "(901) 341-3168",
+    "equipmentCount": 3
+  },
+  {
+    "id": "mcewen-s-memphis",
+    "name": "McEwen's Memphis",
+    "businessName": "McEwen's Memphis",
+    "contactName": "Susan Johnson",
+    "address": "120 Monroe Ave., Memphis, TN 38103",
+    "phone": "(901) 996-2443",
+    "equipmentCount": 1
+  },
+  {
+    "id": "porch---parlor-prime-steakhouse",
+    "name": "Porch & Parlor Prime Steakhouse",
+    "businessName": "Porch & Parlor Prime Steakhouse",
+    "contactName": "Elizabeth Adams",
+    "address": "Downtown Memphis, TN 38103",
+    "phone": "(901) 811-3452",
+    "equipmentCount": 1
+  },
+  {
+    "id": "sob--south-of-beale-",
+    "name": "SOB (South of Beale)",
+    "businessName": "SOB (South of Beale)",
+    "contactName": "Linda Jones",
+    "address": "345 S. Main St., Memphis, TN 38103",
+    "phone": "(901) 674-1520",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-lobbyist",
+    "name": "The Lobbyist",
+    "businessName": "The Lobbyist",
+    "contactName": "Barbara Lee",
+    "address": "272 S. Main St., Suite 101, Memphis, TN 38103",
+    "phone": "(901) 682-4692",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-archives-bar---bistro",
+    "name": "The Archives Bar & Bistro",
+    "businessName": "The Archives Bar & Bistro",
+    "contactName": "Sarah King",
+    "address": "179 Madison Ave., Memphis, TN 38103",
+    "phone": "(901) 257-1935",
+    "equipmentCount": 3
+  },
+  {
+    "id": "cache42-downtown",
+    "name": "Cache42 Downtown",
+    "businessName": "Cache42 Downtown",
+    "contactName": "Richard Thompson",
+    "address": "97 N. Main St., Memphis, TN 38103",
+    "phone": "(901) 442-7929",
+    "equipmentCount": 1
+  },
+  {
+    "id": "acre",
+    "name": "Acre",
+    "businessName": "Acre",
+    "contactName": "Richard Thompson",
+    "address": "690 S. Perkins Rd., Memphis, TN 38117",
+    "phone": "(901) 420-2890",
+    "equipmentCount": 5
+  },
+  {
+    "id": "alchemy---salt---soy",
+    "name": "Alchemy + Salt | Soy",
+    "businessName": "Alchemy + Salt | Soy",
+    "contactName": "Steven Hernandez",
+    "address": "Cooper Young District, Memphis, TN 38117",
+    "phone": "(901) 107-4619",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bari-ristorante",
+    "name": "Bari Ristorante",
+    "businessName": "Bari Ristorante",
+    "contactName": "Laura Lee",
+    "address": "524 S. Cooper St., Memphis, TN 38104",
+    "phone": "(901) 687-3362",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-beauty-shop-restaurant",
+    "name": "The Beauty Shop Restaurant",
+    "businessName": "The Beauty Shop Restaurant",
+    "contactName": "John Jackson",
+    "address": "966 S. Cooper St., Memphis, TN 38104",
+    "phone": "(901) 663-4331",
+    "equipmentCount": 1
+  },
+  {
+    "id": "caf--society-memphis",
+    "name": "Café Society Memphis",
+    "businessName": "Café Society Memphis",
+    "contactName": "Susan Wright",
+    "address": "212 N. Evergreen St., Memphis, TN 38112",
+    "phone": "(901) 942-2547",
+    "equipmentCount": 2
+  },
+  {
+    "id": "complicated-pilgrim",
+    "name": "Complicated Pilgrim",
+    "businessName": "Complicated Pilgrim",
+    "contactName": "Richard Hall",
+    "address": "Overton Square, Memphis, TN 38104",
+    "phone": "(901) 129-3248",
+    "equipmentCount": 5
+  },
+  {
+    "id": "dory",
+    "name": "Dory",
+    "businessName": "Dory",
+    "contactName": "Anthony Hernandez",
+    "address": "East Memphis, TN 38117",
+    "phone": "(901) 209-1808",
+    "equipmentCount": 2
+  },
+  {
+    "id": "evergreen-grill",
+    "name": "Evergreen Grill",
+    "businessName": "Evergreen Grill",
+    "contactName": "Daniel Brown",
+    "address": "212 N. Evergreen St., Memphis, TN 38104",
+    "phone": "(901) 169-8823",
+    "equipmentCount": 3
+  },
+  {
+    "id": "kitchen-laurel",
+    "name": "Kitchen Laurel",
+    "businessName": "Kitchen Laurel",
+    "contactName": "Emily Wright",
+    "address": "800 Cooper St., Memphis, TN 38104",
+    "phone": "(901) 305-4961",
+    "equipmentCount": 1
+  },
+  {
+    "id": "la-roche",
+    "name": "La Roche",
+    "businessName": "La Roche",
+    "contactName": "Jessica Scott",
+    "address": "Cooper Young District, Memphis, TN 38117",
+    "phone": "(901) 755-9010",
+    "equipmentCount": 3
+  },
+  {
+    "id": "porch-and-parlor",
+    "name": "Porch and Parlor",
+    "businessName": "Porch and Parlor",
+    "contactName": "Patricia Harris",
+    "address": "2125 Madison St., Memphis, TN 38104",
+    "phone": "(901) 852-6041",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-second-line",
+    "name": "The Second Line",
+    "businessName": "The Second Line",
+    "contactName": "James Brown",
+    "address": "2144 Monroe Ave., Memphis, TN 38104",
+    "phone": "(901) 459-6197",
+    "equipmentCount": 2
+  },
+  {
+    "id": "tiger---peacock",
+    "name": "Tiger & Peacock",
+    "businessName": "Tiger & Peacock",
+    "contactName": "Anthony Garcia",
+    "address": "Memphian Hotel Rooftop, Midtown, Memphis, TN 38126",
+    "phone": "(901) 964-3712",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tsunami",
+    "name": "Tsunami",
+    "businessName": "Tsunami",
+    "contactName": "Rebecca King",
+    "address": "928 S. Cooper St., Memphis, TN 38104",
+    "phone": "(901) 981-9347",
+    "equipmentCount": 3
+  },
+  {
+    "id": "andrew-michael-italian-kitchen",
+    "name": "Andrew Michael Italian Kitchen",
+    "businessName": "Andrew Michael Italian Kitchen",
+    "contactName": "Susan Martinez",
+    "address": "712 W. Brookhaven Circle, Memphis, TN 38117",
+    "phone": "(901) 138-3922",
+    "equipmentCount": 5
+  },
+  {
+    "id": "char-restaurant",
+    "name": "Char Restaurant",
+    "businessName": "Char Restaurant",
+    "contactName": "James Taylor",
+    "address": "431 S. Highland St., Suite 120, Memphis, TN 38111",
+    "phone": "(901) 541-3228",
+    "equipmentCount": 5
+  },
+  {
+    "id": "erling-jensen",
+    "name": "Erling Jensen",
+    "businessName": "Erling Jensen",
+    "contactName": "Richard Carter",
+    "address": "1044 S. Yates Rd., Memphis, TN 38119",
+    "phone": "(901) 286-5189",
+    "equipmentCount": 5
+  },
+  {
+    "id": "folk-s-folly-prime-steak-house",
+    "name": "Folk's Folly Prime Steak House",
+    "businessName": "Folk's Folly Prime Steak House",
+    "contactName": "Kimberly Lopez",
+    "address": "551 S. Mendenhall Rd., Memphis, TN 38117",
+    "phone": "(901) 819-6534",
+    "equipmentCount": 4
+  },
+  {
+    "id": "hog---hominy",
+    "name": "Hog & Hominy",
+    "businessName": "Hog & Hominy",
+    "contactName": "David Garcia",
+    "address": "707 W. Brookhaven Circle, Memphis, TN 38117",
+    "phone": "(901) 503-3947",
+    "equipmentCount": 2
+  },
+  {
+    "id": "coastal-fish-company",
+    "name": "Coastal Fish Company",
+    "businessName": "Coastal Fish Company",
+    "contactName": "Steven Jackson",
+    "address": "415 Great View Dr. E., Memphis, TN 38018",
+    "phone": "(901) 458-5999",
+    "equipmentCount": 3
+  },
+  {
+    "id": "napa-caf-",
+    "name": "Napa Café",
+    "businessName": "Napa Café",
+    "contactName": "Patricia Jackson",
+    "address": "5101 Sanderlin, Suite 100, Memphis, TN 38117",
+    "phone": "(901) 443-5401",
+    "equipmentCount": 4
+  },
+  {
+    "id": "restaurant-iris",
+    "name": "Restaurant Iris",
+    "businessName": "Restaurant Iris",
+    "contactName": "Joseph King",
+    "address": "4550 Poplar Ave., Memphis, TN 38117",
+    "phone": "(901) 835-3682",
+    "equipmentCount": 5
+  },
+  {
+    "id": "paulette-s-restaurant",
+    "name": "Paulette's Restaurant",
+    "businessName": "Paulette's Restaurant",
+    "contactName": "Charles Robinson",
+    "address": "50 Harbor Town Square, Memphis, TN 38103",
+    "phone": "(901) 632-6432",
+    "equipmentCount": 5
+  },
+  {
+    "id": "terrace-at-the-river-inn",
+    "name": "Terrace at the River Inn",
+    "businessName": "Terrace at the River Inn",
+    "contactName": "Emily Carter",
+    "address": "50 Harbor Town Square, Memphis, TN 38103",
+    "phone": "(901) 927-4506",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tug-s-casual-grill",
+    "name": "Tug's Casual Grill",
+    "businessName": "Tug's Casual Grill",
+    "contactName": "Thomas Adams",
+    "address": "51 Harbor Town Square, Memphis, TN 38103",
+    "phone": "(901) 702-5988",
+    "equipmentCount": 1
+  },
+  {
+    "id": "cocozza-american-italian",
+    "name": "Cocozza American Italian",
+    "businessName": "Cocozza American Italian",
+    "contactName": "Stephanie Young",
+    "address": "106 Harbor Town Square, Memphis, TN 38103",
+    "phone": "(901) 252-9622",
+    "equipmentCount": 5
+  },
+  {
+    "id": "kinfolk-country-kitchen",
+    "name": "Kinfolk Country Kitchen",
+    "businessName": "Kinfolk Country Kitchen",
+    "contactName": "John White",
+    "address": "111 Harbor Town Square, Memphis, TN 38103",
+    "phone": "(901) 522-7469",
+    "equipmentCount": 4
+  },
+  {
+    "id": "mahogany-river-terrace",
+    "name": "Mahogany River Terrace",
+    "businessName": "Mahogany River Terrace",
+    "contactName": "Sarah Robinson",
+    "address": "Harbor Town, Memphis, TN 38103",
+    "phone": "(901) 368-7724",
+    "equipmentCount": 2
+  },
+  {
+    "id": "southern-social",
+    "name": "Southern Social",
+    "businessName": "Southern Social",
+    "contactName": "Sarah King",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 583-1700",
+    "equipmentCount": 2
+  },
+  {
+    "id": "limelight-germantown",
+    "name": "Limelight Germantown",
+    "businessName": "Limelight Germantown",
+    "contactName": "Andrew Smith",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 410-8950",
+    "equipmentCount": 1
+  },
+  {
+    "id": "forest-hill-grill",
+    "name": "Forest Hill Grill",
+    "businessName": "Forest Hill Grill",
+    "contactName": "John Harris",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 711-1527",
+    "equipmentCount": 2
+  },
+  {
+    "id": "asaderos-mexican-grill",
+    "name": "Asaderos Mexican Grill",
+    "businessName": "Asaderos Mexican Grill",
+    "contactName": "Laura Wilson",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 266-3272",
+    "equipmentCount": 3
+  },
+  {
+    "id": "david-grisanti-s-on-main",
+    "name": "David Grisanti's On Main",
+    "businessName": "David Grisanti's On Main",
+    "contactName": "Donald Martin",
+    "address": "148 North Main, Collierville, TN 38017",
+    "phone": "(901) 335-6405",
+    "equipmentCount": 4
+  },
+  {
+    "id": "snowa",
+    "name": "Snowa",
+    "businessName": "Snowa",
+    "contactName": "Anthony Anderson",
+    "address": "9155 Poplar Ave., Germantown, TN 38138",
+    "phone": "(901) 814-1665",
+    "equipmentCount": 5
+  },
+  {
+    "id": "villa-castrioti",
+    "name": "Villa Castrioti",
+    "businessName": "Villa Castrioti",
+    "contactName": "Andrew Gonzalez",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 961-3730",
+    "equipmentCount": 3
+  },
+  {
+    "id": "nashoba",
+    "name": "Nashoba",
+    "businessName": "Nashoba",
+    "contactName": "David Young",
+    "address": "4600 Merchants Park Circle, Suite 111, Collierville, TN 38017",
+    "phone": "(901) 743-9258",
+    "equipmentCount": 2
+  },
+  {
+    "id": "petals-of-a-peony",
+    "name": "Petals of a Peony",
+    "businessName": "Petals of a Peony",
+    "contactName": "Joshua Hernandez",
+    "address": "2110 Madison Ave., Memphis, TN 38127",
+    "phone": "(901) 149-7020",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-blue-room-restaurant",
+    "name": "The Blue Room Restaurant",
+    "businessName": "The Blue Room Restaurant",
+    "contactName": "Matthew Hall",
+    "address": "1245 N. Germantown Pkwy, Suite 101, Cordova, TN 38016",
+    "phone": "(901) 158-3714",
+    "equipmentCount": 1
+  },
+  {
+    "id": "biscuits---jam",
+    "name": "Biscuits & Jam",
+    "businessName": "Biscuits & Jam",
+    "contactName": "Amanda King",
+    "address": "Bartlett, TN 38125",
+    "phone": "(901) 699-5813",
+    "equipmentCount": 5
+  },
+  {
+    "id": "coletta-s-italian-restaurant",
+    "name": "Coletta's Italian Restaurant",
+    "businessName": "Coletta's Italian Restaurant",
+    "contactName": "James Lewis",
+    "address": "Appling Location, Bartlett Area, TN 38119",
+    "phone": "(901) 472-8145",
+    "equipmentCount": 3
+  },
+  {
+    "id": "sweet-musings-bakery---cafe",
+    "name": "Sweet Musings Bakery & Cafe",
+    "businessName": "Sweet Musings Bakery & Cafe",
+    "contactName": "Patricia Garcia",
+    "address": "1890 N. Germantown Pkwy, Suite 99, Cordova, TN 38016 MemphisTravel.com 38127",
+    "phone": "(901) 662-4674",
+    "equipmentCount": 1
+  },
+  {
+    "id": "smackers",
+    "name": "Smackers",
+    "businessName": "Smackers",
+    "contactName": "Thomas Johnson",
+    "address": "Bartlett, TN 38106",
+    "phone": "(901) 221-2959",
+    "equipmentCount": 1
+  },
+  {
+    "id": "dwj-korean-bbq",
+    "name": "DWJ Korean BBQ",
+    "businessName": "DWJ Korean BBQ",
+    "contactName": "Mary Hall",
+    "address": "Cordova/Memphis, TN 38117",
+    "phone": "(901) 757-5799",
+    "equipmentCount": 1
+  },
+  {
+    "id": "mama-pug-s-bakery---caf-",
+    "name": "Mama Pug's Bakery & Café",
+    "businessName": "Mama Pug's Bakery & Café",
+    "contactName": "Michelle Lopez",
+    "address": "Cordova, TN 38107",
+    "phone": "(901) 118-8510",
+    "equipmentCount": 3
+  },
+  {
+    "id": "green-leaf-container-caf-",
+    "name": "Green Leaf Container Café",
+    "businessName": "Green Leaf Container Café",
+    "contactName": "Anthony Robinson",
+    "address": "1025 College St., Memphis, TN 38126",
+    "phone": "(901) 761-4601",
+    "equipmentCount": 1
+  },
+  {
+    "id": "one11",
+    "name": "One11",
+    "businessName": "One11",
+    "contactName": "Anthony Adams",
+    "address": "South Memphis, TN 38109",
+    "phone": "(901) 493-6838",
+    "equipmentCount": 3
+  },
+  {
+    "id": "mahogany-memphis",
+    "name": "Mahogany Memphis",
+    "businessName": "Mahogany Memphis",
+    "contactName": "Jennifer Green",
+    "address": "Medical District, Memphis, TN 38120",
+    "phone": "(901) 779-6341",
+    "equipmentCount": 1
+  },
+  {
+    "id": "tekila-modern-mexican",
+    "name": "Tekila Modern Mexican",
+    "businessName": "Tekila Modern Mexican",
+    "contactName": "John Lee",
+    "address": "1443 Union Ave., Memphis, TN MemphisTravel.com 38119",
+    "phone": "(901) 532-5741",
+    "equipmentCount": 2
+  },
+  {
+    "id": "ibis",
+    "name": "Ibis",
+    "businessName": "Ibis",
+    "contactName": "Joshua Anderson",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 672-7906",
+    "equipmentCount": 5
+  },
+  {
+    "id": "shroomlicious-meals",
+    "name": "Shroomlicious Meals",
+    "businessName": "Shroomlicious Meals",
+    "contactName": "Melissa Baker",
+    "address": "North Watkins Street, Memphis, TN MemphisTravel.com 38107",
+    "phone": "(901) 925-3698",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-arcade-restaurant",
+    "name": "The Arcade Restaurant",
+    "businessName": "The Arcade Restaurant",
+    "contactName": "Rebecca Lopez",
+    "address": "540 S Main St, Memphis, TN 38103",
+    "phone": "(901) 693-2166",
+    "equipmentCount": 5
+  },
+  {
+    "id": "huey-s-downtown-mapquest",
+    "name": "Huey's Downtown MapQuest",
+    "businessName": "Huey's Downtown MapQuest",
+    "contactName": "Sarah Harris",
+    "address": "77 S 2nd St, Memphis, TN 38103",
+    "phone": "(901) 258-3744",
+    "equipmentCount": 4
+  },
+  {
+    "id": "central-bbq-downtown",
+    "name": "Central BBQ Downtown",
+    "businessName": "Central BBQ Downtown",
+    "contactName": "Matthew Hill",
+    "address": "147 E Butler Ave, Memphis, TN 38103",
+    "phone": "(901) 971-4188",
+    "equipmentCount": 3
+  },
+  {
+    "id": "south-of-beale--sob-",
+    "name": "South of Beale (SOB)",
+    "businessName": "South of Beale (SOB)",
+    "contactName": "Michael Lewis",
+    "address": "345 S Main St, Memphis, TN 38103",
+    "phone": "(901) 476-4590",
+    "equipmentCount": 4
+  },
+  {
+    "id": "gus-s-world-famous-fried-chicken",
+    "name": "Gus's World Famous Fried Chicken",
+    "businessName": "Gus's World Famous Fried Chicken",
+    "contactName": "Emily Taylor",
+    "address": "310 S Front St, Memphis, TN 38103",
+    "phone": "(901) 704-7571",
+    "equipmentCount": 1
+  },
+  {
+    "id": "bardog-tavern",
+    "name": "Bardog Tavern",
+    "businessName": "Bardog Tavern",
+    "contactName": "Robert Moore",
+    "address": "73 Monroe Ave, Memphis, TN 38103",
+    "phone": "(901) 339-9341",
+    "equipmentCount": 2
+  },
+  {
+    "id": "earnestine---hazel-s",
+    "name": "Earnestine & Hazel's",
+    "businessName": "Earnestine & Hazel's",
+    "contactName": "John Martinez",
+    "address": "531 S Main St, Memphis, TN 38103",
+    "phone": "(901) 672-3365",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-green-beetle",
+    "name": "The Green Beetle",
+    "businessName": "The Green Beetle",
+    "contactName": "Linda Hill",
+    "address": "325 S Main St, Memphis, TN 38103",
+    "phone": "(901) 629-3898",
+    "equipmentCount": 3
+  },
+  {
+    "id": "dyer-s-burgers",
+    "name": "Dyer's Burgers",
+    "businessName": "Dyer's Burgers",
+    "contactName": "Richard Clark",
+    "address": "205 Beale St, Memphis, TN 38103",
+    "phone": "(901) 328-5587",
+    "equipmentCount": 1
+  },
+  {
+    "id": "maciel-s-tortas---tacos",
+    "name": "Maciel's Tortas & Tacos",
+    "businessName": "Maciel's Tortas & Tacos",
+    "contactName": "Jennifer Anderson",
+    "address": "45 S Main St, Memphis, TN 38103",
+    "phone": "(901) 979-8445",
+    "equipmentCount": 2
+  },
+  {
+    "id": "hustle---dough",
+    "name": "Hustle & Dough",
+    "businessName": "Hustle & Dough",
+    "contactName": "Andrew Johnson",
+    "address": "477 S Main St, Memphis, TN 38103",
+    "phone": "(901) 294-8105",
+    "equipmentCount": 4
+  },
+  {
+    "id": "willie-moore-s-family-restaurant",
+    "name": "Willie Moore's Family Restaurant",
+    "businessName": "Willie Moore's Family Restaurant",
+    "contactName": "Kenneth Hall",
+    "address": "109 N Main St, Memphis, TN 38103",
+    "phone": "(901) 806-3322",
+    "equipmentCount": 4
+  },
+  {
+    "id": "cozy-corner",
+    "name": "Cozy Corner",
+    "businessName": "Cozy Corner",
+    "contactName": "Patricia Jackson",
+    "address": "735 North Pkwy, Memphis, TN 38105",
+    "phone": "(901) 656-7952",
+    "equipmentCount": 5
+  },
+  {
+    "id": "biscuits---jams",
+    "name": "Biscuits & Jams",
+    "businessName": "Biscuits & Jams",
+    "contactName": "Emily Allen",
+    "address": "24 N BB King Blvd, Memphis, TN 38103 MemphisTravel.com 38107",
+    "phone": "(901) 574-5079",
+    "equipmentCount": 1
+  },
+  {
+    "id": "tailor-s-union",
+    "name": "Tailor's Union",
+    "businessName": "Tailor's Union",
+    "contactName": "William Young",
+    "address": "115 Union Ave, Memphis, TN 38103",
+    "phone": "(901) 670-9050",
+    "equipmentCount": 4
+  },
+  {
+    "id": "sam-s-main-street-eatery",
+    "name": "Sam's Main Street Eatery",
+    "businessName": "Sam's Main Street Eatery",
+    "contactName": "Matthew Gonzalez",
+    "address": "545 S Main St, Memphis, TN 38103",
+    "phone": "(901) 846-6815",
+    "equipmentCount": 3
+  },
+  {
+    "id": "soul-fish-cafe",
+    "name": "Soul Fish Cafe",
+    "businessName": "Soul Fish Cafe",
+    "contactName": "Sarah Smith",
+    "address": "862 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 952-7535",
+    "equipmentCount": 1
+  },
+  {
+    "id": "young-avenue-deli",
+    "name": "Young Avenue Deli",
+    "businessName": "Young Avenue Deli",
+    "contactName": "Steven Walker",
+    "address": "2119 Young Ave, Memphis, TN 38104",
+    "phone": "(901) 862-9776",
+    "equipmentCount": 4
+  },
+  {
+    "id": "celtic-crossing",
+    "name": "Celtic Crossing",
+    "businessName": "Celtic Crossing",
+    "contactName": "Karen Davis",
+    "address": "903 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 248-4740",
+    "equipmentCount": 3
+  },
+  {
+    "id": "sweet-grass",
+    "name": "Sweet Grass",
+    "businessName": "Sweet Grass",
+    "contactName": "Stephanie Lopez",
+    "address": "937 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 802-3436",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis-pizza-cafe",
+    "name": "Memphis Pizza Cafe",
+    "businessName": "Memphis Pizza Cafe",
+    "contactName": "Stephanie Martin",
+    "address": "2087 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 392-8135",
+    "equipmentCount": 2
+  },
+  {
+    "id": "boscos-restaurant---brewing-co--memphis",
+    "name": "Boscos Restaurant & Brewing Co. Memphis",
+    "businessName": "Boscos Restaurant & Brewing Co. Memphis",
+    "contactName": "Emily Anderson",
+    "address": "2120 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 666-5103",
+    "equipmentCount": 4
+  },
+  {
+    "id": "slider-inn",
+    "name": "Slider Inn",
+    "businessName": "Slider Inn",
+    "contactName": "Patricia Thomas",
+    "address": "2117 Peabody Ave, Memphis, TN 38104",
+    "phone": "(901) 478-6893",
+    "equipmentCount": 5
+  },
+  {
+    "id": "alchemy",
+    "name": "Alchemy",
+    "businessName": "Alchemy",
+    "contactName": "Steven Scott",
+    "address": "940 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 755-6582",
+    "equipmentCount": 1
+  },
+  {
+    "id": "lafayette-s-music-room",
+    "name": "Lafayette's Music Room",
+    "businessName": "Lafayette's Music Room",
+    "contactName": "Jennifer Wilson",
+    "address": "2119 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 691-9504",
+    "equipmentCount": 1
+  },
+  {
+    "id": "railgarten",
+    "name": "Railgarten",
+    "businessName": "Railgarten",
+    "contactName": "Helen Johnson",
+    "address": "2166 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 159-8538",
+    "equipmentCount": 2
+  },
+  {
+    "id": "tamboli-s-pasta---pizza",
+    "name": "Tamboli's Pasta & Pizza",
+    "businessName": "Tamboli's Pasta & Pizza",
+    "contactName": "John Green",
+    "address": "1761 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 391-8863",
+    "equipmentCount": 1
+  },
+  {
+    "id": "side-street-grill",
+    "name": "Side Street Grill",
+    "businessName": "Side Street Grill",
+    "contactName": "Andrew Johnson",
+    "address": "31 Florence St, Memphis, TN 38104",
+    "phone": "(901) 968-9738",
+    "equipmentCount": 3
+  },
+  {
+    "id": "central-bbq-midtown",
+    "name": "Central BBQ Midtown",
+    "businessName": "Central BBQ Midtown",
+    "contactName": "Kimberly Johnson",
+    "address": "2249 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 706-4687",
+    "equipmentCount": 2
+  },
+  {
+    "id": "knifebird-wine-bar",
+    "name": "Knifebird Wine Bar",
+    "businessName": "Knifebird Wine Bar",
+    "contactName": "Rebecca Garcia",
+    "address": "2155 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 820-9944",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mulan-asian-bistro",
+    "name": "Mulan Asian Bistro",
+    "businessName": "Mulan Asian Bistro",
+    "contactName": "William Williams",
+    "address": "2149 Young Ave, Memphis, TN 38104",
+    "phone": "(901) 511-5597",
+    "equipmentCount": 5
+  },
+  {
+    "id": "ecco-on-overton-park",
+    "name": "Ecco on Overton Park",
+    "businessName": "Ecco on Overton Park",
+    "contactName": "Paul Anderson",
+    "address": "1585 Overton Park Ave, Memphis, TN 38112",
+    "phone": "(901) 192-5025",
+    "equipmentCount": 3
+  },
+  {
+    "id": "maciel-s-tortas-and-tacos",
+    "name": "Maciel's Tortas and Tacos",
+    "businessName": "Maciel's Tortas and Tacos",
+    "contactName": "Matthew Miller",
+    "address": "820 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 170-8294",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-public-bistro",
+    "name": "The Public Bistro",
+    "businessName": "The Public Bistro",
+    "contactName": "Patricia Lopez",
+    "address": "2126 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 772-1648",
+    "equipmentCount": 5
+  },
+  {
+    "id": "imagine-vegan-cafe",
+    "name": "Imagine Vegan Cafe",
+    "businessName": "Imagine Vegan Cafe",
+    "contactName": "Sharon Rodriguez",
+    "address": "2158 Young Ave #110, Memphis, TN 38104",
+    "phone": "(901) 492-4202",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-farmer-at-railgarten",
+    "name": "The Farmer at Railgarten",
+    "businessName": "The Farmer at Railgarten",
+    "contactName": "James Martin",
+    "address": "2166 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 286-1639",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis-whistle",
+    "name": "Memphis Whistle",
+    "businessName": "Memphis Whistle",
+    "contactName": "Stephanie Clark",
+    "address": "2299 Young Ave, Memphis, TN 38104 StyleBlueprint 38106",
+    "phone": "(901) 262-4667",
+    "equipmentCount": 1
+  },
+  {
+    "id": "bain-barbecue-and-bakery",
+    "name": "Bain Barbecue and Bakery",
+    "businessName": "Bain Barbecue and Bakery",
+    "contactName": "Robert Jackson",
+    "address": "993 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 896-4617",
+    "equipmentCount": 5
+  },
+  {
+    "id": "petals-of-a-peony",
+    "name": "Petals of a Peony",
+    "businessName": "Petals of a Peony",
+    "contactName": "Jessica Nelson",
+    "address": "2110 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 312-2861",
+    "equipmentCount": 4
+  },
+  {
+    "id": "good-groceries-market---cafe",
+    "name": "Good Groceries Market & Cafe",
+    "businessName": "Good Groceries Market & Cafe",
+    "contactName": "Michelle Davis",
+    "address": "585 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 874-8711",
+    "equipmentCount": 3
+  },
+  {
+    "id": "high-point-pizza",
+    "name": "High Point Pizza",
+    "businessName": "High Point Pizza",
+    "contactName": "Melissa Lewis",
+    "address": "477 High Point Terrace, Memphis, TN 38111",
+    "phone": "(901) 416-1487",
+    "equipmentCount": 3
+  },
+  {
+    "id": "sob-east",
+    "name": "SOB East",
+    "businessName": "SOB East",
+    "contactName": "Jessica Young",
+    "address": "6450 Poplar Ave #100, Memphis, TN 38119",
+    "phone": "(901) 689-8341",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mosa-asian-bistro",
+    "name": "Mosa Asian Bistro",
+    "businessName": "Mosa Asian Bistro",
+    "contactName": "Matthew Baker",
+    "address": "850 S White Station Rd, Memphis, TN 38117",
+    "phone": "(901) 380-2133",
+    "equipmentCount": 4
+  },
+  {
+    "id": "swanky-s-taco-shop",
+    "name": "Swanky's Taco Shop",
+    "businessName": "Swanky's Taco Shop",
+    "contactName": "Thomas Garcia",
+    "address": "4770 Poplar Ave #102, Memphis, TN 38117",
+    "phone": "(901) 413-7734",
+    "equipmentCount": 1
+  },
+  {
+    "id": "pete-and-sam-s-restaurant",
+    "name": "Pete and Sam's Restaurant",
+    "businessName": "Pete and Sam's Restaurant",
+    "contactName": "Joshua King",
+    "address": "3886 Park Ave, Memphis, TN 38111",
+    "phone": "(901) 709-1225",
+    "equipmentCount": 5
+  },
+  {
+    "id": "little-italy",
+    "name": "Little Italy",
+    "businessName": "Little Italy",
+    "contactName": "Thomas Walker",
+    "address": "1495 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 328-8048",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-half-shell",
+    "name": "The Half Shell",
+    "businessName": "The Half Shell",
+    "contactName": "Thomas Harris",
+    "address": "688 S Mendenhall Rd, Memphis, TN 38117",
+    "phone": "(901) 537-9600",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-vault",
+    "name": "The Vault",
+    "businessName": "The Vault",
+    "contactName": "Steven Martinez",
+    "address": "6706 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 985-4512",
+    "equipmentCount": 2
+  },
+  {
+    "id": "elwood-s-shack",
+    "name": "Elwood's Shack",
+    "businessName": "Elwood's Shack",
+    "contactName": "Elizabeth Moore",
+    "address": "4523 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 343-9430",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bryant-s-breakfast",
+    "name": "Bryant's Breakfast",
+    "businessName": "Bryant's Breakfast",
+    "contactName": "Helen Davis",
+    "address": "3965 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 255-7951",
+    "equipmentCount": 2
+  },
+  {
+    "id": "city-silo-table---pantry",
+    "name": "City Silo Table & Pantry",
+    "businessName": "City Silo Table & Pantry",
+    "contactName": "Laura Anderson",
+    "address": "5101 Sanderlin Ave #104, Memphis, TN 38117",
+    "phone": "(901) 515-5107",
+    "equipmentCount": 3
+  },
+  {
+    "id": "las-delicias",
+    "name": "Las Delicias",
+    "businessName": "Las Delicias",
+    "contactName": "Melissa Harris",
+    "address": "4002 Park Ave, Memphis, TN 38111",
+    "phone": "(901) 129-1026",
+    "equipmentCount": 3
+  },
+  {
+    "id": "la-baguette",
+    "name": "La Baguette",
+    "businessName": "La Baguette",
+    "contactName": "Joseph Martinez",
+    "address": "3088 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 573-3274",
+    "equipmentCount": 2
+  },
+  {
+    "id": "mortimer-s-restaurant",
+    "name": "Mortimer's Restaurant",
+    "businessName": "Mortimer's Restaurant",
+    "contactName": "Michael Young",
+    "address": "590 N Perkins Rd, Memphis, TN 38117",
+    "phone": "(901) 126-7732",
+    "equipmentCount": 1
+  },
+  {
+    "id": "las-tortugas-deli-mexicana",
+    "name": "Las Tortugas Deli Mexicana",
+    "businessName": "Las Tortugas Deli Mexicana",
+    "contactName": "Daniel Taylor",
+    "address": "1215 S Germantown Rd, Memphis, TN 38138",
+    "phone": "(901) 308-1441",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tokyo-grill",
+    "name": "Tokyo Grill",
+    "businessName": "Tokyo Grill",
+    "contactName": "Steven Martin",
+    "address": "4978 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 945-8569",
+    "equipmentCount": 1
+  },
+  {
+    "id": "panda-garden",
+    "name": "Panda Garden",
+    "businessName": "Panda Garden",
+    "contactName": "Patricia Johnson",
+    "address": "3863 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 244-3478",
+    "equipmentCount": 2
+  },
+  {
+    "id": "chinese-sub-shop",
+    "name": "Chinese Sub Shop",
+    "businessName": "Chinese Sub Shop",
+    "contactName": "Elizabeth Wright",
+    "address": "3316 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 261-2105",
+    "equipmentCount": 5
+  },
+  {
+    "id": "jerusalem-market---restaurant",
+    "name": "Jerusalem Market & Restaurant",
+    "businessName": "Jerusalem Market & Restaurant",
+    "contactName": "Kimberly Jones",
+    "address": "4794 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 928-1816",
+    "equipmentCount": 1
+  },
+  {
+    "id": "los-comales",
+    "name": "Los Comales",
+    "businessName": "Los Comales",
+    "contactName": "Linda Anderson",
+    "address": "4774 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 303-6635",
+    "equipmentCount": 5
+  },
+  {
+    "id": "taqueria-la-guadalupana",
+    "name": "Taqueria La Guadalupana",
+    "businessName": "Taqueria La Guadalupana",
+    "contactName": "Sarah Martin",
+    "address": "4818 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 511-3515",
+    "equipmentCount": 3
+  },
+  {
+    "id": "golden-india",
+    "name": "Golden India",
+    "businessName": "Golden India",
+    "contactName": "Sarah Gonzalez",
+    "address": "2097 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 310-4578",
+    "equipmentCount": 1
+  },
+  {
+    "id": "magnolia---may",
+    "name": "Magnolia & May",
+    "businessName": "Magnolia & May",
+    "contactName": "Andrew Smith",
+    "address": "718 Mt Moriah Rd, Memphis, TN 38117",
+    "phone": "(901) 141-9624",
+    "equipmentCount": 3
+  },
+  {
+    "id": "belle-meade-social",
+    "name": "Belle Meade Social",
+    "businessName": "Belle Meade Social",
+    "contactName": "Linda Lewis",
+    "address": "5158 Wheelis Dr, Memphis, TN 38117",
+    "phone": "(901) 125-8777",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-four-way",
+    "name": "The Four Way",
+    "businessName": "The Four Way",
+    "contactName": "Rebecca Hill",
+    "address": "998 Mississippi Blvd, Memphis, TN 38126",
+    "phone": "(901) 400-2259",
+    "equipmentCount": 3
+  },
+  {
+    "id": "jim---samella-s-house",
+    "name": "Jim & Samella's House",
+    "businessName": "Jim & Samella's House",
+    "contactName": "Andrew Clark",
+    "address": "841 S 3rd St, Memphis, TN 38106",
+    "phone": "(901) 570-8144",
+    "equipmentCount": 5
+  },
+  {
+    "id": "ms--girlee-s-soul-food",
+    "name": "Ms. Girlee's Soul Food",
+    "businessName": "Ms. Girlee's Soul Food",
+    "contactName": "Amanda Miller",
+    "address": "629 Chelsea Ave, Memphis, TN 38107",
+    "phone": "(901) 820-1678",
+    "equipmentCount": 1
+  },
+  {
+    "id": "green-leaf-container-cafe",
+    "name": "Green Leaf Container Cafe",
+    "businessName": "Green Leaf Container Cafe",
+    "contactName": "Melissa Gonzalez",
+    "address": "1025 College St, Memphis, TN 38106",
+    "phone": "(901) 199-6902",
+    "equipmentCount": 4
+  },
+  {
+    "id": "fabulous-flavors---friends",
+    "name": "Fabulous Flavors & Friends",
+    "businessName": "Fabulous Flavors & Friends",
+    "contactName": "John Nelson",
+    "address": "4233 Elvis Presley Blvd, Memphis, TN 38116",
+    "phone": "(901) 305-1498",
+    "equipmentCount": 4
+  },
+  {
+    "id": "elena-s-taco-shop",
+    "name": "Elena's Taco Shop",
+    "businessName": "Elena's Taco Shop",
+    "contactName": "Andrew Robinson",
+    "address": "3750 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 901-5593",
+    "equipmentCount": 1
+  },
+  {
+    "id": "wally-hatchet-s",
+    "name": "Wally Hatchet's",
+    "businessName": "Wally Hatchet's",
+    "contactName": "Stephanie Gonzalez",
+    "address": "3859 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 562-4396",
+    "equipmentCount": 1
+  },
+  {
+    "id": "sheger-ethiopian-restaurant",
+    "name": "Sheger Ethiopian Restaurant",
+    "businessName": "Sheger Ethiopian Restaurant",
+    "contactName": "Robert Hill",
+    "address": "3589 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 393-7886",
+    "equipmentCount": 3
+  },
+  {
+    "id": "memphis-pineapple-express",
+    "name": "Memphis Pineapple Express",
+    "businessName": "Memphis Pineapple Express",
+    "contactName": "Anthony Jones",
+    "address": "3755 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 120-1345",
+    "equipmentCount": 4
+  },
+  {
+    "id": "old-whitten-tavern",
+    "name": "Old Whitten Tavern",
+    "businessName": "Old Whitten Tavern",
+    "contactName": "Charles Scott",
+    "address": "5015 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 568-6886",
+    "equipmentCount": 1
+  },
+  {
+    "id": "roxie-s-grocery",
+    "name": "Roxie's Grocery",
+    "businessName": "Roxie's Grocery",
+    "contactName": "William Smith",
+    "address": "520 N 3rd St, Memphis, TN 38105",
+    "phone": "(901) 573-5507",
+    "equipmentCount": 4
+  },
+  {
+    "id": "three-angels-diner",
+    "name": "Three Angels Diner",
+    "businessName": "Three Angels Diner",
+    "contactName": "Michael King",
+    "address": "2617 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 735-1415",
+    "equipmentCount": 3
+  },
+  {
+    "id": "big-bad-breakfast",
+    "name": "Big Bad Breakfast",
+    "businessName": "Big Bad Breakfast",
+    "contactName": "James Miller",
+    "address": "6450 Poplar Ave #119, Memphis, TN 38119",
+    "phone": "(901) 274-5826",
+    "equipmentCount": 4
+  },
+  {
+    "id": "wiseacre-downtown-tap-room",
+    "name": "Wiseacre Downtown Tap Room",
+    "businessName": "Wiseacre Downtown Tap Room",
+    "contactName": "Thomas Carter",
+    "address": "398 S BB King Blvd, Memphis, TN 38103",
+    "phone": "(901) 346-7785",
+    "equipmentCount": 2
+  },
+  {
+    "id": "uncle-lou-s-fried-chicken",
+    "name": "Uncle Lou's Fried Chicken",
+    "businessName": "Uncle Lou's Fried Chicken",
+    "contactName": "Kenneth Johnson",
+    "address": "3633 Millbranch Rd, Memphis, TN 38116",
+    "phone": "(901) 149-2575",
+    "equipmentCount": 3
+  },
+  {
+    "id": "muggin-coffee-house",
+    "name": "Muggin Coffee House",
+    "businessName": "Muggin Coffee House",
+    "contactName": "Jessica Garcia",
+    "address": "1139 Brownlee Rd, Memphis, TN 38116",
+    "phone": "(901) 559-5800",
+    "equipmentCount": 2
+  },
+  {
+    "id": "trap-fusion",
+    "name": "Trap Fusion",
+    "businessName": "Trap Fusion",
+    "contactName": "William Scott",
+    "address": "4637 Sonoma Cove, Memphis, TN 38141",
+    "phone": "(901) 343-4558",
+    "equipmentCount": 3
+  },
+  {
+    "id": "side-porch-steak-house",
+    "name": "Side Porch Steak House",
+    "businessName": "Side Porch Steak House",
+    "contactName": "John Walker",
+    "address": "5689 Stage Rd, Bartlett, TN 38134",
+    "phone": "(901) 427-4137",
+    "equipmentCount": 5
+  },
+  {
+    "id": "ragin--cajun",
+    "name": "Ragin' Cajun",
+    "businessName": "Ragin' Cajun",
+    "contactName": "Sharon Martinez",
+    "address": "6150 Stage Rd, Bartlett, TN 38134",
+    "phone": "(901) 987-8383",
+    "equipmentCount": 5
+  },
+  {
+    "id": "smackers",
+    "name": "Smackers",
+    "businessName": "Smackers",
+    "contactName": "Sarah Gonzalez",
+    "address": "2657 Appling Rd, Bartlett, TN 38133",
+    "phone": "(901) 496-2729",
+    "equipmentCount": 1
+  },
+  {
+    "id": "gelato-cafe",
+    "name": "Gelato Cafe",
+    "businessName": "Gelato Cafe",
+    "contactName": "Melissa Williams",
+    "address": "2757 Bartlett Blvd, Bartlett, TN 38134",
+    "phone": "(901) 820-3377",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-commissary",
+    "name": "The Commissary",
+    "businessName": "The Commissary",
+    "contactName": "Sarah Young",
+    "address": "2290 S Germantown Rd, Germantown, TN 38138",
+    "phone": "(901) 703-2730",
+    "equipmentCount": 2
+  },
+  {
+    "id": "huey-s-germantown",
+    "name": "Huey's Germantown",
+    "businessName": "Huey's Germantown",
+    "contactName": "Joseph Adams",
+    "address": "7677 Farmington Blvd, Germantown, TN 38138",
+    "phone": "(901) 543-4108",
+    "equipmentCount": 3
+  },
+  {
+    "id": "west-street-diner",
+    "name": "West Street Diner",
+    "businessName": "West Street Diner",
+    "contactName": "Thomas Hernandez",
+    "address": "2076 West St, Germantown, TN 38138",
+    "phone": "(901) 791-6725",
+    "equipmentCount": 5
+  },
+  {
+    "id": "moondance-grill",
+    "name": "Moondance Grill",
+    "businessName": "Moondance Grill",
+    "contactName": "Patricia Thomas",
+    "address": "1730 S Germantown Rd #117, Germantown, TN 38138",
+    "phone": "(901) 632-4589",
+    "equipmentCount": 1
+  },
+  {
+    "id": "vanelli-s-deli",
+    "name": "Vanelli's Deli",
+    "businessName": "Vanelli's Deli",
+    "contactName": "John Jones",
+    "address": "7873 Farmington Blvd, Germantown, TN 38138",
+    "phone": "(901) 601-3146",
+    "equipmentCount": 3
+  },
+  {
+    "id": "cafe-med",
+    "name": "Cafe Med",
+    "businessName": "Cafe Med",
+    "contactName": "Barbara Adams",
+    "address": "7820 Poplar Ave, Germantown, TN 38138",
+    "phone": "(901) 457-7898",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis-pizza-cafe",
+    "name": "Memphis Pizza Cafe",
+    "businessName": "Memphis Pizza Cafe",
+    "contactName": "Robert King",
+    "address": "7604 W Farmington Blvd #36, Germantown, TN 38138",
+    "phone": "(901) 699-6411",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-overland",
+    "name": "The Overland",
+    "businessName": "The Overland",
+    "contactName": "James Brown",
+    "address": "7800 Neshoba Rd, Germantown, TN 38138",
+    "phone": "(901) 832-5929",
+    "equipmentCount": 1
+  },
+  {
+    "id": "maroon-brew-co-",
+    "name": "Maroon Brew Co.",
+    "businessName": "Maroon Brew Co.",
+    "contactName": "Andrew Carter",
+    "address": "642 W Poplar Ave, Collierville, TN 38017",
+    "phone": "(901) 429-3773",
+    "equipmentCount": 2
+  },
+  {
+    "id": "raven---lily",
+    "name": "Raven & Lily",
+    "businessName": "Raven & Lily",
+    "contactName": "Linda Scott",
+    "address": "156 N Main St, Collierville, TN 38017",
+    "phone": "(901) 792-1608",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-skybox",
+    "name": "The Skybox",
+    "businessName": "The Skybox",
+    "contactName": "Kenneth Robinson",
+    "address": "Poplar Ave, Collierville, TN 38017",
+    "phone": "(901) 682-5278",
+    "equipmentCount": 4
+  },
+  {
+    "id": "square-beans",
+    "name": "Square Beans",
+    "businessName": "Square Beans",
+    "contactName": "Sharon Hall",
+    "address": "Collierville Town Square, Collierville, TN 38017",
+    "phone": "(901) 760-4951",
+    "equipmentCount": 5
+  },
+  {
+    "id": "kooky-canuck",
+    "name": "Kooky Canuck",
+    "businessName": "Kooky Canuck",
+    "contactName": "Amanda Young",
+    "address": "1250 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 331-8025",
+    "equipmentCount": 5
+  },
+  {
+    "id": "sweet-musings-bakery---cafe",
+    "name": "Sweet Musings Bakery & Cafe",
+    "businessName": "Sweet Musings Bakery & Cafe",
+    "contactName": "Mark Thompson",
+    "address": "1890 N Germantown Pkwy #99, Cordova, TN 38106 MemphisTravel.com 38120",
+    "phone": "(901) 319-4381",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tommy-s-burger-california-style",
+    "name": "Tommy's Burger California Style",
+    "businessName": "Tommy's Burger California Style",
+    "contactName": "Jennifer Taylor",
+    "address": "8046 Willow Tree Ln, Cordova, TN 38018",
+    "phone": "(901) 944-7086",
+    "equipmentCount": 1
+  },
+  {
+    "id": "emerald-thai-restaurant---bar",
+    "name": "Emerald Thai Restaurant & Bar",
+    "businessName": "Emerald Thai Restaurant & Bar",
+    "contactName": "William Hall",
+    "address": "6659 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 108-3678",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-nine-thai---sushi",
+    "name": "The Nine Thai & Sushi",
+    "businessName": "The Nine Thai & Sushi",
+    "contactName": "Anthony Brown",
+    "address": "1651 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 344-8237",
+    "equipmentCount": 1
+  },
+  {
+    "id": "bangkok-alley",
+    "name": "Bangkok Alley",
+    "businessName": "Bangkok Alley",
+    "contactName": "David Baker",
+    "address": "715 W Brookhaven Cir, Memphis, TN 38117",
+    "phone": "(901) 883-6941",
+    "equipmentCount": 3
+  },
+  {
+    "id": "thai-bistro",
+    "name": "Thai Bistro",
+    "businessName": "Thai Bistro",
+    "contactName": "Daniel Jackson",
+    "address": "149 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 192-4789",
+    "equipmentCount": 2
+  },
+  {
+    "id": "soi-number-9",
+    "name": "Soi Number 9",
+    "businessName": "Soi Number 9",
+    "contactName": "Sarah Garcia",
+    "address": "2812 Wolfcreek Pkwy, Memphis, TN 38133",
+    "phone": "(901) 704-2209",
+    "equipmentCount": 1
+  },
+  {
+    "id": "thai-hut",
+    "name": "Thai Hut",
+    "businessName": "Thai Hut",
+    "contactName": "Joshua Jones",
+    "address": "4715 Poplar Ave, Memphis, TN 38117",
+    "phone": "(901) 906-7241",
+    "equipmentCount": 4
+  },
+  {
+    "id": "vietnam-restaurant",
+    "name": "Vietnam Restaurant",
+    "businessName": "Vietnam Restaurant",
+    "contactName": "Barbara Rodriguez",
+    "address": "74 N Cleveland St, Memphis, TN 38104",
+    "phone": "(901) 845-7535",
+    "equipmentCount": 2
+  },
+  {
+    "id": "pho-binh",
+    "name": "Pho Binh",
+    "businessName": "Pho Binh",
+    "contactName": "Anthony Miller",
+    "address": "1615 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 628-2935",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tuyen-s-asian-bistro",
+    "name": "Tuyen's Asian Bistro",
+    "businessName": "Tuyen's Asian Bistro",
+    "contactName": "Andrew Martin",
+    "address": "1214 N Evergreen St, Memphis, TN 38107",
+    "phone": "(901) 938-2198",
+    "equipmentCount": 5
+  },
+  {
+    "id": "pho-saigon",
+    "name": "Pho Saigon",
+    "businessName": "Pho Saigon",
+    "contactName": "Emily Jones",
+    "address": "2946 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 716-5746",
+    "equipmentCount": 2
+  },
+  {
+    "id": "lotus-vietnamese-restaurant",
+    "name": "Lotus Vietnamese Restaurant",
+    "businessName": "Lotus Vietnamese Restaurant",
+    "contactName": "Michael Hernandez",
+    "address": "4970 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 657-4047",
+    "equipmentCount": 3
+  },
+  {
+    "id": "le-delights",
+    "name": "Le Delights",
+    "businessName": "Le Delights",
+    "contactName": "Joseph Garcia",
+    "address": "Banh Mi & Pho, Memphis, TN 38108",
+    "phone": "(901) 187-5894",
+    "equipmentCount": 1
+  },
+  {
+    "id": "pho-4-ever",
+    "name": "Pho 4 Ever",
+    "businessName": "Pho 4 Ever",
+    "contactName": "Melissa Martin",
+    "address": "3675 S Germantown Rd, Memphis, TN 38125",
+    "phone": "(901) 944-8193",
+    "equipmentCount": 5
+  },
+  {
+    "id": "pho-64",
+    "name": "Pho 64",
+    "businessName": "Pho 64",
+    "contactName": "Matthew Allen",
+    "address": "6664 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 652-9554",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bao-toan",
+    "name": "Bao Toan",
+    "businessName": "Bao Toan",
+    "contactName": "Jessica Green",
+    "address": "1350 Concourse Ave, Memphis, TN 38104",
+    "phone": "(901) 341-2357",
+    "equipmentCount": 3
+  },
+  {
+    "id": "ong-cau-cafe",
+    "name": "Ong Cau Cafe",
+    "businessName": "Ong Cau Cafe",
+    "contactName": "Anthony Miller",
+    "address": "4726 Spottswood Ave, Memphis, TN 38117",
+    "phone": "(901) 827-2234",
+    "equipmentCount": 2
+  },
+  {
+    "id": "osaka-japanese-cuisine",
+    "name": "Osaka Japanese Cuisine",
+    "businessName": "Osaka Japanese Cuisine",
+    "contactName": "William Thompson",
+    "address": "6160 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 378-7051",
+    "equipmentCount": 4
+  },
+  {
+    "id": "nagasaki-inn",
+    "name": "Nagasaki Inn",
+    "businessName": "Nagasaki Inn",
+    "contactName": "Robert Nelson",
+    "address": "3951 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 545-8043",
+    "equipmentCount": 1
+  },
+  {
+    "id": "red-koi-japanese-cuisine",
+    "name": "Red Koi Japanese Cuisine",
+    "businessName": "Red Koi Japanese Cuisine",
+    "contactName": "Michelle Wright",
+    "address": "5847 Poplar Ave Suite 101, Memphis, TN 38119",
+    "phone": "(901) 432-7142",
+    "equipmentCount": 3
+  },
+  {
+    "id": "japan-house-restaurant",
+    "name": "Japan House Restaurant",
+    "businessName": "Japan House Restaurant",
+    "contactName": "Mary Lee",
+    "address": "4978 Park Ave, Memphis, TN 38117",
+    "phone": "(901) 431-8710",
+    "equipmentCount": 2
+  },
+  {
+    "id": "sakura",
+    "name": "Sakura",
+    "businessName": "Sakura",
+    "contactName": "Kimberly Taylor",
+    "address": "4840 Poplar Ave, Memphis, TN 38117",
+    "phone": "(901) 239-7212",
+    "equipmentCount": 3
+  },
+  {
+    "id": "sekisui",
+    "name": "Sekisui",
+    "businessName": "Sekisui",
+    "contactName": "Mark Young",
+    "address": "25 S Belvedere Blvd, Memphis, TN 38104",
+    "phone": "(901) 456-2120",
+    "equipmentCount": 3
+  },
+  {
+    "id": "nagoya-house-restaurant",
+    "name": "Nagoya House Restaurant",
+    "businessName": "Nagoya House Restaurant",
+    "contactName": "Barbara Brown",
+    "address": "3951 Winchester Rd, Memphis, TN 38118",
+    "phone": "(901) 334-2484",
+    "equipmentCount": 5
+  },
+  {
+    "id": "kobe-japanese-express",
+    "name": "Kobe Japanese Express",
+    "businessName": "Kobe Japanese Express",
+    "contactName": "Paul Moore",
+    "address": "7505 US, Memphis, TN 38134",
+    "phone": "(901) 314-8552",
+    "equipmentCount": 2
+  },
+  {
+    "id": "a",
+    "name": "A",
+    "businessName": "A",
+    "contactName": "Steven Johnson",
+    "address": "Tan Hibachi Steakhouse, Memphis, TN 38108",
+    "phone": "(901) 701-8731",
+    "equipmentCount": 4
+  },
+  {
+    "id": "hood-hibachi-by-preacha-tim",
+    "name": "Hood Hibachi by Preacha Tim",
+    "businessName": "Hood Hibachi by Preacha Tim",
+    "contactName": "Michelle Martin",
+    "address": "7946 Fischer Steel Rd, Cordova, TN 38018",
+    "phone": "(901) 268-4391",
+    "equipmentCount": 5
+  },
+  {
+    "id": "dwj-korean-bbq",
+    "name": "DWJ Korean BBQ",
+    "businessName": "DWJ Korean BBQ",
+    "contactName": "Steven Wilson",
+    "address": "3750 Hacks Cross Rd, Memphis, TN 38125",
+    "phone": "(901) 555-1898",
+    "equipmentCount": 3
+  },
+  {
+    "id": "asiana-garden-restaurant",
+    "name": "Asiana Garden Restaurant",
+    "businessName": "Asiana Garden Restaurant",
+    "contactName": "Jessica Johnson",
+    "address": "5992 Mount Moriah Rd, Memphis, TN 38115",
+    "phone": "(901) 111-2842",
+    "equipmentCount": 5
+  },
+  {
+    "id": "901-hotpot-and-korean-bbq",
+    "name": "901 Hotpot and Korean BBQ",
+    "businessName": "901 Hotpot and Korean BBQ",
+    "contactName": "Joseph Taylor",
+    "address": "5847 Poplar Ave Suite 103, Memphis, TN 38119",
+    "phone": "(901) 242-2184",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-crazy-noodle",
+    "name": "The Crazy Noodle",
+    "businessName": "The Crazy Noodle",
+    "contactName": "Patricia Harris",
+    "address": "2015 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 139-5144",
+    "equipmentCount": 3
+  },
+  {
+    "id": "dwj-2",
+    "name": "DWJ 2",
+    "businessName": "DWJ 2",
+    "contactName": "Joseph Gonzalez",
+    "address": "150 N Main St, Memphis, TN 38103",
+    "phone": "(901) 918-7834",
+    "equipmentCount": 3
+  },
+  {
+    "id": "pok-cha-s-egg-rolls",
+    "name": "Pok Cha's Egg Rolls",
+    "businessName": "Pok Cha's Egg Rolls",
+    "contactName": "Joshua Williams",
+    "address": "2037 Exeter Rd, Germantown, TN 38138",
+    "phone": "(901) 517-1930",
+    "equipmentCount": 2
+  },
+  {
+    "id": "kwik-chek",
+    "name": "Kwik Chek",
+    "businessName": "Kwik Chek",
+    "contactName": "Daniel Rodriguez",
+    "address": "2013 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 637-1144",
+    "equipmentCount": 5
+  },
+  {
+    "id": "dim-sum-king",
+    "name": "Dim Sum King",
+    "businessName": "Dim Sum King",
+    "contactName": "William Miller",
+    "address": "4698 Spottswood Ave, Memphis, TN 38117",
+    "phone": "(901) 706-2786",
+    "equipmentCount": 2
+  },
+  {
+    "id": "panda-garden",
+    "name": "Panda Garden",
+    "businessName": "Panda Garden",
+    "contactName": "Donald Johnson",
+    "address": "3550 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 535-7698",
+    "equipmentCount": 5
+  },
+  {
+    "id": "wang-s-mandarin-house-express",
+    "name": "Wang's Mandarin House Express",
+    "businessName": "Wang's Mandarin House Express",
+    "contactName": "Laura Green",
+    "address": "6065 Park Ave, Memphis, TN 38119",
+    "phone": "(901) 985-5175",
+    "equipmentCount": 2
+  },
+  {
+    "id": "new-lin-s-garden",
+    "name": "New Lin's Garden",
+    "businessName": "New Lin's Garden",
+    "contactName": "Anthony Anderson",
+    "address": "6515 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 135-3784",
+    "equipmentCount": 1
+  },
+  {
+    "id": "golden-city",
+    "name": "Golden City",
+    "businessName": "Golden City",
+    "contactName": "Mary Allen",
+    "address": "2131 Courtland Pl, Memphis, TN 38104",
+    "phone": "(901) 829-8955",
+    "equipmentCount": 1
+  },
+  {
+    "id": "big-hong-kong",
+    "name": "Big Hong Kong",
+    "businessName": "Big Hong Kong",
+    "contactName": "Paul King",
+    "address": "3724 Riverdale Rd, Memphis, TN 38115",
+    "phone": "(901) 736-7631",
+    "equipmentCount": 1
+  },
+  {
+    "id": "asian-palace",
+    "name": "Asian Palace",
+    "businessName": "Asian Palace",
+    "contactName": "Matthew Anderson",
+    "address": "5266 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 284-5123",
+    "equipmentCount": 2
+  },
+  {
+    "id": "chang-s-house",
+    "name": "Chang's House",
+    "businessName": "Chang's House",
+    "contactName": "Matthew Taylor",
+    "address": "7036 Stage Rd, Bartlett, TN 38133",
+    "phone": "(901) 694-4134",
+    "equipmentCount": 3
+  },
+  {
+    "id": "namking-restaurant",
+    "name": "NamKing Restaurant",
+    "businessName": "NamKing Restaurant",
+    "contactName": "Daniel Anderson",
+    "address": "4726 Poplar Ave, Memphis, TN 38117",
+    "phone": "(901) 853-7343",
+    "equipmentCount": 3
+  },
+  {
+    "id": "chop-suey-house",
+    "name": "Chop Suey House",
+    "businessName": "Chop Suey House",
+    "contactName": "Mary Thompson",
+    "address": "3175 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 343-4113",
+    "equipmentCount": 1
+  },
+  {
+    "id": "xing-wang",
+    "name": "Xing Wang",
+    "businessName": "Xing Wang",
+    "contactName": "Kimberly Lopez",
+    "address": "4698 Spottswood Ave, Memphis, TN 38117",
+    "phone": "(901) 716-8541",
+    "equipmentCount": 2
+  },
+  {
+    "id": "abyssinia-ethiopian-restaurant",
+    "name": "Abyssinia Ethiopian Restaurant",
+    "businessName": "Abyssinia Ethiopian Restaurant",
+    "contactName": "Michael Harris",
+    "address": "2600 Poplar Ave Suite 115, Memphis, TN 38112",
+    "phone": "(901) 165-6054",
+    "equipmentCount": 3
+  },
+  {
+    "id": "queen-of-sheba",
+    "name": "Queen of Sheba",
+    "businessName": "Queen of Sheba",
+    "contactName": "William Baker",
+    "address": "4792 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 655-8279",
+    "equipmentCount": 2
+  },
+  {
+    "id": "blue-nile",
+    "name": "Blue Nile",
+    "businessName": "Blue Nile",
+    "contactName": "Elizabeth Scott",
+    "address": "1788 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 517-5319",
+    "equipmentCount": 5
+  },
+  {
+    "id": "sheger-ethiopian-restaurant-and-grocery",
+    "name": "Sheger Ethiopian Restaurant and Grocery",
+    "businessName": "Sheger Ethiopian Restaurant and Grocery",
+    "contactName": "Matthew Martin",
+    "address": "6195 Macon Rd, Memphis, TN 38134",
+    "phone": "(901) 556-2310",
+    "equipmentCount": 2
+  },
+  {
+    "id": "habeesha-ethiopian-restaurant",
+    "name": "Habeesha Ethiopian Restaurant",
+    "businessName": "Habeesha Ethiopian Restaurant",
+    "contactName": "Kenneth Lee",
+    "address": "8195 Dexter Rd, Memphis, TN 38133",
+    "phone": "(901) 291-2601",
+    "equipmentCount": 4
+  },
+  {
+    "id": "casablanca-restaurant",
+    "name": "Casablanca Restaurant",
+    "businessName": "Casablanca Restaurant",
+    "contactName": "John Lewis",
+    "address": "5030 Poplar Ave Suite 7, Memphis, TN 38117",
+    "phone": "(901) 182-1966",
+    "equipmentCount": 5
+  },
+  {
+    "id": "casablanca",
+    "name": "Casablanca",
+    "businessName": "Casablanca",
+    "contactName": "Andrew Davis",
+    "address": "1707 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 184-5572",
+    "equipmentCount": 2
+  },
+  {
+    "id": "ali-baba-mediterranean-grill",
+    "name": "Ali Baba Mediterranean Grill",
+    "businessName": "Ali Baba Mediterranean Grill",
+    "contactName": "Emily Hall",
+    "address": "1825 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 746-5628",
+    "equipmentCount": 1
+  },
+  {
+    "id": "balqees-restaurant---grill",
+    "name": "Balqees Restaurant & Grill",
+    "businessName": "Balqees Restaurant & Grill",
+    "contactName": "John Lopez",
+    "address": "1975 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 704-1588",
+    "equipmentCount": 2
+  },
+  {
+    "id": "cedars-restaurant",
+    "name": "Cedars Restaurant",
+    "businessName": "Cedars Restaurant",
+    "contactName": "Melissa Allen",
+    "address": "3896 Park Ave, Memphis, TN 38111",
+    "phone": "(901) 521-8389",
+    "equipmentCount": 2
+  },
+  {
+    "id": "zamzamz-mediterranean-grill",
+    "name": "ZamZamz Mediterranean Grill",
+    "businessName": "ZamZamz Mediterranean Grill",
+    "contactName": "Thomas Thomas",
+    "address": "575 N Germantown Pkwy, Cordova, TN 38018",
+    "phone": "(901) 935-3706",
+    "equipmentCount": 4
+  },
+  {
+    "id": "hi-kunafa",
+    "name": "Hi Kunafa",
+    "businessName": "Hi Kunafa",
+    "contactName": "Kimberly Lewis",
+    "address": "8195 Dexter Rd, Memphis, TN 38016",
+    "phone": "(901) 690-5757",
+    "equipmentCount": 5
+  },
+  {
+    "id": "olive-house-mediterranean-grocery",
+    "name": "Olive House Mediterranean Grocery",
+    "businessName": "Olive House Mediterranean Grocery",
+    "contactName": "Mary Harris",
+    "address": "4002 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 622-8212",
+    "equipmentCount": 2
+  },
+  {
+    "id": "happy-greek-cafe",
+    "name": "Happy Greek Cafe",
+    "businessName": "Happy Greek Cafe",
+    "contactName": "Donald Carter",
+    "address": "520 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 506-6990",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-grecian-gourmet-kitchen",
+    "name": "The Grecian Gourmet Kitchen",
+    "businessName": "The Grecian Gourmet Kitchen",
+    "contactName": "Elizabeth Taylor",
+    "address": "412 S Main St, Memphis, TN 38103",
+    "phone": "(901) 369-4209",
+    "equipmentCount": 4
+  },
+  {
+    "id": "flames-mediterranean---grill",
+    "name": "Flames Mediterranean & Grill",
+    "businessName": "Flames Mediterranean & Grill",
+    "contactName": "Michelle Lopez",
+    "address": "7850 Poplar Ave #6, Germantown, TN 38138",
+    "phone": "(901) 507-6521",
+    "equipmentCount": 1
+  },
+  {
+    "id": "castle-restaurant",
+    "name": "Castle Restaurant",
+    "businessName": "Castle Restaurant",
+    "contactName": "Jessica Clark",
+    "address": "3992 Park Ave, Memphis, TN 38111",
+    "phone": "(901) 664-1960",
+    "equipmentCount": 4
+  },
+  {
+    "id": "petra-cafe",
+    "name": "Petra Cafe",
+    "businessName": "Petra Cafe",
+    "contactName": "Emily Wright",
+    "address": "6635 Quince Rd, Memphis, TN 38119",
+    "phone": "(901) 165-8914",
+    "equipmentCount": 5
+  },
+  {
+    "id": "jim-s-place-grille",
+    "name": "Jim's Place Grille",
+    "businessName": "Jim's Place Grille",
+    "contactName": "Barbara Williams",
+    "address": "3660 S Houston Levee, Memphis, TN 38106",
+    "phone": "(901) 173-6578",
+    "equipmentCount": 2
+  },
+  {
+    "id": "cafe-med-restaurant",
+    "name": "Cafe Med Restaurant",
+    "businessName": "Cafe Med Restaurant",
+    "contactName": "Emily Carter",
+    "address": "584 N Mendenhall Rd, Memphis, TN 38117",
+    "phone": "(901) 767-5554",
+    "equipmentCount": 5
+  },
+  {
+    "id": "india-palace",
+    "name": "India Palace",
+    "businessName": "India Palace",
+    "contactName": "Thomas Jones",
+    "address": "1720 Poplar Ave, Memphis, TN 38104",
+    "phone": "(901) 517-9206",
+    "equipmentCount": 1
+  },
+  {
+    "id": "mayuri-indian-cuisine",
+    "name": "Mayuri Indian Cuisine",
+    "businessName": "Mayuri Indian Cuisine",
+    "contactName": "Jennifer Lopez",
+    "address": "6524 Quince Rd, Memphis, TN 38119",
+    "phone": "(901) 543-1609",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mantra-indian-grill",
+    "name": "Mantra Indian Grill",
+    "businessName": "Mantra Indian Grill",
+    "contactName": "Helen Johnson",
+    "address": "6300 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 823-2123",
+    "equipmentCount": 3
+  },
+  {
+    "id": "bombay-house",
+    "name": "Bombay House",
+    "businessName": "Bombay House",
+    "contactName": "Joshua Brown",
+    "address": "1727 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 110-1631",
+    "equipmentCount": 5
+  },
+  {
+    "id": "saigruha-indian-restaurant-and-grocery",
+    "name": "Saigruha Indian Restaurant and Grocery",
+    "businessName": "Saigruha Indian Restaurant and Grocery",
+    "contactName": "Andrew Moore",
+    "address": "4585 Quince Rd, Memphis, TN 38117",
+    "phone": "(901) 575-9347",
+    "equipmentCount": 3
+  },
+  {
+    "id": "nawabs-memphis",
+    "name": "Nawabs Memphis",
+    "businessName": "Nawabs Memphis",
+    "contactName": "William Hall",
+    "address": "1138 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 526-1629",
+    "equipmentCount": 5
+  },
+  {
+    "id": "curry-bowl",
+    "name": "Curry Bowl",
+    "businessName": "Curry Bowl",
+    "contactName": "Daniel Hall",
+    "address": "7050 Malco Crossing, Memphis, TN 38125",
+    "phone": "(901) 736-1100",
+    "equipmentCount": 2
+  },
+  {
+    "id": "taste-of-india",
+    "name": "Taste of India",
+    "businessName": "Taste of India",
+    "contactName": "Susan Lewis",
+    "address": "3725 Hacks Cross Rd, Memphis, TN 38125",
+    "phone": "(901) 564-7793",
+    "equipmentCount": 5
+  },
+  {
+    "id": "cafe-india",
+    "name": "Cafe India",
+    "businessName": "Cafe India",
+    "contactName": "Kimberly Adams",
+    "address": "3810 Hacks Cross Rd Suite 101, Memphis, TN 38125",
+    "phone": "(901) 453-9917",
+    "equipmentCount": 1
+  },
+  {
+    "id": "masti-indian-grill",
+    "name": "Masti Indian Grill",
+    "businessName": "Masti Indian Grill",
+    "contactName": "John Allen",
+    "address": "630 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 602-3893",
+    "equipmentCount": 3
+  },
+  {
+    "id": "global-caf-",
+    "name": "Global Café",
+    "businessName": "Global Café",
+    "contactName": "Susan Williams",
+    "address": "1350 Concourse Ave Suite 157, Memphis, TN 38104",
+    "phone": "(901) 344-2440",
+    "equipmentCount": 4
+  },
+  {
+    "id": "takashi-bistro",
+    "name": "Takashi Bistro",
+    "businessName": "Takashi Bistro",
+    "contactName": "Jessica Moore",
+    "address": "1680 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 546-1405",
+    "equipmentCount": 2
+  },
+  {
+    "id": "salt---soy",
+    "name": "Salt | Soy",
+    "businessName": "Salt | Soy",
+    "contactName": "Richard Baker",
+    "address": "2583 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 925-7854",
+    "equipmentCount": 1
+  },
+  {
+    "id": "east-meets-west",
+    "name": "East Meets West",
+    "businessName": "East Meets West",
+    "contactName": "Susan Thompson",
+    "address": "7867 Farmington Blvd, Germantown, TN 38138",
+    "phone": "(901) 583-1475",
+    "equipmentCount": 2
+  },
+  {
+    "id": "m-and-m-kitchen",
+    "name": "M and M Kitchen",
+    "businessName": "M and M Kitchen",
+    "contactName": "Melissa Johnson",
+    "address": "2631 James Rd, Memphis, TN 38127",
+    "phone": "(901) 844-2039",
+    "equipmentCount": 1
+  },
+  {
+    "id": "memphis-seoul",
+    "name": "Memphis Seoul",
+    "businessName": "Memphis Seoul",
+    "contactName": "David Brown",
+    "address": "2256 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 517-5732",
+    "equipmentCount": 1
+  },
+  {
+    "id": "petals-of-a-peony",
+    "name": "Petals of a Peony",
+    "businessName": "Petals of a Peony",
+    "contactName": "Patricia Jackson",
+    "address": "2886 Overton Square Ln, Memphis, TN 38111",
+    "phone": "(901) 530-9804",
+    "equipmentCount": 5
+  },
+  {
+    "id": "comeback-coffee",
+    "name": "Comeback Coffee",
+    "businessName": "Comeback Coffee",
+    "contactName": "David Robinson",
+    "address": "358 N Main St, Memphis, TN 38103",
+    "phone": "(901) 645-9830",
+    "equipmentCount": 2
+  },
+  {
+    "id": "memphis-chess-club",
+    "name": "Memphis Chess Club",
+    "businessName": "Memphis Chess Club",
+    "contactName": "Richard Robinson",
+    "address": "195 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 899-8760",
+    "equipmentCount": 1
+  },
+  {
+    "id": "cafe-keough",
+    "name": "Cafe Keough",
+    "businessName": "Cafe Keough",
+    "contactName": "Jessica Carter",
+    "address": "12 S Main St, Memphis, TN 38103",
+    "phone": "(901) 344-2749",
+    "equipmentCount": 5
+  },
+  {
+    "id": "qahwa-coffee-bar",
+    "name": "Qahwa Coffee Bar",
+    "businessName": "Qahwa Coffee Bar",
+    "contactName": "Richard Lopez",
+    "address": "109 N Main St, Memphis, TN 38103",
+    "phone": "(901) 718-7180",
+    "equipmentCount": 2
+  },
+  {
+    "id": "hustle---dough",
+    "name": "Hustle & Dough",
+    "businessName": "Hustle & Dough",
+    "contactName": "Richard Green",
+    "address": "477 S Main St, Memphis, TN 38103",
+    "phone": "(901) 510-8818",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bluff-city-coffee---bakery--south-main-",
+    "name": "Bluff City Coffee & Bakery (South Main)",
+    "businessName": "Bluff City Coffee & Bakery (South Main)",
+    "contactName": "Donald Nelson",
+    "address": "505 S Main St, Memphis, TN 38103",
+    "phone": "(901) 800-9433",
+    "equipmentCount": 5
+  },
+  {
+    "id": "talk-shop",
+    "name": "Talk Shop",
+    "businessName": "Talk Shop",
+    "contactName": "Andrew Davis",
+    "address": "245 S Front St, Memphis, TN 38103",
+    "phone": "(901) 112-5601",
+    "equipmentCount": 1
+  },
+  {
+    "id": "crazy-gander-coffee-company",
+    "name": "Crazy Gander Coffee Company",
+    "businessName": "Crazy Gander Coffee Company",
+    "contactName": "Richard Thompson",
+    "address": "124 G.E. Patterson Ave, Memphis, TN 38103",
+    "phone": "(901) 868-9216",
+    "equipmentCount": 3
+  },
+  {
+    "id": "sam-s-main-street-eatery-humble-drip-coffee",
+    "name": "Sam's Main Street Eatery/Humble Drip Coffee",
+    "businessName": "Sam's Main Street Eatery/Humble Drip Coffee",
+    "contactName": "Joseph Scott",
+    "address": "51 S Main St, Memphis, TN 38103",
+    "phone": "(901) 635-8638",
+    "equipmentCount": 2
+  },
+  {
+    "id": "another-sip-cafe",
+    "name": "Another Sip Cafe",
+    "businessName": "Another Sip Cafe",
+    "contactName": "Matthew Wilson",
+    "address": "164 Union Ave, Memphis, TN 38103",
+    "phone": "(901) 469-2493",
+    "equipmentCount": 4
+  },
+  {
+    "id": "cafe-eclectic--midtown-",
+    "name": "Cafe Eclectic (Midtown)",
+    "businessName": "Cafe Eclectic (Midtown)",
+    "contactName": "Melissa Smith",
+    "address": "603 N McLean Blvd, Memphis, TN 38107",
+    "phone": "(901) 341-3404",
+    "equipmentCount": 3
+  },
+  {
+    "id": "otherlands-coffee-bar",
+    "name": "Otherlands Coffee Bar",
+    "businessName": "Otherlands Coffee Bar",
+    "contactName": "Paul Williams",
+    "address": "641 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 148-6025",
+    "equipmentCount": 3
+  },
+  {
+    "id": "java-cabana",
+    "name": "Java Cabana",
+    "businessName": "Java Cabana",
+    "contactName": "Rebecca Gonzalez",
+    "address": "2170 Young Ave, Memphis, TN 38104",
+    "phone": "(901) 428-5439",
+    "equipmentCount": 4
+  },
+  {
+    "id": "bluff-city-coffee---bakery--cooper-young-",
+    "name": "Bluff City Coffee & Bakery (Cooper Young)",
+    "businessName": "Bluff City Coffee & Bakery (Cooper Young)",
+    "contactName": "Paul Moore",
+    "address": "945 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 385-2678",
+    "equipmentCount": 4
+  },
+  {
+    "id": "cafe-ole",
+    "name": "Cafe Ole",
+    "businessName": "Cafe Ole",
+    "contactName": "Sarah Scott",
+    "address": "959 Cooper St, Memphis, TN 38104",
+    "phone": "(901) 437-8090",
+    "equipmentCount": 4
+  },
+  {
+    "id": "inspire-community-cafe",
+    "name": "Inspire Community Cafe",
+    "businessName": "Inspire Community Cafe",
+    "contactName": "Sharon Rodriguez",
+    "address": "510 Tillman St, Memphis, TN 38112",
+    "phone": "(901) 735-7054",
+    "equipmentCount": 5
+  },
+  {
+    "id": "city---state",
+    "name": "City & State",
+    "businessName": "City & State",
+    "contactName": "Sharon Martinez",
+    "address": "2625 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 799-2573",
+    "equipmentCount": 5
+  },
+  {
+    "id": "french-truck-coffee--crosstown-",
+    "name": "French Truck Coffee (Crosstown)",
+    "businessName": "French Truck Coffee (Crosstown)",
+    "contactName": "Michael Davis",
+    "address": "1350 Concourse Ave Ste 167, Memphis, TN 38104",
+    "phone": "(901) 131-4181",
+    "equipmentCount": 3
+  },
+  {
+    "id": "caf--palladio",
+    "name": "Café Palladio",
+    "businessName": "Café Palladio",
+    "contactName": "David Young",
+    "address": "2169 Young Ave, Memphis, TN 38104",
+    "phone": "(901) 324-2259",
+    "equipmentCount": 4
+  },
+  {
+    "id": "ramblin--joe-s-coffee",
+    "name": "Ramblin' Joe's Coffee",
+    "businessName": "Ramblin' Joe's Coffee",
+    "contactName": "Melissa Johnson",
+    "address": "3615 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 861-3655",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-hub-coffee",
+    "name": "The Hub Coffee",
+    "businessName": "The Hub Coffee",
+    "contactName": "Matthew Nelson",
+    "address": "6000 Briarcrest Ave, Memphis, TN 38120",
+    "phone": "(901) 735-9706",
+    "equipmentCount": 4
+  },
+  {
+    "id": "sweet-lala-s-bakery",
+    "name": "Sweet LaLa's Bakery",
+    "businessName": "Sweet LaLa's Bakery",
+    "contactName": "William Lee",
+    "address": "6150 Poplar Ave Ste 118, Memphis, TN 38119",
+    "phone": "(901) 573-4864",
+    "equipmentCount": 1
+  },
+  {
+    "id": "17-berkshire",
+    "name": "17 Berkshire",
+    "businessName": "17 Berkshire",
+    "contactName": "Joseph White",
+    "address": "2094 Trimble Pl, Memphis, TN 38104",
+    "phone": "(901) 434-8052",
+    "equipmentCount": 4
+  },
+  {
+    "id": "anti",
+    "name": "Anti",
+    "businessName": "Anti",
+    "contactName": "Matthew Rodriguez",
+    "address": "Gentrification Coffee Club, Memphis, TN 38122",
+    "phone": "(901) 344-9780",
+    "equipmentCount": 3
+  },
+  {
+    "id": "dr--bean-s-coffee---tea",
+    "name": "Dr. Bean's Coffee & Tea",
+    "businessName": "Dr. Bean's Coffee & Tea",
+    "contactName": "Mark Thomas",
+    "address": "55 S Main St, Memphis, TN 38103",
+    "phone": "(901) 181-9637",
+    "equipmentCount": 4
+  },
+  {
+    "id": "cxffeeblack",
+    "name": "Cxffeeblack",
+    "businessName": "Cxffeeblack",
+    "contactName": "Elizabeth Robinson",
+    "address": "3386 Bowen Ave, Memphis, TN 38122",
+    "phone": "(901) 299-2682",
+    "equipmentCount": 2
+  },
+  {
+    "id": "lulu-s-baked",
+    "name": "LuLu's Baked",
+    "businessName": "LuLu's Baked",
+    "contactName": "Steven Thomas",
+    "address": "3119 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 265-1687",
+    "equipmentCount": 1
+  },
+  {
+    "id": "loaf",
+    "name": "Loaf",
+    "businessName": "Loaf",
+    "contactName": "Matthew Garcia",
+    "address": "1934 Poplar Ave, Memphis, TN 38104",
+    "phone": "(901) 621-8433",
+    "equipmentCount": 5
+  },
+  {
+    "id": "belltower-coffeehouse---studio",
+    "name": "Belltower Coffeehouse & Studio",
+    "businessName": "Belltower Coffeehouse & Studio",
+    "contactName": "Robert Hernandez",
+    "address": "525 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 835-7801",
+    "equipmentCount": 4
+  },
+  {
+    "id": "congregation-coffee",
+    "name": "Congregation Coffee",
+    "businessName": "Congregation Coffee",
+    "contactName": "Matthew Thompson",
+    "address": "496 Loraine Rd, Memphis, TN 38117",
+    "phone": "(901) 194-3000",
+    "equipmentCount": 2
+  },
+  {
+    "id": "cafe-eclectic--harbor-town-",
+    "name": "Cafe Eclectic (Harbor Town)",
+    "businessName": "Cafe Eclectic (Harbor Town)",
+    "contactName": "Anthony Allen",
+    "address": "111 Harbor Town Sq, Memphis, TN 38103",
+    "phone": "(901) 428-3615",
+    "equipmentCount": 2
+  },
+  {
+    "id": "paradise-cafe---deli",
+    "name": "Paradise Cafe & Deli",
+    "businessName": "Paradise Cafe & Deli",
+    "contactName": "William Brown",
+    "address": "4205 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 208-7143",
+    "equipmentCount": 4
+  },
+  {
+    "id": "jojo-s-espresso",
+    "name": "JoJo's Espresso",
+    "businessName": "JoJo's Espresso",
+    "contactName": "Joseph Robinson",
+    "address": "1730 S Germantown Rd, Germantown, TN 38138",
+    "phone": "(901) 504-7587",
+    "equipmentCount": 2
+  },
+  {
+    "id": "java-cafe",
+    "name": "Java Cafe",
+    "businessName": "Java Cafe",
+    "contactName": "Mary Brown",
+    "address": "2059 S Germantown Rd, Germantown, TN 38138",
+    "phone": "(901) 941-8068",
+    "equipmentCount": 1
+  },
+  {
+    "id": "team-car-cafe",
+    "name": "Team Car Cafe",
+    "businessName": "Team Car Cafe",
+    "contactName": "David Johnson",
+    "address": "1645 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 460-9715",
+    "equipmentCount": 4
+  },
+  {
+    "id": "voodoo-cafe",
+    "name": "Voodoo Cafe",
+    "businessName": "Voodoo Cafe",
+    "contactName": "Daniel Wilson",
+    "address": "7785 Farmington Blvd, Germantown, TN 38138",
+    "phone": "(901) 827-5875",
+    "equipmentCount": 1
+  },
+  {
+    "id": "crave-coffee-bar---bistro",
+    "name": "Crave Coffee Bar & Bistro",
+    "businessName": "Crave Coffee Bar & Bistro",
+    "contactName": "Jennifer Wright",
+    "address": "11615 US, Memphis, TN 38107",
+    "phone": "(901) 539-1421",
+    "equipmentCount": 4
+  },
+  {
+    "id": "bluem-coffee",
+    "name": "Bluem Coffee",
+    "businessName": "Bluem Coffee",
+    "contactName": "Sharon Nelson",
+    "address": "12025 Highway 70, Arlington, TN 38002",
+    "phone": "(901) 119-2149",
+    "equipmentCount": 2
+  },
+  {
+    "id": "square-beans-coffee",
+    "name": "Square Beans Coffee",
+    "businessName": "Square Beans Coffee",
+    "contactName": "Melissa Adams",
+    "address": "103 N Center St, Collierville, TN 38017",
+    "phone": "(901) 429-2127",
+    "equipmentCount": 5
+  },
+  {
+    "id": "home-of-the-hams",
+    "name": "Home of the Hams",
+    "businessName": "Home of the Hams",
+    "contactName": "David Martinez",
+    "address": "10170 Raleigh Lagrange Rd E, Eads, TN 38028",
+    "phone": "(901) 236-5163",
+    "equipmentCount": 1
+  },
+  {
+    "id": "kwik-chek",
+    "name": "Kwik Chek",
+    "businessName": "Kwik Chek",
+    "contactName": "Linda Thompson",
+    "address": "2013 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 597-6003",
+    "equipmentCount": 4
+  },
+  {
+    "id": "minit-stop-food",
+    "name": "Minit Stop Food",
+    "businessName": "Minit Stop Food",
+    "contactName": "Mary Carter",
+    "address": "1779 Bartlett Rd, Memphis, TN 38134",
+    "phone": "(901) 536-1340",
+    "equipmentCount": 2
+  },
+  {
+    "id": "dodge-s-fried-chicken",
+    "name": "Dodge's Fried Chicken",
+    "businessName": "Dodge's Fried Chicken",
+    "contactName": "Patricia Hall",
+    "address": "3923 Elvis Presley Blvd, Memphis, TN 38116",
+    "phone": "(901) 499-4825",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bp-at-ridgeway-and-poplar--lee-s-fresh-sushi-",
+    "name": "BP at Ridgeway and Poplar (Lee's Fresh Sushi)",
+    "businessName": "BP at Ridgeway and Poplar (Lee's Fresh Sushi)",
+    "contactName": "James Walker",
+    "address": "6646 Poplar Ave, Memphis, TN 38138",
+    "phone": "(901) 745-8648",
+    "equipmentCount": 5
+  },
+  {
+    "id": "superman-market",
+    "name": "Superman Market",
+    "businessName": "Superman Market",
+    "contactName": "Susan Walker",
+    "address": "Corner of Highland and Summer Avenue, Memphis, TN 38105",
+    "phone": "(901) 312-9818",
+    "equipmentCount": 4
+  },
+  {
+    "id": "ballinger-s",
+    "name": "Ballinger's",
+    "businessName": "Ballinger's",
+    "contactName": "Paul Anderson",
+    "address": "4585 Poplar Ave, Memphis, TN 38117",
+    "phone": "(901) 794-1565",
+    "equipmentCount": 2
+  },
+  {
+    "id": "tom-s-barbecue-and-deli",
+    "name": "Tom's Barbecue and Deli",
+    "businessName": "Tom's Barbecue and Deli",
+    "contactName": "Helen Wright",
+    "address": "Memphis, TN 38112",
+    "phone": "(901) 191-3966",
+    "equipmentCount": 4
+  },
+  {
+    "id": "safeway-market-kitchen",
+    "name": "Safeway Market Kitchen",
+    "businessName": "Safeway Market Kitchen",
+    "contactName": "Andrew Adams",
+    "address": "Memphis, TN 38107",
+    "phone": "(901) 139-1025",
+    "equipmentCount": 3
+  },
+  {
+    "id": "tiger-mart",
+    "name": "Tiger Mart",
+    "businessName": "Tiger Mart",
+    "contactName": "William Nelson",
+    "address": "1192 Jackson Ave, Memphis, TN 38107",
+    "phone": "(901) 815-9029",
+    "equipmentCount": 5
+  },
+  {
+    "id": "third---crump-exxon",
+    "name": "Third & Crump Exxon",
+    "businessName": "Third & Crump Exxon",
+    "contactName": "Richard Williams",
+    "address": "833 S 3rd St, Memphis, TN 38106",
+    "phone": "(901) 589-8578",
+    "equipmentCount": 4
+  },
+  {
+    "id": "quiktrip-memphis--qt-kitchens-",
+    "name": "QuikTrip Memphis (QT Kitchens)",
+    "businessName": "QuikTrip Memphis (QT Kitchens)",
+    "contactName": "William White",
+    "address": "Memphis, TN locations 38112",
+    "phone": "(901) 298-6971",
+    "equipmentCount": 5
+  },
+  {
+    "id": "grizzly-mart",
+    "name": "Grizzly Mart",
+    "businessName": "Grizzly Mart",
+    "contactName": "Thomas Young",
+    "address": "2535 Whitten Rd, Memphis, TN 38133",
+    "phone": "(901) 918-1288",
+    "equipmentCount": 4
+  },
+  {
+    "id": "scootie-s-one-stop",
+    "name": "Scootie's One Stop",
+    "businessName": "Scootie's One Stop",
+    "contactName": "Andrew Smith",
+    "address": "3566 Walker Ave, Memphis, TN 38111",
+    "phone": "(901) 750-4259",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis-kitchen-co",
+    "name": "Memphis Kitchen Co",
+    "businessName": "Memphis Kitchen Co",
+    "contactName": "Karen Moore",
+    "address": "Op (Commissary Kitchen), Memphis, TN 38108",
+    "phone": "(901) 452-7535",
+    "equipmentCount": 3
+  },
+  {
+    "id": "church-health-at-crosstown-concourse--commissary-kitchen-",
+    "name": "Church Health at Crosstown Concourse (Commissary Kitchen)",
+    "businessName": "Church Health at Crosstown Concourse (Commissary Kitchen)",
+    "contactName": "Anthony Miller",
+    "address": "1350 Concourse Ave, Ste. 142, Memphis, TN 38104",
+    "phone": "(901) 978-9981",
+    "equipmentCount": 4
+  },
+  {
+    "id": "smurfey-s-smokehouse-bbq",
+    "name": "Smurfey's Smokehouse BBQ",
+    "businessName": "Smurfey's Smokehouse BBQ",
+    "contactName": "Richard Martinez",
+    "address": "Serves on Beale St, Memphis, TN 37501",
+    "phone": "(901) 827-5633",
+    "equipmentCount": 1
+  },
+  {
+    "id": "pok-cha-s-egg-rolls",
+    "name": "Pok Cha's Egg Rolls",
+    "businessName": "Pok Cha's Egg Rolls",
+    "contactName": "Joseph Martinez",
+    "address": "131 W Commerce St, Hernando MS 38632, Memphis, TN 38109",
+    "phone": "(901) 591-3830",
+    "equipmentCount": 5
+  },
+  {
+    "id": "raw-girls",
+    "name": "Raw Girls",
+    "businessName": "Raw Girls",
+    "contactName": "Joshua Lewis",
+    "address": "242 S. Cooper St, Memphis, TN (Midtown) 38107",
+    "phone": "(901) 152-4769",
+    "equipmentCount": 1
+  },
+  {
+    "id": "el-mero-taco",
+    "name": "El Mero Taco",
+    "businessName": "El Mero Taco",
+    "contactName": "David Taylor",
+    "address": "8100 Macon Station #102, Cordova, TN 38018",
+    "phone": "(901) 773-2873",
+    "equipmentCount": 2
+  },
+  {
+    "id": "new-wing-order",
+    "name": "New Wing Order",
+    "businessName": "New Wing Order",
+    "contactName": "Melissa Martin",
+    "address": "341 Beale St, Memphis, TN 38103",
+    "phone": "(901) 779-2688",
+    "equipmentCount": 3
+  },
+  {
+    "id": "stickem-food-truck",
+    "name": "StickEm Food Truck",
+    "businessName": "StickEm Food Truck",
+    "contactName": "Andrew Jones",
+    "address": "2783 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 341-3859",
+    "equipmentCount": 4
+  },
+  {
+    "id": "mempops",
+    "name": "MemPops",
+    "businessName": "MemPops",
+    "contactName": "Susan Thompson",
+    "address": "1243 Ridgeway Rd, Memphis, TN 38119",
+    "phone": "(901) 502-7222",
+    "equipmentCount": 5
+  },
+  {
+    "id": "fresh-gulf-shrimp",
+    "name": "Fresh Gulf Shrimp",
+    "businessName": "Fresh Gulf Shrimp",
+    "contactName": "Laura Garcia",
+    "address": "Multiple locations, Memphis, TN 38115",
+    "phone": "(901) 784-9332",
+    "equipmentCount": 4
+  },
+  {
+    "id": "say-cheese-food-truck",
+    "name": "Say Cheese Food Truck",
+    "businessName": "Say Cheese Food Truck",
+    "contactName": "Michael Rodriguez",
+    "address": "2783 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 692-1076",
+    "equipmentCount": 4
+  },
+  {
+    "id": "delta-soul-eats---sweets",
+    "name": "Delta Soul Eats & Sweets",
+    "businessName": "Delta Soul Eats & Sweets",
+    "contactName": "Karen Jackson",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 355-9657",
+    "equipmentCount": 4
+  },
+  {
+    "id": "cousins-maine-lobster",
+    "name": "Cousins Maine Lobster",
+    "businessName": "Cousins Maine Lobster",
+    "contactName": "James Clark",
+    "address": "Various locations, Memphis, TN 38120",
+    "phone": "(901) 763-7768",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-fry-guy",
+    "name": "The Fry Guy",
+    "businessName": "The Fry Guy",
+    "contactName": "Kimberly Scott",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 157-1766",
+    "equipmentCount": 2
+  },
+  {
+    "id": "memphis-mojo-cafe",
+    "name": "Memphis Mojo Cafe",
+    "businessName": "Memphis Mojo Cafe",
+    "contactName": "Richard Garcia",
+    "address": "Memphis, TN 38122",
+    "phone": "(901) 571-1972",
+    "equipmentCount": 2
+  },
+  {
+    "id": "riko-s-kickin-chicken",
+    "name": "Riko's Kickin Chicken",
+    "businessName": "Riko's Kickin Chicken",
+    "contactName": "Susan Miller",
+    "address": "Memphis, TN 38108",
+    "phone": "(901) 892-7921",
+    "equipmentCount": 3
+  },
+  {
+    "id": "smoke-and-rolls",
+    "name": "Smoke And Rolls",
+    "businessName": "Smoke And Rolls",
+    "contactName": "Mary Johnson",
+    "address": "Memphis, TN 38104",
+    "phone": "(901) 388-5329",
+    "equipmentCount": 2
+  },
+  {
+    "id": "a-square-meal-on-wheels",
+    "name": "A Square Meal on Wheels",
+    "businessName": "A Square Meal on Wheels",
+    "contactName": "Sarah Martinez",
+    "address": "Memphis, TN 38122",
+    "phone": "(901) 518-7375",
+    "equipmentCount": 4
+  },
+  {
+    "id": "rice-burner",
+    "name": "Rice Burner",
+    "businessName": "Rice Burner",
+    "contactName": "Karen Hill",
+    "address": "Memphis, TN 38103",
+    "phone": "(901) 896-2824",
+    "equipmentCount": 4
+  },
+  {
+    "id": "stix",
+    "name": "Stix",
+    "businessName": "Stix",
+    "contactName": "Charles Scott",
+    "address": "Memphis, TN 38107",
+    "phone": "(901) 321-4388",
+    "equipmentCount": 1
+  },
+  {
+    "id": "lil-miracles-is-better-than-----foodtruck-llc",
+    "name": "Lil Miracles is Better Than ___ FoodTruck LLC",
+    "businessName": "Lil Miracles is Better Than ___ FoodTruck LLC",
+    "contactName": "Emily Walker",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 437-9932",
+    "equipmentCount": 1
+  },
+  {
+    "id": "good-groceries-mobile",
+    "name": "Good Groceries Mobile",
+    "businessName": "Good Groceries Mobile",
+    "contactName": "Patricia Clark",
+    "address": "Memphis, TN 38107",
+    "phone": "(901) 553-6615",
+    "equipmentCount": 5
+  },
+  {
+    "id": "green-beetle-food-truck",
+    "name": "Green Beetle Food Truck",
+    "businessName": "Green Beetle Food Truck",
+    "contactName": "Rebecca Smith",
+    "address": "Memphis, TN 38104",
+    "phone": "(901) 575-6831",
+    "equipmentCount": 5
+  },
+  {
+    "id": "smashed-eats",
+    "name": "Smashed Eats",
+    "businessName": "Smashed Eats",
+    "contactName": "Anthony Williams",
+    "address": "Memphis, TN 38111",
+    "phone": "(901) 410-8695",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis-af-burrito",
+    "name": "Memphis AF Burrito",
+    "businessName": "Memphis AF Burrito",
+    "contactName": "Linda Martin",
+    "address": "Memphis, TN 38103",
+    "phone": "(901) 114-7055",
+    "equipmentCount": 3
+  },
+  {
+    "id": "soi-number-9",
+    "name": "Soi Number 9",
+    "businessName": "Soi Number 9",
+    "contactName": "Emily Davis",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 648-4799",
+    "equipmentCount": 2
+  },
+  {
+    "id": "pop-s-smokehouse-bbq",
+    "name": "Pop's Smokehouse BBQ",
+    "businessName": "Pop's Smokehouse BBQ",
+    "contactName": "William Walker",
+    "address": "Memphis, TN 38118",
+    "phone": "(901) 910-4227",
+    "equipmentCount": 5
+  },
+  {
+    "id": "eat-at-eric-s-grill",
+    "name": "Eat at Eric's Grill",
+    "businessName": "Eat at Eric's Grill",
+    "contactName": "Melissa Miller",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 265-6617",
+    "equipmentCount": 1
+  },
+  {
+    "id": "blanchard-s-organic-breads",
+    "name": "Blanchard's Organic Breads",
+    "businessName": "Blanchard's Organic Breads",
+    "contactName": "Sharon Clark",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 542-9894",
+    "equipmentCount": 3
+  },
+  {
+    "id": "bogie-s-deli-downtown",
+    "name": "Bogie's Deli Downtown",
+    "businessName": "Bogie's Deli Downtown",
+    "contactName": "Mark Nelson",
+    "address": "80 Monroe Ave, Memphis, TN 38103",
+    "phone": "(901) 398-7034",
+    "equipmentCount": 5
+  },
+  {
+    "id": "front-street-deli",
+    "name": "Front Street Deli",
+    "businessName": "Front Street Deli",
+    "contactName": "Emily White",
+    "address": "77 S Front St, Memphis, TN 38103",
+    "phone": "(901) 621-3684",
+    "equipmentCount": 1
+  },
+  {
+    "id": "kellie-s-deli",
+    "name": "Kellie's Deli",
+    "businessName": "Kellie's Deli",
+    "contactName": "Kimberly Young",
+    "address": "516 Tennessee St Unit 127, Memphis, TN 38103",
+    "phone": "(901) 173-8868",
+    "equipmentCount": 1
+  },
+  {
+    "id": "pop-s-deli",
+    "name": "Pop's Deli",
+    "businessName": "Pop's Deli",
+    "contactName": "Joshua Lopez",
+    "address": "South Riverdale area, Memphis 38112",
+    "phone": "(901) 614-3977",
+    "equipmentCount": 5
+  },
+  {
+    "id": "yang-s-deli",
+    "name": "Yang's Deli",
+    "businessName": "Yang's Deli",
+    "contactName": "Barbara Martin",
+    "address": "Memphis, TN 38112",
+    "phone": "(901) 454-8183",
+    "equipmentCount": 5
+  },
+  {
+    "id": "muddy-s-bake-shop",
+    "name": "Muddy's Bake Shop",
+    "businessName": "Muddy's Bake Shop",
+    "contactName": "Emily Scott",
+    "address": "2497 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 287-9423",
+    "equipmentCount": 5
+  },
+  {
+    "id": "lucy-j-s-bakery",
+    "name": "Lucy J's Bakery",
+    "businessName": "Lucy J's Bakery",
+    "contactName": "Rebecca Adams",
+    "address": "1350 Concourse Ave, Suite 151, Memphis, TN 38104",
+    "phone": "(901) 516-8980",
+    "equipmentCount": 1
+  },
+  {
+    "id": "frost-bake-shop",
+    "name": "Frost Bake Shop",
+    "businessName": "Frost Bake Shop",
+    "contactName": "Richard Williams",
+    "address": "394 S Grove Park Road, Memphis, TN 38117",
+    "phone": "(901) 241-3115",
+    "equipmentCount": 4
+  },
+  {
+    "id": "ricki-s-cookie-corner---bakery",
+    "name": "Ricki's Cookie Corner & Bakery",
+    "businessName": "Ricki's Cookie Corner & Bakery",
+    "contactName": "Charles Scott",
+    "address": "5068 Park Ave, Memphis, TN 38117",
+    "phone": "(901) 321-9008",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-ginger-s-bread---co",
+    "name": "The Ginger's Bread & Co",
+    "businessName": "The Ginger's Bread & Co",
+    "contactName": "Andrew Walker",
+    "address": "1613 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 609-7329",
+    "equipmentCount": 1
+  },
+  {
+    "id": "butteriffic-bakery---cafe",
+    "name": "Butteriffic Bakery & Cafe",
+    "businessName": "Butteriffic Bakery & Cafe",
+    "contactName": "William Lopez",
+    "address": "Memphis, TN 38109",
+    "phone": "(901) 331-1826",
+    "equipmentCount": 1
+  },
+  {
+    "id": "grandma-s-desserts-etc-",
+    "name": "Grandma's Desserts Etc.",
+    "businessName": "Grandma's Desserts Etc.",
+    "contactName": "Linda Scott",
+    "address": "3108 Park Avenue, Memphis, TN 38109",
+    "phone": "(901) 577-7433",
+    "equipmentCount": 1
+  },
+  {
+    "id": "orange-mound-grill",
+    "name": "Orange Mound Grill",
+    "businessName": "Orange Mound Grill",
+    "contactName": "Jessica Martin",
+    "address": "1238 Airways Blvd, Memphis, TN 38114",
+    "phone": "(901) 641-3470",
+    "equipmentCount": 3
+  },
+  {
+    "id": "ballhoggerz-bbq",
+    "name": "Ballhoggerz BBQ",
+    "businessName": "Ballhoggerz BBQ",
+    "contactName": "Susan Garcia",
+    "address": "1404 Airways Blvd, Memphis, TN 38114",
+    "phone": "(901) 477-1054",
+    "equipmentCount": 3
+  },
+  {
+    "id": "eggxactly-breakfast---deli",
+    "name": "EggXactly Breakfast & Deli",
+    "businessName": "EggXactly Breakfast & Deli",
+    "contactName": "Richard Wright",
+    "address": "4237 Elvis Presley Blvd, Memphis, TN 38116",
+    "phone": "(901) 373-6868",
+    "equipmentCount": 2
+  },
+  {
+    "id": "fabulous-flavors---friends-dine",
+    "name": "Fabulous Flavors & Friends Dine",
+    "businessName": "Fabulous Flavors & Friends Dine",
+    "contactName": "Charles Moore",
+    "address": "In Restaurant, Memphis, TN 38112",
+    "phone": "(901) 731-8534",
+    "equipmentCount": 1
+  },
+  {
+    "id": "tha-table",
+    "name": "Tha Table",
+    "businessName": "Tha Table",
+    "contactName": "Mark Gonzalez",
+    "address": "4250 Elvis Presley Blvd, Memphis, TN 38116",
+    "phone": "(901) 977-6130",
+    "equipmentCount": 4
+  },
+  {
+    "id": "lulu-s-hot-tamales",
+    "name": "LuLu's Hot Tamales",
+    "businessName": "LuLu's Hot Tamales",
+    "contactName": "Steven Allen",
+    "address": "4648 Winchester Rd, Memphis, TN 38118",
+    "phone": "(901) 599-3169",
+    "equipmentCount": 3
+  },
+  {
+    "id": "big-dawgs-memphis",
+    "name": "Big Dawgs Memphis",
+    "businessName": "Big Dawgs Memphis",
+    "contactName": "Patricia Thompson",
+    "address": "3179 N Watkins St, Memphis, TN 38127",
+    "phone": "(901) 245-7863",
+    "equipmentCount": 2
+  },
+  {
+    "id": "sing-lay-chinese-restaurant",
+    "name": "Sing Lay Chinese Restaurant",
+    "businessName": "Sing Lay Chinese Restaurant",
+    "contactName": "Elizabeth Hall",
+    "address": "2684 Frayser Blvd, Memphis, TN 38127",
+    "phone": "(901) 507-2768",
+    "equipmentCount": 3
+  },
+  {
+    "id": "jr-s-fish-and-chicken",
+    "name": "JR's Fish and Chicken",
+    "businessName": "JR's Fish and Chicken",
+    "contactName": "Andrew Martin",
+    "address": "2200 Frayser Blvd, Memphis, TN 38127",
+    "phone": "(901) 700-1015",
+    "equipmentCount": 5
+  },
+  {
+    "id": "sarah-lee-s-kitchen",
+    "name": "Sarah Lee's Kitchen",
+    "businessName": "Sarah Lee's Kitchen",
+    "contactName": "David Johnson",
+    "address": "4040 N Watkins St, Memphis, TN 38127",
+    "phone": "(901) 150-8597",
+    "equipmentCount": 3
+  },
+  {
+    "id": "joann-s-family-affair",
+    "name": "Joann's Family Affair",
+    "businessName": "Joann's Family Affair",
+    "contactName": "Joshua Carter",
+    "address": "Near Watkins Street, Frayser area, Memphis, TN 38125",
+    "phone": "(901) 567-5157",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-wing-factory",
+    "name": "The Wing Factory",
+    "businessName": "The Wing Factory",
+    "contactName": "Mark Allen",
+    "address": "3286 Austin Peay Hwy, Memphis, TN 38128",
+    "phone": "(901) 685-7947",
+    "equipmentCount": 4
+  },
+  {
+    "id": "southern-hands-family-dining",
+    "name": "Southern Hands Family Dining",
+    "businessName": "Southern Hands Family Dining",
+    "contactName": "Amanda Garcia",
+    "address": "3624 Austin Peay Hwy, Memphis, TN 38128",
+    "phone": "(901) 599-9211",
+    "equipmentCount": 5
+  },
+  {
+    "id": "tacker-s-shake-shack",
+    "name": "Tacker's Shake Shack",
+    "businessName": "Tacker's Shake Shack",
+    "contactName": "Steven Rodriguez",
+    "address": "4672 Stage Rd, Memphis, TN 38128",
+    "phone": "(901) 204-7331",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-haystack",
+    "name": "The Haystack",
+    "businessName": "The Haystack",
+    "contactName": "Linda Harris",
+    "address": "4683 Old Raleigh Lagrange Rd, Memphis, TN 38128",
+    "phone": "(901) 527-4397",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-grille-at-hickory-hill",
+    "name": "The Grille at Hickory Hill",
+    "businessName": "The Grille at Hickory Hill",
+    "contactName": "Susan Davis",
+    "address": "3200 Hickory Hill Rd, Memphis, TN 38115",
+    "phone": "(901) 689-2763",
+    "equipmentCount": 3
+  },
+  {
+    "id": "a-r-bbq",
+    "name": "A&R BBQ",
+    "businessName": "A&R BBQ",
+    "contactName": "Jessica Nelson",
+    "address": "3721 Hickory Hill Rd, Memphis, TN 38115",
+    "phone": "(901) 275-6254",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-wing-guru",
+    "name": "The Wing Guru",
+    "businessName": "The Wing Guru",
+    "contactName": "Joseph Allen",
+    "address": "5699 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 672-3839",
+    "equipmentCount": 1
+  },
+  {
+    "id": "c",
+    "name": "C",
+    "businessName": "C",
+    "contactName": "Kenneth Johnson",
+    "address": "Bo's Chicken & Waffles, Memphis, TN 38107",
+    "phone": "(901) 825-9461",
+    "equipmentCount": 2
+  },
+  {
+    "id": "southern-hands-family-dining",
+    "name": "Southern Hands Family Dining",
+    "businessName": "Southern Hands Family Dining",
+    "contactName": "Thomas Lopez",
+    "address": "6025 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 730-5259",
+    "equipmentCount": 2
+  },
+  {
+    "id": "boba-boba-life",
+    "name": "Boba Boba Life",
+    "businessName": "Boba Boba Life",
+    "contactName": "Richard Rodriguez",
+    "address": "709 E Parkway St, Memphis, TN 38104",
+    "phone": "(901) 258-2594",
+    "equipmentCount": 4
+  },
+  {
+    "id": "phase-1-salads-by-design",
+    "name": "Phase 1 Salads By Design",
+    "businessName": "Phase 1 Salads By Design",
+    "contactName": "Daniel Smith",
+    "address": "Hickory Ridge Mall food court, 6075 Winchester Rd, Memphis, TN 38115",
+    "phone": "(901) 250-4917",
+    "equipmentCount": 3
+  },
+  {
+    "id": "tommy-s-burger-california-style",
+    "name": "Tommy's Burger California Style",
+    "businessName": "Tommy's Burger California Style",
+    "contactName": "Rebecca Lee",
+    "address": "5077 Park Ave, Memphis, TN 38117",
+    "phone": "(901) 788-8527",
+    "equipmentCount": 1
+  },
+  {
+    "id": "taconganas",
+    "name": "TACOnganas",
+    "businessName": "TACOnganas",
+    "contactName": "Richard Garcia",
+    "address": "3896 Perkins Rd, Memphis, TN 38118",
+    "phone": "(901) 856-5533",
+    "equipmentCount": 2
+  },
+  {
+    "id": "prohibition-lounge",
+    "name": "Prohibition Lounge",
+    "businessName": "Prohibition Lounge",
+    "contactName": "Jennifer Harris",
+    "address": "3340 Perkins Rd, Memphis, TN 38118",
+    "phone": "(901) 767-6681",
+    "equipmentCount": 2
+  },
+  {
+    "id": "las-islas-marias",
+    "name": "Las Islas Marias",
+    "businessName": "Las Islas Marias",
+    "contactName": "Mark Moore",
+    "address": "3839 S Perkins Rd, Memphis, TN 38118",
+    "phone": "(901) 960-7092",
+    "equipmentCount": 5
+  },
+  {
+    "id": "memphis2miami",
+    "name": "Memphis2Miami",
+    "businessName": "Memphis2Miami",
+    "contactName": "Karen Young",
+    "address": "4585 American Way, Memphis, TN 38118",
+    "phone": "(901) 540-7750",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-hen-house-memphis",
+    "name": "The Hen House Memphis",
+    "businessName": "The Hen House Memphis",
+    "contactName": "Sharon Wilson",
+    "address": "Near American Way & Perkins, Memphis, TN 38118",
+    "phone": "(901) 249-1207",
+    "equipmentCount": 2
+  },
+  {
+    "id": "broadway-pizza",
+    "name": "Broadway Pizza",
+    "businessName": "Broadway Pizza",
+    "contactName": "Michelle Baker",
+    "address": "2581 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 364-4145",
+    "equipmentCount": 2
+  },
+  {
+    "id": "bounty-on-broad",
+    "name": "Bounty on Broad",
+    "businessName": "Bounty on Broad",
+    "contactName": "Charles Anderson",
+    "address": "2519 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 278-8035",
+    "equipmentCount": 5
+  },
+  {
+    "id": "maximo-s-on-broad",
+    "name": "Maximo's on Broad",
+    "businessName": "Maximo's on Broad",
+    "contactName": "Susan Jackson",
+    "address": "2617 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 818-4301",
+    "equipmentCount": 4
+  },
+  {
+    "id": "inspirit-wellness---day-spa-eatery",
+    "name": "Inspirit Wellness & Day Spa Eatery",
+    "businessName": "Inspirit Wellness & Day Spa Eatery",
+    "contactName": "Melissa Young",
+    "address": "2600 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 147-5151",
+    "equipmentCount": 4
+  },
+  {
+    "id": "wiseacre-brewing",
+    "name": "Wiseacre Brewing",
+    "businessName": "Wiseacre Brewing",
+    "contactName": "Matthew Gonzalez",
+    "address": "2783 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 159-2252",
+    "equipmentCount": 1
+  },
+  {
+    "id": "shroomlicious-meals",
+    "name": "Shroomlicious Meals",
+    "businessName": "Shroomlicious Meals",
+    "contactName": "Jennifer Jones",
+    "address": "394 N Watkins St, Memphis, TN 38109",
+    "phone": "(901) 809-1653",
+    "equipmentCount": 3
+  },
+  {
+    "id": "farm---fig-catering",
+    "name": "Farm & Fig Catering",
+    "businessName": "Farm & Fig Catering",
+    "contactName": "Susan Robinson",
+    "address": "2150 Elzey Ave, Memphis, TN 38104",
+    "phone": "(901) 362-5720",
+    "equipmentCount": 5
+  },
+  {
+    "id": "lucky-cat-ramen",
+    "name": "Lucky Cat Ramen",
+    "businessName": "Lucky Cat Ramen",
+    "contactName": "Linda Lewis",
+    "address": "Near Broad Avenue Arts District, Memphis, TN 38103",
+    "phone": "(901) 217-8591",
+    "equipmentCount": 1
+  },
+  {
+    "id": "tamboli-s-pasta---pizza",
+    "name": "Tamboli's Pasta & Pizza",
+    "businessName": "Tamboli's Pasta & Pizza",
+    "contactName": "Richard Scott",
+    "address": "Near Broad Avenue Arts District, Memphis, TN 38112",
+    "phone": "(901) 410-9166",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-liquor-store",
+    "name": "The Liquor Store",
+    "businessName": "The Liquor Store",
+    "contactName": "Donald Adams",
+    "address": "2655 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 396-1811",
+    "equipmentCount": 2
+  },
+  {
+    "id": "sweet-aroma",
+    "name": "Sweet Aroma",
+    "businessName": "Sweet Aroma",
+    "contactName": "Susan Jackson",
+    "address": "501 N Hollywood St, Memphis, TN 38112",
+    "phone": "(901) 571-3632",
+    "equipmentCount": 3
+  },
+  {
+    "id": "the-bar",
+    "name": "The Bar",
+    "businessName": "The Bar",
+    "contactName": "Matthew Garcia",
+    "address": "B, Memphis, TN 38122",
+    "phone": "(901) 500-6580",
+    "equipmentCount": 1
+  },
+  {
+    "id": "payne-s-bar",
+    "name": "Payne's Bar",
+    "businessName": "Payne's Bar",
+    "contactName": "Robert Davis",
+    "address": "B, Memphis, TN 38114",
+    "phone": "(901) 633-2867",
+    "equipmentCount": 1
+  },
+  {
+    "id": "interstate-barbecue",
+    "name": "Interstate Barbecue",
+    "businessName": "Interstate Barbecue",
+    "contactName": "Daniel Brown",
+    "address": "2265 S Third St, Memphis, TN 38109",
+    "phone": "(901) 492-1602",
+    "equipmentCount": 2
+  },
+  {
+    "id": "leonard-s-pit-barbecue",
+    "name": "Leonard's Pit Barbecue",
+    "businessName": "Leonard's Pit Barbecue",
+    "contactName": "Sarah Lewis",
+    "address": "1100 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 386-6912",
+    "equipmentCount": 5
+  },
+  {
+    "id": "charlie-vergos--rendezvous",
+    "name": "Charlie Vergos' Rendezvous",
+    "businessName": "Charlie Vergos' Rendezvous",
+    "contactName": "Karen Williams",
+    "address": "52 S Second St, Memphis, TN 38103",
+    "phone": "(901) 231-5033",
+    "equipmentCount": 2
+  },
+  {
+    "id": "arnold-s-bbq---grill",
+    "name": "Arnold's BBQ & Grill",
+    "businessName": "Arnold's BBQ & Grill",
+    "contactName": "Laura Lee",
+    "address": "317 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 867-1407",
+    "equipmentCount": 4
+  },
+  {
+    "id": "fat-larry-s-bbq",
+    "name": "Fat Larry's BBQ",
+    "businessName": "Fat Larry's BBQ",
+    "contactName": "David Jackson",
+    "address": "7537 US Hwy 70, Memphis, TN 38133",
+    "phone": "(901) 148-6274",
+    "equipmentCount": 1
+  },
+  {
+    "id": "blues-city-cafe",
+    "name": "Blues City Cafe",
+    "businessName": "Blues City Cafe",
+    "contactName": "Joshua Allen",
+    "address": "138 Beale St, Memphis, TN 38103",
+    "phone": "(901) 146-7034",
+    "equipmentCount": 5
+  },
+  {
+    "id": "one---only-bbq",
+    "name": "One & Only BBQ",
+    "businessName": "One & Only BBQ",
+    "contactName": "Jessica Allen",
+    "address": "Multiple locations, Memphis, TN 38104",
+    "phone": "(901) 278-2466",
+    "equipmentCount": 1
+  },
+  {
+    "id": "smoky-city-bbq-grill---diner",
+    "name": "Smoky City BBQ Grill & Diner",
+    "businessName": "Smoky City BBQ Grill & Diner",
+    "contactName": "Kenneth Robinson",
+    "address": "Memphis, TN 38122",
+    "phone": "(901) 600-4499",
+    "equipmentCount": 3
+  },
+  {
+    "id": "alcenia-s",
+    "name": "Alcenia's",
+    "businessName": "Alcenia's",
+    "contactName": "Charles Garcia",
+    "address": "317 N Main St, Memphis, TN 38103",
+    "phone": "(901) 523-5432",
+    "equipmentCount": 3
+  },
+  {
+    "id": "jj-s-soul-food---grill",
+    "name": "JJ's Soul Food & Grill",
+    "businessName": "JJ's Soul Food & Grill",
+    "contactName": "Karen Hall",
+    "address": "3156 Chelsea Ave, Memphis, TN 38108",
+    "phone": "(901) 403-6813",
+    "equipmentCount": 1
+  },
+  {
+    "id": "memphis-best-soul-food--aka-shop---save-",
+    "name": "Memphis Best Soul Food (aka Shop & Save)",
+    "businessName": "Memphis Best Soul Food (aka Shop & Save)",
+    "contactName": "Laura Smith",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 303-8774",
+    "equipmentCount": 4
+  },
+  {
+    "id": "memphis-soul-southern-cooking",
+    "name": "Memphis Soul Southern Cooking",
+    "businessName": "Memphis Soul Southern Cooking",
+    "contactName": "Laura Thomas",
+    "address": "Memphis, TN 38119",
+    "phone": "(901) 721-2443",
+    "equipmentCount": 5
+  },
+  {
+    "id": "the-dining-room-on-lamar",
+    "name": "The Dining Room on Lamar",
+    "businessName": "The Dining Room on Lamar",
+    "contactName": "Anthony Smith",
+    "address": "2511 Lamar Ave, Memphis, TN 38109",
+    "phone": "(901) 175-9945",
+    "equipmentCount": 4
+  },
+  {
+    "id": "ellen-s-soul-food",
+    "name": "Ellen's Soul Food",
+    "businessName": "Ellen's Soul Food",
+    "contactName": "Susan Hall",
+    "address": "Memphis, TN 38112",
+    "phone": "(901) 257-8078",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-crock-pot-ii",
+    "name": "The Crock Pot II",
+    "businessName": "The Crock Pot II",
+    "contactName": "Joshua Young",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 634-7311",
+    "equipmentCount": 5
+  },
+  {
+    "id": "jackie-mae-s-place",
+    "name": "Jackie Mae's Place",
+    "businessName": "Jackie Mae's Place",
+    "contactName": "Patricia Martinez",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 539-7467",
+    "equipmentCount": 1
+  },
+  {
+    "id": "melanie-s-fine-dining",
+    "name": "Melanie's Fine Dining",
+    "businessName": "Melanie's Fine Dining",
+    "contactName": "Laura Wright",
+    "address": "Memphis, TN 38134",
+    "phone": "(901) 155-7201",
+    "equipmentCount": 2
+  },
+  {
+    "id": "peggy-s-just-heavenly-good-home-cooking",
+    "name": "Peggy's Just Heavenly Good Home Cooking",
+    "businessName": "Peggy's Just Heavenly Good Home Cooking",
+    "contactName": "Paul Walker",
+    "address": "Memphis, TN 38119",
+    "phone": "(901) 301-4694",
+    "equipmentCount": 2
+  },
+  {
+    "id": "chef-tam-s-underground-cafe",
+    "name": "Chef Tam's Underground Cafe",
+    "businessName": "Chef Tam's Underground Cafe",
+    "contactName": "Donald Green",
+    "address": "Memphis, TN 38105",
+    "phone": "(901) 658-7028",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mahogany-memphis",
+    "name": "Mahogany Memphis",
+    "businessName": "Mahogany Memphis",
+    "contactName": "Susan Moore",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 582-5050",
+    "equipmentCount": 3
+  },
+  {
+    "id": "buntyn-corner-cafe",
+    "name": "Buntyn Corner Cafe",
+    "businessName": "Buntyn Corner Cafe",
+    "contactName": "Linda Smith",
+    "address": "Memphis, TN 38117",
+    "phone": "(901) 389-9871",
+    "equipmentCount": 2
+  },
+  {
+    "id": "miss-polly-s-soul-city-cafe",
+    "name": "Miss Polly's Soul City Cafe",
+    "businessName": "Miss Polly's Soul City Cafe",
+    "contactName": "Matthew Carter",
+    "address": "Beale Street, Memphis, TN 38108",
+    "phone": "(901) 967-9557",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-choo",
+    "name": "The Choo",
+    "businessName": "The Choo",
+    "contactName": "Rebecca Walker",
+    "address": "Memphis, TN 38104",
+    "phone": "(901) 950-7014",
+    "equipmentCount": 5
+  },
+  {
+    "id": "gracie-s-kitchen",
+    "name": "Gracie's Kitchen",
+    "businessName": "Gracie's Kitchen",
+    "contactName": "Stephanie Lopez",
+    "address": "Memphis, TN 38107",
+    "phone": "(901) 118-3965",
+    "equipmentCount": 3
+  },
+  {
+    "id": "fuel-cafe",
+    "name": "Fuel Cafe",
+    "businessName": "Fuel Cafe",
+    "contactName": "Sarah Johnson",
+    "address": "1761 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 674-1652",
+    "equipmentCount": 4
+  },
+  {
+    "id": "chinese-sub-shop",
+    "name": "Chinese Sub Shop",
+    "businessName": "Chinese Sub Shop",
+    "contactName": "Matthew Wright",
+    "address": "3316 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 887-5598",
+    "equipmentCount": 4
+  },
+  {
+    "id": "saucy-chicken",
+    "name": "Saucy Chicken",
+    "businessName": "Saucy Chicken",
+    "contactName": "Karen Baker",
+    "address": "835 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 851-7926",
+    "equipmentCount": 4
+  },
+  {
+    "id": "gus-s-world-famous-fried-chicken",
+    "name": "Gus's World Famous Fried Chicken",
+    "businessName": "Gus's World Famous Fried Chicken",
+    "contactName": "Stephanie Lopez",
+    "address": "310 S Front St, Memphis, TN 38103",
+    "phone": "(901) 112-8856",
+    "equipmentCount": 4
+  },
+  {
+    "id": "maciel-s-highland",
+    "name": "Maciel's Highland",
+    "businessName": "Maciel's Highland",
+    "contactName": "Patricia Thompson",
+    "address": "525 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 371-8364",
+    "equipmentCount": 4
+  },
+  {
+    "id": "three-little-pigs-bar",
+    "name": "Three Little Pigs Bar",
+    "businessName": "Three Little Pigs Bar",
+    "contactName": "Richard Harris",
+    "address": "B, Memphis, TN 38117",
+    "phone": "(901) 766-2148",
+    "equipmentCount": 5
+  },
+  {
+    "id": "el-porton",
+    "name": "El Porton",
+    "businessName": "El Porton",
+    "contactName": "Rebecca Hill",
+    "address": "5538 Summer Ave, Memphis, TN 38134",
+    "phone": "(901) 209-8978",
+    "equipmentCount": 4
+  },
+  {
+    "id": "doghouzz",
+    "name": "Doghouzz",
+    "businessName": "Doghouzz",
+    "contactName": "Michelle Johnson",
+    "address": "1349 Autumn Ave, Memphis, TN 38104",
+    "phone": "(901) 637-2423",
+    "equipmentCount": 5
+  },
+  {
+    "id": "brunch---cake",
+    "name": "Brunch & Cake",
+    "businessName": "Brunch & Cake",
+    "contactName": "Andrew Davis",
+    "address": "3161 Forest Hill Irene Rd, Germantown, TN 38139",
+    "phone": "(901) 200-8690",
+    "equipmentCount": 1
+  },
+  {
+    "id": "rizzo-s-by-michael-patrick",
+    "name": "Rizzo's by Michael Patrick",
+    "businessName": "Rizzo's by Michael Patrick",
+    "contactName": "Emily Wright",
+    "address": "492 S Main St, Memphis, TN 38103",
+    "phone": "(901) 537-3977",
+    "equipmentCount": 5
+  },
+  {
+    "id": "milk-dessert-bar",
+    "name": "Milk Dessert Bar",
+    "businessName": "Milk Dessert Bar",
+    "contactName": "Matthew Lopez",
+    "address": "1789 Kirby Pkwy, Memphis, TN 38138",
+    "phone": "(901) 184-4226",
+    "equipmentCount": 1
+  },
+  {
+    "id": "the-blue-fish",
+    "name": "The Blue Fish",
+    "businessName": "The Blue Fish",
+    "contactName": "Michael Allen",
+    "address": "5485 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 324-6167",
+    "equipmentCount": 1
+  },
+  {
+    "id": "sabor-caribe",
+    "name": "Sabor Caribe",
+    "businessName": "Sabor Caribe",
+    "contactName": "Charles Lopez",
+    "address": "662 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 237-2663",
+    "equipmentCount": 3
+  },
+  {
+    "id": "daddy-s-city-diner",
+    "name": "Daddy's City Diner",
+    "businessName": "Daddy's City Diner",
+    "contactName": "Joseph King",
+    "address": "7333 US, Memphis, TN 38114",
+    "phone": "(901) 281-1983",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mardi-gras-memphis",
+    "name": "Mardi Gras Memphis",
+    "businessName": "Mardi Gras Memphis",
+    "contactName": "Susan Garcia",
+    "address": "496 N Watkins St, Memphis, TN 38104",
+    "phone": "(901) 339-6574",
+    "equipmentCount": 4
+  },
+  {
+    "id": "fam",
+    "name": "Fam",
+    "businessName": "Fam",
+    "contactName": "Anthony Harris",
+    "address": "149 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 214-5576",
+    "equipmentCount": 3
+  },
+  {
+    "id": "hazel-s-lucky-dice-delicatessen",
+    "name": "Hazel's Lucky Dice Delicatessen",
+    "businessName": "Hazel's Lucky Dice Delicatessen",
+    "contactName": "Barbara Scott",
+    "address": "398 S 2nd St, Memphis, TN 38103",
+    "phone": "(901) 839-5028",
+    "equipmentCount": 3
+  },
+  {
+    "id": "po-boys-new-orleans-style-restaurant",
+    "name": "Po'Boys New Orleans Style Restaurant",
+    "businessName": "Po'Boys New Orleans Style Restaurant",
+    "contactName": "Stephanie Wright",
+    "address": "6263 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 233-3908",
+    "equipmentCount": 4
+  },
+  {
+    "id": "edge-alley",
+    "name": "Edge Alley",
+    "businessName": "Edge Alley",
+    "contactName": "Kimberly Wright",
+    "address": "600 Monroe Ave, Memphis, TN 38103",
+    "phone": "(901) 204-4314",
+    "equipmentCount": 2
+  },
+  {
+    "id": "phillip-ashley-chocolates",
+    "name": "Phillip Ashley Chocolates",
+    "businessName": "Phillip Ashley Chocolates",
+    "contactName": "Kenneth Garcia",
+    "address": "1200 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 207-8810",
+    "equipmentCount": 1
+  },
+  {
+    "id": "sweetgrass-memphis",
+    "name": "Sweetgrass Memphis",
+    "businessName": "Sweetgrass Memphis",
+    "contactName": "Richard Lee",
+    "address": "937 Cooper St, Memphis, TN 38104",
+    "phone": "(901) 799-1005",
+    "equipmentCount": 1
+  },
+  {
+    "id": "kowloon-food-market---restaurant",
+    "name": "Kowloon Food Market & Restaurant",
+    "businessName": "Kowloon Food Market & Restaurant",
+    "contactName": "Paul Hill",
+    "address": "640 N McLean Blvd, Memphis, TN 38107",
+    "phone": "(901) 423-4839",
+    "equipmentCount": 1
+  },
+  {
+    "id": "wolf-river-brisket",
+    "name": "Wolf River Brisket",
+    "businessName": "Wolf River Brisket",
+    "contactName": "James Moore",
+    "address": "263 S Main St, Memphis, TN 38103",
+    "phone": "(901) 849-8103",
+    "equipmentCount": 4
+  },
+  {
+    "id": "the-vault",
+    "name": "The Vault",
+    "businessName": "The Vault",
+    "contactName": "Karen White",
+    "address": "700 W Brookhaven Cir, Memphis, TN 38117",
+    "phone": "(901) 424-3060",
+    "equipmentCount": 5
+  },
+  {
+    "id": "next-door-american-eatery",
+    "name": "Next Door American Eatery",
+    "businessName": "Next Door American Eatery",
+    "contactName": "Karen Carter",
+    "address": "1350 Concourse Ave, Memphis, TN 38104",
+    "phone": "(901) 314-9959",
+    "equipmentCount": 2
+  },
+  {
+    "id": "park---cherry",
+    "name": "Park + Cherry",
+    "businessName": "Park + Cherry",
+    "contactName": "Joseph Miller",
+    "address": "1934 Poplar Ave, Memphis, TN 38104",
+    "phone": "(901) 756-6401",
+    "equipmentCount": 4
+  },
+  {
+    "id": "sage-restaurant",
+    "name": "Sage Restaurant",
+    "businessName": "Sage Restaurant",
+    "contactName": "Jennifer Clark",
+    "address": "94 S Main St, Memphis, TN 38103",
+    "phone": "(901) 963-8173",
+    "equipmentCount": 1
+  },
+  {
+    "id": "eggxactly-breakfast-and-deli",
+    "name": "Eggxactly Breakfast and Deli",
+    "businessName": "Eggxactly Breakfast and Deli",
+    "contactName": "Matthew Wright",
+    "address": "2869 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 187-6579",
+    "equipmentCount": 2
+  },
+  {
+    "id": "the-pantry-cateressen",
+    "name": "The Pantry Cateressen",
+    "businessName": "The Pantry Cateressen",
+    "contactName": "Robert Hernandez",
+    "address": "2146 Monroe Ave, Memphis, TN 38104",
+    "phone": "(901) 677-5881",
+    "equipmentCount": 3
+  },
+  {
+    "id": "thai-bistro",
+    "name": "Thai Bistro",
+    "businessName": "Thai Bistro",
+    "contactName": "Kenneth Jackson",
+    "address": "85 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 760-3951",
+    "equipmentCount": 4
+  },
+  {
+    "id": "sam-s-deli",
+    "name": "Sam's Deli",
+    "businessName": "Sam's Deli",
+    "contactName": "Andrew Thompson",
+    "address": "645 S Highland St, Memphis, TN 38111",
+    "phone": "(901) 497-6811",
+    "equipmentCount": 4
+  },
+  {
+    "id": "best-wings-of-memphis",
+    "name": "Best Wings of Memphis",
+    "businessName": "Best Wings of Memphis",
+    "contactName": "Steven Anderson",
+    "address": "2390 Summer Ave, Memphis, TN 38112",
+    "phone": "(901) 814-3405",
+    "equipmentCount": 4
+  },
+  {
+    "id": "bedrock-eats---sweets-market---bistro",
+    "name": "Bedrock Eats & Sweets Market & Bistro",
+    "businessName": "Bedrock Eats & Sweets Market & Bistro",
+    "contactName": "Laura Martinez",
+    "address": "327 S Main St, Memphis, TN 38103",
+    "phone": "(901) 744-8667",
+    "equipmentCount": 3
+  },
+  {
+    "id": "mama-d-s-italian-ice",
+    "name": "Mama D's Italian Ice",
+    "businessName": "Mama D's Italian Ice",
+    "contactName": "Amanda Jones",
+    "address": "Multiple locations, Memphis, TN 38126",
+    "phone": "(901) 351-5537",
+    "equipmentCount": 4
+  },
+  {
+    "id": "brooklyn-bridge",
+    "name": "Brooklyn Bridge",
+    "businessName": "Brooklyn Bridge",
+    "contactName": "Thomas Lewis",
+    "address": "4925 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 189-2950",
+    "equipmentCount": 2
+  },
+  {
+    "id": "pontotoc-lounge",
+    "name": "Pontotoc Lounge",
+    "businessName": "Pontotoc Lounge",
+    "contactName": "William Young",
+    "address": "314 S Main St, Memphis, TN 38103",
+    "phone": "(901) 742-7710",
+    "equipmentCount": 1
+  },
+  {
+    "id": "jack-pirtle-s-chicken",
+    "name": "Jack Pirtle's Chicken",
+    "businessName": "Jack Pirtle's Chicken",
+    "contactName": "Daniel Miller",
+    "address": "Multiple locations, Memphis, TN 38117",
+    "phone": "(901) 678-7759",
+    "equipmentCount": 5
+  },
+  {
+    "id": "cassi-restaurant",
+    "name": "Cassi Restaurant",
+    "businessName": "Cassi Restaurant",
+    "contactName": "Melissa Taylor",
+    "address": "2156 Young Ave, Memphis, TN 38104",
+    "phone": "(901) 136-6350",
+    "equipmentCount": 1
+  },
+  {
+    "id": "paleta-memphis",
+    "name": "Paleta Memphis",
+    "businessName": "Paleta Memphis",
+    "contactName": "Charles Wright",
+    "address": "2166 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 443-9567",
+    "equipmentCount": 4
+  },
+  {
+    "id": "panchos-restaurant",
+    "name": "Panchos Restaurant",
+    "businessName": "Panchos Restaurant",
+    "contactName": "Kimberly Nelson",
+    "address": "717 N White Station Rd, Memphis, TN 38117",
+    "phone": "(901) 667-2244",
+    "equipmentCount": 2
+  },
+  {
+    "id": "char-memphis",
+    "name": "Char Memphis",
+    "businessName": "Char Memphis",
+    "contactName": "Amanda Williams",
+    "address": "5207 Poplar Ave, Memphis, TN 38117",
+    "phone": "(901) 620-3949",
+    "equipmentCount": 4
+  },
+  {
+    "id": "wolf-river-brisket-company",
+    "name": "Wolf River Brisket Company",
+    "businessName": "Wolf River Brisket Company",
+    "contactName": "Karen Hernandez",
+    "address": "9947 Wolf River Blvd, Germantown, TN 38139",
+    "phone": "(901) 127-7597",
+    "equipmentCount": 1
+  },
+  {
+    "id": "ciclo-bicibar",
+    "name": "Ciclo Bicibar",
+    "businessName": "Ciclo Bicibar",
+    "contactName": "Michael Baker",
+    "address": "709 S Main St, Memphis, TN 38103",
+    "phone": "(901) 463-9276",
+    "equipmentCount": 3
+  },
+  {
+    "id": "kinfolk",
+    "name": "Kinfolk",
+    "businessName": "Kinfolk",
+    "contactName": "Jennifer Martinez",
+    "address": "Harbor Town, Memphis, TN 38103",
+    "phone": "(901) 497-6774",
+    "equipmentCount": 1
+  },
+  {
+    "id": "red-eye-memphis",
+    "name": "Red Eye Memphis",
+    "businessName": "Red Eye Memphis",
+    "contactName": "Susan Lewis",
+    "address": "2583 Broad Ave, Memphis, TN 38112",
+    "phone": "(901) 865-7464",
+    "equipmentCount": 3
+  },
+  {
+    "id": "el-chino-latino",
+    "name": "El Chino Latino",
+    "businessName": "El Chino Latino",
+    "contactName": "Charles Scott",
+    "address": "7656 US, Memphis, TN 38104",
+    "phone": "(901) 151-3874",
+    "equipmentCount": 3
+  },
+  {
+    "id": "lucchesi-s-beer-garden",
+    "name": "Lucchesi's Beer Garden",
+    "businessName": "Lucchesi's Beer Garden",
+    "contactName": "Kenneth Brown",
+    "address": "84 S Reese St, Memphis, TN 38111",
+    "phone": "(901) 617-6150",
+    "equipmentCount": 5
+  },
+  {
+    "id": "pop-s-kitchen",
+    "name": "Pop's Kitchen",
+    "businessName": "Pop's Kitchen",
+    "contactName": "Thomas Taylor",
+    "address": "6755 Shelby Woods Cove, Memphis, TN 38134",
+    "phone": "(901) 551-5331",
+    "equipmentCount": 3
+  },
+  {
+    "id": "la-michoacana",
+    "name": "La Michoacana",
+    "businessName": "La Michoacana",
+    "contactName": "Helen Robinson",
+    "address": "Multiple locations, Memphis, TN 38105",
+    "phone": "(901) 652-4218",
+    "equipmentCount": 4
+  },
+  {
+    "id": "blue-light-diner",
+    "name": "Blue Light Diner",
+    "businessName": "Blue Light Diner",
+    "contactName": "Daniel Hill",
+    "address": "5025 Stage Rd, Memphis, TN 38128",
+    "phone": "(901) 764-1071",
+    "equipmentCount": 5
+  },
+  {
+    "id": "sam-bartolio-s",
+    "name": "Sam Bartolio's",
+    "businessName": "Sam Bartolio's",
+    "contactName": "Kimberly Rodriguez",
+    "address": "6130 Macon Rd, Memphis, TN 38134",
+    "phone": "(901) 291-8079",
+    "equipmentCount": 5
+  },
+  {
+    "id": "little-italy-memphis",
+    "name": "Little Italy Memphis",
+    "businessName": "Little Italy Memphis",
+    "contactName": "Amanda White",
+    "address": "1495 Union Ave, Memphis, TN 38104",
+    "phone": "(901) 388-7904",
+    "equipmentCount": 2
+  },
+  {
+    "id": "peche-de-light-bistro",
+    "name": "Peche De'Light Bistro",
+    "businessName": "Peche De'Light Bistro",
+    "contactName": "Joshua Martin",
+    "address": "133 S Main St, Memphis, TN 38103",
+    "phone": "(901) 472-3836",
+    "equipmentCount": 5
+  },
+  {
+    "id": "bad-luck-diner---social-club",
+    "name": "Bad Luck Diner & Social Club",
+    "businessName": "Bad Luck Diner & Social Club",
+    "contactName": "Donald Robinson",
+    "address": "32 S Main St, Memphis, TN 38103",
+    "phone": "(901) 404-4268",
+    "equipmentCount": 5
+  },
+  {
+    "id": "la-baguette-french-bread---pastry-shop",
+    "name": "La Baguette French Bread & Pastry Shop",
+    "businessName": "La Baguette French Bread & Pastry Shop",
+    "contactName": "Thomas Clark",
+    "address": "3088 Poplar Ave, Memphis, TN 38111",
+    "phone": "(901) 854-5331",
+    "equipmentCount": 3
+  },
+  {
+    "id": "tamboli-s-pasta---pizza",
+    "name": "Tamboli's Pasta & Pizza",
+    "businessName": "Tamboli's Pasta & Pizza",
+    "contactName": "Richard Taylor",
+    "address": "1761 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 377-9200",
+    "equipmentCount": 1
+  },
+  {
+    "id": "rizzo-s",
+    "name": "Rizzo's",
+    "businessName": "Rizzo's",
+    "contactName": "Joseph Davis",
+    "address": "492 S Main St, Memphis, TN 38103",
+    "phone": "(901) 128-8854",
+    "equipmentCount": 1
+  },
+  {
+    "id": "grecian-gourmet",
+    "name": "Grecian Gourmet",
+    "businessName": "Grecian Gourmet",
+    "contactName": "Michael Moore",
+    "address": "99 S Main St, Memphis, TN 38103",
+    "phone": "(901) 683-4848",
+    "equipmentCount": 5
+  },
+  {
+    "id": "mosa-asian-bistro",
+    "name": "Mosa Asian Bistro",
+    "businessName": "Mosa Asian Bistro",
+    "contactName": "Michelle Martinez",
+    "address": "850 S White Station Rd, Memphis, TN 38117",
+    "phone": "(901) 420-9574",
+    "equipmentCount": 5
+  },
+  {
+    "id": "flying-sobie-s",
+    "name": "Flying Sobie's",
+    "businessName": "Flying Sobie's",
+    "contactName": "Matthew White",
+    "address": "869 Jefferson Ave, Memphis, TN 38103",
+    "phone": "(901) 963-6129",
+    "equipmentCount": 4
+  },
+  {
+    "id": "los-jarochos",
+    "name": "Los Jarochos",
+    "businessName": "Los Jarochos",
+    "contactName": "Sarah Wilson",
+    "address": "3990 Lamar Ave, Memphis, TN 38118",
+    "phone": "(901) 712-4106",
+    "equipmentCount": 3
+  },
+  {
+    "id": "elemento-neapolitan-pizza",
+    "name": "Elemento Neapolitan Pizza",
+    "businessName": "Elemento Neapolitan Pizza",
+    "contactName": "Michelle Lopez",
+    "address": "6460 Poplar Ave, Memphis, TN 38119",
+    "phone": "(901) 985-2152",
+    "equipmentCount": 3
+  },
+  {
+    "id": "bad-times-pizza",
+    "name": "Bad Times Pizza",
+    "businessName": "Bad Times Pizza",
+    "contactName": "Mark Brown",
+    "address": "2145 Central Ave, Memphis, TN 38104",
+    "phone": "(901) 775-1836",
+    "equipmentCount": 1
+  },
+  {
+    "id": "crazy-good-kitchen",
+    "name": "Crazy Good Kitchen",
+    "businessName": "Crazy Good Kitchen",
+    "contactName": "Mary Wright",
+    "address": "38 N Cleveland, Memphis, TN 38104",
+    "phone": "(901) 483-1082",
+    "equipmentCount": 1
+  },
+  {
+    "id": "jalisco-mexican-restaurant",
+    "name": "Jalisco Mexican Restaurant",
+    "businessName": "Jalisco Mexican Restaurant",
+    "contactName": "Michael Taylor",
+    "address": "1727 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 292-6478",
+    "equipmentCount": 5
+  },
+  {
+    "id": "yom-market---deli",
+    "name": "Yom Market & Deli",
+    "businessName": "Yom Market & Deli",
+    "contactName": "Paul Rodriguez",
+    "address": "2275 S 3rd St, Memphis, TN 38109",
+    "phone": "(901) 193-9580",
+    "equipmentCount": 4
+  },
+  {
+    "id": "country-house-restaurant",
+    "name": "Country House Restaurant",
+    "businessName": "Country House Restaurant",
+    "contactName": "James Hall",
+    "address": "6978 Stage Rd, Memphis, TN 38133",
+    "phone": "(901) 619-7092",
+    "equipmentCount": 1
+  },
+  {
+    "id": "mollie-s-la-casita",
+    "name": "Mollie's La Casita",
+    "businessName": "Mollie's La Casita",
+    "contactName": "John Wilson",
+    "address": "2006 Madison Ave, Memphis, TN 38104",
+    "phone": "(901) 875-2113",
+    "equipmentCount": 3
+  },
+  {
+    "id": "waffle-love",
+    "name": "Waffle Love",
+    "businessName": "Waffle Love",
+    "contactName": "James Harris",
+    "address": "7883 Farmington Blvd, Germantown, TN 38138",
+    "phone": "(901) 619-1468",
+    "equipmentCount": 3
+  },
+  {
+    "id": "dee-lightful-bliss-bakery",
+    "name": "Dee'lightful Bliss Bakery",
+    "businessName": "Dee'lightful Bliss Bakery",
+    "contactName": "Elizabeth Williams",
+    "address": "7124 US, Memphis, TN 38127",
+    "phone": "(901) 569-9161",
+    "equipmentCount": 3
+  },
+  {
+    "id": "chow-time",
+    "name": "Chow Time",
+    "businessName": "Chow Time",
+    "contactName": "Helen Taylor",
+    "address": "880 N Germantown Pkwy, Cordova, TN 38018",
+    "phone": "(901) 661-9409",
+    "equipmentCount": 4
+  },
+  {
+    "id": "little-caesars",
+    "name": "Little Caesars",
+    "businessName": "Little Caesars",
+    "contactName": "William White",
+    "address": "Multiple independently owned franchises, Memphis, TN 38109",
+    "phone": "(901) 573-3870",
+    "equipmentCount": 2
+  },
+  {
+    "id": "las-delicias",
+    "name": "Las Delicias",
+    "businessName": "Las Delicias",
+    "contactName": "Paul Lee",
+    "address": "4002 Park Ave, Memphis, TN 38111",
+    "phone": "(901) 634-6349",
+    "equipmentCount": 3
+  },
+  {
+    "id": "city-block-salumeria",
+    "name": "City Block Salumeria",
+    "businessName": "City Block Salumeria",
+    "contactName": "Stephanie Baker",
+    "address": "409 S Main St, Memphis, TN 38103",
+    "phone": "(901) 570-6342",
+    "equipmentCount": 5
+  },
+  {
+    "id": "marmaris-turkish-restaurant",
+    "name": "Marmaris Turkish Restaurant",
+    "businessName": "Marmaris Turkish Restaurant",
+    "contactName": "Barbara Jackson",
+    "address": "2924 Walnut Grove Rd, Memphis, TN 38111",
+    "phone": "(901) 432-1613",
+    "equipmentCount": 5
+  }
+]
