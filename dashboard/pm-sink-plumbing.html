@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sink & Plumbing Checks | Rapid Pro Maintenance</title>
+    <meta name="description" content="Preventative maintenance inspection form">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-main.css">
+    <link rel="stylesheet" href="styles/pm-session.css">
+    <meta name="theme-color" content="#1f2937">
+    <!-- Form Validation Library -->
+    <script src="src/js/form-validation.js"></script>
+    <link rel="stylesheet" href="src/css/bridge-building.css">
+</head>
+<body class="bridge-building-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Rapid Pro Maintenance" class="sidebar-logo">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="pm-sessions.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Bridge Building Visits
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customers.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="settings.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="index.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="page-title">Sink & Plumbing Checks</div>
+                <div class="top-nav-actions">
+                    <button class="save-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Save Progress
+                    </button>
+                </div>
+            </header>
+
+            <!-- Bridge Building Visit Content -->
+            <div class="pm-session-content">
+                <!-- Session Header -->
+                <div class="session-header">
+                    <div class="customer-details">
+                        <h1>TJ's Bar & Grill</h1>
+                        <p>789 Downtown Blvd, Memphis, TN</p>
+                        <div class="session-meta">
+                            <span class="session-date">May 10, 2025</span>
+                            <span class="separator">•</span>
+                            <span class="technician">John Smith</span>
+                        </div>
+                    </div>
+                    <div class="session-status">
+                        <div class="status-badge in-progress">In Progress</div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="progress-tracker">
+                    <div class="progress-steps">
+                        <div class="progress-step completed">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Client Identification</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Work Authorization</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Equipment Identification</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Temperature & Gasket</div>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="step-number">5</div>
+                            <div class="step-label">Sink & Plumbing</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">6</div>
+                            <div class="step-label">Coil Cleaning</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">7</div>
+                            <div class="step-label">Gas Equipment</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">8</div>
+                            <div class="step-label">Minor Repairs</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">9</div>
+                            <div class="step-label">Rooftop Maintenance</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">10</div>
+                            <div class="step-label">Final Report</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%;"></div>
+                    </div>
+                </div>
+
+                <!-- Inspection Form -->
+                <form class="inspection-form" id="sink-plumbing-form">
+                    <div class="form-section">
+                        <h2 class="form-section-title">Sink & Plumbing Checks</h2>
+                        <p class="form-section-description">Inspect mop sink and 3-compartment sink conditions.</p>
+                        
+                        <!-- Mop Sink Section -->
+                        <div class="plumbing-section">
+                            <h3 class="form-subsection-title">Mop Sink</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="mop-faucet-condition">Faucet Condition</label>
+                                <select class="form-control" id="mop-faucet-condition" name="mop-faucet-condition" required>
+                                    <option value="">Select condition</option>
+                                    <option value="ok">OK</option>
+                                    <option value="leaking">Leaking</option>
+                                    <option value="loose">Loose</option>
+                                    <option value="broken">Broken</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="backflow-leaking">Backflow Leaking?</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="backflow-leaking" name="backflow-leaking" class="toggle-input">
+                                    <label for="backflow-leaking" class="toggle-label">
+                                        <span class="toggle-inner"></span>
+                                        <span class="toggle-switch-label">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Photo Upload -->
+                            <div class="form-group">
+                                <label class="form-label">Photo of Mop Sink (Optional)</label>
+                                <div class="photo-upload">
+                                    <div class="photo-preview">
+                                        <span class="photo-placeholder">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                            </svg>
+                                            <span>Add Photo</span>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="btn-outline btn-camera">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                            <circle cx="12" cy="13" r="4"></circle>
+                                        </svg>
+                                        Take Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 3-Compartment Sink Section -->
+                        <div class="plumbing-section">
+                            <h3 class="form-subsection-title">3-Compartment Sink</h3>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="three-comp-faucet-condition">Faucet Condition</label>
+                                <select class="form-control" id="three-comp-faucet-condition" name="three-comp-faucet-condition" required>
+                                    <option value="">Select condition</option>
+                                    <option value="ok">OK</option>
+                                    <option value="leaking">Leaking</option>
+                                    <option value="loose">Loose</option>
+                                    <option value="broken">Broken</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="can-hold-water">Can It Hold Water?</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="can-hold-water" name="can-hold-water" class="toggle-input" checked>
+                                    <label for="can-hold-water" class="toggle-label">
+                                        <span class="toggle-inner"></span>
+                                        <span class="toggle-switch-label">Yes</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Photo Upload -->
+                            <div class="form-group">
+                                <label class="form-label">Photo of 3-Compartment Sink (Optional)</label>
+                                <div class="photo-upload">
+                                    <div class="photo-preview">
+                                        <span class="photo-placeholder">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                            </svg>
+                                            <span>Add Photo</span>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="btn-outline btn-camera">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                            <circle cx="12" cy="13" r="4"></circle>
+                                        </svg>
+                                        Take Photo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Notes Section -->
+                        <div class="form-group">
+                            <label class="form-label" for="plumbing-notes">Notes</label>
+                            <textarea class="form-control textarea" id="plumbing-notes" name="plumbing-notes" rows="3" placeholder="Enter any additional notes about plumbing or sink conditions..."></textarea>
+                        </div>
+                        
+                        <!-- Plumbing Service Confirmation -->
+                        <div class="form-group service-confirmation">
+                            <p class="service-note">Please confirm that all plumbing checks have been completed:</p>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="plumbing-confirmed" name="plumbing-confirmed" required>
+                                <span class="checkbox-label">I confirm that I have checked all sinks and plumbing fixtures and reported any issues accurately.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" id="prev-button" class="btn-secondary">Previous: Temperature & Gasket</button>
+                        <div class="action-right">
+                            <button type="button" id="save-draft-button" class="btn-outline">Save Draft</button>
+                            <button type="button" id="next-button" class="btn-primary">Next: Coil Cleaning</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom toggle switch styles -->
+    <style>
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .toggle-input {
+            display: none;
+        }
+        
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .toggle-inner {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            background-color: var(--gray);
+            border-radius: 12px;
+            transition: all var(--transition-normal) ease;
+            margin-right: 10px;
+        }
+        
+        .toggle-inner:before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            transition: all var(--transition-normal) ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-inner {
+            background-color: var(--success);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-inner:before {
+            transform: translateX(26px);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-switch-label {
+            content: "Yes";
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-switch-label:after {
+            content: "Yes";
+        }
+        
+        .plumbing-section {
+            background-color: var(--light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .service-confirmation {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border-left: 3px solid var(--accent);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .service-note {
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Sidebar toggle for smaller screens
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Toggle switch functionality
+        const backflowToggle = document.getElementById('backflow-leaking');
+        const backflowLabel = backflowToggle.nextElementSibling.querySelector('.toggle-switch-label');
+        
+        backflowToggle.addEventListener('change', function() {
+            backflowLabel.textContent = this.checked ? 'Yes' : 'No';
+        });
+        
+        const holdWaterToggle = document.getElementById('can-hold-water');
+        const holdWaterLabel = holdWaterToggle.nextElementSibling.querySelector('.toggle-switch-label');
+        
+        holdWaterToggle.addEventListener('change', function() {
+            holdWaterLabel.textContent = this.checked ? 'Yes' : 'No';
+        });
+
+        // Initialize form validation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Custom validators for plumbing form
+            const customValidators = {
+                'plumbing-confirmed': (value, field) => {
+                    if (!field.checked) {
+                        return 'You must confirm that you have completed the plumbing checks';
+                    }
+                    return true;
+                }
+            };
+            
+            // Initialize form with validation, auto-save and data persistence
+            const formHandler = window.PMWorkflowValidation.initPMForm(
+                '#sink-plumbing-form',
+                'sink-plumbing',
+                {
+                    autoSave: true,
+                    autoSaveInterval: 20000, // 20 seconds
+                    resumeForm: true,
+                    customValidators: customValidators,
+                    // Custom form submission handler
+                    onSubmit: function(event, form, validationState) {
+                        if (validationState.formIsValid) {
+                            // Create additional custom data structure
+                            const additionalData = {
+                                mopSink: {
+                                    faucetCondition: document.getElementById('mop-faucet-condition').value,
+                                    backflowLeaking: document.getElementById('backflow-leaking').checked
+                                },
+                                threeCompSink: {
+                                    faucetCondition: document.getElementById('three-comp-faucet-condition').value,
+                                    canHoldWater: document.getElementById('can-hold-water').checked
+                                }
+                            };
+                            
+                            // Save form data with our nested structure
+                            formHandler.saveData(additionalData);
+                            
+                            // Navigate to next page
+                            window.location.href = 'pm-coil-cleaning.html';
+                        }
+                    }
+                }
+            );
+            
+            // Setup button click handlers
+            const nextButton = document.getElementById('next-button');
+            const prevButton = document.getElementById('prev-button');
+            const saveDraftButton = document.getElementById('save-draft-button');
+            
+            // Next button handler
+            nextButton.addEventListener('click', function() {
+                // Trigger form validation and submission
+                if (formHandler.validator.validateForm()) {
+                    const event = new Event('submit');
+                    document.getElementById('sink-plumbing-form').dispatchEvent(event);
+                }
+            });
+            
+            // Previous button handler
+            prevButton.addEventListener('click', function() {
+                // Save form data before navigating away
+                formHandler.saveData();
+                window.location.href = 'pm-temperature-gasket.html';
+            });
+            
+            // Save draft button handler
+            saveDraftButton.addEventListener('click', function() {
+                formHandler.saveData();
+                
+                // Show save confirmation
+                const saveIndicator = document.querySelector('.save-indicator');
+                if (saveIndicator) {
+                    saveIndicator.textContent = `Draft saved: ${new Date().toLocaleTimeString()}`;
+                    saveIndicator.style.opacity = '1';
+                    setTimeout(() => {
+                        saveIndicator.style.opacity = '0.5';
+                    }, 2000);
+                } else {
+                    alert('Draft saved successfully!');
+                }
+            });
+            
+            // Update top save button functionality
+            const topSaveBtn = document.querySelector('.save-btn');
+            if (topSaveBtn) {
+                topSaveBtn.addEventListener('click', function() {
+                    formHandler.saveData();
+                    alert('Progress saved successfully!');
+                });
+            }
+        });
+    </script>
+    <script src="../src/js/bridge-building-implementation.js"></script>
+</body>
+</html>

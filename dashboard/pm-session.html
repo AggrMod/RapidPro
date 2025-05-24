@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge Building Visit | Rapid Pro Maintenance</title>
+    <meta name="description" content="Preventative maintenance inspection form">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-main.css">
+    <link rel="stylesheet" href="styles/pm-session.css">
+    <meta name="theme-color" content="#1f2937">
+    <link rel="stylesheet" href="src/css/bridge-building.css">
+</head>
+<body class="bridge-building-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Rapid Pro Maintenance" class="sidebar-logo">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="pm-sessions.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Bridge Building Visits
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customers.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="settings.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="index.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="page-title">Equipment Identification</div>
+                <div class="top-nav-actions">
+                    <button class="save-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Save Progress
+                    </button>
+                </div>
+            </header>
+
+            <!-- Bridge Building Visit Content -->
+            <div class="pm-session-content">
+                <!-- Session Header -->
+                <div class="session-header">
+                    <div class="customer-details">
+                        <h1>TJ's Bar & Grill</h1>
+                        <p>789 Downtown Blvd, Memphis, TN</p>
+                        <div class="session-meta">
+                            <span class="session-date">May 10, 2025</span>
+                            <span class="separator">•</span>
+                            <span class="technician">John Smith</span>
+                        </div>
+                    </div>
+                    <div class="session-status">
+                        <div class="status-badge in-progress">In Progress</div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="progress-tracker">
+                    <div class="progress-steps">
+                        <div class="progress-step completed">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Client Identification</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Work Authorization</div>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Equipment Identification</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Temperature & Gasket</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">5</div>
+                            <div class="step-label">Sink & Plumbing</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">6</div>
+                            <div class="step-label">Coil Cleaning</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">7</div>
+                            <div class="step-label">Gas Equipment</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">8</div>
+                            <div class="step-label">Minor Repairs</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">9</div>
+                            <div class="step-label">Rooftop Maintenance</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">10</div>
+                            <div class="step-label">Final Report</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <!-- Inspection Form -->
+                <form class="inspection-form" id="equipment-identification-form">
+                    <div class="form-section">
+                        <h2 class="form-section-title">Equipment Identification</h2>
+                        <p class="form-section-description">Document each piece of equipment to be inspected. Each item will become part of the equipment database.</p>
+
+                        <div class="equipment-entry">
+                            <!-- Data Plate Photo -->
+                            <div class="form-group">
+                                <label class="form-label">Data Plate Photo</label>
+                                <div class="photo-upload">
+                                    <div class="photo-preview">
+                                        <span class="photo-placeholder">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                <polyline points="21 15 16 10 5 21"></polyline>
+                                            </svg>
+                                            <span>Add Photo</span>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="btn-outline btn-camera">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                            <circle cx="12" cy="13" r="4"></circle>
+                                        </svg>
+                                        Take Photo
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Equipment Details -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="equipment-type">Equipment Type</label>
+                                    <select class="form-control" id="equipment-type" name="equipment-type" required>
+                                        <option value="">Select Equipment Type</option>
+                                        <option value="walk-in-cooler">Walk-In Cooler</option>
+                                        <option value="walk-in-freezer">Walk-In Freezer</option>
+                                        <option value="reach-in-cooler">Reach-In Cooler</option>
+                                        <option value="reach-in-freezer">Reach-In Freezer</option>
+                                        <option value="ice-machine">Ice Machine</option>
+                                        <option value="prep-table">Prep Table</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="manufacturer">Manufacturer</label>
+                                    <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Enter manufacturer" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="model-number">Model Number</label>
+                                    <input type="text" class="form-control" id="model-number" name="model-number" placeholder="Enter model number" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="serial-number">Serial Number</label>
+                                    <input type="text" class="form-control" id="serial-number" name="serial-number" placeholder="Enter serial number" required>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="form-group">
+                                <label class="form-label" for="location">Location in Kitchen</label>
+                                <select class="form-control" id="location" name="location" required>
+                                    <option value="">Select Location</option>
+                                    <option value="front-line">Front Line</option>
+                                    <option value="prep-area">Prep Area</option>
+                                    <option value="walk-in-cooler">Walk-In Cooler</option>
+                                    <option value="dish-area">Dish Area</option>
+                                    <option value="bar">Bar</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Other Location -->
+                            <div class="form-group other-location-group" style="display: none;">
+                                <label class="form-label" for="other-location">Specify Other Location</label>
+                                <input type="text" class="form-control" id="other-location" name="other-location" placeholder="Enter location">
+                            </div>
+
+                            <!-- Notes -->
+                            <div class="form-group">
+                                <label class="form-label" for="equipment-notes">Equipment Notes (Optional)</label>
+                                <textarea class="form-control textarea" id="equipment-notes" name="equipment-notes" rows="3" placeholder="Enter any additional notes about this equipment..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Add Another Equipment Button -->
+                        <div class="add-equipment-container">
+                            <button type="button" class="btn-secondary add-equipment-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                                Add Another Equipment Item
+                            </button>
+                        </div>
+
+                        <!-- Equipment List -->
+                        <div class="equipment-list">
+                            <h3 class="form-subsection-title">Added Equipment</h3>
+                            <div class="equipment-list-empty" style="display: none;">
+                                <p>No equipment added yet. Use the form above to add equipment.</p>
+                            </div>
+                            <div class="equipment-list-items">
+                                <!-- This will be populated with JavaScript when equipment is added -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" id="prev-button" class="btn-secondary">Previous: Work Authorization</button>
+                        <div class="action-right">
+                            <button type="button" id="save-draft-button" class="btn-outline">Save Draft</button>
+                            <button type="button" id="next-button" class="btn-primary">Next: Temperature & Gasket</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Form Validation Library -->
+    <script src="src/js/form-validation.js"></script>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Sidebar toggle for smaller screens
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Load client data when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadClientData();
+            initEquipmentValidation();
+        });
+        
+        // Load data from previous steps
+        function loadClientData() {
+            try {
+                // Load previous data from our PM workflow validation library
+                const clientData = window.PMWorkflowValidation.loadPMFormData('client-identification');
+                const authData = window.PMWorkflowValidation.loadPMFormData('work-authorization');
+                
+                if (clientData) {
+                    // Update header with client data
+                    updateHeaderWithClientData(clientData);
+                }
+                
+                // Try to load existing equipment data
+                const equipmentData = window.PMWorkflowValidation.loadPMFormData('equipment-identification');
+                if (equipmentData && equipmentData.equipmentList) {
+                    equipmentList = equipmentData.equipmentList;
+                    equipmentCounter = equipmentData.equipmentCounter || equipmentList.length;
+                    
+                    // Update the display
+                    updateEquipmentListDisplay();
+                }
+            } catch (e) {
+                console.error('Error loading session data:', e);
+            }
+        }
+        
+        // Update header with client data
+        function updateHeaderWithClientData(data) {
+            const headerTitle = document.querySelector('.customer-details h1');
+            const headerAddress = document.querySelector('.customer-details p');
+            const headerDate = document.querySelector('.session-date');
+            const headerTechnician = document.querySelector('.technician');
+            
+            if (headerTitle && data.businessName) headerTitle.textContent = data.businessName;
+            if (headerAddress && data.serviceAddress) headerAddress.textContent = data.serviceAddress;
+            if (headerDate && data.visitDate) headerDate.textContent = formatDate(data.visitDate);
+            
+            // Get technician display name
+            if (headerTechnician && data.technicianName) {
+                let technicianDisplay = data.technicianName;
+                if (technicianDisplay.includes('-')) {
+                    technicianDisplay = technicianDisplay.split('-').map(word => 
+                        word.charAt(0).toUpperCase() + word.slice(1)
+                    ).join(' ');
+                }
+                headerTechnician.textContent = technicianDisplay;
+            }
+        }
+        
+        // Format date function
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Equipment entry management
+        let equipmentList = [];
+        let equipmentCounter = 0;
+
+        // Show/hide "Other" location field based on selection
+        const locationSelector = document.querySelector('#location');
+        const otherLocationGroup = document.querySelector('.other-location-group');
+        const otherLocationInput = document.querySelector('#other-location');
+
+        locationSelector.addEventListener('change', function() {
+            if (this.value === 'other') {
+                otherLocationGroup.style.display = 'block';
+                otherLocationInput.setAttribute('required', 'required');
+            } else {
+                otherLocationGroup.style.display = 'none';
+                otherLocationInput.removeAttribute('required');
+            }
+        });
+        
+        // Initialize form validation
+        let formHandler;
+        function initEquipmentValidation() {
+            // Define custom validators
+            const customValidators = {
+                // Require at least one equipment item added
+                'equipment-validation': (value, field) => {
+                    if (equipmentList.length === 0) {
+                        return 'At least one equipment item must be added';
+                    }
+                    return true;
+                }
+            };
+            
+            // Initialize validation with our PM workflow library
+            formHandler = window.PMWorkflowValidation.initPMForm(
+                '#equipment-identification-form',
+                'equipment-identification',
+                {
+                    autoSave: true,
+                    autoSaveInterval: 20000, // 20 seconds
+                    resumeForm: true,
+                    customValidators: customValidators,
+                    onSubmit: function(event, form, validationState) {
+                        if (validationState.formIsValid && equipmentList.length > 0) {
+                            saveFormDataAndNavigate();
+                        } else if (equipmentList.length === 0) {
+                            showNotification('Please add at least one equipment item', 'error');
+                        }
+                    }
+                }
+            );
+            
+            // Add hidden field for equipment validation
+            const hiddenEquipmentField = document.createElement('input');
+            hiddenEquipmentField.type = 'hidden';
+            hiddenEquipmentField.id = 'equipment-validation';
+            hiddenEquipmentField.name = 'equipment-validation';
+            hiddenEquipmentField.value = equipmentList.length > 0 ? 'valid' : '';
+            hiddenEquipmentField.required = true;
+            document.getElementById('equipment-identification-form').appendChild(hiddenEquipmentField);
+            
+            // Setup navigation buttons
+            document.getElementById('next-button').addEventListener('click', function() {
+                // Update hidden validation field
+                hiddenEquipmentField.value = equipmentList.length > 0 ? 'valid' : '';
+                
+                // Check if form is valid
+                const isValid = formHandler.validator.validateForm();
+                
+                if (isValid && equipmentList.length > 0) {
+                    saveFormDataAndNavigate();
+                } else if (equipmentList.length === 0) {
+                    showNotification('Please add at least one equipment item', 'error');
+                }
+            });
+            
+            document.getElementById('prev-button').addEventListener('click', function() {
+                // Save current form data before navigating
+                saveFormData();
+                window.location.href = 'pm-work-authorization.html';
+            });
+            
+            // Setup save draft button
+            document.getElementById('save-draft-button').addEventListener('click', function() {
+                saveFormData();
+                showNotification('Progress saved successfully!', 'success');
+            });
+        }
+
+        // Add equipment button functionality
+        const addEquipmentBtn = document.querySelector('.add-equipment-btn');
+        const equipmentListItems = document.querySelector('.equipment-list-items');
+        const equipmentListEmpty = document.querySelector('.equipment-list-empty');
+
+        function updateEquipmentListDisplay() {
+            if (equipmentList.length === 0) {
+                equipmentListEmpty.style.display = 'block';
+                equipmentListItems.innerHTML = '';
+            } else {
+                equipmentListEmpty.style.display = 'none';
+
+                // Build HTML for equipment list
+                let listHTML = '';
+                equipmentList.forEach((equipment, index) => {
+                    listHTML += `
+                        <div class="equipment-list-item">
+                            <div class="equipment-item-header">
+                                <h4>${equipment.type || 'Unnamed Equipment'}</h4>
+                                <div class="equipment-item-actions">
+                                    <button type="button" class="btn-icon edit-equipment" data-index="${index}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn-icon remove-equipment" data-index="${index}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="equipment-item-details">
+                                <p><strong>Manufacturer:</strong> ${equipment.manufacturer || 'Not specified'}</p>
+                                <p><strong>Model:</strong> ${equipment.model || 'Not specified'}</p>
+                                <p><strong>Location:</strong> ${equipment.location || 'Not specified'}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                equipmentListItems.innerHTML = listHTML;
+
+                // Add event listeners to new buttons
+                document.querySelectorAll('.edit-equipment').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        // Future functionality: Edit equipment entry
+                        alert('Edit functionality will be implemented in the next phase.');
+                    });
+                });
+
+                document.querySelectorAll('.remove-equipment').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        if (confirm('Are you sure you want to remove this equipment item?')) {
+                            equipmentList.splice(index, 1);
+                            updateEquipmentListDisplay();
+                        }
+                    });
+                });
+            }
+        }
+
+        // Initialize the list display
+        updateEquipmentListDisplay();
+
+        // Add equipment item
+        addEquipmentBtn.addEventListener('click', function() {
+            // Gather data from the form
+            const typeSelect = document.getElementById('equipment-type');
+            const manufacturerInput = document.getElementById('manufacturer');
+            const modelInput = document.getElementById('model-number');
+            const serialInput = document.getElementById('serial-number');
+            const locationSelect = document.getElementById('location');
+            const otherLocationInput = document.getElementById('other-location');
+            const notesTextarea = document.getElementById('equipment-notes');
+
+            // Validate the form fields
+            let isValid = true;
+            [typeSelect, manufacturerInput, modelInput, serialInput, locationSelect].forEach(field => {
+                if (field.required && !field.value) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    field.classList.remove('is-invalid');
+                    field.classList.add('is-valid');
+                }
+            });
+
+            // Check other location if it's visible and required
+            if (locationSelect.value === 'other' && !otherLocationInput.value) {
+                otherLocationInput.classList.add('is-invalid');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+
+            // Get values
+            const type = typeSelect.options[typeSelect.selectedIndex].text;
+            const manufacturer = manufacturerInput.value;
+            const model = modelInput.value;
+            const serial = serialInput.value;
+            let location = locationSelect.options[locationSelect.selectedIndex].text;
+            if (locationSelect.value === 'other') {
+                location = otherLocationInput.value;
+            }
+            const notes = notesTextarea.value;
+
+            // Add to equipment list
+            equipmentList.push({
+                id: 'equipment-' + (++equipmentCounter),
+                type: type,
+                manufacturer: manufacturer,
+                model: model,
+                serial: serial,
+                location: location,
+                notes: notes
+            });
+
+            // Update the list display
+            updateEquipmentListDisplay();
+
+            // Clear the form for next entry
+            typeSelect.selectedIndex = 0;
+            manufacturerInput.value = '';
+            modelInput.value = '';
+            serialInput.value = '';
+            locationSelect.selectedIndex = 0;
+            otherLocationInput.value = '';
+            notesTextarea.value = '';
+            otherLocationGroup.style.display = 'none';
+
+            // Update the hidden validation field
+            const hiddenEquipmentField = document.getElementById('equipment-validation');
+            if (hiddenEquipmentField) {
+                hiddenEquipmentField.value = 'valid';
+            }
+
+            // Remove validation classes
+            [typeSelect, manufacturerInput, modelInput, serialInput, locationSelect, otherLocationInput].forEach(field => {
+                field.classList.remove('is-valid', 'is-invalid');
+            });
+
+            // Save data
+            saveFormData();
+
+            // Show feedback
+            showNotification('Equipment added successfully!', 'success');
+        });
+        
+        // Save form data function
+        function saveFormData() {
+            // Save current form state and equipment list
+            const formData = {
+                equipmentList: equipmentList,
+                equipmentCounter: equipmentCounter
+            };
+            
+            // Save using our validation library
+            if (formHandler) {
+                formHandler.saveData(formData);
+            } else {
+                // Fallback to direct storage
+                window.PMWorkflowValidation.savePMFormData('equipment-identification', formData);
+            }
+            
+            return formData;
+        }
+        
+        // Save and navigate
+        function saveFormDataAndNavigate() {
+            saveFormData();
+            window.location.href = 'pm-temperature-gasket.html';
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        ${type === 'success' 
+                            ? '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
+                            : '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line>'}
+                    </svg>
+                    <span>${message}</span>
+                    <button class="close-notification">×</button>
+                </div>
+            `;
+            
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.padding = '12px 15px';
+            notification.style.backgroundColor = type === 'success' ? 'var(--success)' : 'var(--danger)';
+            notification.style.color = 'white';
+            notification.style.borderRadius = 'var(--radius-md)';
+            notification.style.boxShadow = 'var(--shadow-md)';
+            notification.style.zIndex = '9999';
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-20px)';
+            notification.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            
+            // Style the header
+            const header = notification.querySelector('.notification-header');
+            header.style.display = 'flex';
+            header.style.alignItems = 'center';
+            
+            // Style the icon
+            const icon = notification.querySelector('svg');
+            icon.style.marginRight = '8px';
+            
+            // Style the header text
+            const headerText = notification.querySelector('.notification-header span');
+            headerText.style.flex = '1';
+            headerText.style.fontWeight = 'bold';
+            
+            // Style the close button
+            const closeBtn = notification.querySelector('.close-notification');
+            closeBtn.style.background = 'none';
+            closeBtn.style.border = 'none';
+            closeBtn.style.color = 'white';
+            closeBtn.style.fontSize = '20px';
+            closeBtn.style.cursor = 'pointer';
+            closeBtn.style.padding = '0';
+            closeBtn.style.marginLeft = '8px';
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Add click handler to close button
+            closeBtn.addEventListener('click', function() {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            });
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS for equipment list items
+        const style = document.createElement('style');
+        style.textContent = `
+            .equipment-list-item {
+                background-color: var(--light-gray);
+                border-radius: var(--radius-md);
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-md);
+            }
+
+            .equipment-item-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .equipment-item-header h4 {
+                margin: 0;
+                font-weight: 600;
+            }
+
+            .equipment-item-actions {
+                display: flex;
+                gap: var(--spacing-xs);
+            }
+
+            .btn-icon {
+                background: none;
+                border: none;
+                color: var(--darker-gray);
+                cursor: pointer;
+                padding: var(--spacing-xs);
+                border-radius: var(--radius-sm);
+                transition: all var(--transition-fast) ease;
+            }
+
+            .btn-icon:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+                color: var(--primary);
+            }
+
+            .equipment-item-details {
+                font-size: 0.875rem;
+            }
+
+            .equipment-item-details p {
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .add-equipment-container {
+                display: flex;
+                justify-content: center;
+                margin: var(--spacing-lg) 0;
+            }
+
+            .add-equipment-btn {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-sm);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="../src/js/bridge-building-implementation.js"></script>
+</body>
+</html>

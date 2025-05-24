@@ -1,0 +1,207 @@
+/* Premium 3D Effects */
+:root {
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --card-shadow-active: 0 15px 30px rgba(0, 0, 0, 0.15);
+  --card-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --card-transition-fast: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base 3D card styles */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  transition: var(--card-transition);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.card-3d:hover {
+  z-index: 2;
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  transition: var(--card-transition-fast);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-3d:hover .card-shine {
+  opacity: 1;
+}
+
+/* Service cards 3D effect */
+.service-list li.card-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.service-list li.card-3d:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.service-list li.card-3d .service-icon,
+.service-list li.card-3d h3 {
+  transform: translateZ(20px);
+}
+
+.service-list li.card-3d p {
+  transform: translateZ(10px);
+}
+
+/* Process steps 3D effect */
+.process-step.card-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.process-step.card-3d:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.process-step.card-3d .step-number {
+  transform: translateZ(30px);
+  box-shadow: 0 10px 20px rgba(250, 204, 21, 0.3);
+}
+
+.process-step.card-3d h3 {
+  transform: translateZ(20px);
+}
+
+.process-step.card-3d p {
+  transform: translateZ(10px);
+}
+
+/* Terms cards 3D effect */
+.terms-card.card-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.terms-card.card-3d:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.terms-card.card-3d h3 {
+  transform: translateZ(20px);
+}
+
+.terms-card.card-3d p {
+  transform: translateZ(10px);
+}
+
+/* Testimonial 3D effect */
+.testimonial-content {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: perspective(1000px);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+}
+
+.testimonial-content:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.testimonial-text {
+  transform: translateZ(15px);
+}
+
+.testimonial-author {
+  transform: translateZ(10px);
+}
+
+/* Quote cards 3D hover effect */
+.quote-card {
+  transform: translateZ(0);
+  transition: var(--card-transition);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.quote-card::before {
+  content: """;
+  position: absolute;
+  top: -30px;
+  left: -10px;
+  font-size: 150px;
+  color: var(--accent);
+  opacity: 0.1;
+  transition: transform 0.5s ease;
+}
+
+.quote-card:hover::before {
+  transform: translateY(5px) rotate(-5deg);
+}
+
+/* Stats 3D hover effect */
+.stat-item {
+  transition: var(--card-transition);
+  transform: translateZ(0);
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+}
+
+.stat-item:hover .stat-number {
+  text-shadow: 0 10px 20px rgba(250, 204, 21, 0.4);
+}
+
+/* Helper class for 3D transform */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+/* Floating animation for selected elements */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minor Repairs Section | Rapid Pro Maintenance</title>
+    <meta name="description" content="Preventative maintenance minor repairs form">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-main.css">
+    <link rel="stylesheet" href="styles/pm-session.css">
+    <meta name="theme-color" content="#1f2937">
+    <link rel="stylesheet" href="src/css/bridge-building.css">
+</head>
+<body class="bridge-building-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Rapid Pro Maintenance" class="sidebar-logo">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="pm-sessions.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Bridge Building Visits
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customers.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="settings.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="index.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="page-title">Minor Repairs Section</div>
+                <div class="top-nav-actions">
+                    <button class="save-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Save Progress
+                    </button>
+                </div>
+            </header>
+
+            <!-- Bridge Building Visit Content -->
+            <div class="pm-session-content">
+                <!-- Session Header -->
+                <div class="session-header">
+                    <div class="customer-details">
+                        <h1>TJ's Bar & Grill</h1>
+                        <p>789 Downtown Blvd, Memphis, TN</p>
+                        <div class="session-meta">
+                            <span class="session-date">May 10, 2025</span>
+                            <span class="separator">•</span>
+                            <span class="technician">John Smith</span>
+                        </div>
+                    </div>
+                    <div class="session-status">
+                        <div class="status-badge in-progress">In Progress</div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="progress-tracker">
+                    <div class="progress-steps">
+                        <div class="progress-step completed">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Client Identification</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Work Authorization</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Equipment Identification</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Temperature & Gasket</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">5</div>
+                            <div class="step-label">Sink & Plumbing</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">6</div>
+                            <div class="step-label">Coil Cleaning</div>
+                        </div>
+                        <div class="progress-step completed">
+                            <div class="step-number">7</div>
+                            <div class="step-label">Gas Equipment</div>
+                        </div>
+                        <div class="progress-step active">
+                            <div class="step-number">8</div>
+                            <div class="step-label">Minor Repairs</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">9</div>
+                            <div class="step-label">Rooftop Maintenance</div>
+                        </div>
+                        <div class="progress-step">
+                            <div class="step-number">10</div>
+                            <div class="step-label">Final Report</div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <!-- Inspection Form -->
+                <form class="inspection-form">
+                    <div class="form-section">
+                        <h2 class="form-section-title">Minor Repairs Section</h2>
+                        <p class="form-section-description">Document minor repairs performed during the maintenance visit.</p>
+                        
+                        <!-- Repairs Checklist -->
+                        <div class="repairs-section">
+                            <h3 class="form-subsection-title">Minor Repairs Performed</h3>
+                            
+                            <div class="repair-checklist">
+                                <!-- Washer Replacements -->
+                                <div class="form-group">
+                                    <label class="form-label">Washers Replaced?</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="washers-replaced" class="toggle-input">
+                                        <label for="washers-replaced" class="toggle-label">
+                                            <span class="toggle-inner"></span>
+                                            <span class="toggle-switch-label">No</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Conditional field that appears when washer-replaced is checked -->
+                                    <div id="washers-details" class="conditional-field" style="display: none;">
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Quantity Replaced</label>
+                                            <input type="number" class="form-control small" id="washers-quantity" min="1" value="1">
+                                        </div>
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="washers-location" placeholder="e.g. Mop sink, Prep sink">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Faucet Tightening -->
+                                <div class="form-group">
+                                    <label class="form-label">Faucet Tightened?</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="faucet-tightened" class="toggle-input">
+                                        <label for="faucet-tightened" class="toggle-label">
+                                            <span class="toggle-inner"></span>
+                                            <span class="toggle-switch-label">No</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Conditional field that appears when faucet-tightened is checked -->
+                                    <div id="faucet-details" class="conditional-field" style="display: none;">
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="faucet-location" placeholder="e.g. Mop sink, 3-compartment sink">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Drips Resolved -->
+                                <div class="form-group">
+                                    <label class="form-label">Drips Resolved?</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="drips-resolved" class="toggle-input">
+                                        <label for="drips-resolved" class="toggle-label">
+                                            <span class="toggle-inner"></span>
+                                            <span class="toggle-switch-label">No</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Conditional field that appears when drips-resolved is checked -->
+                                    <div id="drips-details" class="conditional-field" style="display: none;">
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="drips-location" placeholder="e.g. Hand sink, Prep sink">
+                                        </div>
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Method</label>
+                                            <select class="form-control" id="drips-method">
+                                                <option value="">Select method</option>
+                                                <option value="washer">Washer Replacement</option>
+                                                <option value="tightening">Tightening</option>
+                                                <option value="valve">Valve Adjustment</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Other Repairs -->
+                                <div class="form-group">
+                                    <label class="form-label">Other Minor Repairs</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="other-repairs" class="toggle-input">
+                                        <label for="other-repairs" class="toggle-label">
+                                            <span class="toggle-inner"></span>
+                                            <span class="toggle-switch-label">No</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <!-- Conditional field that appears when other-repairs is checked -->
+                                    <div id="other-repairs-details" class="conditional-field" style="display: none;">
+                                        <div class="form-control-wrapper">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control textarea" id="other-repairs-description" rows="3" placeholder="Describe the repairs performed..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Value-Add Work Notes -->
+                            <div class="form-group">
+                                <label class="form-label">Notes on Value-Add Work</label>
+                                <textarea class="form-control textarea" id="value-add-notes" rows="3" placeholder="Enter any additional notes on value-add work performed..."></textarea>
+                                <div class="form-help">Include any extra work that adds value for the customer or prevents future issues.</div>
+                            </div>
+                            
+                            <!-- Photo Upload -->
+                            <div class="form-group">
+                                <label class="form-label">Photos of Repairs (Optional)</label>
+                                <div class="photo-upload-multiple">
+                                    <div class="photo-preview-list" id="repair-photos">
+                                        <div class="photo-preview">
+                                            <span class="photo-placeholder">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                                </svg>
+                                                <span>Before</span>
+                                            </span>
+                                        </div>
+                                        <div class="photo-preview">
+                                            <span class="photo-placeholder">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                                </svg>
+                                                <span>After</span>
+                                            </span>
+                                        </div>
+                                        <div class="photo-add">
+                                            <button type="button" class="btn-add-photo">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="photo-upload-actions">
+                                        <button type="button" class="btn-outline btn-camera">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                                <circle cx="12" cy="13" r="4"></circle>
+                                            </svg>
+                                            Take Photo
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Future Recommendations -->
+                        <div class="recommendation-section">
+                            <h3 class="form-subsection-title">Repair Recommendations</h3>
+                            <p class="section-info">Document any issues that require future repairs beyond the scope of preventative maintenance.</p>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Are there items that need repair in the future?</label>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="future-repairs-needed" class="toggle-input">
+                                    <label for="future-repairs-needed" class="toggle-label">
+                                        <span class="toggle-inner"></span>
+                                        <span class="toggle-switch-label">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Future Repair Recommendations -->
+                            <div id="future-repairs-section" class="conditional-section" style="display: none;">
+                                <div class="form-group">
+                                    <label class="form-label">Repair Recommendations</label>
+                                    <textarea class="form-control textarea" id="repair-recommendations" rows="4" placeholder="Describe recommended repairs in detail..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Priority Level</label>
+                                    <div class="radio-group">
+                                        <label class="radio-option">
+                                            <input type="radio" name="repair-priority" value="critical">
+                                            <span class="radio-label">Critical (Immediate attention needed)</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="repair-priority" value="high">
+                                            <span class="radio-label">High (Within 1-2 weeks)</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="repair-priority" value="medium">
+                                            <span class="radio-label">Medium (Within a month)</span>
+                                        </label>
+                                        <label class="radio-option">
+                                            <input type="radio" name="repair-priority" value="low">
+                                            <span class="radio-label">Low (Next scheduled service)</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <!-- Photo Upload for Recommendations -->
+                                <div class="form-group">
+                                    <label class="form-label">Photos of Issues Requiring Repair</label>
+                                    <div class="photo-upload">
+                                        <div class="photo-preview">
+                                            <span class="photo-placeholder">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                                </svg>
+                                                <span>Add Photo</span>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn-outline btn-camera">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                                <circle cx="12" cy="13" r="4"></circle>
+                                            </svg>
+                                            Take Photo
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Repair Work Confirmation -->
+                        <div class="form-group service-confirmation">
+                            <p class="service-note">Please confirm that you have documented all minor repairs performed:</p>
+                            <label class="checkbox-option">
+                                <input type="checkbox" id="repairs-confirmed">
+                                <span class="checkbox-label">I confirm that I have documented all repairs performed during this maintenance visit.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="window.location.href='pm-gas-equipment.html'">Previous: Gas Equipment</button>
+                        <div class="action-right">
+                            <button type="button" class="btn-outline">Save Draft</button>
+                            <button type="button" id="next-btn" class="btn-primary" disabled>Next: Rooftop Maintenance</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Custom styles -->
+    <style>
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .toggle-input {
+            display: none;
+        }
+        
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .toggle-inner {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            background-color: var(--gray);
+            border-radius: 12px;
+            transition: all var(--transition-normal) ease;
+            margin-right: 10px;
+        }
+        
+        .toggle-inner:before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            transition: all var(--transition-normal) ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-inner {
+            background-color: var(--success);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-inner:before {
+            transform: translateX(26px);
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-switch-label {
+            content: "Yes";
+        }
+        
+        .toggle-input:checked + .toggle-label .toggle-switch-label:after {
+            content: "Yes";
+        }
+        
+        .repairs-section, .recommendation-section {
+            background-color: var(--light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .repairs-section {
+            border-left: 3px solid var(--info);
+        }
+        
+        .recommendation-section {
+            border-left: 3px solid var(--accent);
+        }
+        
+        .section-info {
+            font-size: 0.875rem;
+            color: var(--darker-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .repair-checklist {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .conditional-field, .conditional-section {
+            margin-top: var(--spacing-sm);
+            padding-left: var(--spacing-xl);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .form-control-wrapper {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-control.small {
+            width: 80px;
+        }
+        
+        .photo-upload-actions {
+            margin-top: var(--spacing-sm);
+        }
+        
+        .service-confirmation {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border-left: 3px solid var(--accent);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .service-note {
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        @media (max-width: 768px) {
+            .form-control.small {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Sidebar toggle for smaller screens
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Toggle switch functionality for all toggle switches
+        document.querySelectorAll('.toggle-input').forEach(toggle => {
+            const toggleLabel = toggle.nextElementSibling.querySelector('.toggle-switch-label');
+            
+            toggle.addEventListener('change', function() {
+                toggleLabel.textContent = this.checked ? 'Yes' : 'No';
+                
+                // Handle conditional fields visibility
+                const toggleId = this.id;
+                const conditionalFieldId = toggleId + '-details';
+                const conditionalField = document.getElementById(conditionalFieldId);
+                
+                if (conditionalField) {
+                    conditionalField.style.display = this.checked ? 'block' : 'none';
+                }
+                
+                // Special case for future repairs section
+                if (toggleId === 'future-repairs-needed') {
+                    const futureRepairsSection = document.getElementById('future-repairs-section');
+                    if (futureRepairsSection) {
+                        futureRepairsSection.style.display = this.checked ? 'block' : 'none';
+                    }
+                }
+                
+                // Validate form after any toggle changes
+                validateForm();
+            });
+        });
+        
+        // Form validation for required fields
+        const repairsConfirmed = document.getElementById('repairs-confirmed');
+        const nextButton = document.getElementById('next-btn');
+        
+        // Function to check if we can enable the Next button
+        function validateForm() {
+            // Get all repair toggles
+            const washersReplaced = document.getElementById('washers-replaced').checked;
+            const faucetTightened = document.getElementById('faucet-tightened').checked;
+            const dripsResolved = document.getElementById('drips-resolved').checked;
+            const otherRepairs = document.getElementById('other-repairs').checked;
+            
+            // Check if any repair was performed or if confirmation checkbox is checked
+            const anyRepairPerformed = washersReplaced || faucetTightened || dripsResolved || otherRepairs;
+            
+            if (repairsConfirmed.checked) {
+                nextButton.disabled = false;
+            } else {
+                nextButton.disabled = true;
+            }
+            
+            // Validate detail fields if toggles are checked
+            if (washersReplaced) {
+                const location = document.getElementById('washers-location').value;
+                if (!location) {
+                    document.getElementById('washers-location').classList.add('invalid');
+                } else {
+                    document.getElementById('washers-location').classList.remove('invalid');
+                }
+            }
+            
+            if (faucetTightened) {
+                const location = document.getElementById('faucet-location').value;
+                if (!location) {
+                    document.getElementById('faucet-location').classList.add('invalid');
+                } else {
+                    document.getElementById('faucet-location').classList.remove('invalid');
+                }
+            }
+            
+            if (dripsResolved) {
+                const location = document.getElementById('drips-location').value;
+                const method = document.getElementById('drips-method').value;
+                if (!location) {
+                    document.getElementById('drips-location').classList.add('invalid');
+                } else {
+                    document.getElementById('drips-location').classList.remove('invalid');
+                }
+                if (!method) {
+                    document.getElementById('drips-method').classList.add('invalid');
+                } else {
+                    document.getElementById('drips-method').classList.remove('invalid');
+                }
+            }
+            
+            if (otherRepairs) {
+                const description = document.getElementById('other-repairs-description').value;
+                if (!description) {
+                    document.getElementById('other-repairs-description').classList.add('invalid');
+                } else {
+                    document.getElementById('other-repairs-description').classList.remove('invalid');
+                }
+            }
+            
+            // Validate future repairs section if checked
+            const futureRepairsNeeded = document.getElementById('future-repairs-needed').checked;
+            if (futureRepairsNeeded) {
+                const recommendations = document.getElementById('repair-recommendations').value;
+                const priority = document.querySelector('input[name="repair-priority"]:checked');
+                
+                if (!recommendations) {
+                    document.getElementById('repair-recommendations').classList.add('invalid');
+                } else {
+                    document.getElementById('repair-recommendations').classList.remove('invalid');
+                }
+                
+                if (!priority) {
+                    document.querySelector('.radio-group').classList.add('invalid-group');
+                } else {
+                    document.querySelector('.radio-group').classList.remove('invalid-group');
+                }
+            }
+        }
+        
+        // Add validation listeners
+        repairsConfirmed.addEventListener('change', validateForm);
+        
+        // Add validation to conditionally displayed fields
+        document.getElementById('washers-location').addEventListener('input', validateForm);
+        document.getElementById('faucet-location').addEventListener('input', validateForm);
+        document.getElementById('drips-location').addEventListener('input', validateForm);
+        document.getElementById('drips-method').addEventListener('change', validateForm);
+        document.getElementById('other-repairs-description').addEventListener('input', validateForm);
+        document.getElementById('repair-recommendations').addEventListener('input', validateForm);
+        
+        // Add validation for radio buttons
+        document.querySelectorAll('input[name="repair-priority"]').forEach(radio => {
+            radio.addEventListener('change', validateForm);
+        });
+        
+        // Next button click handler
+        nextButton.addEventListener('click', function() {
+            // Save form data and navigate to next page
+            saveFormData();
+            window.location.href = 'pm-rooftop-maintenance.html';
+        });
+        
+        // Save form data function (would connect to backend in production)
+        function saveFormData() {
+            const formData = {
+                repairsPerformed: {
+                    washersReplaced: {
+                        performed: document.getElementById('washers-replaced').checked,
+                        quantity: document.getElementById('washers-quantity').value,
+                        location: document.getElementById('washers-location').value
+                    },
+                    faucetTightened: {
+                        performed: document.getElementById('faucet-tightened').checked,
+                        location: document.getElementById('faucet-location').value
+                    },
+                    dripsResolved: {
+                        performed: document.getElementById('drips-resolved').checked,
+                        location: document.getElementById('drips-location').value,
+                        method: document.getElementById('drips-method').value
+                    },
+                    otherRepairs: {
+                        performed: document.getElementById('other-repairs').checked,
+                        description: document.getElementById('other-repairs-description').value
+                    }
+                },
+                valueAddNotes: document.getElementById('value-add-notes').value,
+                futureRepairs: {
+                    needed: document.getElementById('future-repairs-needed').checked,
+                    recommendations: document.getElementById('repair-recommendations').value,
+                    priority: document.querySelector('input[name="repair-priority"]:checked')?.value || ''
+                },
+                confirmed: repairsConfirmed.checked,
+                timestamp: new Date().toISOString()
+            };
+            
+            // In a real implementation, this would be saved to a database or localStorage
+            console.log('Saving minor repairs data:', formData);
+            
+            // For demo purposes, save to sessionStorage
+            sessionStorage.setItem('minorRepairsData', JSON.stringify(formData));
+        }
+        
+        // Load any previously saved data (for demo purposes)
+        function loadSavedData() {
+            const savedData = sessionStorage.getItem('minorRepairsData');
+            if (savedData) {
+                try {
+                    const formData = JSON.parse(savedData);
+                    
+                    // Populate form with saved data
+                    if (formData.repairsPerformed) {
+                        const repairs = formData.repairsPerformed;
+                        
+                        // Washers replaced
+                        if (repairs.washersReplaced) {
+                            document.getElementById('washers-replaced').checked = repairs.washersReplaced.performed || false;
+                            document.getElementById('washers-quantity').value = repairs.washersReplaced.quantity || 1;
+                            document.getElementById('washers-location').value = repairs.washersReplaced.location || '';
+                            document.getElementById('washers-details').style.display = repairs.washersReplaced.performed ? 'block' : 'none';
+                        }
+                        
+                        // Faucet tightened
+                        if (repairs.faucetTightened) {
+                            document.getElementById('faucet-tightened').checked = repairs.faucetTightened.performed || false;
+                            document.getElementById('faucet-location').value = repairs.faucetTightened.location || '';
+                            document.getElementById('faucet-details').style.display = repairs.faucetTightened.performed ? 'block' : 'none';
+                        }
+                        
+                        // Drips resolved
+                        if (repairs.dripsResolved) {
+                            document.getElementById('drips-resolved').checked = repairs.dripsResolved.performed || false;
+                            document.getElementById('drips-location').value = repairs.dripsResolved.location || '';
+                            document.getElementById('drips-method').value = repairs.dripsResolved.method || '';
+                            document.getElementById('drips-details').style.display = repairs.dripsResolved.performed ? 'block' : 'none';
+                        }
+                        
+                        // Other repairs
+                        if (repairs.otherRepairs) {
+                            document.getElementById('other-repairs').checked = repairs.otherRepairs.performed || false;
+                            document.getElementById('other-repairs-description').value = repairs.otherRepairs.description || '';
+                            document.getElementById('other-repairs-details').style.display = repairs.otherRepairs.performed ? 'block' : 'none';
+                        }
+                    }
+                    
+                    // Value-add notes
+                    document.getElementById('value-add-notes').value = formData.valueAddNotes || '';
+                    
+                    // Future repairs
+                    if (formData.futureRepairs) {
+                        const futureRepairs = formData.futureRepairs;
+                        document.getElementById('future-repairs-needed').checked = futureRepairs.needed || false;
+                        document.getElementById('repair-recommendations').value = futureRepairs.recommendations || '';
+                        document.getElementById('future-repairs-section').style.display = futureRepairs.needed ? 'block' : 'none';
+                        
+                        if (futureRepairs.priority) {
+                            const priorityRadio = document.querySelector(`input[name="repair-priority"][value="${futureRepairs.priority}"]`);
+                            if (priorityRadio) priorityRadio.checked = true;
+                        }
+                    }
+                    
+                    // Update all toggle labels
+                    document.querySelectorAll('.toggle-input').forEach(toggle => {
+                        const toggleLabel = toggle.nextElementSibling.querySelector('.toggle-switch-label');
+                        toggleLabel.textContent = toggle.checked ? 'Yes' : 'No';
+                    });
+                    
+                    // Set confirmation checkbox
+                    repairsConfirmed.checked = formData.confirmed || false;
+                    
+                    // Validate form after loading
+                    validateForm();
+                } catch (err) {
+                    console.error('Error loading saved minor repairs data:', err);
+                }
+            }
+        }
+        
+        // Initialize the form
+        loadSavedData();
+    </script>
+    <script src="../src/js/bridge-building-implementation.js"></script>
+</body>
+</html>

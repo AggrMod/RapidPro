@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 
+
 # IDE/Editor Files
 .vscode/
 .idea/
@@ -45,6 +46,3 @@ yarn-error.log*
 
 # Compiled files
 *.min.js
-*.min.css
-
-*:Zone.Identifier
