@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     "@type": "LocalBusiness",
     "name": "Rapid Pro Maintenance",
     "description": "Reliable preventative maintenance for commercial kitchen equipment in Memphis, TN and surrounding areas.",
-    "image": "https://rapidpromaintenance.com/images/logo.png",
-    "url": "https://rapidpromaintenance.com",
-    "telephone": "+19015551234",
-    "email": "info@rapidpromaintenance.com",
+    "image": "https://rapidpromemphis.com/images/logo.png",
+    "url": "https://rapidpromemphis.com",
+    "telephone": "+19016564148",
+    "email": "R22subcooling@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Memphis",
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ],
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://rapidpromaintenance.com"
+      "@id": "https://rapidpromemphis.com"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
