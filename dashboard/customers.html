@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers | Rapid Pro Maintenance</title>
+    <meta name="description" content="Customer management for technicians">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-main.css">
+    <meta name="theme-color" content="#1f2937">
+    <link rel="stylesheet" href="src/css/bridge-building.css">
+</head>
+<body class="bridge-building-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="Rapid Pro Maintenance" class="sidebar-logo">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pm-sessions.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Bridge Building Visits
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="customers.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="settings.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="index.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="page-title">Customers</div>
+                <div class="top-nav-actions">
+                    <button class="btn-primary" id="add-customer-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                        Add New Customer
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Filter and Search Section -->
+                <div class="filter-section">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search customers..." class="search-input">
+                        <button class="search-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-controls">
+                        <select class="filter-select">
+                            <option value="all-categories">All Categories</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="bar">Bar & Grill</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="catering">Catering</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="all-areas">All Areas</option>
+                            <option value="downtown">Downtown</option>
+                            <option value="midtown">Midtown</option>
+                            <option value="germantown">Germantown</option>
+                            <option value="collierville">Collierville</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Customer Cards -->
+                <div class="customer-grid">
+                    <!-- TJ's Bar & Grill -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                TJ
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">TJ's Bar & Grill</h3>
+                            <p class="customer-address">789 Downtown Blvd, Memphis, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">Thomas Johnson</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-1234</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">info@tjsbarandgrill.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">May 10, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Memphis Grill -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                MG
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">Memphis Grill</h3>
+                            <p class="customer-address">123 Main St, Downtown Memphis, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">James Davis</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-5678</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">chef@memphisgrill.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">May 10, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Riverside Catering -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                RC
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">Riverside Catering</h3>
+                            <p class="customer-address">456 River Drive, Memphis, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">Sarah Knight</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-9012</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">ops@riversidecatering.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">May 10, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Southside Diner -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                SD
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">Southside Diner</h3>
+                            <p class="customer-address">321 South Avenue, Germantown, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">Robert Williams</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-3456</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">manager@southsidediner.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">April 25, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Grand Hotel Memphis -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                GH
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">Grand Hotel Memphis</h3>
+                            <p class="customer-address">555 Grand Avenue, Downtown Memphis, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">Michael Rodriguez</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-7890</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">fnb@grandhotelmemphis.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">May 8, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Blues & BBQ -->
+                    <div class="customer-card">
+                        <div class="customer-card-header">
+                            <div class="customer-icon">
+                                BB
+                            </div>
+                            <div class="customer-actions">
+                                <button class="btn-icon" title="View Details">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                </button>
+                                <button class="btn-icon" title="Edit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="customer-card-body">
+                            <h3 class="customer-name">Blues & BBQ</h3>
+                            <p class="customer-address">555 Blues Alley, Downtown Memphis, TN</p>
+                            <div class="customer-details">
+                                <div class="customer-detail">
+                                    <span class="detail-label">Contact:</span>
+                                    <span class="detail-value">David Anderson</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">(901) 555-2468</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">manager@bluesandbbq.com</span>
+                                </div>
+                                <div class="customer-detail">
+                                    <span class="detail-label">Last PM:</span>
+                                    <span class="detail-value">May 9, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-card-footer">
+                            <a href="pm-session.html" class="btn-primary btn-sm">Start Bridge Building Visit</a>
+                            <button class="btn-outline btn-sm">View History</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="pagination-pages">
+                        <span class="pagination-current">1</span>
+                        <span class="pagination-separator">of</span>
+                        <span class="pagination-total">1</span>
+                    </div>
+                    <button class="pagination-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div class="modal" id="add-customer-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Customer</h2>
+                <button class="modal-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Business Name<span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter business name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-control">
+                            <option value="">Select category</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="bar">Bar & Grill</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="catering">Catering</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Main Phone<span class="required">*</span></label>
+                        <input type="tel" class="form-control" placeholder="(901) 555-0000" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address<span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Street address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" placeholder="City" value="Memphis">
+                    </div>
+                    <div class="form-group form-group-small">
+                        <label class="form-label">State</label>
+                        <input type="text" class="form-control" placeholder="State" value="TN">
+                    </div>
+                    <div class="form-group form-group-small">
+                        <label class="form-label">ZIP</label>
+                        <input type="text" class="form-control" placeholder="ZIP code">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Primary Contact Name<span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Contact name" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Contact Email</label>
+                        <input type="email" class="form-control" placeholder="Email address">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Phone</label>
+                        <input type="tel" class="form-control" placeholder="Contact phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-control textarea" rows="3" placeholder="Enter any additional notes about this customer..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline modal-cancel">Cancel</button>
+                <button class="btn-primary" id="save-customer">Save Customer</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Customer Grid Styles */
+        .customer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .customer-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .customer-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .customer-card-header {
+            padding: var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .customer-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .customer-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+        
+        .customer-card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+        }
+        
+        .customer-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary);
+        }
+        
+        .customer-address {
+            font-size: 0.875rem;
+            color: var(--darker-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .customer-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm) var(--spacing-md);
+        }
+        
+        .customer-detail {
+            font-size: 0.875rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            color: var(--darker-gray);
+            margin-bottom: 2px;
+            font-size: 0.75rem;
+        }
+        
+        .detail-value {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .customer-card-footer {
+            padding: var(--spacing-md);
+            border-top: 1px solid var(--gray);
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-sm);
+        }
+        
+        .btn-sm {
+            padding: var(--spacing-xs) var(--spacing-md);
+            font-size: 0.875rem;
+            flex: 1;
+            text-align: center;
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 300px;
+            width: 100%;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            padding-right: 40px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: none;
+            border: none;
+            padding: 0 var(--spacing-md);
+            color: var(--darker-gray);
+            cursor: pointer;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .filter-select {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--darker-gray);
+            background-color: var(--white);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+        
+        .pagination-btn {
+            background: none;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            color: var(--darker-gray);
+            cursor: pointer;
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .pagination-btn:not(:disabled):hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination-pages {
+            font-size: 0.9rem;
+            color: var(--darker-gray);
+        }
+        
+        .pagination-current {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: var(--spacing-md);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-header {
+            padding: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--darker-gray);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+        }
+        
+        .modal-body {
+            padding: var(--spacing-lg);
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .modal-footer {
+            padding: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--gray);
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--spacing-md);
+        }
+        
+        /* Form elements */
+        .form-row {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+        }
+        
+        .form-group-small {
+            flex: 0.5;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--darker-gray);
+        }
+        
+        .required {
+            color: var(--danger);
+            margin-left: 2px;
+        }
+        
+        .btn-icon {
+            background: none;
+            border: none;
+            color: var(--darker-gray);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .customer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .customer-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Sidebar toggle for smaller screens
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Modal functionality
+        const modal = document.getElementById('add-customer-modal');
+        const addCustomerBtn = document.getElementById('add-customer-btn');
+        const modalClose = document.querySelector('.modal-close');
+        const modalCancel = document.querySelector('.modal-cancel');
+        const saveCustomer = document.getElementById('save-customer');
+        
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        addCustomerBtn.addEventListener('click', openModal);
+        modalClose.addEventListener('click', closeModal);
+        modalCancel.addEventListener('click', closeModal);
+        
+        // Save customer button
+        saveCustomer.addEventListener('click', function() {
+            // In a real app, this would save the customer data
+            // For now, we'll just close the modal
+            alert('Customer saved successfully!');
+            closeModal();
+        });
+        
+        // Search and filter functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            // In a real app, this would filter the customers
+            console.log('Searching for:', this.value);
+        });
+        
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', function() {
+                // In a real app, this would filter the customers
+                console.log('Filter changed:', this.value);
+            });
+        });
+    </script>
+    <script src="../src/js/bridge-building-implementation.js"></script>
+</body>
+</html>

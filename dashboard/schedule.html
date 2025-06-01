@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - RapidPro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1F2937;
+            --dark-lighter: #374151;
+            --text: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --bg-card: #111827;
+            --bg-body: #030712;
+            --border: #1F2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-body);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 280px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 16px 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--text);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .user-menu:hover {
+            background: var(--dark-lighter);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--success));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Schedule Content */
+        .schedule-container {
+            padding: 32px;
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .view-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .view-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .add-btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .add-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Calendar Navigation */
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 24px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--dark-lighter);
+            border-color: var(--primary);
+        }
+
+        .current-date {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Calendar Grid */
+        .calendar-grid {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .day-header {
+            padding: 16px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .calendar-body {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-day {
+            min-height: 120px;
+            padding: 12px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-card);
+            position: relative;
+        }
+
+        .calendar-day:nth-child(7n) {
+            border-right: none;
+        }
+
+        .calendar-day.other-month {
+            background: var(--dark);
+            opacity: 0.5;
+        }
+
+        .calendar-day.today {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .day-number {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .calendar-day.today .day-number {
+            color: var(--primary);
+        }
+
+        .event {
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .event:hover {
+            transform: translateX(2px);
+        }
+
+        .event.pm-session {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border-left: 3px solid var(--success);
+        }
+
+        .event.repair {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border-left: 3px solid var(--warning);
+        }
+
+        .event.emergency {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            border-left: 3px solid var(--danger);
+        }
+
+        /* List View */
+        .schedule-list {
+            display: none;
+        }
+
+        .schedule-list.active {
+            display: block;
+        }
+
+        .day-group {
+            margin-bottom: 24px;
+        }
+
+        .day-header-list {
+            background: var(--dark);
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .appointment-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+            display: flex;
+            gap: 20px;
+        }
+
+        .appointment-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .time-slot {
+            flex-shrink: 0;
+            text-align: center;
+            padding: 12px;
+            background: var(--dark);
+            border-radius: 8px;
+            min-width: 80px;
+        }
+
+        .time-start {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .time-duration {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .appointment-details {
+            flex: 1;
+        }
+
+        .appointment-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .appointment-location {
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .appointment-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .type-pm {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .type-repair {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .type-emergency {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .appointment-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--dark-lighter);
+            border-color: var(--primary);
+        }
+
+        .action-btn.primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .action-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu-btn {
+            display: none;
+            padding: 10px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .schedule-container {
+                padding: 16px;
+            }
+
+            .page-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .calendar-grid {
+                overflow-x: auto;
+            }
+
+            .calendar-header,
+            .calendar-body {
+                min-width: 600px;
+            }
+
+            .appointment-card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>RapidPro</span>
+            </div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Dashboard
+            </a>
+            <a href="pm-sessions.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                </svg>
+                PM Sessions
+            </a>
+            <a href="customers.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                Customers
+            </a>
+            <a href="reports.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Reports
+            </a>
+            <a href="schedule.html" class="nav-item active">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                Schedule
+            </a>
+            <a href="index.html" class="nav-item" onclick="logout()">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Logout
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-menu">
+                    <div class="user-avatar">T</div>
+                    <div>
+                        <div style="font-size: 14px; font-weight: 600;">Terry</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">Operator #001</div>
+                    </div>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- Schedule Content -->
+        <div class="schedule-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Schedule</h1>
+                <div class="header-actions">
+                    <div class="view-toggle">
+                        <button class="view-btn active" onclick="toggleView('calendar')">Calendar</button>
+                        <button class="view-btn" onclick="toggleView('list')">List</button>
+                    </div>
+                    <button class="add-btn">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        Add Appointment
+                    </button>
+                </div>
+            </div>
+
+            <!-- Calendar Navigation -->
+            <div class="calendar-nav">
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="previousMonth()">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="nav-btn" onclick="currentMonth()">Today</button>
+                    <button class="nav-btn" onclick="nextMonth()">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="current-date" id="currentDate">May 2025</div>
+                <div></div>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="calendar-view active" id="calendarView">
+                <div class="calendar-grid">
+                    <div class="calendar-header">
+                        <div class="day-header">Sun</div>
+                        <div class="day-header">Mon</div>
+                        <div class="day-header">Tue</div>
+                        <div class="day-header">Wed</div>
+                        <div class="day-header">Thu</div>
+                        <div class="day-header">Fri</div>
+                        <div class="day-header">Sat</div>
+                    </div>
+                    <div class="calendar-body" id="calendarBody">
+                        <!-- Calendar days will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- List View -->
+            <div class="schedule-list" id="listView">
+                <div class="day-group">
+                    <div class="day-header-list">Today - Saturday, May 31, 2025</div>
+                    
+                    <div class="appointment-card">
+                        <div class="time-slot">
+                            <div class="time-start">8:00 AM</div>
+                            <div class="time-duration">1.5 hrs</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3 class="appointment-title">
+                                Memphis BBQ Kitchen
+                                <span class="appointment-type type-pm">PM Session</span>
+                            </h3>
+                            <p class="appointment-location">123 Main St, Downtown Memphis</p>
+                            <p style="color: var(--text-secondary); font-size: 14px;">Routine maintenance - Walk-in cooler inspection</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <a href="pm-client-identification.html" class="action-btn primary">Start Session</a>
+                            <a href="#" class="action-btn">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="appointment-card">
+                        <div class="time-slot">
+                            <div class="time-start">10:30 AM</div>
+                            <div class="time-duration">1 hr</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3 class="appointment-title">
+                                Riverside Catering
+                                <span class="appointment-type type-pm">PM Session</span>
+                            </h3>
+                            <p class="appointment-location">456 River Drive, Memphis</p>
+                            <p style="color: var(--text-secondary); font-size: 14px;">Refrigeration unit check</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <a href="pm-client-identification.html" class="action-btn primary">Start Session</a>
+                            <a href="#" class="action-btn">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="appointment-card">
+                        <div class="time-slot">
+                            <div class="time-start">1:00 PM</div>
+                            <div class="time-duration">1.5 hrs</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3 class="appointment-title">
+                                TJ's Bar & Grill
+                                <span class="appointment-type type-pm">PM Session</span>
+                            </h3>
+                            <p class="appointment-location">789 Downtown Blvd, Memphis</p>
+                            <p style="color: var(--text-secondary); font-size: 14px;">Routine maintenance</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <a href="pm-client-identification.html" class="action-btn primary">Start Session</a>
+                            <a href="#" class="action-btn">Details</a>
+                        </div>
+                    </div>
+
+                    <div class="appointment-card">
+                        <div class="time-slot">
+                            <div class="time-start">3:30 PM</div>
+                            <div class="time-duration">1 hr</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3 class="appointment-title">
+                                Southside Diner
+                                <span class="appointment-type type-pm">PM Session</span>
+                            </h3>
+                            <p class="appointment-location">321 South Avenue, Memphis</p>
+                            <p style="color: var(--text-secondary); font-size: 14px;">Monthly inspection</p>
+                        </div>
+                        <div class="appointment-actions">
+                            <a href="pm-client-identification.html" class="action-btn primary">Start Session</a>
+                            <a href="#" class="action-btn">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check authentication
+        const auth = JSON.parse(localStorage.getItem('rapidpro_auth') || '{}');
+        if (!auth.token) {
+            window.location.href = 'index.html';
+        }
+
+        // Toggle sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Logout functionality
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('rapidpro_auth');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // User menu click
+        document.querySelector('.user-menu').addEventListener('click', (e) => {
+            e.stopPropagation();
+            logout();
+        });
+
+        // View toggle
+        function toggleView(view) {
+            const calendarView = document.getElementById('calendarView');
+            const listView = document.getElementById('listView');
+            const viewBtns = document.querySelectorAll('.view-btn');
+            
+            viewBtns.forEach(btn => btn.classList.remove('active'));
+            
+            if (view === 'calendar') {
+                calendarView.style.display = 'block';
+                listView.style.display = 'none';
+                viewBtns[0].classList.add('active');
+            } else {
+                calendarView.style.display = 'none';
+                listView.style.display = 'block';
+                viewBtns[1].classList.add('active');
+            }
+        }
+
+        // Calendar functionality
+        let currentDate = new Date();
+        
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const daysInPrevMonth = new Date(year, month, 0).getDate();
+            
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                              'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            document.getElementById('currentDate').textContent = `${monthNames[month]} ${year}`;
+            
+            const calendarBody = document.getElementById('calendarBody');
+            calendarBody.innerHTML = '';
+            
+            // Previous month days
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const day = createDayElement(daysInPrevMonth - i, true);
+                calendarBody.appendChild(day);
+            }
+            
+            // Current month days
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isToday = year === today.getFullYear() && 
+                              month === today.getMonth() && 
+                              day === today.getDate();
+                const dayElement = createDayElement(day, false, isToday);
+                
+                // Add sample events
+                if (day === 31 && month === 4) { // May 31
+                    addEvent(dayElement, '8:00 AM - Memphis BBQ', 'pm-session');
+                    addEvent(dayElement, '10:30 AM - Riverside', 'pm-session');
+                    addEvent(dayElement, '1:00 PM - TJ\'s', 'pm-session');
+                    addEvent(dayElement, '3:30 PM - Southside', 'pm-session');
+                } else if (day === 15) {
+                    addEvent(dayElement, '9:00 AM - Cooper-Young', 'pm-session');
+                    addEvent(dayElement, '2:00 PM - Fresh Start', 'repair');
+                } else if (day === 22) {
+                    addEvent(dayElement, '10:00 AM - Grand Hotel', 'pm-session');
+                }
+                
+                calendarBody.appendChild(dayElement);
+            }
+            
+            // Next month days
+            const remainingDays = 42 - calendarBody.children.length;
+            for (let day = 1; day <= remainingDays; day++) {
+                const dayElement = createDayElement(day, true);
+                calendarBody.appendChild(dayElement);
+            }
+        }
+        
+        function createDayElement(day, isOtherMonth, isToday) {
+            const div = document.createElement('div');
+            div.className = 'calendar-day';
+            if (isOtherMonth) div.classList.add('other-month');
+            if (isToday) div.classList.add('today');
+            
+            const dayNumber = document.createElement('div');
+            dayNumber.className = 'day-number';
+            dayNumber.textContent = day;
+            div.appendChild(dayNumber);
+            
+            return div;
+        }
+        
+        function addEvent(dayElement, text, type) {
+            const event = document.createElement('div');
+            event.className = `event ${type}`;
+            event.textContent = text;
+            event.onclick = () => {
+                if (type === 'pm-session') {
+                    window.location.href = 'pm-client-identification.html';
+                }
+            };
+            dayElement.appendChild(event);
+        }
+        
+        function previousMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+        
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+        
+        function currentMonth() {
+            currentDate = new Date();
+            renderCalendar();
+        }
+        
+        // Initialize calendar
+        renderCalendar();
+        
+        // Add appointment button
+        document.querySelector('.add-btn').addEventListener('click', () => {
+            alert('Add appointment functionality would open a form here. In production, this would allow scheduling new PM sessions.');
+        });
+    </script>
+</body>
+</html>
