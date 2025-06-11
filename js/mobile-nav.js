@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle mobile menu');
     
-    // Insert mobile toggle at the end of the container (after nav)
+    // Insert mobile toggle before the nav element (so it appears on the right)
     if (container && mainNav) {
-        container.appendChild(mobileToggle);
+        container.insertBefore(mobileToggle, mainNav);
     }
     
     // Toggle mobile menu

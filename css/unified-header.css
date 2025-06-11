@@ -134,18 +134,19 @@
     
     .header .container {
         padding: 0 1rem;
-        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 45px;
     }
     
     .header-content {
-        display: contents; /* This makes the logo and menu toggle direct children of container */
+        /* Keep logo in header-content */
     }
     
     .logo-container {
-        order: 1;
+        display: flex;
+        align-items: center;
     }
     
     .logo {
@@ -156,7 +157,7 @@
     /* Show mobile menu toggle */
     .mobile-menu-toggle {
         display: block;
-        order: 2;
+        flex-shrink: 0;
     }
     
     /* Hide desktop nav on mobile */
