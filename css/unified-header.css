@@ -9,11 +9,16 @@
     z-index: 100;
 }
 
-.header-content {
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
 }
 
 /* Logo styling */
@@ -129,21 +134,18 @@
     
     .header .container {
         padding: 0 1rem;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .header-content {
-        flex-wrap: nowrap;
-        gap: 0;
-        justify-content: space-between;
-        align-items: center;
-        height: 45px;
+        display: contents; /* This makes the logo and menu toggle direct children of container */
     }
     
     .logo-container {
         order: 1;
-        margin-left: 0;
-        display: flex;
-        align-items: center;
     }
     
     .logo {
@@ -155,8 +157,6 @@
     .mobile-menu-toggle {
         display: block;
         order: 2;
-        margin-left: auto;
-        margin-right: 0;
     }
     
     /* Hide desktop nav on mobile */
@@ -193,12 +193,7 @@
         text-align: center;
     }
     
-    /* Phone number in header on mobile - hide it in header, show in nav */
-    .header-content .phone-number {
-        display: none;
-    }
-    
-    /* Show phone number in mobile nav menu */
+    /* Phone number in mobile nav menu */
     .main-nav .phone-number {
         display: flex !important;
         width: 100%;
@@ -212,11 +207,6 @@
     .phone-icon {
         display: none;
     }
-}
-
-/* Remove the old header phone styling that was causing issues */
-.header-content > .phone-number {
-    /* Remove any conflicting styles */
 }
 
 /* Ensure the nav phone number displays properly */

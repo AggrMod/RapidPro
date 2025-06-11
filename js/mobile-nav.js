@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Create mobile menu toggle button
     const header = document.querySelector('.header');
-    const headerContent = document.querySelector('.header-content');
+    const container = document.querySelector('.header .container');
     const mainNav = document.querySelector('.main-nav');
     
     // Create mobile menu toggle
@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle mobile menu');
     
-    // Append mobile toggle to the end of header content
-    if (headerContent) {
-        headerContent.appendChild(mobileToggle);
+    // Insert mobile toggle at the end of the container (after nav)
+    if (container && mainNav) {
+        container.appendChild(mobileToggle);
     }
     
     // Toggle mobile menu
