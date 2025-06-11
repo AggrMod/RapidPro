@@ -834,6 +834,31 @@
             transform: scale(1.1);
         }
         
+        /* Sticky Email Button - Mobile */
+        .sticky-email {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            z-index: 999;
+        }
+        
+        .sticky-email:hover {
+            background: #2d3748;
+            transform: scale(1.1);
+        }
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -882,7 +907,7 @@
             
             .main-nav {
                 position: fixed;
-                top: var(--header-height-mobile);
+                top: 0;
                 left: 0;
                 right: 0;
                 bottom: 0;
@@ -890,6 +915,8 @@
                 transform: translateX(-100%);
                 transition: transform var(--transition-base);
                 overflow-y: auto;
+                padding-top: var(--header-height-mobile);
+                z-index: 1001;
             }
             
             .main-nav.active {
@@ -961,6 +988,10 @@
             }
             
             .sticky-call {
+                display: flex;
+            }
+            
+            .sticky-email {
                 display: flex;
             }
         }
@@ -1343,6 +1374,11 @@
     <!-- Sticky Call Button (Mobile) -->
     <a href="tel:+19016564148" class="sticky-call" aria-label="Call us now">
         <span class="phone-icon">📞</span>
+    </a>
+    
+    <!-- Sticky Email Button (Mobile) -->
+    <a href="mailto:R22subcooling@gmail.com" class="sticky-email" aria-label="Email us">
+        <span class="email-icon">✉️</span>
     </a>
 
     <!-- Optimized JavaScript -->
