@@ -32,7 +32,8 @@
 /* Ensure proper spacing on mobile */
 @media (max-width: 768px) {
     .mobile-menu-toggle {
-        padding: 0.75rem 1rem;
-        margin-right: -0.5rem; /* Align with container edge */
+        padding: 0.5rem;
+        margin-right: 0;
+        font-size: 1.4rem;
     }
 }

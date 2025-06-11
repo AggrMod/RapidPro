@@ -118,34 +118,43 @@
 /* Mobile Responsive Header */
 @media (max-width: 768px) {
     .header {
-        padding: 0.5rem 0;
+        padding: 0.25rem 0;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1000;
+        min-height: 45px;
+    }
+    
+    .header .container {
+        padding: 0 1rem;
     }
     
     .header-content {
         flex-wrap: nowrap;
-        gap: 0.5rem;
+        gap: 0;
         justify-content: space-between;
         align-items: center;
+        height: 45px;
     }
     
     .logo-container {
         order: 1;
         margin-left: 0;
+        display: flex;
+        align-items: center;
     }
     
     .logo {
-        height: 35px;
+        height: 30px;
+        width: auto;
     }
     
     /* Show mobile menu toggle */
     .mobile-menu-toggle {
         display: block;
-        order: 3;
+        order: 2;
         margin-left: auto;
         margin-right: 0;
     }
@@ -154,13 +163,13 @@
     .main-nav {
         display: none;
         position: fixed;
-        top: 50px;
+        top: 45px;
         left: 0;
         right: 0;
         background: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 1rem;
-        max-height: calc(100vh - 50px);
+        max-height: calc(100vh - 45px);
         overflow-y: auto;
     }
     
