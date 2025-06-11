@@ -631,17 +631,7 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  /* Hide video on mobile and use static image */
-  .video-background {
-    display: none;
-  }
-  
-  .hero {
-    /* Restore original background for mobile */
-    background-image: linear-gradient(rgba(31, 41, 55, 0.4), rgba(31, 41, 55, 0.5)), url('../images/hero.png');
-    background-size: cover;
-    background-position: center;
-  }
+  /* Video works on all devices now - removed the hiding */
 }
 
 @media (max-width: 576px) {
