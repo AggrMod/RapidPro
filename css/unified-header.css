@@ -119,11 +119,22 @@
 @media (max-width: 768px) {
     .header {
         padding: 0.75rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
     
     .header-content {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .logo-container {
+        order: 2;
+        margin-left: 0;
     }
     
     .logo {
@@ -133,19 +144,22 @@
     /* Show mobile menu toggle */
     .mobile-menu-toggle {
         display: block;
-        order: 3;
+        order: 1;
+        margin-right: 1rem;
     }
     
     /* Hide desktop nav on mobile */
     .main-nav {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 60px;
         left: 0;
         right: 0;
         background: white;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 1rem;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
     }
     
     .main-nav.mobile-open {
@@ -170,9 +184,8 @@
     
     /* Phone number in header on mobile */
     .phone-number {
-        order: 2;
-        flex: 1;
-        justify-content: center;
+        order: 3;
+        margin-left: auto;
         padding: 0.5rem 1rem !important;
         font-size: 0.9rem !important;
     }

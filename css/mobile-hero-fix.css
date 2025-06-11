@@ -1,0 +1,37 @@
+/* Mobile Hero Adjustments */
+
+/* Ensure hero section doesn't overlap with fixed header on mobile */
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 60px; /* Height of fixed header */
+    }
+    
+    /* Adjust video background positioning */
+    .hero .video-background {
+        top: 0;
+        height: 100%;
+    }
+    
+    /* Ensure content doesn't get cut off */
+    .hero .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Page content spacing */
+    .page-content {
+        padding-top: 0; /* Remove any existing padding since hero has margin */
+    }
+    
+    /* Ensure preloader covers the fixed header */
+    .preloader {
+        z-index: 10000;
+    }
+}
+
+/* Also adjust for tablets in portrait mode */
+@media (max-width: 1024px) and (orientation: portrait) {
+    .hero {
+        margin-top: 60px;
+    }
+}

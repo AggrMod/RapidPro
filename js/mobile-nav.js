@@ -11,10 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle mobile menu');
     
-    // Insert mobile toggle after logo container
-    const logoContainer = document.querySelector('.logo-container');
-    if (logoContainer && headerContent) {
-        headerContent.insertBefore(mobileToggle, headerContent.lastChild);
+    // Insert mobile toggle as the first child of header content
+    if (headerContent) {
+        headerContent.insertBefore(mobileToggle, headerContent.firstChild);
     }
     
     // Toggle mobile menu
