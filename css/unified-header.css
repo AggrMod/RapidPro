@@ -2,12 +2,12 @@
 
 /* Ensure consistent header layout across all pages */
 .header {
-    padding: 0.5rem 0; /* Reduced padding to allow larger logo */
+    padding: 0.25rem 0; /* Reduced padding to allow larger logo */
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 100;
-    height: 85px; /* Fixed height to accommodate larger logo */
+    height: 90px; /* Fixed height to accommodate larger logo */
 }
 
 .header .container {
@@ -32,11 +32,12 @@
 }
 
 .logo {
-    height: 75px; /* Maximized from 50px to 75px */
+    height: 90px; /* Maximized to fill the entire header height */
     width: auto;
     object-fit: contain; /* Ensure image maintains aspect ratio */
-    max-width: 200px; /* Prevent logo from becoming too wide */
+    max-width: 250px; /* Prevent logo from becoming too wide */
     transform-origin: left center; /* Scale from left side */
+    margin-right: 20px; /* Add some space between logo and nav */
 }
 
 /* Main navigation */
@@ -172,6 +173,7 @@
         height: 30px;
         width: auto;
         max-width: 150px; /* Prevent logo from becoming too wide on mobile */
+        margin-right: 0; /* Remove margin on mobile */
     }
     
     /* Hide desktop nav on mobile */
