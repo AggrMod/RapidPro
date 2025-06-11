@@ -1,0 +1,214 @@
+/* Unified Header Styles for Consistent Layout */
+
+/* Ensure consistent header layout across all pages */
+.header {
+    padding: 1rem 0;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Logo styling */
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Main navigation */
+.main-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a:not(.phone-number):not(.nav-cta) {
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover:not(.phone-number):not(.nav-cta) {
+    color: var(--accent);
+}
+
+.main-nav a.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Contact button */
+.nav-cta {
+    background: var(--dark);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Phone number button - unified yellow style */
+.phone-number {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--accent) !important;
+    color: var(--dark) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(250, 204, 21, 0.3) !important;
+}
+
+.phone-number:hover {
+    background-color: #ffd633 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4) !important;
+}
+
+.phone-icon {
+    font-size: 1.2rem;
+}
+
+/* Remove the blue "Available Now" label */
+.availability {
+    display: none !important;
+}
+
+/* Mobile menu button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* Mobile Responsive Header */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.75rem 0;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+        display: block;
+        order: 3;
+    }
+    
+    /* Hide desktop nav on mobile */
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+    
+    .main-nav.mobile-open {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .main-nav li {
+        width: 100%;
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    /* Phone number in header on mobile */
+    .phone-number {
+        order: 2;
+        flex: 1;
+        justify-content: center;
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Hide phone icon on small screens */
+    .phone-icon {
+        display: none;
+    }
+}
+
+/* Remove the old header phone styling that was causing issues */
+.header-content > .phone-number {
+    /* Remove any conflicting styles */
+}
+
+/* Ensure the nav phone number displays properly */
+.main-nav .phone-number {
+    margin-left: 0.5rem;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .phone-number {
+    background-color: var(--accent) !important;
+    color: var(--dark) !important;
+}
+
+[data-theme="dark"] .nav-cta {
+    background: var(--accent);
+    color: var(--dark) !important;
+}
+
+[data-theme="dark"] .nav-cta:hover {
+    background: #ffd633;
+}
