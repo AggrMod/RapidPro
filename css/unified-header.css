@@ -20,11 +20,14 @@
 .header-content {
     display: flex;
     align-items: center;
+    margin-right: auto; /* Push to extreme left */
+    padding-left: 0; /* Remove any left padding */
 }
 
 /* Logo styling */
 .logo-container {
     flex-shrink: 0;
+    margin-left: 0; /* Ensure no margin on the left */
 }
 
 .logo {
@@ -104,6 +107,7 @@
 
 .phone-icon {
     font-size: 1.2rem;
+    display: inline-block !important; /* Force display */
 }
 
 /* Remove the blue "Available Now" label */
@@ -152,9 +156,10 @@
     }
     
     .header-content {
-        width: 100%;
+        width: auto; /* Allow natural width */
+        margin-right: 0; /* Don't push right elements */
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start; /* Left align */
         align-items: center;
     }
     
@@ -212,9 +217,10 @@
         margin: 0.5rem 0;
     }
     
-    /* Hide phone icon on small screens */
+    /* Show phone icon on all screens */
     .phone-icon {
-        display: none;
+        display: inline-block !important;
+        margin-right: 0.5rem;
     }
 }
 
