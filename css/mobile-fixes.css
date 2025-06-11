@@ -4,6 +4,7 @@
 @media (max-width: 768px) {
   .header {
     padding: 0.25rem 0 !important;
+    height: auto !important; /* Override the fixed height on mobile */
   }
 
   /* Mobile hero adjustments to account for fixed header */
@@ -19,10 +20,12 @@
     left: 1rem !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
+    height: auto !important; /* Reset height for mobile */
   }
   
   .logo {
     height: 30px !important;
+    max-width: 150px !important; /* Limit width on mobile */
   }
 }
 
@@ -31,6 +34,7 @@
   /* Keep logo small on very small screens */
   .logo {
     height: 28px !important;
+    max-width: 140px !important;
   }
   
   /* Reduce margins to give more space */
