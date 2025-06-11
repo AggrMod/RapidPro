@@ -1,4 +1,4 @@
-/* Mobile and Layout Fixes for RapidPro Website */
+/* Mobile-specific fixes */
 
 /* Fix for Contact Button Overflow Issue */
 .header {
@@ -85,30 +85,12 @@
     font-weight: 500;
 }
 
-/* Logo Size Fixes - LET IT BE NATURAL SIZE */
+/* Logo Size Fixes - LET IT BE NATURAL SIZE - NO CONSTRAINTS! */
 .logo {
     width: auto !important;
     height: auto !important;
     max-width: none !important;
     max-height: none !important;
-}
-
-@media (max-width: 768px) {
-    .logo {
-        width: auto !important;
-        height: auto !important;
-        max-width: none !important;
-        max-height: none !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        width: auto !important;
-        height: auto !important;
-        max-width: none !important;
-        max-height: none !important;
-    }
 }
 
 /* Mobile Menu Implementation */
@@ -143,6 +125,17 @@
 
 /* Mobile Responsive Fixes */
 @media (max-width: 768px) {
+    /* Fix mobile header height and padding */
+    .header {
+        padding: 0.25rem 0 !important;
+        height: auto !important;
+    }
+
+    /* Mobile hero adjustments */
+    .hero {
+        padding-top: 60px !important;
+    }
+    
     .header-content {
         justify-content: space-between;
         align-items: center;
@@ -151,6 +144,14 @@
     
     .hamburger-menu {
         display: flex;
+    }
+    
+    /* LOGO NATURAL SIZE ON MOBILE - NO CONSTRAINTS */
+    .logo {
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
     }
     
     .main-nav {
@@ -246,55 +247,24 @@
     }
 }
 
+/* Extra small devices (phones) */
 @media (max-width: 480px) {
-    .header {
-        padding: 0 10px;
+    /* STILL NO LOGO CONSTRAINTS ON SMALL SCREENS */
+    .logo {
+        width: auto !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
     }
     
-    .main-nav ul {
-        gap: 10px;
-        flex-wrap: wrap;
+    /* Reduce margins to give more space */
+    .header .container {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     
-    .main-nav li a {
-        font-size: 13px;
-        padding: 6px 10px;
+    /* Position mobile menu toggle closer to edge */
+    .mobile-menu-toggle {
+        right: 0.5rem !important;
     }
-    
-    .nav-cta {
-        padding: 8px 16px;
-        font-size: 13px;
-    }
-    
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    
-    .subheading {
-        font-size: 1rem;
-    }
-}
-
-/* Additional contrast improvements for service sections */
-.services-intro,
-.industries-intro {
-    color: #e0e0e0 !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-/* Fix for CTA buttons visibility */
-.btn.fade-up {
-    background: #ffc107 !important;
-    color: #000 !important;
-    font-weight: 600;
-    border: 2px solid #ffc107;
-    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
-}
-
-.btn.fade-up:hover {
-    background: #ffb300 !important;
-    border-color: #ffb300;
-    color: #000 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
 }

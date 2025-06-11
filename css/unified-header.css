@@ -1,0 +1,255 @@
+/* Unified Header Styles for Consistent Layout */
+
+/* Ensure consistent header layout across all pages */
+.header {
+    padding: 0 !important; /* Remove all padding to maximize logo space */
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 100;
+    height: 140px !important; /* Further increased from 120px to 140px */
+}
+
+.header .container {
+    display: flex;
+    justify-content: flex-start; /* Align items to start instead of space-between */
+    align-items: center;
+    gap: 2rem;
+    position: relative; /* Ensure proper positioning context */
+    height: 100%; /* Make container full height of header */
+    max-width: 1500px; /* Increased max-width to give more space */
+}
+
+/* Logo styling */
+.logo-container {
+    flex-shrink: 0;
+    margin-right: auto; /* Push everything else to the right */
+    padding-left: 0; /* Remove any left padding */
+    position: relative;
+    left: 0; /* Ensure it's at the leftmost position */
+    height: 100%; /* Take full height of container */
+    display: flex;
+    align-items: center;
+    max-height: 140px; /* Match header height */
+}
+
+.logo {
+    height: 135px !important; /* Maximized as much as possible */
+    width: auto;
+    object-fit: contain; /* Ensure image maintains aspect ratio */
+    max-width: 350px !important; /* Further increased */
+    transform-origin: left center; /* Scale from left side */
+    margin-right: 40px; /* Increased to give more space */
+}
+
+/* Main navigation */
+.main-nav {
+    flex-grow: 0; /* Don't allow it to grow and push the logo */
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto; /* Push to the right */
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a:not(.phone-number):not(.nav-cta) {
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover:not(.phone-number):not(.nav-cta) {
+    color: var(--accent);
+}
+
+.main-nav a.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Contact button */
+.nav-cta {
+    background: var(--dark);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Phone number button - unified yellow style */
+.phone-number {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--accent) !important;
+    color: var(--dark) !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(250, 204, 21, 0.3) !important;
+}
+
+.phone-number:hover {
+    background-color: #ffd633 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4) !important;
+}
+
+.phone-icon {
+    font-size: 1.2rem;
+    display: inline-block !important; /* Force display */
+}
+
+/* Remove the blue "Available Now" label */
+.availability {
+    display: none !important;
+}
+
+/* Mobile menu button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+    z-index: 1001; /* Ensure button is always clickable */
+}
+
+/* Mobile Responsive Header */
+@media (max-width: 768px) {
+    .header {
+        padding: 0.25rem 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        min-height: 45px;
+        height: auto !important; /* Reset fixed height for mobile */
+    }
+    
+    .header .container {
+        padding: 0 1rem;
+        display: flex;
+        justify-content: flex-start; /* Keep left alignment on mobile */
+        align-items: center;
+        height: 45px;
+    }
+    
+    /* Mobile menu toggle - positioned on the right */
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .logo-container {
+        margin-right: 0; /* Don't push anything on mobile */
+        display: flex;
+        align-items: center;
+        height: auto; /* Reset height for mobile */
+    }
+    
+    .logo {
+        height: 30px !important;
+        width: auto;
+        max-width: 150px !important; /* Prevent logo from becoming too wide on mobile */
+        margin-right: 0; /* Remove margin on mobile */
+    }
+    
+    /* Hide desktop nav on mobile */
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 45px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        max-height: calc(100vh - 45px);
+        overflow-y: auto;
+    }
+    
+    .main-nav.mobile-open {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .main-nav li {
+        width: 100%;
+    }
+    
+    .main-nav a {
+        display: block;
+        padding: 0.75rem;
+        text-align: center;
+    }
+    
+    /* Phone number in mobile nav menu */
+    .main-nav .phone-number {
+        display: flex !important;
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem !important;
+        font-size: 1rem !important;
+        margin: 0.5rem 0;
+    }
+    
+    /* Show phone icon on all screens */
+    .phone-icon {
+        display: inline-block !important;
+        margin-right: 0.5rem;
+    }
+}
+
+/* Ensure the nav phone number displays properly */
+.main-nav .phone-number {
+    margin-left: 0.5rem;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .phone-number {
+    background-color: var(--accent) !important;
+    color: var(--dark) !important;
+}
+
+[data-theme="dark"] .nav-cta {
+    background: var(--accent);
+    color: var(--dark) !important;
+}
+
+[data-theme="dark"] .nav-cta:hover {
+    background: #ffd633;
+}

@@ -32,10 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Close menu when clicking on nav links
-    const navLinks = mainNav.querySelectorAll('a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
+    if (mainNav) {
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    }
 
     // Close menu on window resize if screen becomes larger
     window.addEventListener('resize', function() {
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close menu on escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+        if (e.key === 'Escape' && mainNav && mainNav.classList.contains('active')) {
             closeMobileMenu();
         }
     });
