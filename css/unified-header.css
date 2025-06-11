@@ -135,13 +135,23 @@
     .header .container {
         padding: 0 1rem;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         height: 45px;
+        position: relative;
+    }
+    
+    /* Show mobile menu toggle FIRST */
+    .mobile-menu-toggle {
+        display: block;
+        order: 1;
+        margin-right: 1rem;
     }
     
     .header-content {
-        /* Keep logo in header-content */
+        order: 2;
+        flex: 1;
+        display: flex;
+        justify-content: center;
     }
     
     .logo-container {
@@ -152,12 +162,6 @@
     .logo {
         height: 30px;
         width: auto;
-    }
-    
-    /* Show mobile menu toggle */
-    .mobile-menu-toggle {
-        display: block;
-        flex-shrink: 0;
     }
     
     /* Hide desktop nav on mobile */
