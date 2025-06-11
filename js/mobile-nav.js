@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle mobile menu');
     
-    // Insert mobile toggle as the first element in the container
-    if (container) {
-        container.insertBefore(mobileToggle, container.firstChild);
+    // Insert mobile toggle into header-content next to the logo
+    const headerContent = document.querySelector('.header-content');
+    if (headerContent) {
+        // Add hamburger as last child so it appears on the right
+        headerContent.appendChild(mobileToggle);
     }
     
     // Toggle mobile menu

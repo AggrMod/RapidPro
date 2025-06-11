@@ -135,23 +135,21 @@
     .header .container {
         padding: 0 1rem;
         display: flex;
+        justify-content: space-between;
         align-items: center;
         height: 45px;
-        position: relative;
     }
     
-    /* Show mobile menu toggle FIRST */
+    /* Mobile menu toggle will be inserted into header-content */
     .mobile-menu-toggle {
         display: block;
-        order: 1;
-        margin-right: 1rem;
     }
     
     .header-content {
-        order: 2;
-        flex: 1;
+        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .logo-container {
