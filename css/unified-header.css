@@ -2,12 +2,12 @@
 
 /* Ensure consistent header layout across all pages */
 .header {
-    padding: 0.25rem 0; /* Reduced padding to allow larger logo */
+    padding: 0 !important; /* Remove all padding to maximize logo space */
     background: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 100;
-    height: 120px; /* Increased from 90px to 120px to accommodate larger logo */
+    height: 140px !important; /* Further increased from 120px to 140px */
 }
 
 .header .container {
@@ -30,16 +30,16 @@
     height: 100%; /* Take full height of container */
     display: flex;
     align-items: center;
-    max-height: 120px; /* Match header height */
+    max-height: 140px; /* Match header height */
 }
 
 .logo {
-    height: 115px; /* Increased from 90px to 115px */
+    height: 135px !important; /* Maximized as much as possible */
     width: auto;
     object-fit: contain; /* Ensure image maintains aspect ratio */
-    max-width: 300px; /* Increased from 250px to 300px */
+    max-width: 350px !important; /* Further increased */
     transform-origin: left center; /* Scale from left side */
-    margin-right: 30px; /* Increased from 20px to 30px */
+    margin-right: 40px; /* Increased to give more space */
 }
 
 /* Main navigation */
@@ -144,7 +144,7 @@
         right: 0;
         z-index: 1000;
         min-height: 45px;
-        height: auto; /* Reset fixed height for mobile */
+        height: auto !important; /* Reset fixed height for mobile */
     }
     
     .header .container {
@@ -172,9 +172,9 @@
     }
     
     .logo {
-        height: 30px;
+        height: 30px !important;
         width: auto;
-        max-width: 150px; /* Prevent logo from becoming too wide on mobile */
+        max-width: 150px !important; /* Prevent logo from becoming too wide on mobile */
         margin-right: 0; /* Remove margin on mobile */
     }
     
