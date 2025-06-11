@@ -14,6 +14,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    position: relative; /* Ensure proper positioning context */
 }
 
 .header-content {
@@ -118,6 +119,7 @@
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text);
+    z-index: 1001; /* Ensure button is always clickable */
 }
 
 /* Mobile Responsive Header */
@@ -140,9 +142,13 @@
         height: 45px;
     }
     
-    /* Mobile menu toggle will be inserted into header-content */
+    /* Mobile menu toggle - now properly positioned in the header */
     .mobile-menu-toggle {
         display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     .header-content {
