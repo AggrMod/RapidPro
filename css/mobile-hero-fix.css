@@ -2,7 +2,7 @@
 
 /* Adjust hero padding to account for fixed header */
 .hero {
-    padding-top: 110px !important; /* Increased from original to account for larger header */
+    padding-top: 140px !important; /* Increased from 110px to 140px to account for larger header */
 }
 
 /* Mobile hero adjustments */
