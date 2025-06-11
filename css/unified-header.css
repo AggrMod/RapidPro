@@ -34,10 +34,10 @@
 }
 
 .logo {
-    height: 135px !important; /* Maximized as much as possible */
+    /* REMOVED HEIGHT CONSTRAINT - LET LOGO BE NATURAL SIZE */
     width: auto;
     object-fit: contain; /* Ensure image maintains aspect ratio */
-    max-width: 350px !important; /* Further increased */
+    /* REMOVED MAX-WIDTH CONSTRAINT */
     transform-origin: left center; /* Scale from left side */
     margin-right: 40px; /* Increased to give more space */
 }
@@ -172,9 +172,8 @@
     }
     
     .logo {
-        height: 30px !important;
+        /* REMOVED ALL MOBILE LOGO CONSTRAINTS - LET IT BE NATURAL SIZE */
         width: auto;
-        max-width: 150px !important; /* Prevent logo from becoming too wide on mobile */
         margin-right: 0; /* Remove margin on mobile */
     }
     
