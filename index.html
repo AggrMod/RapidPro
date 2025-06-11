@@ -44,8 +44,8 @@
         
         :root {
             /* Design System Variables following 2024-2025 standards */
-            --header-height-desktop: 80px;
-            --header-height-mobile: 64px;
+            --header-height-desktop: 115px; /* 20% bigger than 96px */
+            --header-height-mobile: 86px; /* 20% bigger than 72px */
             --primary-dark: #1f2937;
             --accent-yellow: #facc15;
             --bg-light: #f5f5f5;
@@ -92,9 +92,9 @@
             justify-content: space-between;
         }
         
-        /* Logo - Larger size for better visibility */
+        /* Logo - MASSIVE PROMINENCE */
         .logo-container {
-            height: 56px; /* 70% of 80px header - maximized for visibility */
+            height: 103px; /* 20% bigger than 86px - MASSIVE visibility */
         }
         
         .logo {
@@ -214,9 +214,9 @@
             transition: all var(--transition-base);
         }
         
-        .hamburger-menu span:nth-child(1) { top: 14px; }
+        .hamburger-menu span:nth-child(1) { top: 18px; }
         .hamburger-menu span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-        .hamburger-menu span:nth-child(3) { bottom: 14px; }
+        .hamburger-menu span:nth-child(3) { bottom: 18px; }
         
         .hamburger-menu.active span:nth-child(1) {
             top: 50%;
@@ -877,7 +877,7 @@
             }
             
             .logo-container {
-                height: 40px; /* Maintain proportions on mobile */
+                height: 77px; /* 20% bigger - MASSIVE on mobile too */
             }
             
             .main-nav {
