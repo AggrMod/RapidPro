@@ -3,7 +3,7 @@
 /* Ensure hero section doesn't overlap with fixed header on mobile */
 @media (max-width: 768px) {
     .hero {
-        margin-top: 60px; /* Height of fixed header */
+        margin-top: 50px; /* Height of fixed header */
     }
     
     /* Adjust video background positioning */
@@ -32,6 +32,6 @@
 /* Also adjust for tablets in portrait mode */
 @media (max-width: 1024px) and (orientation: portrait) {
     .hero {
-        margin-top: 60px;
+        margin-top: 50px;
     }
 }

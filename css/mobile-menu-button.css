@@ -1,0 +1,38 @@
+/* Mobile Menu Button Styling */
+
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text);
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+.mobile-menu-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Dark theme support */
+[data-theme="dark"] .mobile-menu-toggle {
+    color: var(--text);
+}
+
+[data-theme="dark"] .mobile-menu-toggle:hover {
+    color: var(--accent);
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        padding: 0.75rem 1rem;
+        margin-right: -0.5rem; /* Align with container edge */
+    }
+}
