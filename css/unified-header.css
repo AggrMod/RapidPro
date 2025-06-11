@@ -11,23 +11,19 @@
 
 .header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Align items to start instead of space-between */
     align-items: center;
     gap: 2rem;
     position: relative; /* Ensure proper positioning context */
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    margin-right: auto; /* Push to extreme left */
-    padding-left: 0; /* Remove any left padding */
-}
-
 /* Logo styling */
 .logo-container {
     flex-shrink: 0;
-    margin-left: 0; /* Ensure no margin on the left */
+    margin-right: auto; /* Push everything else to the right */
+    padding-left: 0; /* Remove any left padding */
+    position: relative;
+    left: 0; /* Ensure it's at the leftmost position */
 }
 
 .logo {
@@ -37,9 +33,10 @@
 
 /* Main navigation */
 .main-nav {
-    flex-grow: 1;
+    flex-grow: 0; /* Don't allow it to grow and push the logo */
     display: flex;
     justify-content: flex-end;
+    margin-left: auto; /* Push to the right */
 }
 
 .main-nav ul {
@@ -141,12 +138,12 @@
     .header .container {
         padding: 0 1rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start; /* Keep left alignment on mobile */
         align-items: center;
         height: 45px;
     }
     
-    /* Mobile menu toggle - now properly positioned in the header */
+    /* Mobile menu toggle - positioned on the right */
     .mobile-menu-toggle {
         display: block;
         position: absolute;
@@ -155,15 +152,8 @@
         transform: translateY(-50%);
     }
     
-    .header-content {
-        width: auto; /* Allow natural width */
-        margin-right: 0; /* Don't push right elements */
-        display: flex;
-        justify-content: flex-start; /* Left align */
-        align-items: center;
-    }
-    
     .logo-container {
+        margin-right: 0; /* Don't push anything on mobile */
         display: flex;
         align-items: center;
     }
