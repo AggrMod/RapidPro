@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileToggle.innerHTML = '☰';
     mobileToggle.setAttribute('aria-label', 'Toggle mobile menu');
     
-    // Insert mobile toggle into header-content next to the logo
-    const headerContent = document.querySelector('.header-content');
-    if (headerContent) {
-        // Add hamburger as last child so it appears on the right
-        headerContent.appendChild(mobileToggle);
+    // FIXED: Insert mobile toggle directly into the container element
+    // This ensures it's positioned in the header, not the hero image
+    if (container) {
+        // Add the toggle button to the container, but before the main-nav
+        container.insertBefore(mobileToggle, mainNav);
     }
     
     // Toggle mobile menu
