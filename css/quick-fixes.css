@@ -1,0 +1,32 @@
+/* Fix for oversized footer logo */
+.footer .logo {
+  width: auto;
+  height: 60px !important; /* Fixed height for better control */
+  max-width: 200px !important; /* Maximum width to prevent oversizing */
+}
+
+/* Fix for horizontal scrolling issue */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Fix for mobile menu slide direction - from left instead of right */
+@media (max-width: 768px) {
+  .main-nav {
+    left: -100% !important;
+    right: auto !important;
+    transition: left 0.3s ease !important;
+  }
+  
+  .main-nav.active, .main-nav.mobile-open {
+    left: 0 !important;
+  }
+  
+  /* Move hamburger button to left side */
+  .mobile-menu-toggle {
+    left: 1rem !important;
+    right: auto !important;
+  }
+}
