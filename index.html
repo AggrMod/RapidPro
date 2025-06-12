@@ -905,22 +905,24 @@
                 height: 77px; /* 20% bigger - MASSIVE on mobile too */
             }
             
+            /* FIXED: Mobile Navigation - Slide from LEFT properly */
             .main-nav {
                 position: fixed;
                 top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                left: -100%; /* Start completely off-screen to the left */
+                width: 280px; /* Fixed width for the menu */
+                height: 100vh; /* Full height */
                 background: white;
-                transform: translateX(-100%);
-                transition: transform var(--transition-base);
+                transform: translateX(0); /* Remove transform, use left property instead */
+                transition: left var(--transition-base); /* Animate the left property */
                 overflow-y: auto;
                 padding-top: var(--header-height-mobile);
                 z-index: 1001;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
             }
             
             .main-nav.active {
-                transform: translateX(0);
+                left: 0; /* Slide to visible position */
             }
             
             .main-nav ul {
@@ -937,12 +939,19 @@
                 display: block;
                 padding: 16px;
                 width: 100%;
+                border-radius: var(--border-radius);
+                margin-bottom: 8px;
+            }
+            
+            .main-nav a:hover {
+                background: var(--bg-light);
             }
             
             .hamburger-menu {
                 display: block;
             }
             
+            /* Menu Overlay */
             .menu-overlay {
                 display: none;
                 position: fixed;
@@ -952,6 +961,7 @@
                 bottom: 0;
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 999;
+                backdrop-filter: blur(2px);
             }
             
             .menu-overlay.active {
