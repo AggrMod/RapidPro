@@ -1,8 +1,11 @@
-/* Fix for oversized footer logo */
-.footer .logo {
-  width: auto;
+/* Fix for oversized footer logo - Enhanced specificity */
+.footer .logo,
+footer .logo {
+  width: auto !important;
   height: 60px !important; /* Fixed height for better control */
   max-width: 200px !important; /* Maximum width to prevent oversizing */
+  max-height: 60px !important; /* Override the none value */
+  object-fit: contain !important; /* Ensure proper scaling */
 }
 
 /* Fix for horizontal scrolling issue */
@@ -22,6 +25,7 @@ html, body {
   
   .main-nav.active, .main-nav.mobile-open {
     left: 0 !important;
+    right: auto !important;
   }
   
   /* Move hamburger button to left side */
