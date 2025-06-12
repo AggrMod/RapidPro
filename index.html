@@ -1,95 +1,1129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=\"en\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance</title>
-    <meta name="description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
-    <meta name="keywords" content="Memphis kitchen maintenance, Memphis restaurant equipment, commercial kitchen repair, preventative maintenance, Memphis refrigeration service">
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance</title>
+    <meta name=\"description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses. Keep your commercial kitchen equipment running efficiently.\">
+    <meta name=\"keywords\" content=\"Memphis commercial kitchen services, Memphis restaurant equipment maintenance, Memphis preventative kitchen maintenance, Memphis refrigeration service, Memphis kitchen compliance\">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rapidpromemphis.com/">
-    <meta property="og:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
-    <meta property="og:description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
-    <meta property="og:image" content="assets/images/hero.png">
+    <meta property=\"og:type\" content=\"website\">
+    <meta property=\"og:url\" content=\"https://rapidpromemphis.com/\">
+    <meta property=\"og:title\" content=\"Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance\">
+    <meta property=\"og:description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.\">
+    <meta property=\"og:image\" content=\"assets/images/hero.png\">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rapidpromemphis.com/">
-    <meta property="twitter:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
-    <meta property="twitter:description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
-    <meta property="twitter:image" content="assets/images/hero.png">
+    <meta property=\"twitter:card\" content=\"summary_large_image\">
+    <meta property=\"twitter:url\" content=\"https://rapidpromemphis.com/\">
+    <meta property=\"twitter:title\" content=\"Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance\">
+    <meta property=\"twitter:description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.\">
+    <meta property=\"twitter:image\" content=\"assets/images/hero.png\">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-
-    <!-- Theme Color for Browser -->
-    <meta name="theme-color" content="#1f2937">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/premium-effects.css">
-    <link rel="stylesheet" href="css/theme-switcher.css">
-    <link rel="stylesheet" href="css/theme-transition.css">
-    <link rel="stylesheet" href="css/preloader.css">
-    <link rel="stylesheet" href="css/custom-cursor.css">
-    <link rel="stylesheet" href="css/click-to-call.css">
-    <link rel="stylesheet" href="css/login-button.css">
-    <link rel="stylesheet" href="css/unified-header.css">
-    <link rel="stylesheet" href="css/mobile-hero-fix.css">
-    <link rel="stylesheet" href="css/mobile-menu-button.css">
-    <link rel="stylesheet" href="css/mobile-menu-fix.css"><!-- Mobile menu slide from left fix -->
-    <link rel="stylesheet" href="css/quick-fixes.css"><!-- Added quick fixes CSS directly -->
+    <link rel=\"icon\" type=\"image/svg+xml\" href=\"assets/images/favicon.svg\">
+    <meta name=\"theme-color\" content=\"#1f2937\">
+    
+    <!-- Preconnect for Performance -->
+    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
+    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+    
+    <!-- Font Loading Strategy -->
+    <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap\" as=\"style\">
+    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap\" rel=\"stylesheet\">
+    
+    <!-- Critical Inline CSS for Core Web Vitals -->
+    <style>
+        /* Critical CSS - Above the fold styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Design System Variables following 2024-2025 standards */
+            --header-height-desktop: 115px; /* 20% bigger than 96px */
+            --header-height-mobile: 86px; /* 20% bigger than 72px */
+            --primary-dark: #1f2937;
+            --accent-yellow: #facc15;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 24px rgba(0,0,0,0.15);
+            --transition-base: 300ms ease-out;
+            --border-radius: 8px;
+        }
+        
+        /* FIXED: Prevent horizontal scrolling */
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            width: 100%;
+            max-width: 100vw; /* Never exceed viewport width */
+            position: relative;
+        }
+        
+        /* Ensure all containers respect viewport width */
+        * {
+            max-width: 100%;
+        }
+        
+        /* Header - Sticky with hide on scroll down */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: transform var(--transition-base);
+            height: var(--header-height-desktop);
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+        }
+        
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        /* Logo - MASSIVE PROMINENCE */
+        .logo-container {
+            height: 103px; /* 20% bigger than 86px - MASSIVE visibility */
+            flex-shrink: 0;
+        }
+        
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            transition: transform var(--transition-base);
+            max-width: none; /* Logo can be its natural size */
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Desktop Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .main-nav a {
+            padding: 16px 24px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+        
+        .main-nav a:hover {
+            color: var(--primary-dark);
+            background: rgba(31, 41, 55, 0.08);
+        }
+        
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--accent-yellow);
+            transform: translateX(-50%);
+            transition: width var(--transition-base);
+        }
+        
+        .main-nav a:hover::after {
+            width: 60%;
+        }
+        
+        /* CTA Buttons - 48px height, 120px min width */
+        .nav-cta,
+        .btn.cta {
+            background: var(--accent-yellow);
+            color: var(--primary-dark) !important;
+            padding: 12px 24px !important;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            min-width: 120px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .nav-cta:hover,
+        .btn.cta:hover {
+            background: #f3c000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+        }
+        
+        .nav-cta::after {
+            display: none !important;
+        }
+        
+        .phone-number {
+            background: var(--primary-dark);
+            color: white !important;
+        }
+        
+        .phone-number:hover {
+            background: #2d3748;
+        }
+        
+        /* Mobile Menu - ONLY below 768px */
+        .hamburger-menu {
+            display: none;
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1002;
+            flex-shrink: 0;
+        }
+        
+        .hamburger-menu span {
+            position: absolute;
+            left: 12px;
+            width: 24px;
+            height: 3px;
+            background: var(--primary-dark);
+            border-radius: 3px;
+            transition: all var(--transition-base);
+        }
+        
+        .hamburger-menu span:nth-child(1) { top: 18px; }
+        .hamburger-menu span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger-menu span:nth-child(3) { bottom: 18px; }
+        
+        .hamburger-menu.active span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-menu.active span:nth-child(3) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+        }
+        
+        /* Hero Section - 100vh desktop */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--primary-dark);
+            overflow: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+            word-wrap: break-word;
+        }
+        
+        .subheading {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--accent-yellow);
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            word-wrap: break-word;
+        }
+        
+        .tagline {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            word-wrap: break-word;
+        }
+        
+        .hero .btn.cta {
+            font-size: 18px;
+            padding: 16px 32px;
+            height: 56px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+        
+        /* Services Section */
+        .memphis-services {
+            padding: 80px 0;
+            background: white;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .memphis-services h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+            word-wrap: break-word;
+        }
+        
+        .elegant-divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent-yellow);
+            margin: 0 auto 32px;
+            border-radius: 2px;
+        }
+        
+        .services-intro {
+            max-width: 800px;
+            margin: 0 auto 48px;
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.8;
+            word-wrap: break-word;
+        }
+        
+        /* Bento Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        
+        .service-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-yellow);
+            transform: translateX(-100%);
+            transition: transform var(--transition-base);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-item:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-icon-container {
+            width: 60px;
+            height: 60px;
+            background: rgba(250, 204, 21, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon {
+            font-size: 32px;
+        }
+        
+        .service-item h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+            word-wrap: break-word;
+        }
+        
+        .service-item p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            word-wrap: break-word;
+        }
+        
+        .service-details {
+            list-style: none;
+        }
+        
+        .service-details li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            color: var(--text-light);
+            word-wrap: break-word;
+        }
+        
+        .service-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+        
+        /* Packages Section */
+        .service-packages {
+            padding: 80px 0;
+            background: var(--bg-light);
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow);
+            word-wrap: break-word;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .package-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(250, 204, 21, 0.3);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        
+        .package-ribbon {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-weight: 600;
+            font-size: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .package-header {
+            background: var(--primary-dark);
+            color: white;
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .package-card.featured .package-header {
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+        }
+        
+        .package-header h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            word-wrap: break-word;
+        }
+        
+        .package-price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .price-from {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .price-number {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .price-period {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .package-content {
+            padding: 32px;
+        }
+        
+        .package-description {
+            margin-bottom: 24px;
+            color: var(--text-light);
+            word-wrap: break-word;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .package-features li {
+            padding: 12px 0 12px 28px;
+            position: relative;
+            color: var(--text-dark);
+            word-wrap: break-word;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-yellow);
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .package-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: var(--primary-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+        
+        .package-cta:hover {
+            background: #2d3748;
+            transform: scale(1.02);
+        }
+        
+        .package-card.featured .package-cta {
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+        }
+        
+        .package-card.featured .package-cta:hover {
+            background: #f3c000;
+        }
+        
+        /* Custom Package */
+        .custom-package {
+            text-align: center;
+            padding: 48px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            word-wrap: break-word;
+        }
+        
+        .custom-package h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+            word-wrap: break-word;
+        }
+        
+        .custom-package p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap: break-word;
+        }
+        
+        .custom-package-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all var(--transition-base);
+        }
+        
+        .custom-package-cta:hover {
+            background: #f3c000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+        }
+        
+        /* Industries Section */
+        .industries-served {
+            padding: 80px 0;
+            background: white;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .industries-intro {
+            max-width: 800px;
+            margin: 0 auto 48px;
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.8;
+            word-wrap: break-word;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .industry-card {
+            background: var(--bg-light);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            word-wrap: break-word;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            background: white;
+        }
+        
+        .industry-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .industry-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+            word-wrap: break-word;
+        }
+        
+        .industry-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .cta-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><defs><pattern id=\"grid\" width=\"100\" height=\"100\" patternUnits=\"userSpaceOnUse\"><path d=\"M 100 0 L 0 0 0 100\" fill=\"none\" stroke=\"rgba(250,204,21,0.1)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            word-wrap: break-word;
+        }
+        
+        .cta-title {
+            font-size: clamp(28px, 4vw, 40px);
+            color: white;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            height: 56px;
+        }
+        
+        .cta-btn-primary {
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+        }
+        
+        .cta-btn-primary:hover {
+            background: #f3c000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: white;
+            color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .footer .container {
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .footer .logo {
+            filter: brightness(0) invert(1);
+        }
+        
+        .contact-info a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .contact-info a:hover {
+            color: #f3c000;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+            word-wrap: break-word;
+        }
+        
+        .areas-served h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 12px;
+        }
+        
+        .footer-nav {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .footer-nav p {
+            margin: 8px 0;
+            word-wrap: break-word;
+        }
+        
+        /* Sticky Call Button - Mobile */
+        .sticky-call {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-yellow);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            z-index: 999;
+        }
+        
+        .sticky-call:hover {
+            background: #f3c000;
+            transform: scale(1.1);
+        }
+        
+        /* Sticky Email Button - Mobile */
+        .sticky-email {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            z-index: 999;
+        }
+        
+        .sticky-email:hover {
+            background: #2d3748;
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(20px);
+                opacity: 0;
+            }
+        }
+        
+        .fade-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Mobile Responsive - Below 768px */
+        @media (max-width: 768px) {
+            .header {
+                height: var(--header-height-mobile);
+            }
+            
+            .logo-container {
+                height: 77px; /* 20% bigger - MASSIVE on mobile too */
+            }
+            
+            /* FIXED: Mobile Navigation - Slide from LEFT properly */
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%; /* Start completely off-screen to the left */
+                width: 280px; /* Fixed width for the menu */
+                height: 100vh; /* Full height */
+                background: white;
+                transform: translateX(0); /* Remove transform, use left property instead */
+                transition: left var(--transition-base); /* Animate the left property */
+                overflow-y: auto;
+                padding-top: var(--header-height-mobile);
+                z-index: 1001;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            }
+            
+            .main-nav.active {
+                left: 0; /* Slide to visible position */
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+            
+            .main-nav li {
+                width: 100%;
+            }
+            
+            .main-nav a {
+                display: block;
+                padding: 16px;
+                width: 100%;
+                border-radius: var(--border-radius);
+                margin-bottom: 8px;
+            }
+            
+            .main-nav a:hover {
+                background: var(--bg-light);
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+            
+            /* Menu Overlay */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                backdrop-filter: blur(2px);
+            }
+            
+            .menu-overlay.active {
+                display: block;
+            }
+            
+            .hero {
+                min-height: 80vh;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .cta-btn {
+                width: 100%;
+            }
+            
+            .sticky-call {
+                display: flex;
+            }
+            
+            .sticky-email {
+                display: flex;
+            }
+        }
+        
+        /* Accessibility */
+        :focus {
+            outline: 2px solid var(--accent-yellow);
+            outline-offset: 2px;
+        }
+        
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .header,
+            .sticky-call,
+            .video-background {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <div class="loader-spinner">
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-logo"></div>
-            </div>
-            <div class="loader-text">RAPID PRO MAINTENANCE</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Page Transition -->
-    <div class="page-transition"></div>
-
-    <!-- Main Content -->
-    <div class="page-content">
-
     <!-- Header with Logo -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
-                    </a>
-                </div>
-                <!-- Mobile Menu Toggle Button -->
-                <button class="mobile-menu-toggle" id="hamburger-menu" aria-label="Toggle Mobile Menu">
-                    <span></span>
-                    <span class="menu-icon">☰</span>
-                </button>
+    <header class=\"header\" id=\"header\">
+        <div class=\"container\">
+            <!-- Logo container -->
+            <div class=\"logo-container\">
+                <a href=\"index.html\">
+                    <img src=\"assets/images/logo.png\" alt=\"Rapid Pro Maintenance\" class=\"logo\">
+                </a>
             </div>
-            <nav class="main-nav" id="main-nav">
+            
+            <!-- Hamburger Menu - Mobile Only -->
+            <button class=\"hamburger-menu\" id=\"hamburger-menu\" aria-label=\"Toggle navigation menu\" aria-expanded=\"false\">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menu Overlay -->
+            <div class=\"menu-overlay\" id=\"menu-overlay\"></div>
+            
+            <!-- Navigation -->
+            <nav class=\"main-nav\" id=\"main-nav\" role=\"navigation\">
                 <ul>
-                    <li><a href="#about" class="active">About</a></li>
-                    <li><a href="memphis-services.html">Services</a></li>
-                    <li><a href="memphis-service-areas.html">Memphis Areas</a></li>
-                    <li><a href="memphis-testimonials.html">Testimonials</a></li>
-                    <li><a href="mailto:R22subcooling@gmail.com" class="nav-cta">Contact</a></li>
-                    <li><a href="tel:+19016564148" class="phone-number nav-call" role="button" aria-label="Call us at (901) 656-4148">
-                        <span class="phone-icon">📞</span> (901) 656-4148
+                    <li><a href=\"#about\">About</a></li>
+                    <li><a href=\"#services\">Services</a></li>
+                    <li><a href=\"#packages\">Packages</a></li>
+                    <li><a href=\"#industries\">Industries</a></li>
+                    <li><a href=\"mailto:R22subcooling@gmail.com\" class=\"nav-cta\">Contact</a></li>
+                    <li><a href=\"tel:+19016564148\" class=\"phone-number nav-call\">
+                        <span class=\"phone-icon\">📞</span> (901) 656-4148
                     </a></li>
                 </ul>
             </nav>
@@ -97,235 +1131,487 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class=\"hero\">
         <!-- Video Background -->
-        <div class="video-background">
+        <div class=\"video-background\">
             <video autoplay muted loop playsinline>
-                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
+                <source src=\"videos/Kitchen_Perspective_Video_Ready.mp4\" type=\"video/mp4\">
             </video>
         </div>
-        <div class="container">
-            <h1 class="fade-in">Memphis Commercial Kitchen Maintenance</h1>
-            <p class="subheading fade-up">Expert Preventative Maintenance for Food Service Businesses</p>
-            <p class="tagline fade-up">Keeping your kitchen equipment running at peak performance—so you can focus on what matters most.</p>
-            <a href="mailto:R22subcooling@gmail.com" class="btn cta fade-up">Schedule Service</a>
+        <div class=\"container\">
+            <h1>Memphis Restaurant & Kitchen Services</h1>
+            <p class=\"subheading\">Specialized Maintenance for Memphis Food Service Businesses</p>
+            <p class=\"tagline\">Preventing equipment failures before they happen—keeping Memphis kitchens running smoothly.</p>
+            <a href=\"mailto:R22subcooling@gmail.com\" class=\"btn cta\">Schedule Service</a>
         </div>
-        <div class="scroll-indicator"></div>
+        <div class=\"scroll-indicator\" onclick=\"document.getElementById('services').scrollIntoView({behavior: 'smooth'})\"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="fade-up">Memphis' Trusted Kitchen Equipment Specialists</h2>
-            <div class="elegant-divider fade-in"></div>
+    <!-- Memphis-Specific Services Section -->
+    <section class=\"memphis-services\" id=\"services\">
+        <div class=\"container\" style=\"flex-direction: column;\">
+            <h2 class=\"fade-up\">Services Designed for Memphis Kitchens</h2>
+            <div class=\"elegant-divider fade-in\"></div>
+            <p class=\"services-intro fade-up\">Memphis kitchens face unique challenges, from high humidity to extreme temperature fluctuations. Our services are specifically designed to address these local conditions, keeping your commercial kitchen equipment in optimal condition year-round.</p>
             
-            <div class="about-content">
-                <div class="about-text fade-up">
-                    <p>At Rapid Pro Maintenance, we understand that your kitchen equipment is the backbone of your business. Our team of certified technicians specializes in preventative maintenance services designed to keep your commercial kitchen running smoothly and efficiently.</p>
-                    
-                    <p>With decades of combined experience serving Memphis restaurants, hotels, schools, and healthcare facilities, we've developed maintenance protocols specifically designed for the unique challenges of Mid-South commercial kitchens.</p>
-                    
-                    <p>Our proactive approach helps you avoid costly emergency repairs, extend equipment lifespan, and maintain health department compliance—all while reducing your overall maintenance costs.</p>
+            <div class=\"services-grid\">
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">🔄</span>
+                    </div>
+                    <h3>Preventative Refrigeration Maintenance</h3>
+                    <p>Regular maintenance to prevent costly breakdowns during Memphis' hot summer months. Our technicians thoroughly inspect and service all refrigeration systems to ensure optimal performance and efficiency.</p>
+                    <ul class=\"service-details\">
+                        <li>Condenser cleaning and inspection</li>
+                        <li>Evaporator maintenance</li>
+                        <li>Temperature calibration</li>
+                        <li>Refrigerant level checks</li>
+                        <li>Electrical component diagnostics</li>
+                    </ul>
                 </div>
                 
-                <div class="about-highlights fade-up">
-                    <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div class="highlight-text">
-                            <h3>EPA Certified Technicians</h3>
-                            <p>Our team holds all required certifications, including EPA and R290 approvals.</p>
-                        </div>
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">🔍</span>
                     </div>
-                    
-                    <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div class="highlight-text">
-                            <h3>Memphis-Based Experts</h3>
-                            <p>Local technicians who understand the specific needs of Memphis kitchens.</p>
-                        </div>
+                    <h3>Memphis Health Department Compliance</h3>
+                    <p>Stay ahead of health department inspections with our Memphis-specific compliance service. We help ensure your equipment meets all local regulatory requirements.</p>
+                    <ul class=\"service-details\">
+                        <li>Temperature monitoring systems</li>
+                        <li>Documentation and record-keeping</li>
+                        <li>Pre-inspection assessments</li>
+                        <li>Compliance reporting</li>
+                        <li>Staff training recommendations</li>
+                    </ul>
+                </div>
+                
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">🚀</span>
                     </div>
-                    
-                    <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div class="highlight-text">
-                            <h3>Comprehensive Documentation</h3>
-                            <p>Detailed records of all maintenance activities for health department compliance.</p>
-                        </div>
+                    <h3>Rapid Response Program</h3>
+                    <p>Our Memphis-based technicians provide fast response times when issues do arise. Available to contract customers throughout the Memphis metro area.</p>
+                    <ul class=\"service-details\">
+                        <li>24/7 emergency availability</li>
+                        <li>Priority scheduling</li>
+                        <li>Remote diagnostics when possible</li>
+                        <li>Parts procurement assistance</li>
+                        <li>Post-service follow-up</li>
+                    </ul>
+                </div>
+                
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">📋</span>
                     </div>
-                    
-                    <div class="highlight-item">
-                        <div class="highlight-icon">✓</div>
-                        <div class="highlight-text">
-                            <h3>Preventative Focus</h3>
-                            <p>We identify and address issues before they cause equipment failures.</p>
-                        </div>
+                    <h3>Equipment Lifecycle Management</h3>
+                    <p>Strategic maintenance planning to extend the life of your kitchen equipment and plan for future capital expenditures.</p>
+                    <ul class=\"service-details\">
+                        <li>Detailed equipment inventory</li>
+                        <li>Condition assessments</li>
+                        <li>Replacement forecasting</li>
+                        <li>Budget planning assistance</li>
+                        <li>Energy efficiency analysis</li>
+                    </ul>
+                </div>
+                
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">❄️</span>
                     </div>
+                    <h3>Walk-In Cooler & Freezer Service</h3>
+                    <p>Specialized service for large walk-in units, addressing the unique challenges of Memphis' climate on these critical systems.</p>
+                    <ul class=\"service-details\">
+                        <li>Door seal inspection and replacement</li>
+                        <li>Condensate drain maintenance</li>
+                        <li>Humidity control assessment</li>
+                        <li>Cooling system optimization</li>
+                        <li>Anti-microbial treatment options</li>
+                    </ul>
+                </div>
+                
+                <div class=\"service-item fade-up\">
+                    <div class=\"service-icon-container\">
+                        <span class=\"service-icon\">💧</span>
+                    </div>
+                    <h3>Ice Machine Maintenance</h3>
+                    <p>Keep your ice production equipment sanitary and efficient with maintenance specifically designed for Memphis water conditions.</p>
+                    <ul class=\"service-details\">
+                        <li>Scale removal and prevention</li>
+                        <li>Water filtration system service</li>
+                        <li>Sanitization procedures</li>
+                        <li>Production efficiency checks</li>
+                        <li>Component inspection and cleaning</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Services Preview -->
-    <section class="services-preview">
-        <div class="container">
-            <h2 class="fade-up">Our Services</h2>
-            <div class="elegant-divider fade-in"></div>
-            <p class="services-intro fade-up">We offer a comprehensive range of preventative maintenance services designed to keep your commercial kitchen operating at peak efficiency.</p>
+    <!-- Service Packages Section -->
+    <section class=\"service-packages\" id=\"packages\">
+        <div class=\"container\" style=\"flex-direction: column;\">
+            <h2 class=\"fade-up\">Memphis Service Packages</h2>
+            <div class=\"elegant-divider fade-in\"></div>
             
-            <div class="services-grid">
-                <div class="service-preview-card fade-up">
-                    <div class="service-icon">🔄</div>
-                    <h3>Preventative Maintenance</h3>
-                    <p>Regular scheduled maintenance to prevent costly breakdowns and extend equipment lifespan.</p>
-                    <a href="memphis-services.html" class="service-link">Learn More</a>
+            <div class=\"packages-grid\">
+                <div class=\"package-card fade-up\">
+                    <div class=\"package-header\">
+                        <h3>Essential</h3>
+                        <div class=\"package-price\">
+                            <span class=\"price-from\">From</span>
+                            <span class=\"price-number\">$299</span>
+                            <span class=\"price-period\">per quarter</span>
+                        </div>
+                    </div>
+                    <div class=\"package-content\">
+                        <p class=\"package-description\">Basic preventative maintenance for small kitchens with limited equipment. Ideal for cafes, small restaurants, and food trucks.</p>
+                        <ul class=\"package-features\">
+                            <li>Quarterly maintenance visits</li>
+                            <li>Up to 5 refrigeration units</li>
+                            <li>Filter replacement (filters not included)</li>
+                            <li>Basic temperature monitoring</li>
+                            <li>Standard documentation</li>
+                            <li>Email support</li>
+                        </ul>
+                        <a href=\"mailto:R22subcooling@gmail.com?subject=Essential Package Inquiry\" class=\"package-cta\">Get Started</a>
+                    </div>
                 </div>
                 
-                <div class="service-preview-card fade-up">
-                    <div class="service-icon">❄️</div>
-                    <h3>Refrigeration Service</h3>
-                    <p>Specialized care for all refrigeration equipment, from reach-ins to walk-in coolers and freezers.</p>
-                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                <div class=\"package-card featured fade-up\">
+                    <div class=\"package-ribbon\">MOST POPULAR</div>
+                    <div class=\"package-header\">
+                        <h3>Professional</h3>
+                        <div class=\"package-price\">
+                            <span class=\"price-from\">From</span>
+                            <span class=\"price-number\">$499</span>
+                            <span class=\"price-period\">per quarter</span>
+                        </div>
+                    </div>
+                    <div class=\"package-content\">
+                        <p class=\"package-description\">Comprehensive maintenance for mid-sized kitchens with moderate equipment needs. Perfect for full-service restaurants and small hotels.</p>
+                        <ul class=\"package-features\">
+                            <li>Quarterly maintenance visits</li>
+                            <li>Up to 10 refrigeration units</li>
+                            <li>Filter replacement (filters included)</li>
+                            <li>Advanced temperature monitoring</li>
+                            <li>Health department compliance prep</li>
+                            <li>24/7 emergency phone support</li>
+                            <li>Priority scheduling</li>
+                            <li>Detailed digital documentation</li>
+                        </ul>
+                        <a href=\"mailto:R22subcooling@gmail.com?subject=Professional Package Inquiry\" class=\"package-cta\">Get Started</a>
+                    </div>
                 </div>
                 
-                <div class="service-preview-card fade-up">
-                    <div class="service-icon">🔍</div>
-                    <h3>Compliance Services</h3>
-                    <p>Help meeting health department regulations with documentation and equipment monitoring.</p>
-                    <a href="memphis-services.html" class="service-link">Learn More</a>
-                </div>
-                
-                <div class="service-preview-card fade-up">
-                    <div class="service-icon">🚀</div>
-                    <h3>Rapid Response</h3>
-                    <p>Fast service when equipment issues do arise, minimizing downtime for your kitchen.</p>
-                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                <div class=\"package-card fade-up\">
+                    <div class=\"package-header\">
+                        <h3>Enterprise</h3>
+                        <div class=\"package-price\">
+                            <span class=\"price-from\">From</span>
+                            <span class=\"price-number\">$899</span>
+                            <span class=\"price-period\">per quarter</span>
+                        </div>
+                    </div>
+                    <div class=\"package-content\">
+                        <p class=\"package-description\">Elite maintenance service for large operations with extensive equipment. Designed for hotels, banquet facilities, and multi-unit restaurants.</p>
+                        <ul class=\"package-features\">
+                            <li>Monthly maintenance visits</li>
+                            <li>Unlimited refrigeration units</li>
+                            <li>All filters and parts included</li>
+                            <li>Real-time temperature monitoring</li>
+                            <li>Complete compliance management</li>
+                            <li>24/7 emergency on-site support</li>
+                            <li>Dedicated account manager</li>
+                            <li>Custom maintenance scheduling</li>
+                            <li>Equipment lifecycle planning</li>
+                            <li>Staff training sessions</li>
+                        </ul>
+                        <a href=\"mailto:R22subcooling@gmail.com?subject=Enterprise Package Inquiry\" class=\"package-cta\">Get Started</a>
+                    </div>
                 </div>
             </div>
             
-            <div class="services-cta fade-up">
-                <a href="memphis-services.html" class="btn">View All Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-choose-us">
-        <div class="container">
-            <h2 class="fade-up">Why Choose Rapid Pro Maintenance</h2>
-            <div class="elegant-divider fade-in"></div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Lower Operating Costs</h3>
-                    <p>Regular maintenance reduces energy consumption and prevents costly emergency repairs.</p>
-                </div>
-                
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">⏱️</div>
-                    <h3>Reduced Downtime</h3>
-                    <p>Proactive maintenance minimizes equipment failures during critical service periods.</p>
-                </div>
-                
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">📋</div>
-                    <h3>Health Department Ready</h3>
-                    <p>Our documentation helps ensure you're always prepared for inspections.</p>
-                </div>
-                
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Equipment Efficiency</h3>
-                    <p>Well-maintained equipment operates more efficiently and uses less energy.</p>
-                </div>
-                
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">📱</div>
-                    <h3>Easy Scheduling</h3>
-                    <p>Simple booking process with flexible scheduling to work around your business hours.</p>
-                </div>
-                
-                <div class="benefit-card fade-up">
-                    <div class="benefit-icon">🔄</div>
-                    <h3>Consistent Service</h3>
-                    <p>The same technicians visit your facility, providing continuity and familiarity with your equipment.</p>
-                </div>
+            <div class=\"custom-package fade-up\">
+                <h3>Need a Custom Solution?</h3>
+                <p>We understand that every Memphis kitchen is unique. Contact us to discuss a tailored maintenance program that addresses your specific equipment and operational requirements.</p>
+                <a href=\"mailto:R22subcooling@gmail.com?subject=Custom Maintenance Package\" class=\"custom-package-cta\">Request Custom Quote</a>
             </div>
         </div>
     </section>
     
+    <!-- Industries Section -->
+    <section class=\"industries-served\" id=\"industries\">
+        <div class=\"container\" style=\"flex-direction: column;\">
+            <h2 class=\"fade-up\">Memphis Industries We Serve</h2>
+            <div class=\"elegant-divider fade-in\"></div>
+            <p class=\"industries-intro fade-up\">Our specialized maintenance services are tailored to the unique requirements of various food service sectors throughout Memphis and the Mid-South.</p>
+            
+            <div class=\"industries-grid\">
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🍽️</div>
+                    <h3>Restaurants</h3>
+                    <p>From Beale Street diners to East Memphis fine dining, we help restaurants maintain optimal equipment performance during busy service periods.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🏨</div>
+                    <h3>Hotels & Resorts</h3>
+                    <p>Supporting Memphis hospitality with maintenance programs that ensure guest satisfaction and 24/7 kitchen availability.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🎓</div>
+                    <h3>Schools & Universities</h3>
+                    <p>Helping Memphis educational institutions maintain safe, reliable food service equipment for students and faculty.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🏥</div>
+                    <h3>Healthcare Facilities</h3>
+                    <p>Specialized maintenance for Memphis hospitals and care centers, ensuring uninterrupted food service for patients.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🛒</div>
+                    <h3>Grocery & Retail</h3>
+                    <p>Keeping display cases and storage systems operating efficiently for Memphis food retailers.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🍴</div>
+                    <h3>Catering Companies</h3>
+                    <p>Supporting Memphis caterers with equipment maintenance that adapts to seasonal demands and event schedules.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🏟️</div>
+                    <h3>Sports & Entertainment</h3>
+                    <p>Maintaining concession equipment at Memphis sports venues and entertainment facilities.</p>
+                </div>
+                
+                <div class=\"industry-card fade-up\">
+                    <div class=\"industry-icon\">🍻</div>
+                    <h3>Bars & Breweries</h3>
+                    <p>Specialized service for Memphis bars and breweries, focusing on draft systems and beverage cooling equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="cta-background"></div>
-        <div class="container">
-            <div class="cta-container fade-up">
-                <div class="cta-pattern cta-pattern-top-left"></div>
-                <div class="cta-pattern cta-pattern-bottom-right"></div>
-
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Get Started?</h2>
-                    <p class="cta-text">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you develop a maintenance plan that keeps your operation running efficiently.</p>
-                    <div class="cta-buttons">
-                        <a href="mailto:R22subcooling@gmail.com" class="cta-btn cta-btn-primary">
-                            <span class="cta-icon">📅</span> Schedule Assessment
-                        </a>
-                        <a href="tel:+19016564148" class="cta-btn cta-btn-secondary">
-                            <span class="cta-icon">📞</span> Call (901) 656-4148
-                        </a>
-                    </div>
+    <section class=\"cta-section\">
+        <div class=\"cta-background\"></div>
+        <div class=\"container\" style=\"flex-direction: column;\">
+            <div class=\"cta-container fade-up\">
+                <h2 class=\"cta-title\">Ready to Optimize Your Memphis Kitchen?</h2>
+                <p class=\"cta-text\">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you develop a maintenance plan that keeps your operation running efficiently.</p>
+                <div class=\"cta-buttons\">
+                    <a href=\"mailto:R22subcooling@gmail.com\" class=\"cta-btn cta-btn-primary\">
+                        <span>📅</span> Schedule Assessment
+                    </a>
+                    <a href=\"tel:+19016564148\" class=\"cta-btn cta-btn-secondary\">
+                        <span>📞</span> Call (901) 656-4148
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <a href="index.html">
-                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in">
+    <footer class=\"footer\">
+        <div class=\"container\">
+            <a href=\"index.html\">
+                <img src=\"assets/images/logo.png\" alt=\"Rapid Pro Maintenance\" class=\"logo fade-in\">
             </a>
-            <div class="contact-info fade-up">
-                <p><a href="mailto:R22subcooling@gmail.com">R22subcooling@gmail.com</a></p>
-                <p><a href="tel:+19016564148">(901) 656-4148</a></p>
+            <div class=\"contact-info fade-up\">
+                <p><a href=\"mailto:R22subcooling@gmail.com\">R22subcooling@gmail.com</a></p>
+                <p><a href=\"tel:+19016564148\">(901) 656-4148</a></p>
                 <p>Serving Memphis, TN and surrounding areas</p>
             </div>
-            <div class="areas-served fade-up">
+            <div class=\"areas-served fade-up\">
                 <h3>Service Areas</h3>
                 <p>Memphis • Germantown • Collierville • Bartlett • Cordova • Southaven • Olive Branch</p>
             </div>
-            <div class="footer-nav fade-in">
-                <p>© 2025 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="memphis-services.html">Services</a> | <a href="memphis-service-areas.html">Memphis Service Areas</a> | <a href="memphis-testimonials.html">Testimonials</a></p>
+            <div class=\"footer-nav fade-in\">
+                <p>© 2025 Rapid Pro Maintenance | <a href=\"index.html\">Home</a> | <a href=\"#services\">Services</a> | <a href=\"#packages\">Packages</a> | <a href=\"#industries\">Industries</a></p>
                 <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
             </div>
         </div>
     </footer>
 
-    </div> <!-- End of page-content -->
-
-    <!-- Theme Switcher Button -->
-    <button class="theme-switch" aria-label="Toggle Dark Mode">
-        <span class="theme-icon">🌙</span>
-    </button>
-
     <!-- Sticky Call Button (Mobile) -->
-    <a href="tel:+19016564148" class="sticky-call" aria-label="Call us now">
-        <span class="phone-icon">📞</span>
+    <a href=\"tel:+19016564148\" class=\"sticky-call\" aria-label=\"Call us now\">
+        <span class=\"phone-icon\">📞</span>
+    </a>
+    
+    <!-- Sticky Email Button (Mobile) -->
+    <a href=\"mailto:R22subcooling@gmail.com\" class=\"sticky-email\" aria-label=\"Email us\">
+        <span class=\"email-icon\">✉️</span>
     </a>
 
-    <!-- Overlay for mobile menu -->
-    <div id="menu-overlay" class="menu-overlay"></div>
-
-    <script src="js/script.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/theme-switcher.js"></script>
-    <script src="js/performance.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/micro-interactions.js"></script>
-    <script src="js/schema.js"></script>
-    <!-- Only use the enhanced version -->
-    <script src="js/enhanced-click-to-call.js"></script>
-    <script src="js/mobile-nav.js"></script>
-    <!-- Add script to inject quick-fixes CSS to all pages -->
-    <script src="js/quick-fixes-injection.js"></script>
+    <!-- Optimized JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('main-nav');
+        const overlay = document.getElementById('menu-overlay');
+        
+        hamburger.addEventListener('click', function() {
+            const isActive = nav.classList.contains('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', !isActive);
+            document.body.style.overflow = isActive ? '' : 'hidden';
+        });
+        
+        overlay.addEventListener('click', function() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking nav links
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Sticky Header - Hide on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for fade animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade elements
+        document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+        
+        // Performance: Lazy load video
+        const video = document.querySelector('video');
+        if (video && 'IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        video.play();
+                        videoObserver.unobserve(video);
+                    }
+                });
+            });
+            videoObserver.observe(video);
+        }
+    </script>
 </body>
-</html>
+</html>`,
+  `message`: `Fix horizontal scrolling issue - prevent left/right page sliding`
+}
+Response
+
+{
+  "content": {
+    "name": "index.html",
+    "path": "index.html",
+    "sha": "a1cb9863f9dee0fa0a4b6a1878478e1047103204",
+    "size": 55487,
+    "url": "https://api.github.com/repos/AggrMod/RapidPro/contents/index.html?ref=main",
+    "html_url": "https://github.com/AggrMod/RapidPro/blob/main/index.html",
+    "git_url": "https://api.github.com/repos/AggrMod/RapidPro/git/blobs/a1cb9863f9dee0fa0a4b6a1878478e1047103204",
+    "download_url": "https://raw.githubusercontent.com/AggrMod/RapidPro/main/index.html",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/AggrMod/RapidPro/contents/index.html?ref=main",
+      "git": "https://api.github.com/repos/AggrMod/RapidPro/git/blobs/a1cb9863f9dee0fa0a4b6a1878478e1047103204",
+      "html": "https://github.com/AggrMod/RapidPro/blob/main/index.html"
+    }
+  },
+  "commit": {
+    "sha": "d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
+    "node_id": "C_kwDOOnvsvdoAKGQ5YmI0MzFlZDVhZWEyMGM0MWZjNWYyNDExOWMwMWNlMmE4NTYwM2U",
+    "url": "https://api.github.com/repos/AggrMod/RapidPro/git/commits/d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
+    "html_url": "https://github.com/AggrMod/RapidPro/commit/d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
+    "author": {
+      "name": "AggrMod",
+      "email": "148125895+AggrMod@users.noreply.github.com",
+      "date": "2025-06-12T00:17:47Z"
+    },
+    "committer": {
+      "name": "AggrMod",
+      "email": "148125895+AggrMod@users.noreply.github.com",
+      "date": "2025-06-12T00:17:47Z"
+    },
+    "message": "Fix horizontal scrolling issue - prevent left/right page sliding",
+    "tree": {
+      "sha": "6ca81aceea5ac6e1b06d0f96e74bbcfcf4605ae0",
+      "url": "https://api.github.com/repos/AggrMod/RapidPro/git/trees/6ca81aceea5ac6e1b06d0f96e74bbcfcf4605ae0"
+    },
+    "parents": [
+      {
+        "sha": "4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed",
+        "url": "https://api.github.com/repos/AggrMod/RapidPro/git/commits/4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed",
+        "html_url": "https://github.com/AggrMod/RapidPro/commit/4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed"
+      }
+    ]
+  }
+}
