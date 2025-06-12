@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance</title>
-    <meta name=\"description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses. Keep your commercial kitchen equipment running efficiently.\">
-    <meta name=\"keywords\" content=\"Memphis commercial kitchen services, Memphis restaurant equipment maintenance, Memphis preventative kitchen maintenance, Memphis refrigeration service, Memphis kitchen compliance\">
+    <meta name="description" content="Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses. Keep your commercial kitchen equipment running efficiently.">
+    <meta name="keywords" content="Memphis commercial kitchen services, Memphis restaurant equipment maintenance, Memphis preventative kitchen maintenance, Memphis refrigeration service, Memphis kitchen compliance">
 
     <!-- Open Graph / Facebook -->
-    <meta property=\"og:type\" content=\"website\">
-    <meta property=\"og:url\" content=\"https://rapidpromemphis.com/\">
-    <meta property=\"og:title\" content=\"Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance\">
-    <meta property=\"og:description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.\">
-    <meta property=\"og:image\" content=\"assets/images/hero.png\">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rapidpromemphis.com/">
+    <meta property="og:title" content="Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance">
+    <meta property="og:description" content="Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.">
+    <meta property="og:image" content="assets/images/hero.png">
 
     <!-- Twitter -->
-    <meta property=\"twitter:card\" content=\"summary_large_image\">
-    <meta property=\"twitter:url\" content=\"https://rapidpromemphis.com/\">
-    <meta property=\"twitter:title\" content=\"Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance\">
-    <meta property=\"twitter:description\" content=\"Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.\">
-    <meta property=\"twitter:image\" content=\"assets/images/hero.png\">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rapidpromemphis.com/">
+    <meta property="twitter:title" content="Memphis Commercial Kitchen Maintenance Services | Rapid Pro Maintenance">
+    <meta property="twitter:description" content="Specialized preventative maintenance services for Memphis restaurants, hotels, schools, and food service businesses.">
+    <meta property="twitter:image" content="assets/images/hero.png">
 
     <!-- Favicon -->
-    <link rel=\"icon\" type=\"image/svg+xml\" href=\"assets/images/favicon.svg\">
-    <meta name=\"theme-color\" content=\"#1f2937\">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <meta name="theme-color" content="#1f2937">
     
     <!-- Preconnect for Performance -->
-    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Font Loading Strategy -->
-    <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap\" as=\"style\">
-    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap\" rel=\"stylesheet\">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Critical Inline CSS for Core Web Vitals -->
     <style>
@@ -387,7 +387,7 @@
         /* Bento Grid Layout */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
         
@@ -480,7 +480,7 @@
         
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
             margin-bottom: 48px;
         }
@@ -685,7 +685,7 @@
         
         .industries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 24px;
         }
         
@@ -739,7 +739,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><defs><pattern id=\"grid\" width=\"100\" height=\"100\" patternUnits=\"userSpaceOnUse\"><path d=\"M 100 0 L 0 0 0 100\" fill=\"none\" stroke=\"rgba(250,204,21,0.1)\" stroke-width=\"1\"/></pattern></defs><rect width=\"100%\" height=\"100%\" fill=\"url(%23grid)\"/></svg>');
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(250,204,21,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
         }
         
@@ -1065,6 +1065,36 @@
             }
         }
         
+        /* Small mobile screens */
+        @media (max-width: 375px) {
+            .service-item, 
+            .package-card, 
+            .industry-card {
+                padding: 24px 16px;
+            }
+            
+            .package-content,
+            .package-header {
+                padding: 24px 16px;
+            }
+            
+            .custom-package {
+                padding: 32px 16px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .subheading {
+                font-size: 18px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+        }
+        
         /* Accessibility */
         :focus {
             outline: 2px solid var(--accent-yellow);
@@ -1095,35 +1125,35 @@
 </head>
 <body>
     <!-- Header with Logo -->
-    <header class=\"header\" id=\"header\">
-        <div class=\"container\">
+    <header class="header" id="header">
+        <div class="container">
             <!-- Logo container -->
-            <div class=\"logo-container\">
-                <a href=\"index.html\">
-                    <img src=\"assets/images/logo.png\" alt=\"Rapid Pro Maintenance\" class=\"logo\">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
                 </a>
             </div>
             
             <!-- Hamburger Menu - Mobile Only -->
-            <button class=\"hamburger-menu\" id=\"hamburger-menu\" aria-label=\"Toggle navigation menu\" aria-expanded=\"false\">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             
             <!-- Menu Overlay -->
-            <div class=\"menu-overlay\" id=\"menu-overlay\"></div>
+            <div class="menu-overlay" id="menu-overlay"></div>
             
             <!-- Navigation -->
-            <nav class=\"main-nav\" id=\"main-nav\" role=\"navigation\">
+            <nav class="main-nav" id="main-nav" role="navigation">
                 <ul>
-                    <li><a href=\"#about\">About</a></li>
-                    <li><a href=\"#services\">Services</a></li>
-                    <li><a href=\"#packages\">Packages</a></li>
-                    <li><a href=\"#industries\">Industries</a></li>
-                    <li><a href=\"mailto:R22subcooling@gmail.com\" class=\"nav-cta\">Contact</a></li>
-                    <li><a href=\"tel:+19016564148\" class=\"phone-number nav-call\">
-                        <span class=\"phone-icon\">📞</span> (901) 656-4148
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="mailto:R22subcooling@gmail.com" class="nav-cta">Contact</a></li>
+                    <li><a href="tel:+19016564148" class="phone-number nav-call">
+                        <span class="phone-icon">📞</span> (901) 656-4148
                     </a></li>
                 </ul>
             </nav>
@@ -1131,37 +1161,37 @@
     </header>
 
     <!-- Hero Section -->
-    <section class=\"hero\">
+    <section class="hero">
         <!-- Video Background -->
-        <div class=\"video-background\">
+        <div class="video-background">
             <video autoplay muted loop playsinline>
-                <source src=\"videos/Kitchen_Perspective_Video_Ready.mp4\" type=\"video/mp4\">
+                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
             </video>
         </div>
-        <div class=\"container\">
+        <div class="container">
             <h1>Memphis Restaurant & Kitchen Services</h1>
-            <p class=\"subheading\">Specialized Maintenance for Memphis Food Service Businesses</p>
-            <p class=\"tagline\">Preventing equipment failures before they happen—keeping Memphis kitchens running smoothly.</p>
-            <a href=\"mailto:R22subcooling@gmail.com\" class=\"btn cta\">Schedule Service</a>
+            <p class="subheading">Specialized Maintenance for Memphis Food Service Businesses</p>
+            <p class="tagline">Preventing equipment failures before they happen—keeping Memphis kitchens running smoothly.</p>
+            <a href="mailto:R22subcooling@gmail.com" class="btn cta">Schedule Service</a>
         </div>
-        <div class=\"scroll-indicator\" onclick=\"document.getElementById('services').scrollIntoView({behavior: 'smooth'})\"></div>
+        <div class="scroll-indicator" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"></div>
     </section>
 
     <!-- Memphis-Specific Services Section -->
-    <section class=\"memphis-services\" id=\"services\">
-        <div class=\"container\" style=\"flex-direction: column;\">
-            <h2 class=\"fade-up\">Services Designed for Memphis Kitchens</h2>
-            <div class=\"elegant-divider fade-in\"></div>
-            <p class=\"services-intro fade-up\">Memphis kitchens face unique challenges, from high humidity to extreme temperature fluctuations. Our services are specifically designed to address these local conditions, keeping your commercial kitchen equipment in optimal condition year-round.</p>
+    <section class="memphis-services" id="services">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="fade-up">Services Designed for Memphis Kitchens</h2>
+            <div class="elegant-divider fade-in"></div>
+            <p class="services-intro fade-up">Memphis kitchens face unique challenges, from high humidity to extreme temperature fluctuations. Our services are specifically designed to address these local conditions, keeping your commercial kitchen equipment in optimal condition year-round.</p>
             
-            <div class=\"services-grid\">
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">🔄</span>
+            <div class="services-grid">
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">🔄</span>
                     </div>
                     <h3>Preventative Refrigeration Maintenance</h3>
                     <p>Regular maintenance to prevent costly breakdowns during Memphis' hot summer months. Our technicians thoroughly inspect and service all refrigeration systems to ensure optimal performance and efficiency.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>Condenser cleaning and inspection</li>
                         <li>Evaporator maintenance</li>
                         <li>Temperature calibration</li>
@@ -1170,13 +1200,13 @@
                     </ul>
                 </div>
                 
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">🔍</span>
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">🔍</span>
                     </div>
                     <h3>Memphis Health Department Compliance</h3>
                     <p>Stay ahead of health department inspections with our Memphis-specific compliance service. We help ensure your equipment meets all local regulatory requirements.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>Temperature monitoring systems</li>
                         <li>Documentation and record-keeping</li>
                         <li>Pre-inspection assessments</li>
@@ -1185,13 +1215,13 @@
                     </ul>
                 </div>
                 
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">🚀</span>
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">🚀</span>
                     </div>
                     <h3>Rapid Response Program</h3>
                     <p>Our Memphis-based technicians provide fast response times when issues do arise. Available to contract customers throughout the Memphis metro area.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>24/7 emergency availability</li>
                         <li>Priority scheduling</li>
                         <li>Remote diagnostics when possible</li>
@@ -1200,13 +1230,13 @@
                     </ul>
                 </div>
                 
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">📋</span>
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">📋</span>
                     </div>
                     <h3>Equipment Lifecycle Management</h3>
                     <p>Strategic maintenance planning to extend the life of your kitchen equipment and plan for future capital expenditures.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>Detailed equipment inventory</li>
                         <li>Condition assessments</li>
                         <li>Replacement forecasting</li>
@@ -1215,13 +1245,13 @@
                     </ul>
                 </div>
                 
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">❄️</span>
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">❄️</span>
                     </div>
                     <h3>Walk-In Cooler & Freezer Service</h3>
                     <p>Specialized service for large walk-in units, addressing the unique challenges of Memphis' climate on these critical systems.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>Door seal inspection and replacement</li>
                         <li>Condensate drain maintenance</li>
                         <li>Humidity control assessment</li>
@@ -1230,13 +1260,13 @@
                     </ul>
                 </div>
                 
-                <div class=\"service-item fade-up\">
-                    <div class=\"service-icon-container\">
-                        <span class=\"service-icon\">💧</span>
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span class="service-icon">💧</span>
                     </div>
                     <h3>Ice Machine Maintenance</h3>
                     <p>Keep your ice production equipment sanitary and efficient with maintenance specifically designed for Memphis water conditions.</p>
-                    <ul class=\"service-details\">
+                    <ul class="service-details">
                         <li>Scale removal and prevention</li>
                         <li>Water filtration system service</li>
                         <li>Sanitization procedures</li>
@@ -1249,24 +1279,24 @@
     </section>
     
     <!-- Service Packages Section -->
-    <section class=\"service-packages\" id=\"packages\">
-        <div class=\"container\" style=\"flex-direction: column;\">
-            <h2 class=\"fade-up\">Memphis Service Packages</h2>
-            <div class=\"elegant-divider fade-in\"></div>
+    <section class="service-packages" id="packages">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="fade-up">Memphis Service Packages</h2>
+            <div class="elegant-divider fade-in"></div>
             
-            <div class=\"packages-grid\">
-                <div class=\"package-card fade-up\">
-                    <div class=\"package-header\">
+            <div class="packages-grid">
+                <div class="package-card fade-up">
+                    <div class="package-header">
                         <h3>Essential</h3>
-                        <div class=\"package-price\">
-                            <span class=\"price-from\">From</span>
-                            <span class=\"price-number\">$299</span>
-                            <span class=\"price-period\">per quarter</span>
+                        <div class="package-price">
+                            <span class="price-from">From</span>
+                            <span class="price-number">$299</span>
+                            <span class="price-period">per quarter</span>
                         </div>
                     </div>
-                    <div class=\"package-content\">
-                        <p class=\"package-description\">Basic preventative maintenance for small kitchens with limited equipment. Ideal for cafes, small restaurants, and food trucks.</p>
-                        <ul class=\"package-features\">
+                    <div class="package-content">
+                        <p class="package-description">Basic preventative maintenance for small kitchens with limited equipment. Ideal for cafes, small restaurants, and food trucks.</p>
+                        <ul class="package-features">
                             <li>Quarterly maintenance visits</li>
                             <li>Up to 5 refrigeration units</li>
                             <li>Filter replacement (filters not included)</li>
@@ -1274,23 +1304,23 @@
                             <li>Standard documentation</li>
                             <li>Email support</li>
                         </ul>
-                        <a href=\"mailto:R22subcooling@gmail.com?subject=Essential Package Inquiry\" class=\"package-cta\">Get Started</a>
+                        <a href="mailto:R22subcooling@gmail.com?subject=Essential Package Inquiry" class="package-cta">Get Started</a>
                     </div>
                 </div>
                 
-                <div class=\"package-card featured fade-up\">
-                    <div class=\"package-ribbon\">MOST POPULAR</div>
-                    <div class=\"package-header\">
+                <div class="package-card featured fade-up">
+                    <div class="package-ribbon">MOST POPULAR</div>
+                    <div class="package-header">
                         <h3>Professional</h3>
-                        <div class=\"package-price\">
-                            <span class=\"price-from\">From</span>
-                            <span class=\"price-number\">$499</span>
-                            <span class=\"price-period\">per quarter</span>
+                        <div class="package-price">
+                            <span class="price-from">From</span>
+                            <span class="price-number">$499</span>
+                            <span class="price-period">per quarter</span>
                         </div>
                     </div>
-                    <div class=\"package-content\">
-                        <p class=\"package-description\">Comprehensive maintenance for mid-sized kitchens with moderate equipment needs. Perfect for full-service restaurants and small hotels.</p>
-                        <ul class=\"package-features\">
+                    <div class="package-content">
+                        <p class="package-description">Comprehensive maintenance for mid-sized kitchens with moderate equipment needs. Perfect for full-service restaurants and small hotels.</p>
+                        <ul class="package-features">
                             <li>Quarterly maintenance visits</li>
                             <li>Up to 10 refrigeration units</li>
                             <li>Filter replacement (filters included)</li>
@@ -1300,22 +1330,22 @@
                             <li>Priority scheduling</li>
                             <li>Detailed digital documentation</li>
                         </ul>
-                        <a href=\"mailto:R22subcooling@gmail.com?subject=Professional Package Inquiry\" class=\"package-cta\">Get Started</a>
+                        <a href="mailto:R22subcooling@gmail.com?subject=Professional Package Inquiry" class="package-cta">Get Started</a>
                     </div>
                 </div>
                 
-                <div class=\"package-card fade-up\">
-                    <div class=\"package-header\">
+                <div class="package-card fade-up">
+                    <div class="package-header">
                         <h3>Enterprise</h3>
-                        <div class=\"package-price\">
-                            <span class=\"price-from\">From</span>
-                            <span class=\"price-number\">$899</span>
-                            <span class=\"price-period\">per quarter</span>
+                        <div class="package-price">
+                            <span class="price-from">From</span>
+                            <span class="price-number">$899</span>
+                            <span class="price-period">per quarter</span>
                         </div>
                     </div>
-                    <div class=\"package-content\">
-                        <p class=\"package-description\">Elite maintenance service for large operations with extensive equipment. Designed for hotels, banquet facilities, and multi-unit restaurants.</p>
-                        <ul class=\"package-features\">
+                    <div class="package-content">
+                        <p class="package-description">Elite maintenance service for large operations with extensive equipment. Designed for hotels, banquet facilities, and multi-unit restaurants.</p>
+                        <ul class="package-features">
                             <li>Monthly maintenance visits</li>
                             <li>Unlimited refrigeration units</li>
                             <li>All filters and parts included</li>
@@ -1327,71 +1357,71 @@
                             <li>Equipment lifecycle planning</li>
                             <li>Staff training sessions</li>
                         </ul>
-                        <a href=\"mailto:R22subcooling@gmail.com?subject=Enterprise Package Inquiry\" class=\"package-cta\">Get Started</a>
+                        <a href="mailto:R22subcooling@gmail.com?subject=Enterprise Package Inquiry" class="package-cta">Get Started</a>
                     </div>
                 </div>
             </div>
             
-            <div class=\"custom-package fade-up\">
+            <div class="custom-package fade-up">
                 <h3>Need a Custom Solution?</h3>
                 <p>We understand that every Memphis kitchen is unique. Contact us to discuss a tailored maintenance program that addresses your specific equipment and operational requirements.</p>
-                <a href=\"mailto:R22subcooling@gmail.com?subject=Custom Maintenance Package\" class=\"custom-package-cta\">Request Custom Quote</a>
+                <a href="mailto:R22subcooling@gmail.com?subject=Custom Maintenance Package" class="custom-package-cta">Request Custom Quote</a>
             </div>
         </div>
     </section>
     
     <!-- Industries Section -->
-    <section class=\"industries-served\" id=\"industries\">
-        <div class=\"container\" style=\"flex-direction: column;\">
-            <h2 class=\"fade-up\">Memphis Industries We Serve</h2>
-            <div class=\"elegant-divider fade-in\"></div>
-            <p class=\"industries-intro fade-up\">Our specialized maintenance services are tailored to the unique requirements of various food service sectors throughout Memphis and the Mid-South.</p>
+    <section class="industries-served" id="industries">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="fade-up">Memphis Industries We Serve</h2>
+            <div class="elegant-divider fade-in"></div>
+            <p class="industries-intro fade-up">Our specialized maintenance services are tailored to the unique requirements of various food service sectors throughout Memphis and the Mid-South.</p>
             
-            <div class=\"industries-grid\">
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🍽️</div>
+            <div class="industries-grid">
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🍽️</div>
                     <h3>Restaurants</h3>
                     <p>From Beale Street diners to East Memphis fine dining, we help restaurants maintain optimal equipment performance during busy service periods.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🏨</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🏨</div>
                     <h3>Hotels & Resorts</h3>
                     <p>Supporting Memphis hospitality with maintenance programs that ensure guest satisfaction and 24/7 kitchen availability.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🎓</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🎓</div>
                     <h3>Schools & Universities</h3>
                     <p>Helping Memphis educational institutions maintain safe, reliable food service equipment for students and faculty.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🏥</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🏥</div>
                     <h3>Healthcare Facilities</h3>
                     <p>Specialized maintenance for Memphis hospitals and care centers, ensuring uninterrupted food service for patients.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🛒</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🛒</div>
                     <h3>Grocery & Retail</h3>
                     <p>Keeping display cases and storage systems operating efficiently for Memphis food retailers.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🍴</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🍴</div>
                     <h3>Catering Companies</h3>
                     <p>Supporting Memphis caterers with equipment maintenance that adapts to seasonal demands and event schedules.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🏟️</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🏟️</div>
                     <h3>Sports & Entertainment</h3>
                     <p>Maintaining concession equipment at Memphis sports venues and entertainment facilities.</p>
                 </div>
                 
-                <div class=\"industry-card fade-up\">
-                    <div class=\"industry-icon\">🍻</div>
+                <div class="industry-card fade-up">
+                    <div class="industry-icon">🍻</div>
                     <h3>Bars & Breweries</h3>
                     <p>Specialized service for Memphis bars and breweries, focusing on draft systems and beverage cooling equipment.</p>
                 </div>
@@ -1400,17 +1430,17 @@
     </section>
 
     <!-- Call to Action -->
-    <section class=\"cta-section\">
-        <div class=\"cta-background\"></div>
-        <div class=\"container\" style=\"flex-direction: column;\">
-            <div class=\"cta-container fade-up\">
-                <h2 class=\"cta-title\">Ready to Optimize Your Memphis Kitchen?</h2>
-                <p class=\"cta-text\">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you develop a maintenance plan that keeps your operation running efficiently.</p>
-                <div class=\"cta-buttons\">
-                    <a href=\"mailto:R22subcooling@gmail.com\" class=\"cta-btn cta-btn-primary\">
+    <section class="cta-section">
+        <div class="cta-background"></div>
+        <div class="container" style="flex-direction: column;">
+            <div class="cta-container fade-up">
+                <h2 class="cta-title">Ready to Optimize Your Memphis Kitchen?</h2>
+                <p class="cta-text">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you develop a maintenance plan that keeps your operation running efficiently.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:R22subcooling@gmail.com" class="cta-btn cta-btn-primary">
                         <span>📅</span> Schedule Assessment
                     </a>
-                    <a href=\"tel:+19016564148\" class=\"cta-btn cta-btn-secondary\">
+                    <a href="tel:+19016564148" class="cta-btn cta-btn-secondary">
                         <span>📞</span> Call (901) 656-4148
                     </a>
                 </div>
@@ -1419,35 +1449,35 @@
     </section>
 
     <!-- Footer -->
-    <footer class=\"footer\">
-        <div class=\"container\">
-            <a href=\"index.html\">
-                <img src=\"assets/images/logo.png\" alt=\"Rapid Pro Maintenance\" class=\"logo fade-in\">
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in">
             </a>
-            <div class=\"contact-info fade-up\">
-                <p><a href=\"mailto:R22subcooling@gmail.com\">R22subcooling@gmail.com</a></p>
-                <p><a href=\"tel:+19016564148\">(901) 656-4148</a></p>
+            <div class="contact-info fade-up">
+                <p><a href="mailto:R22subcooling@gmail.com">R22subcooling@gmail.com</a></p>
+                <p><a href="tel:+19016564148">(901) 656-4148</a></p>
                 <p>Serving Memphis, TN and surrounding areas</p>
             </div>
-            <div class=\"areas-served fade-up\">
+            <div class="areas-served fade-up">
                 <h3>Service Areas</h3>
                 <p>Memphis • Germantown • Collierville • Bartlett • Cordova • Southaven • Olive Branch</p>
             </div>
-            <div class=\"footer-nav fade-in\">
-                <p>© 2025 Rapid Pro Maintenance | <a href=\"index.html\">Home</a> | <a href=\"#services\">Services</a> | <a href=\"#packages\">Packages</a> | <a href=\"#industries\">Industries</a></p>
+            <div class="footer-nav fade-in">
+                <p>© 2025 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="#services">Services</a> | <a href="#packages">Packages</a> | <a href="#industries">Industries</a></p>
                 <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
             </div>
         </div>
     </footer>
 
     <!-- Sticky Call Button (Mobile) -->
-    <a href=\"tel:+19016564148\" class=\"sticky-call\" aria-label=\"Call us now\">
-        <span class=\"phone-icon\">📞</span>
+    <a href="tel:+19016564148" class="sticky-call" aria-label="Call us now">
+        <span class="phone-icon">📞</span>
     </a>
     
     <!-- Sticky Email Button (Mobile) -->
-    <a href=\"mailto:R22subcooling@gmail.com\" class=\"sticky-email\" aria-label=\"Email us\">
-        <span class=\"email-icon\">✉️</span>
+    <a href="mailto:R22subcooling@gmail.com" class="sticky-email" aria-label="Email us">
+        <span class="email-icon">✉️</span>
     </a>
 
     <!-- Optimized JavaScript -->
@@ -1509,7 +1539,7 @@
         });
         
         // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1564,54 +1594,4 @@
         }
     </script>
 </body>
-</html>`,
-  `message`: `Fix horizontal scrolling issue - prevent left/right page sliding`
-}
-Response
-
-{
-  "content": {
-    "name": "index.html",
-    "path": "index.html",
-    "sha": "a1cb9863f9dee0fa0a4b6a1878478e1047103204",
-    "size": 55487,
-    "url": "https://api.github.com/repos/AggrMod/RapidPro/contents/index.html?ref=main",
-    "html_url": "https://github.com/AggrMod/RapidPro/blob/main/index.html",
-    "git_url": "https://api.github.com/repos/AggrMod/RapidPro/git/blobs/a1cb9863f9dee0fa0a4b6a1878478e1047103204",
-    "download_url": "https://raw.githubusercontent.com/AggrMod/RapidPro/main/index.html",
-    "type": "file",
-    "_links": {
-      "self": "https://api.github.com/repos/AggrMod/RapidPro/contents/index.html?ref=main",
-      "git": "https://api.github.com/repos/AggrMod/RapidPro/git/blobs/a1cb9863f9dee0fa0a4b6a1878478e1047103204",
-      "html": "https://github.com/AggrMod/RapidPro/blob/main/index.html"
-    }
-  },
-  "commit": {
-    "sha": "d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
-    "node_id": "C_kwDOOnvsvdoAKGQ5YmI0MzFlZDVhZWEyMGM0MWZjNWYyNDExOWMwMWNlMmE4NTYwM2U",
-    "url": "https://api.github.com/repos/AggrMod/RapidPro/git/commits/d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
-    "html_url": "https://github.com/AggrMod/RapidPro/commit/d9bb431ed5aea20c41fc5f24119c01ce2a85603e",
-    "author": {
-      "name": "AggrMod",
-      "email": "148125895+AggrMod@users.noreply.github.com",
-      "date": "2025-06-12T00:17:47Z"
-    },
-    "committer": {
-      "name": "AggrMod",
-      "email": "148125895+AggrMod@users.noreply.github.com",
-      "date": "2025-06-12T00:17:47Z"
-    },
-    "message": "Fix horizontal scrolling issue - prevent left/right page sliding",
-    "tree": {
-      "sha": "6ca81aceea5ac6e1b06d0f96e74bbcfcf4605ae0",
-      "url": "https://api.github.com/repos/AggrMod/RapidPro/git/trees/6ca81aceea5ac6e1b06d0f96e74bbcfcf4605ae0"
-    },
-    "parents": [
-      {
-        "sha": "4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed",
-        "url": "https://api.github.com/repos/AggrMod/RapidPro/git/commits/4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed",
-        "html_url": "https://github.com/AggrMod/RapidPro/commit/4c6aac1a58b2cdbbbeb80bc7bb59114f5e97c7ed"
-      }
-    ]
-  }
-}
+</html>
