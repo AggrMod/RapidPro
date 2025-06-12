@@ -1,21 +1,328 @@
-        /* Footer */
-        .footer {
-            background: var(--primary-dark);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .footer .container {
-            flex-direction: column;
-            gap: 32px;
-        }
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance</title>
+    <meta name="description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
+    <meta name="keywords" content="Memphis kitchen maintenance, Memphis restaurant equipment, commercial kitchen repair, preventative maintenance, Memphis refrigeration service">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rapidpromemphis.com/">
+    <meta property="og:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
+    <meta property="og:description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
+    <meta property="og:image" content="assets/images/hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rapidpromemphis.com/">
+    <meta property="twitter:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
+    <meta property="twitter:description" content="Expert commercial kitchen maintenance in Memphis. We provide preventative maintenance services for restaurants, hotels, and food service businesses.">
+    <meta property="twitter:image" content="assets/images/hero.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- Theme Color for Browser -->
+    <meta name="theme-color" content="#1f2937">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium-effects.css">
+    <link rel="stylesheet" href="css/theme-switcher.css">
+    <link rel="stylesheet" href="css/theme-transition.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/custom-cursor.css">
+    <link rel="stylesheet" href="css/click-to-call.css">
+    <link rel="stylesheet" href="css/login-button.css">
+    <link rel="stylesheet" href="css/unified-header.css">
+    <link rel="stylesheet" href="css/mobile-hero-fix.css">
+    <link rel="stylesheet" href="css/mobile-menu-button.css">
+    <style>
+        /* Ensure footer logo is properly sized */
         .footer .logo {
             filter: brightness(0) invert(1);
             height: 60px; /* Fixed: Set reasonable footer logo size */
             width: auto;
             max-width: 200px;
         }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-logo"></div>
+            </div>
+            <div class="loader-text">RAPID PRO MAINTENANCE</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Transition -->
+    <div class="page-transition"></div>
+
+    <!-- Main Content -->
+    <div class="page-content">
+
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="memphis-services.html">Services</a></li>
+                    <li><a href="memphis-service-areas.html">Memphis Areas</a></li>
+                    <li><a href="memphis-testimonials.html">Testimonials</a></li>
+                    <li><a href="mailto:R22subcooling@gmail.com" class="nav-cta">Contact</a></li>
+                    <li><a href="tel:+19016564148" class="phone-number nav-call" role="button" aria-label="Call us at (901) 656-4148">
+                        <span class="phone-icon">📞</span> (901) 656-4148
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Video Background -->
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="container">
+            <h1 class="fade-in">Memphis Commercial Kitchen Maintenance</h1>
+            <p class="subheading fade-up">Expert Preventative Maintenance for Food Service Businesses</p>
+            <p class="tagline fade-up">Keeping your kitchen equipment running at peak performance—so you can focus on what matters most.</p>
+            <a href="mailto:R22subcooling@gmail.com" class="btn cta fade-up">Schedule Service</a>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="fade-up">Memphis' Trusted Kitchen Equipment Specialists</h2>
+            <div class="elegant-divider fade-in"></div>
+            
+            <div class="about-content">
+                <div class="about-text fade-up">
+                    <p>At Rapid Pro Maintenance, we understand that your kitchen equipment is the backbone of your business. Our team of certified technicians specializes in preventative maintenance services designed to keep your commercial kitchen running smoothly and efficiently.</p>
+                    
+                    <p>With decades of combined experience serving Memphis restaurants, hotels, schools, and healthcare facilities, we've developed maintenance protocols specifically designed for the unique challenges of Mid-South commercial kitchens.</p>
+                    
+                    <p>Our proactive approach helps you avoid costly emergency repairs, extend equipment lifespan, and maintain health department compliance—all while reducing your overall maintenance costs.</p>
+                </div>
+                
+                <div class="about-highlights fade-up">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h3>EPA Certified Technicians</h3>
+                            <p>Our team holds all required certifications, including EPA and R290 approvals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h3>Memphis-Based Experts</h3>
+                            <p>Local technicians who understand the specific needs of Memphis kitchens.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h3>Comprehensive Documentation</h3>
+                            <p>Detailed records of all maintenance activities for health department compliance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div class="highlight-text">
+                            <h3>Preventative Focus</h3>
+                            <p>We identify and address issues before they cause equipment failures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <h2 class="fade-up">Our Services</h2>
+            <div class="elegant-divider fade-in"></div>
+            <p class="services-intro fade-up">We offer a comprehensive range of preventative maintenance services designed to keep your commercial kitchen operating at peak efficiency.</p>
+            
+            <div class="services-grid">
+                <div class="service-preview-card fade-up">
+                    <div class="service-icon">🔄</div>
+                    <h3>Preventative Maintenance</h3>
+                    <p>Regular scheduled maintenance to prevent costly breakdowns and extend equipment lifespan.</p>
+                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                </div>
+                
+                <div class="service-preview-card fade-up">
+                    <div class="service-icon">❄️</div>
+                    <h3>Refrigeration Service</h3>
+                    <p>Specialized care for all refrigeration equipment, from reach-ins to walk-in coolers and freezers.</p>
+                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                </div>
+                
+                <div class="service-preview-card fade-up">
+                    <div class="service-icon">🔍</div>
+                    <h3>Compliance Services</h3>
+                    <p>Help meeting health department regulations with documentation and equipment monitoring.</p>
+                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                </div>
+                
+                <div class="service-preview-card fade-up">
+                    <div class="service-icon">🚀</div>
+                    <h3>Rapid Response</h3>
+                    <p>Fast service when equipment issues do arise, minimizing downtime for your kitchen.</p>
+                    <a href="memphis-services.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="services-cta fade-up">
+                <a href="memphis-services.html" class="btn">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="fade-up">Why Choose Rapid Pro Maintenance</h2>
+            <div class="elegant-divider fade-in"></div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Lower Operating Costs</h3>
+                    <p>Regular maintenance reduces energy consumption and prevents costly emergency repairs.</p>
+                </div>
+                
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">⏱️</div>
+                    <h3>Reduced Downtime</h3>
+                    <p>Proactive maintenance minimizes equipment failures during critical service periods.</p>
+                </div>
+                
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">📋</div>
+                    <h3>Health Department Ready</h3>
+                    <p>Our documentation helps ensure you're always prepared for inspections.</p>
+                </div>
+                
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Equipment Efficiency</h3>
+                    <p>Well-maintained equipment operates more efficiently and uses less energy.</p>
+                </div>
+                
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Easy Scheduling</h3>
+                    <p>Simple booking process with flexible scheduling to work around your business hours.</p>
+                </div>
+                
+                <div class="benefit-card fade-up">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Consistent Service</h3>
+                    <p>The same technicians visit your facility, providing continuity and familiarity with your equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-background"></div>
+        <div class="container">
+            <div class="cta-container fade-up">
+                <div class="cta-pattern cta-pattern-top-left"></div>
+                <div class="cta-pattern cta-pattern-bottom-right"></div>
+
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Get Started?</h2>
+                    <p class="cta-text">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you develop a maintenance plan that keeps your operation running efficiently.</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:R22subcooling@gmail.com" class="cta-btn cta-btn-primary">
+                            <span class="cta-icon">📅</span> Schedule Assessment
+                        </a>
+                        <a href="tel:+19016564148" class="cta-btn cta-btn-secondary">
+                            <span class="cta-icon">📞</span> Call (901) 656-4148
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in">
+            </a>
+            <div class="contact-info fade-up">
+                <p><a href="mailto:R22subcooling@gmail.com">R22subcooling@gmail.com</a></p>
+                <p><a href="tel:+19016564148">(901) 656-4148</a></p>
+                <p>Serving Memphis, TN and surrounding areas</p>
+            </div>
+            <div class="areas-served fade-up">
+                <h3>Service Areas</h3>
+                <p>Memphis • Germantown • Collierville • Bartlett • Cordova • Southaven • Olive Branch</p>
+            </div>
+            <div class="footer-nav fade-in">
+                <p>© 2025 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="memphis-services.html">Services</a> | <a href="memphis-service-areas.html">Memphis Service Areas</a> | <a href="memphis-testimonials.html">Testimonials</a></p>
+                <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
+            </div>
+        </div>
+    </footer>
+
+    </div> <!-- End of page-content -->
+
+    <!-- Theme Switcher Button -->
+    <button class="theme-switch" aria-label="Toggle Dark Mode">
+        <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Sticky Call Button (Mobile) -->
+    <a href="tel:+19016564148" class="sticky-call" aria-label="Call us now">
+        <span class="phone-icon">📞</span>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    <script src="js/performance.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/micro-interactions.js"></script>
+    <script src="js/schema.js"></script>
+    <!-- Only use the enhanced version -->
+    <script src="js/enhanced-click-to-call.js"></script>
+    <script src="js/mobile-nav.js"></script>
+</body>
+</html>
