@@ -232,6 +232,17 @@
             flex-shrink: 0;
         }
         
+        /* Force mobile menu at all small screens */
+        @media (max-width: 900px) {
+            .hamburger-menu {
+                display: block !important;
+            }
+            
+            .main-nav {
+                display: none !important;
+            }
+        }
+        
         .hamburger-menu span {
             position: absolute;
             left: 12px;
