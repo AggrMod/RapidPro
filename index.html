@@ -969,50 +969,54 @@
                 height: 77px; /* 20% bigger - MASSIVE on mobile too */
             }
             
-            /* FIXED: Mobile Navigation - Slide from LEFT properly */
+            /* FIXED: Mobile Navigation - Slide from LEFT properly with IMPORTANT declarations */
             .main-nav {
-                position: fixed;
-                top: 0;
-                left: -100%; /* Start completely off-screen to the left */
-                width: 280px; /* Fixed width for the menu */
-                height: 100vh; /* Full height */
-                background: white;
-                transform: translateX(0); /* Remove transform, use left property instead */
-                transition: left var(--transition-base); /* Animate the left property */
-                overflow-y: auto;
-                padding-top: var(--header-height-mobile);
-                z-index: 1001;
-                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+                position: fixed !important;
+                top: 0 !important;
+                left: -100% !important; /* Start completely off-screen to the left */
+                width: 280px !important; /* Fixed width for the menu */
+                height: 100vh !important; /* Full height */
+                background: white !important;
+                transform: translateX(0) !important; /* Remove transform, use left property instead */
+                transition: left 300ms ease-out !important; /* Animate the left property */
+                overflow-y: auto !important;
+                padding-top: 86px !important; /* Account for mobile header height */
+                z-index: 1001 !important;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1) !important; /* Add shadow for depth */
             }
             
             .main-nav.active {
-                left: 0; /* Slide to visible position */
+                left: 0 !important; /* Slide to visible position */
             }
             
             .main-nav ul {
-                flex-direction: column;
-                padding: 20px;
-                gap: 0;
+                flex-direction: column !important;
+                padding: 20px !important;
+                gap: 0 !important;
+                align-items: stretch !important;
             }
             
             .main-nav li {
-                width: 100%;
+                width: 100% !important;
             }
             
             .main-nav a {
-                display: block;
-                padding: 16px;
-                width: 100%;
-                border-radius: var(--border-radius);
-                margin-bottom: 8px;
+                display: block !important;
+                padding: 16px !important;
+                width: 100% !important;
+                border-radius: var(--border-radius) !important;
+                margin-bottom: 8px !important;
+                text-align: left !important;
+                background: transparent !important;
+                transition: background-color 300ms ease-out !important;
             }
             
             .main-nav a:hover {
-                background: var(--bg-light);
+                background: #f5f5f5 !important;
             }
             
             .hamburger-menu {
-                display: block;
+                display: block !important;
             }
             
             /* Menu Overlay */
@@ -1026,10 +1030,13 @@
                 background: rgba(0, 0, 0, 0.5);
                 z-index: 999;
                 backdrop-filter: blur(2px);
+                opacity: 0;
+                transition: opacity 300ms ease-out;
             }
             
             .menu-overlay.active {
-                display: block;
+                display: block !important;
+                opacity: 1;
             }
             
             .hero {
