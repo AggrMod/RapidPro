@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapidPro - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1F2937;
+            --dark-lighter: #374151;
+            --text: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --bg-card: #111827;
+            --bg-body: #030712;
+            --border: #1F2937;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-body);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 280px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 16px 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--text);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px 10px 44px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--dark-lighter);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .notification-btn {
+            position: relative;
+            padding: 10px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .notification-btn:hover {
+            background: var(--dark-lighter);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 20px;
+            height: 20px;
+            background: var(--danger);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .user-menu:hover {
+            background: var(--dark-lighter);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--success));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Dashboard Content */
+        .dashboard {
+            padding: 32px;
+        }
+
+        .welcome-section {
+            margin-bottom: 32px;
+        }
+
+        .welcome-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .welcome-subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .stat-icon.earnings {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .stat-icon.jobs {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+        }
+
+        .stat-icon.trust {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .stat-icon.equipment {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8B5CF6;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--danger);
+        }
+
+        /* Action Cards */
+        .action-section {
+            margin-bottom: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .view-all-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .view-all-btn:hover {
+            gap: 8px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .action-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .action-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .action-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+            gap: 12px;
+        }
+
+        /* Progress Section */
+        .progress-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .equipment-progress {
+            margin-top: 24px;
+        }
+
+        .equipment-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .equipment-item:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .equipment-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .equipment-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .equipment-details p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .equipment-status {
+            text-align: right;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-badge.owned {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .status-badge.progress {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .status-badge.locked {
+            background: rgba(107, 114, 128, 0.2);
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            margin-top: 8px;
+            height: 8px;
+            background: var(--dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--warning);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu-btn {
+            display: none;
+            padding: 10px;
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .dashboard {
+                padding: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-card,
+        .action-card,
+        .progress-card {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .stat-card:nth-child(2) { animation-delay: 0.1s; }
+        .stat-card:nth-child(3) { animation-delay: 0.2s; }
+        .stat-card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>RapidPro</span>
+            </div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item active">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Dashboard
+            </a>
+            <a href="pm-sessions.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                </svg>
+                PM Sessions
+            </a>
+            <a href="customers.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+                Customers
+            </a>
+            <a href="reports.html" class="nav-item">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Reports
+            </a>
+            <a href="index.html" class="nav-item" onclick="logout()">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Logout
+            </a>
+        </nav>
+        
+        <div style="padding: 24px; border-top: 1px solid var(--border);">
+            <div style="padding: 16px; background: rgba(59, 130, 246, 0.1); border-radius: 12px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <h4 style="font-size: 14px; margin-bottom: 8px;">Need Help?</h4>
+                <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">Get support from our community</p>
+                <a href="#" class="action-btn" style="font-size: 12px; padding: 8px 16px;">Get Support</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                
+                <div class="search-bar">
+                    <svg class="search-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="search" class="search-input" placeholder="Search jobs, equipment, or customers...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <button class="notification-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </button>
+                
+                <div class="user-menu">
+                    <div class="user-avatar">T</div>
+                    <div>
+                        <div style="font-size: 14px; font-weight: 600;">Terry</div>
+                        <div style="font-size: 12px; color: var(--text-secondary);">Operator #001</div>
+                    </div>
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, Terry! ⚡</h1>
+                <p class="welcome-subtitle">You have 3 PM sessions scheduled today. Let's keep Memphis kitchens running!</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon earnings">💰</div>
+                        <span class="stat-change positive">↑ 12%</span>
+                    </div>
+                    <div class="stat-value">$3,847</div>
+                    <div class="stat-label">This Month's Earnings</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%; background: var(--success);"></div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">85% goes to you • $577 platform fee</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon jobs">📋</div>
+                        <span class="stat-change positive">↑ 5</span>
+                    </div>
+                    <div class="stat-value">127</div>
+                    <div class="stat-label">Total PM Sessions</div>
+                    <div style="display: flex; gap: 16px; margin-top: 16px;">
+                        <div>
+                            <div style="font-size: 20px; font-weight: 600;">12</div>
+                            <div style="font-size: 12px; color: var(--text-secondary);">This Week</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 20px; font-weight: 600;">98%</div>
+                            <div style="font-size: 12px; color: var(--text-secondary);">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon trust">⭐</div>
+                        <span class="stat-change positive">↑ 147</span>
+                    </div>
+                    <div class="stat-value">1,847</div>
+                    <div class="stat-label">Trust Score</div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px;">
+                        <span class="status-badge owned">Top 5%</span>
+                        <span class="status-badge progress">Certified Tech</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon equipment">🔧</div>
+                        <span style="color: var(--text-secondary); font-size: 14px;">Active</span>
+                    </div>
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">PM Sessions Today</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%;"></div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">2 completed, 2 pending</p>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="action-section">
+                <div class="section-header">
+                    <h2 class="section-title">Quick Actions</h2>
+                </div>
+                
+                <div class="action-grid">
+                    <div class="action-card">
+                        <div class="action-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--success);">📱</div>
+                        <h3 class="action-title">Start PM Session</h3>
+                        <p class="action-description">Begin a new preventive maintenance session for a customer</p>
+                        <a href="pm-client-identification.html" class="action-btn">
+                            Start Session
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="action-card">
+                        <div class="action-icon" style="background: rgba(59, 130, 246, 0.2); color: var(--primary);">📊</div>
+                        <h3 class="action-title">View PM History</h3>
+                        <p class="action-description">Review completed maintenance sessions and reports</p>
+                        <a href="pm-sessions.html" class="action-btn">
+                            View Sessions
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="action-card">
+                        <div class="action-icon" style="background: rgba(139, 92, 246, 0.2); color: #8B5CF6;">📅</div>
+                        <h3 class="action-title">Schedule</h3>
+                        <p class="action-description">View and manage your upcoming PM appointments</p>
+                        <a href="schedule.html" class="action-btn">
+                            View Schedule
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent PM Sessions -->
+            <div class="progress-card">
+                <div class="section-header">
+                    <h2 class="section-title">Recent PM Sessions</h2>
+                    <a href="pm-sessions.html" class="view-all-btn">
+                        View All
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="equipment-progress">
+                    <div class="equipment-item">
+                        <div class="equipment-info">
+                            <div class="equipment-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--success);">✅</div>
+                            <div class="equipment-details">
+                                <h4>Memphis BBQ Kitchen</h4>
+                                <p>Completed 2 hours ago • All systems operational</p>
+                            </div>
+                        </div>
+                        <div class="equipment-status">
+                            <span class="status-badge owned">Completed</span>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Score: 98/100</p>
+                        </div>
+                    </div>
+
+                    <div class="equipment-item">
+                        <div class="equipment-info">
+                            <div class="equipment-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--success);">✅</div>
+                            <div class="equipment-details">
+                                <h4>Riverside Catering</h4>
+                                <p>Completed this morning • Filter replaced</p>
+                            </div>
+                        </div>
+                        <div class="equipment-status">
+                            <span class="status-badge owned">Completed</span>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Score: 100/100</p>
+                        </div>
+                    </div>
+
+                    <div class="equipment-item">
+                        <div class="equipment-info">
+                            <div class="equipment-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--warning);">🕐</div>
+                            <div class="equipment-details">
+                                <h4>TJ's Bar & Grill</h4>
+                                <p>Scheduled for 1:00 PM today</p>
+                            </div>
+                        </div>
+                        <div class="equipment-status">
+                            <span class="status-badge progress">Pending</span>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">In 2 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="equipment-item">
+                        <div class="equipment-info">
+                            <div class="equipment-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--warning);">🕐</div>
+                            <div class="equipment-details">
+                                <h4>Southside Diner</h4>
+                                <p>Scheduled for 3:30 PM today</p>
+                            </div>
+                        </div>
+                        <div class="equipment-status">
+                            <span class="status-badge progress">Pending</span>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">In 4.5 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check authentication
+        const auth = JSON.parse(localStorage.getItem('rapidpro_auth') || '{}');
+        if (!auth.token) {
+            window.location.href = 'index.html';
+        }
+
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const dateString = now.toLocaleDateString('en-US', { 
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Update subtitle with current date/time
+            const subtitle = document.querySelector('.welcome-subtitle');
+            if (subtitle) {
+                const currentText = subtitle.textContent.split('.')[0];
+                subtitle.textContent = `${currentText}. It's ${timeString} on ${dateString}.`;
+            }
+        }
+
+        // Toggle sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Logout functionality
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('rapidpro_auth');
+                window.location.href = 'index.html';
+            }
+        }
+
+        // User menu click
+        document.querySelector('.user-menu').addEventListener('click', (e) => {
+            e.stopPropagation();
+            logout();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTime();
+            setInterval(updateTime, 60000); // Update every minute
+        });
+
+        // Simulate real-time updates
+        setTimeout(() => {
+            const badge = document.querySelector('.notification-badge');
+            badge.textContent = '4';
+            badge.style.animation = 'pulse 0.5s';
+        }, 5000);
+
+        // Add animation keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.2); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Sessions | Rapid Pro Maintenance</title>
+    <meta name="description" content="Preventative maintenance session management">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="core/unified-dashboard.css">
+    <link rel="stylesheet" href="css/bridge-building.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <meta name="theme-color" content="#1f2937">
+    <style>
+        /* Additional required styles */
+        :root {
+            --primary: #1f2937;
+            --secondary: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --light: #f3f4f6;
+            --dark: #111827;
+            --white: #ffffff;
+            --gray: #e5e7eb;
+            --light-gray: #f9fafb;
+            --darker-gray: #6b7280;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition-fast: 0.15s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 260px;
+            background-color: var(--dark);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .sidebar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: var(--spacing-md);
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: background-color var(--transition-fast);
+        }
+
+        .sidebar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-nav li.active a {
+            background-color: var(--secondary);
+        }
+
+        .sidebar-footer {
+            padding: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-footer-link {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: background-color var(--transition-fast);
+        }
+
+        .sidebar-footer-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .top-nav {
+            background-color: var(--white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-sm);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .dashboard-content {
+            padding: var(--spacing-lg);
+            flex: 1;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--darker-gray);
+            border: 1px solid var(--gray);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .badge-info {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--info);
+        }
+
+        .badge-gray {
+            background-color: var(--light-gray);
+            color: var(--darker-gray);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 1000;
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle,
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bridge-building-mode">
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logo.png" alt="Rapid Pro Maintenance" class="sidebar-logo">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="pm-sessions.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            PM Sessions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customers.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="schedule.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Schedule
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Reports
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="sidebar-footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="page-title">PM Sessions</div>
+                <div class="top-nav-actions">
+                    <a href="pm-client-identification.html" class="btn-primary start-pm-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Start New PM Session
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Filter and Search Section -->
+                <div class="filter-section">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search sessions..." class="search-input">
+                        <button class="search-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="filter-controls">
+                        <select class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="completed">Completed</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="draft">Draft</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="all-time">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="this-week">This Week</option>
+                            <option value="this-month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sessions Table -->
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Technician</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Completed and in-progress sessions -->
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <div class="customer-icon">
+                                            MG
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name">Memphis Grill</div>
+                                            <div class="customer-address">123 Main St, Downtown</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>May 31, 2025</td>
+                                <td>Terry</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Report">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon" title="Download PDF">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <div class="customer-icon">
+                                            RC
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name">Riverside Catering</div>
+                                            <div class="customer-address">456 River Drive</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>May 31, 2025</td>
+                                <td>Terry</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Report">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon" title="Download PDF">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="highlighted-row">
+                                <td>
+                                    <div class="customer-cell">
+                                        <div class="customer-icon">
+                                            TJ
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name">TJ's Bar & Grill</div>
+                                            <div class="customer-address">789 Downtown Blvd</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>May 31, 2025</td>
+                                <td>Terry</td>
+                                <td><span class="badge badge-info">In Progress</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="pm-session.html" class="btn-icon" title="Continue Session">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <div class="customer-icon">
+                                            SD
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name">Southside Diner</div>
+                                            <div class="customer-address">321 South Avenue</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>May 31, 2025</td>
+                                <td>Terry</td>
+                                <td><span class="badge badge-gray">Not Started</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="Start Session" onclick="window.location.href='pm-client-identification.html'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Past sessions -->
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <div class="customer-icon">
+                                            BB
+                                        </div>
+                                        <div class="customer-info">
+                                            <div class="customer-name">Blues & BBQ</div>
+                                            <div class="customer-address">555 Blues Alley</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>May 30, 2025</td>
+                                <td>Terry</td>
+                                <td><span class="badge badge-success">Completed</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View Report">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon" title="Download PDF">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="pagination-pages">
+                        <span class="pagination-current">1</span>
+                        <span class="pagination-separator">of</span>
+                        <span class="pagination-total">1</span>
+                    </div>
+                    <button class="pagination-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* Table Styles */
+        .table-container {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background-color: var(--light-gray);
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+            color: var(--darker-gray);
+            font-size: 0.875rem;
+        }
+        
+        .data-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table tr:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .highlighted-row {
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        
+        .highlighted-row:hover {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+        }
+        
+        .customer-cell {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .customer-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .customer-name {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .customer-address {
+            font-size: 0.8rem;
+            color: var(--darker-gray);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .btn-icon {
+            background: none;
+            border: none;
+            color: var(--darker-gray);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+        }
+        
+        /* Filter Section */
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 300px;
+            width: 100%;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            padding-right: 40px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: none;
+            border: none;
+            padding: 0 var(--spacing-md);
+            color: var(--darker-gray);
+            cursor: pointer;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .filter-select {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            color: var(--darker-gray);
+            background-color: var(--white);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+        
+        .pagination-btn {
+            background: none;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            color: var(--darker-gray);
+            cursor: pointer;
+            transition: all var(--transition-fast) ease;
+        }
+        
+        .pagination-btn:not(:disabled):hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+        
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination-pages {
+            font-size: 0.9rem;
+            color: var(--darker-gray);
+        }
+        
+        .pagination-current {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Button in header */
+        .start-pm-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--white);
+        }
+        
+        .start-pm-btn:hover {
+            text-decoration: none;
+            color: var(--white);
+            background-color: #2563eb;
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Sidebar toggle for smaller screens
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+        
+        // Auth check
+        if (!localStorage.getItem('rapidpro_auth')) {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

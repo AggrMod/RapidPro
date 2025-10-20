@@ -1,0 +1,78 @@
+/* Simplified cursor effects and smooth transitions */
+
+/* Reset default cursor effects */
+body {
+  cursor: default;
+}
+
+/* Service item hover effects - simplified */
+.service-list li {
+  transition: transform 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
+/* Process step hover effects - simplified */
+.process-step {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Preloader animation */
+.page-content {
+  will-change: opacity;
+}
+
+.page-loaded .page-content {
+  animation: none;
+  opacity: 1;
+}
+
+/* Section transitions */
+.about, 
+.services, 
+.process, 
+.testimonials, 
+.terms, 
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode color adjustment helpers */
+[data-theme="dark"] .service-list li {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .process-step {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .testimonial-content {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .quote-card {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+/* Ensure text is visible in dark mode */
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] li,
+[data-theme="dark"] a:not(.btn):not(.cta-btn) {
+  color: var(--dark-text);
+}
+
+/* Ensure buttons remain visible in dark mode */
+[data-theme="dark"] .btn,
+[data-theme="dark"] .cta-btn {
+  color: var(--dark-btn-text);
+  background-color: var(--accent);
+}

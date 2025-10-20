@@ -1,0 +1,304 @@
+/**
+ * Mobile Responsive Styles for Dashboard
+ * Enhanced mobile compatibility for all dashboard pages
+ */
+
+/* Base Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+    /* General Layout Adjustments */
+    .container {
+        padding: 10px;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Navigation & Sidebar */
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        width: 250px;
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+    
+    .content-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .toggle-sidebar {
+        display: block !important;
+    }
+    
+    /* Header Adjustments */
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-title {
+        margin-bottom: 10px;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    /* Dashboard Cards */
+    .dashboard-card {
+        margin-bottom: 15px;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Forms and Inputs */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+    
+    /* Tables */
+    .data-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .data-table th, 
+    .data-table td {
+        padding: 8px;
+    }
+    
+    /* Modals */
+    .modal-content {
+        width: 95% !important;
+        margin: 20px auto;
+    }
+    
+    /* User & Notification Dropdowns */
+    .dropdown-menu {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Tablets (portrait) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .sidebar {
+        width: 200px;
+    }
+    
+    .content-wrapper {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+}
+
+/* Reports Page Responsive Design */
+@media (max-width: 767px) {
+    /* Report Tabs */
+    .report-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+    
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    /* Report Content */
+    .tab-content {
+        padding: 10px;
+    }
+    
+    /* Export Options */
+    .export-options,
+    .header-options,
+    .export-config {
+        padding: 10px;
+    }
+    
+    /* Report Tables */
+    .report-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* PM Forms Responsive Design */
+@media (max-width: 767px) {
+    /* Form Sections */
+    .form-section {
+        padding: 15px;
+    }
+    
+    /* Form Navigation */
+    .form-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .form-nav-button {
+        margin: 5px 0;
+    }
+    
+    /* Form Steps */
+    .form-steps {
+        display: none;
+    }
+    
+    .mobile-steps {
+        display: flex !important;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+    
+    .mobile-step-label {
+        font-size: 14px;
+    }
+    
+    /* Signature Canvas */
+    .signature-canvas {
+        width: 100% !important;
+    }
+}
+
+/* Dashboard Main Page Responsive Design */
+@media (max-width: 767px) {
+    /* Statistics Cards */
+    .stat-cards {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Charts */
+    .chart-container {
+        height: 250px !important;
+    }
+    
+    /* Recent Activity */
+    .activity-list {
+        max-height: none;
+    }
+    
+    /* Quick Actions */
+    .quick-actions {
+        flex-direction: column;
+    }
+    
+    .quick-action-btn {
+        margin: 5px 0;
+        width: 100%;
+    }
+}
+
+/* Settings Page Responsive Design */
+@media (max-width: 767px) {
+    /* Settings Tabs */
+    .settings-tabs {
+        flex-direction: column;
+    }
+    
+    .settings-tab {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Settings Form */
+    .settings-form {
+        padding: 15px;
+    }
+    
+    /* Profile Section */
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Create mobile navigation toggle button */
+@media (max-width: 767px) {
+    .mobile-nav-toggle {
+        display: block !important;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1001;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .mobile-nav-toggle svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Add to the head element after other stylesheets */
+document.addEventListener('DOMContentLoaded', function() {
+    // Create mobile navigation toggle button
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'mobile-nav-toggle';
+    toggleButton.setAttribute('aria-label', 'Toggle Navigation');
+    toggleButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    `;
+    
+    document.body.appendChild(toggleButton);
+    
+    // Toggle sidebar on button click
+    toggleButton.addEventListener('click', function() {
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+            sidebar.classList.toggle('active');
+        }
+    });
+});

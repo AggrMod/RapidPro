@@ -1,0 +1,13 @@
+/* Mobile Hero Fixes */
+
+/* Adjust hero padding to account for fixed header */
+.hero {
+    padding-top: 160px !important; /* Increased from 140px to 160px to account for larger header */
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 60px !important; /* Keep the mobile-specific padding */
+    }
+}

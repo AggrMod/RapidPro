@@ -1,0 +1,173 @@
+/* Mobile Menu Fix - Slide from Left Animation */
+
+/* Mobile Navigation - Slide from LEFT */
+@media (max-width: 768px) {
+    /* Override the default mobile nav styles */
+    .main-nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important; /* Start completely off-screen to the left */
+        width: 280px !important; /* Fixed width for the menu */
+        height: 100vh !important; /* Full height */
+        background: white !important;
+        transform: translateX(0) !important; /* Remove transform, use left property instead */
+        transition: left 300ms ease-out !important; /* Animate the left property */
+        overflow-y: auto !important;
+        padding-top: 86px !important; /* Account for mobile header height */
+        z-index: 1001 !important;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1) !important; /* Add shadow for depth */
+    }
+    
+    /* When menu is active, slide to visible position */
+    .main-nav.active,
+    .main-nav.mobile-open {
+        left: 0 !important; /* Slide to visible position */
+    }
+    
+    /* Ensure proper menu structure */
+    .main-nav ul {
+        flex-direction: column !important;
+        padding: 20px !important;
+        gap: 0 !important;
+        align-items: stretch !important;
+    }
+    
+    .main-nav li {
+        width: 100% !important;
+    }
+    
+    .main-nav a {
+        display: block !important;
+        padding: 16px !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        margin-bottom: 8px !important;
+        text-align: left !important;
+        background: transparent !important;
+        transition: background-color 300ms ease-out !important;
+    }
+    
+    .main-nav a:hover {
+        background-color: #f5f5f5 !important;
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+        opacity: 0;
+        transition: opacity 300ms ease-out;
+    }
+    
+    .menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    /* Hamburger Menu Button Styles */
+    .mobile-menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        z-index: 1002;
+        padding: 0;
+    }
+    
+    /* Create hamburger icon with three lines */
+    .mobile-menu-toggle .menu-icon {
+        display: none; /* Hide the text icon */
+    }
+    
+    .mobile-menu-toggle::before,
+    .mobile-menu-toggle::after,
+    .mobile-menu-toggle span {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 3px;
+        background: #1f2937;
+        border-radius: 3px;
+        transition: all 300ms ease-out;
+    }
+    
+    .mobile-menu-toggle::before {
+        transform: translateY(-8px);
+    }
+    
+    .mobile-menu-toggle::after {
+        transform: translateY(8px);
+    }
+    
+    .mobile-menu-toggle span {
+        display: block !important;
+        position: absolute;
+        width: 24px;
+        height: 3px;
+        background: #1f2937;
+        border-radius: 3px;
+    }
+    
+    /* Animate to X when active */
+    .mobile-menu-toggle.active::before {
+        transform: rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active::after {
+        transform: rotate(-45deg);
+    }
+    
+    .mobile-menu-toggle.active span {
+        opacity: 0;
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Phone button specific styles in mobile menu */
+    .main-nav .phone-number {
+        background: #facc15 !important;
+        color: #1f2937 !important;
+        justify-content: center !important;
+        font-weight: 600 !important;
+    }
+    
+    .main-nav .nav-cta {
+        background: #1f2937 !important;
+        color: white !important;
+        justify-content: center !important;
+    }
+}
+
+/* Dark theme support for mobile menu */
+[data-theme="dark"] .menu-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .main-nav {
+    background: #1a1a1a !important;
+}
+
+[data-theme="dark"] .main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .mobile-menu-toggle::before,
+[data-theme="dark"] .mobile-menu-toggle::after,
+[data-theme="dark"] .mobile-menu-toggle span {
+    background: white;
+}

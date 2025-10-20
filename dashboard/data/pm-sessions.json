@@ -1,0 +1,805 @@
+[
+  {
+    "id": "pm-2025-0001",
+    "customerName": "Alcenia's",
+    "businessName": "Alcenia's",
+    "contactName": "Charles Garcia",
+    "address": "317 N Main St, Memphis, TN 38103",
+    "phone": "(901) 523-5432",
+    "date": "2025-05-12",
+    "time": "8:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Freezer",
+        "brand": "Kolpak",
+        "model": "FW-280S",
+        "serialNumber": "WT66673753A",
+        "installDate": "2016-08-14"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Avantco",
+        "model": "SPT-210A",
+        "serialNumber": "UH27341915",
+        "installDate": "2018-10-20"
+      },
+      {
+        "type": "Smoking Equipment Cooler",
+        "brand": "Norlake",
+        "model": "SCK-456D",
+        "serialNumber": "UJ23615973F",
+        "installDate": "2019-11-05"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0002",
+    "customerName": "Amelia Gene's",
+    "businessName": "Amelia Gene's",
+    "contactName": "William Wright",
+    "address": "255 S. Front St., Memphis, TN 38103",
+    "phone": "(901) 363-1786",
+    "date": "2025-05-12",
+    "time": "10:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Cooler",
+        "brand": "True",
+        "model": "TKC-660",
+        "serialNumber": "WU17685301R",
+        "installDate": "2017-11-04"
+      },
+      {
+        "type": "Walk-in Freezer",
+        "brand": "Arctic Industries",
+        "model": "FW-593J",
+        "serialNumber": "YH95459463",
+        "installDate": "2018-05-24"
+      },
+      {
+        "type": "Wine Cooler",
+        "brand": "Sub-Zero",
+        "model": "WC-573",
+        "serialNumber": "DA68867390",
+        "installDate": "2022-12-27"
+      },
+      {
+        "type": "Bar Back Cooler",
+        "brand": "Beverage-Air",
+        "model": "TBB-858",
+        "serialNumber": "AP20383394",
+        "installDate": "2020-12-06"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Koolaire",
+        "model": "SCN-240U",
+        "serialNumber": "DF31410337X",
+        "installDate": "2024-05-24"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0003",
+    "customerName": "Another Sip Cafe",
+    "businessName": "Another Sip Cafe",
+    "contactName": "Matthew Wilson",
+    "address": "164 Union Ave, Memphis, TN 38103",
+    "phone": "(901) 469-2493",
+    "date": "2025-05-12",
+    "time": "12:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Small Walk-in Cooler",
+        "brand": "Beverage-Air",
+        "model": "CM-285R",
+        "serialNumber": "DZ94259280S",
+        "installDate": "2021-09-16"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Scotsman",
+        "model": "ID-467A",
+        "serialNumber": "FL86390723P",
+        "installDate": "2018-08-09"
+      },
+      {
+        "type": "Under-counter Cooler",
+        "brand": "Continental",
+        "model": "ULR-785",
+        "serialNumber": "OU51923894M",
+        "installDate": "2016-06-06"
+      },
+      {
+        "type": "Bakery Display Case",
+        "brand": "Vollrath",
+        "model": "CDB-906",
+        "serialNumber": "AQ83678537J",
+        "installDate": "2022-02-26"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0004",
+    "customerName": "Arnold's BBQ & Grill",
+    "businessName": "Arnold's BBQ & Grill",
+    "contactName": "Laura Lee",
+    "address": "317 Madison Ave, Memphis, TN 38103",
+    "phone": "(901) 867-1407",
+    "date": "2025-05-12",
+    "time": "14:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Smoking Equipment Cooler",
+        "brand": "Thermakool",
+        "model": "SMC-230",
+        "serialNumber": "UO60496820U",
+        "installDate": "2023-08-16"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Hoshizaki",
+        "model": "ID-370H",
+        "serialNumber": "XX33668126Y",
+        "installDate": "2024-11-02"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "True",
+        "model": "DPT-428",
+        "serialNumber": "GB57163907F",
+        "installDate": "2023-10-20"
+      },
+      {
+        "type": "Walk-in Freezer",
+        "brand": "Arctic Industries",
+        "model": "KLF-451",
+        "serialNumber": "VS22196372H",
+        "installDate": "2022-04-10"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0005",
+    "customerName": "17 Berkshire",
+    "businessName": "17 Berkshire",
+    "contactName": "Joseph White",
+    "address": "2094 Trimble Pl, Memphis, TN 38104",
+    "phone": "(901) 434-8052",
+    "date": "2025-05-13",
+    "time": "8:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Reach-in Refrigerator",
+        "brand": "True",
+        "model": "T-707",
+        "serialNumber": "AN65518626O",
+        "installDate": "2021-10-03"
+      },
+      {
+        "type": "Bakery Display Case",
+        "brand": "Vollrath",
+        "model": "BDC-376",
+        "serialNumber": "LK75495613",
+        "installDate": "2023-05-20"
+      },
+      {
+        "type": "Under-counter Cooler",
+        "brand": "Beverage-Air",
+        "model": "UC-451Y",
+        "serialNumber": "VN69207049",
+        "installDate": "2021-10-16"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Scotsman",
+        "model": "ID-613U",
+        "serialNumber": "ZC12586796",
+        "installDate": "2022-06-15"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0006",
+    "customerName": "Abyssinia Ethiopian Restaurant",
+    "businessName": "Abyssinia Ethiopian Restaurant",
+    "contactName": "Michael Harris",
+    "address": "2600 Poplar Ave Suite 115, Memphis, TN 38112",
+    "phone": "(901) 165-6054",
+    "date": "2025-05-13",
+    "time": "10:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Reach-in Refrigerator",
+        "brand": "Turbo Air",
+        "model": "GDM-586",
+        "serialNumber": "XO43074342",
+        "installDate": "2021-02-28"
+      },
+      {
+        "type": "Rice Cooler",
+        "brand": "Turbo Air",
+        "model": "SRC-514U",
+        "serialNumber": "GZ14527834",
+        "installDate": "2023-03-08"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Turbo Air",
+        "model": "DPT-933E",
+        "serialNumber": "FB55014502",
+        "installDate": "2023-08-07"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0007",
+    "customerName": "Alchemy",
+    "businessName": "Alchemy",
+    "contactName": "Steven Scott",
+    "address": "940 S Cooper St, Memphis, TN 38104",
+    "phone": "(901) 755-6582",
+    "date": "2025-05-13",
+    "time": "12:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Bar Back Cooler",
+        "brand": "Continental",
+        "model": "PBB-984M",
+        "serialNumber": "ZT23299984",
+        "installDate": "2020-03-20"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0008",
+    "customerName": "Alchemy + Salt | Soy",
+    "businessName": "Alchemy + Salt | Soy",
+    "contactName": "Steven Hernandez",
+    "address": "Cooper Young District, Memphis, TN 38117",
+    "phone": "(901) 107-4619",
+    "date": "2025-05-13",
+    "time": "14:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Delfield",
+        "model": "SPT-335A",
+        "serialNumber": "QK85794614G",
+        "installDate": "2024-07-14"
+      },
+      {
+        "type": "Blast Chiller",
+        "brand": "Irinox",
+        "model": "MF-789G",
+        "serialNumber": "XN88441135",
+        "installDate": "2021-01-19"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0009",
+    "customerName": "901 Hotpot and Korean BBQ",
+    "businessName": "901 Hotpot and Korean BBQ",
+    "contactName": "Joseph Taylor",
+    "address": "5847 Poplar Ave Suite 103, Memphis, TN 38119",
+    "phone": "(901) 242-2184",
+    "date": "2025-05-14",
+    "time": "8:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Reach-in Freezer",
+        "brand": "Traulsen",
+        "model": "GDM-336",
+        "serialNumber": "AJ31723354",
+        "installDate": "2024-03-03"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0010",
+    "customerName": "Acre",
+    "businessName": "Acre",
+    "contactName": "Richard Thompson",
+    "address": "690 S. Perkins Rd., Memphis, TN 38117",
+    "phone": "(901) 420-2890",
+    "date": "2025-05-14",
+    "time": "10:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Blast Chiller",
+        "brand": "Victory",
+        "model": "QC-421O",
+        "serialNumber": "VP34792903",
+        "installDate": "2021-01-01"
+      },
+      {
+        "type": "Wine Cooler",
+        "brand": "Sub-Zero",
+        "model": "WC-336",
+        "serialNumber": "YU52216235O",
+        "installDate": "2021-12-12"
+      },
+      {
+        "type": "Walk-in Freezer",
+        "brand": "Arctic Industries",
+        "model": "KLF-200U",
+        "serialNumber": "HA83797822Y",
+        "installDate": "2019-05-12"
+      },
+      {
+        "type": "Walk-in Cooler",
+        "brand": "Arctic Industries",
+        "model": "WIC-537K",
+        "serialNumber": "YN92344519",
+        "installDate": "2022-02-12"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Hoshizaki",
+        "model": "ID-949",
+        "serialNumber": "TR29931861W",
+        "installDate": "2015-01-16"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0011",
+    "customerName": "Andrew Michael Italian Kitchen",
+    "businessName": "Andrew Michael Italian Kitchen",
+    "contactName": "Susan Martinez",
+    "address": "712 W. Brookhaven Circle, Memphis, TN 38117",
+    "phone": "(901) 138-3922",
+    "date": "2025-05-14",
+    "time": "12:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Freezer",
+        "brand": "True",
+        "model": "FW-925K",
+        "serialNumber": "RB66123380",
+        "installDate": "2024-04-13"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Koolaire",
+        "model": "ICE-219",
+        "serialNumber": "QD49792780",
+        "installDate": "2022-11-14"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "True",
+        "model": "SPT-905",
+        "serialNumber": "YQ53895060P",
+        "installDate": "2023-06-20"
+      },
+      {
+        "type": "Walk-in Cooler",
+        "brand": "American Panel",
+        "model": "TKC-514",
+        "serialNumber": "UA84027489J",
+        "installDate": "2021-07-02"
+      },
+      {
+        "type": "Bar Back Cooler",
+        "brand": "True",
+        "model": "TBB-164V",
+        "serialNumber": "ZK24840444X",
+        "installDate": "2015-06-08"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0012",
+    "customerName": "Asian Palace",
+    "businessName": "Asian Palace",
+    "contactName": "Matthew Anderson",
+    "address": "5266 Summer Ave, Memphis, TN 38122",
+    "phone": "(901) 284-5123",
+    "date": "2025-05-14",
+    "time": "14:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Avantco",
+        "model": "SPT-565",
+        "serialNumber": "YX21613645X",
+        "installDate": "2021-01-10"
+      },
+      {
+        "type": "Rice Cooler",
+        "brand": "True",
+        "model": "RC-447",
+        "serialNumber": "XM73952361",
+        "installDate": "2022-05-05"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0013",
+    "customerName": "Asaderos Mexican Grill",
+    "businessName": "Asaderos Mexican Grill",
+    "contactName": "Laura Wilson",
+    "address": "Germantown, TN 38138",
+    "phone": "(901) 266-3272",
+    "date": "2025-05-15",
+    "time": "8:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Blast Chiller",
+        "brand": "Victory",
+        "model": "MF-751S",
+        "serialNumber": "IY60646749",
+        "installDate": "2019-05-04"
+      },
+      {
+        "type": "Wine Cooler",
+        "brand": "EdgeStar",
+        "model": "WS-486",
+        "serialNumber": "FR73158202A",
+        "installDate": "2015-05-28"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Scotsman",
+        "model": "SCN-577K",
+        "serialNumber": "LO56521794C",
+        "installDate": "2022-05-25"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0014",
+    "customerName": "BP at Ridgeway and Poplar (Lee's Fresh Sushi)",
+    "businessName": "BP at Ridgeway and Poplar (Lee's Fresh Sushi)",
+    "contactName": "James Walker",
+    "address": "6646 Poplar Ave, Memphis, TN 38138",
+    "phone": "(901) 745-8648",
+    "date": "2025-05-15",
+    "time": "10:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Ice Machine",
+        "brand": "Manitowoc",
+        "model": "ICE-720",
+        "serialNumber": "LN71094715T",
+        "installDate": "2016-08-12"
+      },
+      {
+        "type": "Display Case",
+        "brand": "Turbo Air",
+        "model": "GDM-564",
+        "serialNumber": "BV80390928H",
+        "installDate": "2016-07-08"
+      },
+      {
+        "type": "Reach-in Freezer",
+        "brand": "Beverage-Air",
+        "model": "KF-275Q",
+        "serialNumber": "AC95593204S",
+        "installDate": "2016-09-20"
+      },
+      {
+        "type": "Beverage Cooler",
+        "brand": "Delfield",
+        "model": "BM-488",
+        "serialNumber": "AD44592915",
+        "installDate": "2018-03-14"
+      },
+      {
+        "type": "Walk-in Cooler",
+        "brand": "American Panel",
+        "model": "TKC-550",
+        "serialNumber": "GK25364770",
+        "installDate": "2017-04-17"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0015",
+    "customerName": "Brunch & Cake",
+    "businessName": "Brunch & Cake",
+    "contactName": "Andrew Davis",
+    "address": "3161 Forest Hill Irene Rd, Germantown, TN 38139",
+    "phone": "(901) 200-8690",
+    "date": "2025-05-15",
+    "time": "12:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Freezer",
+        "brand": "Kolpak",
+        "model": "WIF-665",
+        "serialNumber": "QQ12743567F",
+        "installDate": "2018-08-09"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0016",
+    "customerName": "Cafe Med",
+    "businessName": "Cafe Med",
+    "contactName": "Barbara Adams",
+    "address": "7820 Poplar Ave, Germantown, TN 38138",
+    "phone": "(901) 457-7898",
+    "date": "2025-05-15",
+    "time": "14:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Cooler",
+        "brand": "Norlake",
+        "model": "CW-161E",
+        "serialNumber": "PM21732119C",
+        "installDate": "2019-02-23"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Follett",
+        "model": "KM-793",
+        "serialNumber": "VH37924304L",
+        "installDate": "2016-07-21"
+      },
+      {
+        "type": "Reach-in Refrigerator",
+        "brand": "Traulsen",
+        "model": "GDM-892D",
+        "serialNumber": "AG71052555D",
+        "installDate": "2023-10-12"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Continental",
+        "model": "DPT-186",
+        "serialNumber": "KB62583838",
+        "installDate": "2015-03-12"
+      },
+      {
+        "type": "Reach-in Freezer",
+        "brand": "Beverage-Air",
+        "model": "KF-464S",
+        "serialNumber": "EB30349104J",
+        "installDate": "2021-04-23"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0017",
+    "customerName": "A",
+    "businessName": "A",
+    "contactName": "Steven Johnson",
+    "address": "Tan Hibachi Steakhouse, Memphis, TN 38108",
+    "phone": "(901) 701-8731",
+    "date": "2025-05-16",
+    "time": "8:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Cooler",
+        "brand": "True",
+        "model": "CW-404",
+        "serialNumber": "SL11065188F",
+        "installDate": "2021-10-02"
+      },
+      {
+        "type": "Reach-in Refrigerator",
+        "brand": "True",
+        "model": "KR-916",
+        "serialNumber": "DW68928672",
+        "installDate": "2018-10-15"
+      },
+      {
+        "type": "Reach-in Freezer",
+        "brand": "Continental",
+        "model": "TSF-180T",
+        "serialNumber": "PY86509847",
+        "installDate": "2016-09-02"
+      },
+      {
+        "type": "Specialized Display Case",
+        "brand": "Structural Concepts",
+        "model": "SC-196K",
+        "serialNumber": "FU39954659",
+        "installDate": "2023-06-04"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0018",
+    "customerName": "Bombay House",
+    "businessName": "Bombay House",
+    "contactName": "Joshua Brown",
+    "address": "1727 N Germantown Pkwy, Cordova, TN 38016",
+    "phone": "(901) 110-1631",
+    "date": "2025-05-16",
+    "time": "10:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Cooler",
+        "brand": "Kolpak",
+        "model": "KLC-205",
+        "serialNumber": "AL97575943H",
+        "installDate": "2017-09-03"
+      },
+      {
+        "type": "Reach-in Refrigerator",
+        "brand": "True",
+        "model": "KR-233K",
+        "serialNumber": "GV36421215",
+        "installDate": "2020-11-05"
+      },
+      {
+        "type": "Reach-in Freezer",
+        "brand": "Traulsen",
+        "model": "KF-928A",
+        "serialNumber": "FV90998925G",
+        "installDate": "2024-07-06"
+      },
+      {
+        "type": "Rice Cooler",
+        "brand": "Turbo Air",
+        "model": "TRC-558E",
+        "serialNumber": "YA20847699",
+        "installDate": "2021-08-08"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Delfield",
+        "model": "CPT-648",
+        "serialNumber": "AC43188755I",
+        "installDate": "2016-12-01"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0019",
+    "customerName": "Chang's House",
+    "businessName": "Chang's House",
+    "contactName": "Matthew Taylor",
+    "address": "7036 Stage Rd, Bartlett, TN 38133",
+    "phone": "(901) 694-4134",
+    "date": "2025-05-16",
+    "time": "12:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Specialized Display Case",
+        "brand": "Federal",
+        "model": "SDC-905E",
+        "serialNumber": "BJ26884272",
+        "installDate": "2015-02-25"
+      },
+      {
+        "type": "Walk-in Cooler",
+        "brand": "American Panel",
+        "model": "TKC-755P",
+        "serialNumber": "YY38298231O",
+        "installDate": "2024-01-22"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "True",
+        "model": "DPT-400",
+        "serialNumber": "NZ54965227",
+        "installDate": "2021-09-07"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  },
+  {
+    "id": "pm-2025-0020",
+    "customerName": "Chow Time",
+    "businessName": "Chow Time",
+    "contactName": "Helen Taylor",
+    "address": "880 N Germantown Pkwy, Cordova, TN 38018",
+    "phone": "(901) 661-9409",
+    "date": "2025-05-16",
+    "time": "14:00",
+    "technician": "John Smith",
+    "status": "scheduled",
+    "equipment": [
+      {
+        "type": "Walk-in Cooler",
+        "brand": "True",
+        "model": "CW-325M",
+        "serialNumber": "SI53087838",
+        "installDate": "2024-05-25"
+      },
+      {
+        "type": "Ice Machine",
+        "brand": "Follett",
+        "model": "SCN-322",
+        "serialNumber": "HA13569830",
+        "installDate": "2018-06-08"
+      },
+      {
+        "type": "Walk-in Freezer",
+        "brand": "American Panel",
+        "model": "KLF-560",
+        "serialNumber": "GL60713090",
+        "installDate": "2023-06-27"
+      },
+      {
+        "type": "Prep Table Cooler",
+        "brand": "Delfield",
+        "model": "DPT-509",
+        "serialNumber": "EL29678181",
+        "installDate": "2017-11-11"
+      }
+    ],
+    "notes": "",
+    "lastUpdated": "2025-05-11T02:34:45.042Z"
+  }
+]
