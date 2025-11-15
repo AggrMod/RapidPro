@@ -5,6 +5,9 @@ const admin = require('firebase-admin');
 const { getDistanceFromLatLonInKm } = require('geofire-common');
 const axios = require('axios');
 
+// AI Boss System
+const aiBoss = require('./ai-boss');
+
 // Environment variable for Gemini API key (set via: firebase functions:config:set)
 const GEMINI_API_KEY = defineString('GEMINI_API_KEY');
 
@@ -287,10 +290,43 @@ exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
     // Update KPIs
     await updateKPIsInternal(request.auth.uid, efficacyScore);
 
+    // Trigger AI Boss analysis (don't fail interaction logging if AI fails)
+    let aiGuidance = null;
+    try {
+      console.log('Triggering AI Boss analysis for interaction:', interactionRef.id);
+      const aiResult = await aiBoss.analyzeInteractionInternal(
+        request.auth.uid,
+        locationId,
+        sanitizedNotes,
+        parseInt(efficacyScore),
+        new Date().toISOString()
+      );
+
+      if (aiResult.success) {
+        aiGuidance = {
+          analysis: aiResult.analysis,
+          immediateAction: aiResult.immediateAction,
+          scheduledAction: aiResult.scheduledAction,
+          leadPriority: aiResult.leadPriority,
+          nextMissionType: aiResult.nextMissionType,
+          aiCommand: aiResult.aiCommand
+        };
+        console.log('AI Boss analysis completed:', aiResult.leadPriority, 'priority');
+      } else if (aiResult.fallbackGuidance) {
+        // Use fallback guidance if AI failed
+        aiGuidance = aiResult.fallbackGuidance;
+        console.log('Using AI Boss fallback guidance');
+      }
+    } catch (aiError) {
+      console.error('AI Boss analysis failed (non-critical):', aiError.message);
+      // Continue - AI failure shouldn't block interaction logging
+    }
+
     return {
       success: true,
       interactionId: interactionRef.id,
-      message: 'Interaction logged successfully'
+      message: 'Interaction logged successfully',
+      aiGuidance: aiGuidance // Will be null if AI failed
     };
   } catch (error) {
     console.error('Error logging interaction:', error);
@@ -623,3 +659,12 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
     throw new Error('Failed to complete quest');
   }
 });
+
+// ========================================
+// AI BOSS SYSTEM - EXPORTS
+// ========================================
+
+exports.analyzeInteraction = aiBoss.analyzeInteraction;
+exports.getAICommand = aiBoss.getAICommand;
+exports.completeScheduledAction = aiBoss.completeScheduledAction;
+exports.getScheduledActions = aiBoss.getScheduledActions;
