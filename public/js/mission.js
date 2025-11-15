@@ -137,7 +137,7 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
     }
 
     // Log interaction
-    const result = await functions.httpsCallable('logInteraction')({
+    const logResult = await functions.httpsCallable('logInteraction')({
       locationId: currentMission.id,
       introScriptUsed: currentMission.introScript,
       efficacyScore: selectedEfficacyScore,
@@ -146,11 +146,17 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
       outcome: selectedEfficacyScore >= 4 ? 'success' : 'attempted'
     });
 
-    if (result.data.success) {
-      alert('✓ Mission Complete! Great work!');
+    if (logResult.data.success) {
+      // Get AI Boss analysis
+      const aiResult = await functions.httpsCallable('analyzeInteraction')({
+        locationId: currentMission.id,
+        note: notes,
+        efficacyScore: selectedEfficacyScore,
+        timestamp: new Date().toISOString()
+      });
 
-      // Reset UI
-      resetMissionUI();
+      // Display AI tactical guidance
+      displayAIGuidance(aiResult.data);
 
       // Reload data
       loadKPIs();
@@ -191,6 +197,96 @@ function resetMissionUI() {
 
   // Clear current mission
   currentMission = null;
+}
+
+// Display AI tactical guidance
+function displayAIGuidance(aiData) {
+  // Hide interaction form
+  document.getElementById('interaction-form').classList.add('hidden');
+
+  // Create AI guidance modal
+  const modal = document.createElement('div');
+  modal.className = 'ai-guidance-modal';
+  modal.innerHTML = `
+    <div class="ai-guidance-content">
+      <div class="ai-header ${getPriorityClass(aiData.leadPriority)}">
+        <span class="priority-badge">${aiData.leadPriority.toUpperCase()}</span>
+        <h2>AI BOSS TACTICAL GUIDANCE</h2>
+      </div>
+
+      <div class="ai-section">
+        <h3>📊 ANALYSIS</h3>
+        <p>${aiData.analysis}</p>
+      </div>
+
+      <div class="ai-section ai-command">
+        <h3>💬 YOUR ORDERS</h3>
+        <p class="command-text">${aiData.aiCommand}</p>
+      </div>
+
+      <div class="ai-section">
+        <h3>⚡ IMMEDIATE ACTION</h3>
+        <p>${aiData.immediateAction}</p>
+      </div>
+
+      ${aiData.scheduledAction ? `
+        <div class="ai-section scheduled-action">
+          <h3>⏰ SCHEDULED FOLLOW-UP</h3>
+          <p><strong>When:</strong> ${formatScheduledTime(aiData.scheduledAction.time)}</p>
+          <p><strong>Action:</strong> ${aiData.scheduledAction.action}</p>
+          <p><strong>Why:</strong> ${aiData.scheduledAction.reason}</p>
+        </div>
+      ` : ''}
+
+      <div class="ai-actions">
+        <button id="ai-acknowledge-btn" class="btn-large btn-primary">
+          ✓ ACKNOWLEDGED - NEXT MISSION
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Acknowledge button
+  document.getElementById('ai-acknowledge-btn').addEventListener('click', () => {
+    modal.remove();
+    resetMissionUI();
+  });
+}
+
+// Get CSS class for priority level
+function getPriorityClass(priority) {
+  const classes = {
+    'critical': 'priority-critical',
+    'high': 'priority-high',
+    'medium': 'priority-medium',
+    'low': 'priority-low'
+  };
+  return classes[priority] || 'priority-medium';
+}
+
+// Format scheduled time
+function formatScheduledTime(isoTime) {
+  const date = new Date(isoTime);
+  const now = new Date();
+  const diffMs = date - now;
+  const diffMins = Math.floor(diffMs / 60000);
+  const diffHours = Math.floor(diffMins / 60);
+  const diffDays = Math.floor(diffHours / 24);
+
+  let relativeTime = '';
+  if (diffDays > 0) {
+    relativeTime = `in ${diffDays} day${diffDays > 1 ? 's' : ''}`;
+  } else if (diffHours > 0) {
+    relativeTime = `in ${diffHours} hour${diffHours > 1 ? 's' : ''}`;
+  } else if (diffMins > 0) {
+    relativeTime = `in ${diffMins} minute${diffMins > 1 ? 's' : ''}`;
+  } else {
+    relativeTime = 'ASAP';
+  }
+
+  return `${date.toLocaleString()} (${relativeTime})`;
 }
 
 // Try to get user location on load
