@@ -1,9 +1,14 @@
 
 // ========================================
-// MORNING QUEST SYSTEM - GAMIFICATION ENGINE  
+// MORNING QUEST SYSTEM - GAMIFICATION ENGINE
 // ========================================
+// NOTE: This file appears to be a duplicate/append file.
+// For production, consolidate with functions/index.js or morning-quest-system.js
 
-const GEMINI_API_KEY = 'AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE';
+const { defineString } = require('firebase-functions/params');
+
+// Environment variable for Gemini API key (set via: firebase functions:config:set)
+const GEMINI_API_KEY = defineString('GEMINI_API_KEY');
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 async function generateMissionBriefingWithGemini(location) {
@@ -11,7 +16,7 @@ async function generateMissionBriefingWithGemini(location) {
 
   try {
     const response = await axios.post(
-      GEMINI_API_URL + '?key=' + GEMINI_API_KEY,
+      GEMINI_API_URL + '?key=' + GEMINI_API_KEY.value(),
       {
         contents: [{
           parts: [{ text: prompt }]

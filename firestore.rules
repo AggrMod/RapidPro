@@ -1,24 +1,50 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null &&
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
     // User profile - only authenticated user can read/write their own data
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      // Admins can read all users
+      allow read: if isAdmin();
     }
-    
-    // Locations - authenticated user can read/write all
+
+    // Locations - authenticated users can read, only Cloud Functions can write
+    // Note: Cloud Functions bypass security rules, so this protects against client writes
     match /locations/{locationId} {
-      allow read, write: if request.auth != null;
+      allow read: if request.auth != null;
+      // Only allow writes from server-side (Cloud Functions) or admins
+      // Cloud Functions have admin SDK access and bypass these rules
+      allow write: if false; // Client writes disabled - use Cloud Functions only
     }
-    
-    // Interactions - authenticated user can read/write all
+
+    // Interactions - users can read their own, Cloud Functions create them
     match /interactions/{interactionId} {
-      allow read, write: if request.auth != null;
+      allow read: if request.auth != null &&
+                     resource.data.userId == request.auth.uid;
+      allow create: if request.auth != null &&
+                       request.resource.data.userId == request.auth.uid;
+      allow update, delete: if false; // Interactions are immutable after creation
     }
-    
-    // KPIs - authenticated user can read/write
+
+    // KPIs - users can read their own, Cloud Functions manage them
     match /kpis/{kpiId} {
-      allow read, write: if request.auth != null;
+      allow read: if request.auth != null && kpiId == request.auth.uid;
+      allow write: if false; // Only Cloud Functions can write KPIs
+    }
+
+    // Daily Quests - users can read their own quests
+    match /dailyQuests/{questId} {
+      allow read: if request.auth != null &&
+                     questId.matches(request.auth.uid + '_.*');
+      allow write: if false; // Only Cloud Functions can write quests
     }
   }
 }

@@ -4,11 +4,14 @@
 
 const { onCall } = require('firebase-functions/v2/https');
 const { onSchedule } = require('firebase-functions/v2/scheduler');
+const { defineString } = require('firebase-functions/params');
 const admin = require('firebase-admin');
 const axios = require('axios');
 
+// Environment variable for Gemini API key (set via: firebase functions:config:set)
+const GEMINI_API_KEY = defineString('GEMINI_API_KEY');
+
 const db = admin.firestore();
-const GEMINI_API_KEY = 'AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 // Import distance calculation (you'll need to export this from index.js)
@@ -44,7 +47,7 @@ Make it sound like a tactical operation with urgency and excitement. Be concise,
 
   try {
     const response = await axios.post(
-      `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
+      `${GEMINI_API_URL}?key=${GEMINI_API_KEY.value()}`,
       {
         contents: [{
           parts: [{
