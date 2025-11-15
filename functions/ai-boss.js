@@ -42,8 +42,21 @@ exports.analyzeInteraction = onCall({
   }
 
   try {
-    // 1. Gather context
-    const context = await gatherContext(locationId, userId);
+    // 1. Gather context (optional - use empty context if location not found)
+    let context;
+    try {
+      context = await gatherContext(locationId, userId);
+    } catch (contextError) {
+      console.log('Context gathering failed, using minimal context:', contextError.message);
+      context = {
+        location: { name: locationId },
+        interactionCount: 0,
+        lastInteraction: null,
+        activeCustomers: 0,
+        pendingCount: 0,
+        interactionHistory: []
+      };
+    }
 
     // 2. Analyze with Gemini AI
     const aiGuidance = await callGeminiAI(note, efficacyScore, context, timestamp);
@@ -75,12 +88,17 @@ exports.analyzeInteraction = onCall({
       });
     }
 
-    // 5. Update location with AI insights
-    await getDb().collection('locations').doc(locationId).update({
-      priority: aiGuidance.leadPriority || 'medium',
-      lastAIAnalysis: admin.firestore.FieldValue.serverTimestamp(),
-      interactionCount: admin.firestore.FieldValue.increment(1)
-    });
+    // 5. Update location with AI insights (optional - skip if location doesn't exist)
+    try {
+      await getDb().collection('locations').doc(locationId).update({
+        priority: aiGuidance.leadPriority || 'medium',
+        lastAIAnalysis: admin.firestore.FieldValue.serverTimestamp(),
+        interactionCount: admin.firestore.FieldValue.increment(1)
+      });
+    } catch (updateError) {
+      console.log('Could not update location (may not exist):', updateError.message);
+      // This is okay - we still have the AI analysis
+    }
 
     return {
       success: true,

@@ -90,15 +90,9 @@
 
         firebase.initializeApp(firebaseConfig);
         const functions = firebase.functions();
-        const auth = firebase.auth();
 
-        // Sign in anonymously
-        auth.signInAnonymously().then(() => {
-            log('success', '✅ Authenticated anonymously');
-        }).catch(err => {
-            log('error', '❌ Auth failed: ' + err.message);
-            log('info', 'Anonymous auth may not be enabled. Please enable it in Firebase Console.');
-        });
+        // No authentication needed - functions accept anonymous requests
+        log('info', '🔓 No authentication required for testing');
 
         function log(type, message) {
             const output = document.getElementById('output');
