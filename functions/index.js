@@ -1,11 +1,66 @@
 const { onCall } = require('firebase-functions/v2/https');
 const { onSchedule } = require('firebase-functions/v2/scheduler');
+const { defineString } = require('firebase-functions/params');
 const admin = require('firebase-admin');
 const { getDistanceFromLatLonInKm } = require('geofire-common');
 const axios = require('axios');
 
+// AI Boss System
+const aiBoss = require('./ai-boss');
+
+// Environment variable for Gemini API key (set via: firebase functions:config:set)
+const GEMINI_API_KEY = defineString('GEMINI_API_KEY');
+
 admin.initializeApp();
 const db = admin.firestore();
+
+/**
+ * Input Validation Helpers
+ */
+const validators = {
+  // Validate latitude (-90 to 90)
+  isValidLatitude: (lat) => {
+    const num = parseFloat(lat);
+    return !isNaN(num) && num >= -90 && num <= 90;
+  },
+
+  // Validate longitude (-180 to 180)
+  isValidLongitude: (lng) => {
+    const num = parseFloat(lng);
+    return !isNaN(num) && num >= -180 && num <= 180;
+  },
+
+  // Validate efficacy score (1-5)
+  isValidEfficacyScore: (score) => {
+    const num = parseInt(score);
+    return !isNaN(num) && num >= 1 && num <= 5;
+  },
+
+  // Sanitize text input (remove potentially harmful characters)
+  sanitizeText: (text, maxLength = 1000) => {
+    if (!text || typeof text !== 'string') return '';
+    return text
+      .trim()
+      .slice(0, maxLength)
+      .replace(/[<>]/g, ''); // Remove < and > to prevent XSS
+  },
+
+  // Validate string length
+  isValidString: (str, minLength = 0, maxLength = 1000) => {
+    return typeof str === 'string' &&
+           str.length >= minLength &&
+           str.length <= maxLength;
+  },
+
+  // Validate array of URLs
+  areValidUrls: (urls, maxCount = 5) => {
+    if (!Array.isArray(urls)) return false;
+    if (urls.length > maxCount) return false;
+
+    const urlPattern = /^https?:\/\/.+/;
+    return urls.every(url => typeof url === 'string' && urlPattern.test(url));
+  }
+};
 
 /**
  * Calculate distance between two geographic points
@@ -39,8 +94,15 @@ exports.getNextMission = onCall({ enforceAppCheck: false }, async (request) => {
 
   const { currentLat, currentLng } = request.data;
 
+  // Validate inputs
   if (!currentLat || !currentLng) {
     throw new Error('Current location required');
+  }
+  if (!validators.isValidLatitude(currentLat)) {
+    throw new Error('Invalid latitude. Must be between -90 and 90');
+  }
+  if (!validators.isValidLongitude(currentLng)) {
+    throw new Error('Invalid longitude. Must be between -180 and 180');
   }
 
   try {
@@ -183,21 +245,36 @@ exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
     outcome
   } = request.data;
 
+  // Validate required fields
   if (!locationId || efficacyScore === undefined) {
     throw new Error('Location ID and efficacy score required');
   }
 
+  // Validate efficacy score
+  if (!validators.isValidEfficacyScore(efficacyScore)) {
+    throw new Error('Efficacy score must be between 1 and 5');
+  }
+
+  // Validate and sanitize text inputs
+  const sanitizedNotes = validators.sanitizeText(notesText, 5000);
+  const sanitizedIntroScript = validators.sanitizeText(introScriptUsed, 500);
+
+  // Validate image URLs if provided
+  if (notesImageUrls && !validators.areValidUrls(notesImageUrls, 10)) {
+    throw new Error('Invalid image URLs provided');
+  }
+
   try {
-    // Create interaction record
+    // Create interaction record with sanitized inputs
     const interaction = {
       locationId,
       userId: request.auth.uid,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
-      introScriptUsed: introScriptUsed || '',
+      introScriptUsed: sanitizedIntroScript,
       efficacyScore: parseInt(efficacyScore),
-      notesText: notesText || '',
+      notesText: sanitizedNotes,
       notesImageUrls: notesImageUrls || [],
-      outcome: outcome || 'visited'
+      outcome: validators.sanitizeText(outcome || 'visited', 50)
     };
 
     const interactionRef = await db.collection('interactions').add(interaction);
@@ -213,10 +290,54 @@ exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
     // Update KPIs
     await updateKPIsInternal(request.auth.uid, efficacyScore);
 
+    // Trigger AI Boss analysis (don't fail interaction logging if AI fails)
+    let aiGuidance = null;
+    try {
+      console.log('Triggering AI Boss analysis for interaction:', interactionRef.id);
+      const aiResult = await aiBoss.analyzeInteractionInternal(
+        request.auth.uid,
+        locationId,
+        sanitizedNotes,
+        parseInt(efficacyScore),
+        new Date().toISOString(),
+        notesImageUrls || [] // Pass images for OCR analysis
+      );
+
+      if (aiResult.success) {
+        aiGuidance = {
+          analysis: aiResult.analysis,
+          immediateAction: aiResult.immediateAction,
+          scheduledAction: aiResult.scheduledAction,
+          leadPriority: aiResult.leadPriority,
+          nextMissionType: aiResult.nextMissionType,
+          aiCommand: aiResult.aiCommand,
+          extractedData: aiResult.extractedData || null // Include OCR data if present
+        };
+        console.log('AI Boss analysis completed:', aiResult.leadPriority, 'priority');
+
+        // Log extracted data
+        if (aiResult.extractedData) {
+          const equipCount = aiResult.extractedData.equipment?.length || 0;
+          const contactCount = aiResult.extractedData.contacts?.length || 0;
+          if (equipCount > 0 || contactCount > 0) {
+            console.log('Extracted from images:', equipCount, 'equipment,', contactCount, 'contacts');
+          }
+        }
+      } else if (aiResult.fallbackGuidance) {
+        // Use fallback guidance if AI failed
+        aiGuidance = aiResult.fallbackGuidance;
+        console.log('Using AI Boss fallback guidance');
+      }
+    } catch (aiError) {
+      console.error('AI Boss analysis failed (non-critical):', aiError.message);
+      // Continue - AI failure shouldn't block interaction logging
+    }
+
     return {
       success: true,
       interactionId: interactionRef.id,
-      message: 'Interaction logged successfully'
+      message: 'Interaction logged successfully',
+      aiGuidance: aiGuidance // Will be null if AI failed
     };
   } catch (error) {
     console.error('Error logging interaction:', error);
@@ -374,10 +495,9 @@ exports.createUser = onCall({ enforceAppCheck: false }, async (request) => {
 // MORNING QUEST SYSTEM - GAMIFICATION ENGINE
 
 // ========================================
-// MORNING QUEST SYSTEM - GAMIFICATION ENGINE  
+// MORNING QUEST SYSTEM - GAMIFICATION ENGINE
 // ========================================
 
-const GEMINI_API_KEY = 'AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 async function generateMissionBriefingWithGemini(location) {
@@ -385,7 +505,7 @@ async function generateMissionBriefingWithGemini(location) {
 
   try {
     const response = await axios.post(
-      GEMINI_API_URL + '?key=' + GEMINI_API_KEY,
+      GEMINI_API_URL + '?key=' + GEMINI_API_KEY.value(),
       {
         contents: [{
           parts: [{ text: prompt }]
@@ -409,8 +529,26 @@ exports.generateDailyQuests = onCall({ enforceAppCheck: false }, async (request)
 
   const { questDate, userLat, userLng, questCount } = request.data;
   const userId = request.auth.uid;
-  const targetDate = questDate || new Date().toISOString().split('T')[0];
+
+  // Validate location if provided
+  if (userLat && !validators.isValidLatitude(userLat)) {
+    throw new Error('Invalid latitude');
+  }
+  if (userLng && !validators.isValidLongitude(userLng)) {
+    throw new Error('Invalid longitude');
+  }
+
+  // Validate quest count
   const numQuests = questCount || 3;
+  if (numQuests < 1 || numQuests > 10) {
+    throw new Error('Quest count must be between 1 and 10');
+  }
+
+  // Validate date format (YYYY-MM-DD)
+  const targetDate = questDate || new Date().toISOString().split('T')[0];
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(targetDate)) {
+    throw new Error('Invalid date format. Use YYYY-MM-DD');
+  }
 
   try {
     const locationsSnapshot = await db.collection('locations').where('status', '==', 'pending').limit(20).get();
@@ -532,3 +670,12 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
     throw new Error('Failed to complete quest');
   }
 });
+
+// ========================================
+// AI BOSS SYSTEM - EXPORTS
+// ========================================
+
+exports.analyzeInteraction = aiBoss.analyzeInteraction;
+exports.getAICommand = aiBoss.getAICommand;
+exports.completeScheduledAction = aiBoss.completeScheduledAction;
+exports.getScheduledActions = aiBoss.getScheduledActions;
