@@ -80,6 +80,12 @@
                     VIEW ALL MISSIONS
                 </button>
 
+                <!-- Generate Quote Button -->
+                <button id="generate-quote-btn" class="btn-large btn-secondary-action" onclick="openQuoteModal()">
+                    <span class="btn-icon">💰</span>
+                    GENERATE QUOTE
+                </button>
+
                 <!-- Mission Briefing -->
                 <div id="mission-briefing" class="mission-briefing hidden">
                     <h3>ACTIVE MISSION</h3>
@@ -162,6 +168,163 @@
         </div>
     </div>
 
+    <!-- Quote Generator Modal -->
+    <div id="quote-modal" class="modal hidden">
+        <div class="modal-overlay" onclick="closeQuoteModal()"></div>
+        <div class="modal-content quote-modal-content">
+            <div class="modal-header">
+                <h2>GENERATE QUOTE</h2>
+                <button class="modal-close" onclick="closeQuoteModal()">×</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Customer Information Section -->
+                <div class="quote-section">
+                    <h3 class="section-title">Customer Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Customer Name *</label>
+                            <input type="text" id="quote-customer-name" class="input-field" placeholder="Business Name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone *</label>
+                            <input type="tel" id="quote-customer-phone" class="input-field" placeholder="(901) 555-0123">
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="form-label">Address *</label>
+                            <input type="text" id="quote-customer-address" class="input-field" placeholder="123 Beale St, Memphis, TN">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email (optional)</label>
+                            <input type="email" id="quote-customer-email" class="input-field" placeholder="customer@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Valid Until</label>
+                            <input type="date" id="quote-valid-until" class="input-field">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment & Services Section -->
+                <div class="quote-section">
+                    <h3 class="section-title">Equipment & Services</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Equipment Type</label>
+                        <select id="quote-equipment-type" class="input-field">
+                            <option value="walk-in-cooler">Walk-in Cooler</option>
+                            <option value="freezer">Walk-in Freezer</option>
+                            <option value="ice-machine">Ice Machine</option>
+                            <option value="refrigerator">Commercial Refrigerator</option>
+                            <option value="preventive-maintenance">Preventive Maintenance</option>
+                        </select>
+                    </div>
+
+                    <!-- Common Repairs List -->
+                    <div class="common-repairs-container">
+                        <label class="form-label">Common Repairs (Click to Add)</label>
+                        <div id="common-repairs-list" class="common-repairs-list">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Custom Line Item -->
+                    <div class="custom-item-form">
+                        <h4 class="subsection-title">Add Custom Item</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Item Name</label>
+                                <input type="text" id="custom-item-name" class="input-field" placeholder="e.g., Compressor Replacement">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Labor Hours</label>
+                                <input type="number" id="custom-item-labor" class="input-field" placeholder="2.5" step="0.25" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Parts Cost ($)</label>
+                                <input type="number" id="custom-item-parts" class="input-field" placeholder="250" step="1" min="0">
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label">Description</label>
+                                <input type="text" id="custom-item-description" class="input-field" placeholder="Detailed description">
+                            </div>
+                        </div>
+                        <button class="btn-secondary" onclick="addCustomLineItem()">
+                            <span class="btn-icon">+</span> Add Custom Item
+                        </button>
+                    </div>
+
+                    <!-- Service Fees & Modifiers -->
+                    <div class="service-fees-section">
+                        <h4 class="subsection-title">Service Fees & Modifiers</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fee-trip-charge" onchange="toggleServiceFee('tripCharge')">
+                                <span>Trip Charge ($50)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fee-after-hours" onchange="toggleServiceFee('afterHours')">
+                                <span>After Hours ($75)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fee-weekend" onchange="toggleServiceFee('weekend')">
+                                <span>Weekend Service ($100)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fee-emergency" onchange="toggleEmergencyService()">
+                                <span>Emergency Service (+50%)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Preview Section -->
+                <div class="quote-section">
+                    <h3 class="section-title">Quote Preview</h3>
+
+                    <div class="quote-preview">
+                        <table class="quote-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Description</th>
+                                    <th>Labor</th>
+                                    <th>Labor Cost</th>
+                                    <th>Parts Cost</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="quote-preview-items">
+                                <tr>
+                                    <td colspan="7" class="empty-state">No items added yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="quote-total-section">
+                            <div class="quote-total-label">TOTAL:</div>
+                            <div class="quote-total-value" id="quote-total-display">$0</div>
+                        </div>
+                    </div>
+
+                    <!-- Quote Notes -->
+                    <div class="form-group">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea id="quote-notes" class="textarea-field" rows="3" placeholder="Terms, warranty info, payment terms, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeQuoteModal()">Cancel</button>
+                <button id="save-quote-btn" class="btn-primary" onclick="saveQuote()">
+                    <span class="btn-icon">💾</span> SAVE QUOTE
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -179,5 +342,6 @@
     <script src="js/map.js?v=2"></script>
     <script src="js/mission.js?v=2"></script>
     <script src="js/missions-list.js?v=2"></script>
+    <script src="js/quote-generator.js?v=1"></script>
 </body>
 </html>

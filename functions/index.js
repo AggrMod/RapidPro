@@ -536,6 +536,287 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
 });
 
 
+// ========================================
+// QUOTE GENERATION SYSTEM
+// ========================================
+
+/**
+ * Generate Quote
+ * Creates a quote for commercial appliance repair services
+ */
+exports.generateQuote = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const {
+    customerName,
+    customerAddress,
+    customerPhone,
+    customerEmail,
+    locationId,
+    lineItems,
+    serviceFees,
+    isEmergency,
+    notes,
+    validUntil,
+    equipmentType
+  } = request.data;
+
+  // Validation
+  if (!customerName || !customerAddress || !lineItems || lineItems.length === 0) {
+    throw new Error('Customer name, address, and line items are required');
+  }
+
+  try {
+    // Calculate totals
+    let subtotal = 0;
+    lineItems.forEach(item => {
+      subtotal += item.total || 0;
+    });
+
+    // Add service fees
+    let serviceFeeTotal = 0;
+    if (serviceFees && serviceFees.length > 0) {
+      serviceFees.forEach(fee => {
+        serviceFeeTotal += fee.amount || 0;
+      });
+    }
+
+    subtotal += serviceFeeTotal;
+
+    // Apply emergency service multiplier if applicable
+    let emergencyFee = 0;
+    if (isEmergency) {
+      emergencyFee = Math.round(subtotal * 0.5); // 50% premium
+      subtotal += emergencyFee;
+    }
+
+    // Create quote document
+    const quoteData = {
+      // Customer info
+      customerName,
+      customerAddress,
+      customerPhone: customerPhone || '',
+      customerEmail: customerEmail || '',
+
+      // Location reference
+      locationId: locationId || null,
+
+      // Quote details
+      lineItems,
+      serviceFees: serviceFees || [],
+      isEmergency: isEmergency || false,
+      emergencyFee,
+      subtotal: Math.round(subtotal),
+      total: Math.round(subtotal),
+
+      // Equipment type
+      equipmentType: equipmentType || 'commercial-appliance',
+
+      // Metadata
+      notes: notes || '',
+      validUntil: validUntil || null,
+      status: 'draft', // draft, sent, viewed, accepted, rejected
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdBy: request.auth.uid,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+
+      // Tracking
+      viewedAt: null,
+      acceptedAt: null,
+      rejectedAt: null,
+      sentAt: null
+    };
+
+    // Save to Firestore
+    const quoteRef = await db.collection('quotes').add(quoteData);
+
+    // Update location with quote reference if locationId provided
+    if (locationId) {
+      const locationRef = db.collection('locations').doc(locationId);
+      await locationRef.update({
+        lastQuoteId: quoteRef.id,
+        lastQuoteDate: admin.firestore.FieldValue.serverTimestamp(),
+        lastQuoteAmount: Math.round(subtotal)
+      });
+    }
+
+    return {
+      success: true,
+      quoteId: quoteRef.id,
+      total: Math.round(subtotal),
+      message: 'Quote generated successfully'
+    };
+  } catch (error) {
+    console.error('Error generating quote:', error);
+    throw new Error('Failed to generate quote: ' + error.message);
+  }
+});
+
+/**
+ * Send Quote
+ * Sends a quote to customer via email/text
+ */
+exports.sendQuote = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { quoteId, email, phone } = request.data;
+
+  if (!quoteId) {
+    throw new Error('Quote ID is required');
+  }
+
+  if (!email && !phone) {
+    throw new Error('Email or phone number is required');
+  }
+
+  try {
+    // Get quote data
+    const quoteDoc = await db.collection('quotes').doc(quoteId).get();
+
+    if (!quoteDoc.exists) {
+      throw new Error('Quote not found');
+    }
+
+    const quoteData = quoteDoc.data();
+
+    // Update quote status to 'sent'
+    await db.collection('quotes').doc(quoteId).update({
+      status: 'sent',
+      sentAt: admin.firestore.FieldValue.serverTimestamp(),
+      sentTo: {
+        email: email || null,
+        phone: phone || null
+      }
+    });
+
+    // TODO: Integrate with email/SMS service (SendGrid, Twilio, etc.)
+    // For now, we'll just mark it as sent
+    console.log('Quote would be sent to:', email || phone);
+    console.log('Quote data:', {
+      customerName: quoteData.customerName,
+      total: quoteData.total,
+      lineItems: quoteData.lineItems.length
+    });
+
+    return {
+      success: true,
+      message: 'Quote sent successfully (marked as sent - email/SMS integration pending)',
+      quoteId,
+      sentTo: email || phone
+    };
+  } catch (error) {
+    console.error('Error sending quote:', error);
+    throw new Error('Failed to send quote: ' + error.message);
+  }
+});
+
+/**
+ * Get Quotes
+ * Retrieves quotes with optional filters
+ */
+exports.getQuotes = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { locationId, status, limit } = request.data;
+
+  try {
+    let query = db.collection('quotes');
+
+    // Apply filters
+    if (locationId) {
+      query = query.where('locationId', '==', locationId);
+    }
+
+    if (status) {
+      query = query.where('status', '==', status);
+    }
+
+    // Order by creation date, most recent first
+    query = query.orderBy('createdAt', 'desc');
+
+    // Apply limit
+    if (limit) {
+      query = query.limit(limit);
+    } else {
+      query = query.limit(50); // Default limit
+    }
+
+    const quotesSnapshot = await query.get();
+
+    const quotes = [];
+    quotesSnapshot.forEach(doc => {
+      quotes.push({
+        id: doc.id,
+        ...doc.data()
+      });
+    });
+
+    return {
+      success: true,
+      quotes,
+      count: quotes.length
+    };
+  } catch (error) {
+    console.error('Error getting quotes:', error);
+    throw new Error('Failed to get quotes: ' + error.message);
+  }
+});
+
+/**
+ * Update Quote Status
+ * Updates the status of a quote (viewed, accepted, rejected)
+ */
+exports.updateQuoteStatus = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { quoteId, status } = request.data;
+
+  if (!quoteId || !status) {
+    throw new Error('Quote ID and status are required');
+  }
+
+  const validStatuses = ['draft', 'sent', 'viewed', 'accepted', 'rejected'];
+  if (!validStatuses.includes(status)) {
+    throw new Error('Invalid status. Must be one of: ' + validStatuses.join(', '));
+  }
+
+  try {
+    const updateData = {
+      status,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    };
+
+    // Add timestamp for specific statuses
+    if (status === 'viewed') {
+      updateData.viewedAt = admin.firestore.FieldValue.serverTimestamp();
+    } else if (status === 'accepted') {
+      updateData.acceptedAt = admin.firestore.FieldValue.serverTimestamp();
+    } else if (status === 'rejected') {
+      updateData.rejectedAt = admin.firestore.FieldValue.serverTimestamp();
+    }
+
+    await db.collection('quotes').doc(quoteId).update(updateData);
+
+    return {
+      success: true,
+      message: 'Quote status updated to: ' + status,
+      quoteId,
+      status
+    };
+  } catch (error) {
+    console.error('Error updating quote status:', error);
+    throw new Error('Failed to update quote status: ' + error.message);
+  }
+});
+
 // AI Boss exports
 exports.analyzeInteraction = aiBoss.analyzeInteraction;
 exports.getAICommand = aiBoss.getAICommand;

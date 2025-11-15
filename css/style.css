@@ -1207,3 +1207,346 @@ body {
         width: 100%;
     }
 }
+
+/* ========================================
+   QUOTE GENERATOR MODAL STYLES
+   ======================================== */
+
+/* Quote Modal Specific Sizing */
+.quote-modal-content {
+    max-width: 1200px;
+    width: 95%;
+}
+
+.modal-body {
+    padding: 0;
+    overflow-y: auto;
+    max-height: calc(90vh - 150px);
+}
+
+.modal-footer {
+    padding: 1.5rem 2rem;
+    background: var(--card-bg);
+    border-top: 2px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Quote Sections */
+.quote-section {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.quote-section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subsection-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Common Repairs List */
+.common-repairs-container {
+    margin-top: 1.5rem;
+}
+
+.common-repairs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background: var(--dark-bg);
+    border-radius: 8px;
+}
+
+.common-repair-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.common-repair-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.2);
+}
+
+.common-repair-item .repair-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.common-repair-item .repair-details {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Custom Item Form */
+.custom-item-form {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Service Fees Section */
+.service-fees-section {
+    margin-top: 2rem;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.checkbox-label:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-label span {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* Quote Preview */
+.quote-preview {
+    background: var(--dark-bg);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.quote-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.quote-table thead {
+    background: var(--card-bg);
+}
+
+.quote-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.quote-table td {
+    padding: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.quote-table tbody tr:hover {
+    background: var(--card-bg);
+}
+
+.quote-line-item td:nth-child(6),
+.quote-item-total {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.quote-service-fee {
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.quote-emergency-fee {
+    background: rgba(255, 107, 0, 0.1);
+}
+
+.quote-total-row {
+    background: var(--card-bg);
+    border-top: 2px solid var(--primary-color);
+}
+
+.quote-total-row td {
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    border-bottom: none;
+}
+
+.quote-total-value {
+    font-size: 1.25rem !important;
+    color: var(--primary-color) !important;
+}
+
+/* Quote Total Section */
+.quote-total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.quote-total-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+
+.quote-total-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Button Variations */
+.btn-danger {
+    background: linear-gradient(135deg, #ff3366 0%, #ff6b00 100%);
+    color: white;
+}
+
+.btn-danger:hover {
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+}
+
+/* Mobile Responsive for Quote Modal */
+@media (max-width: 1024px) {
+    .quote-modal-content {
+        width: 98%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .common-repairs-list {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-table {
+        font-size: 0.85rem;
+    }
+
+    .quote-table th,
+    .quote-table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-section {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-footer button {
+        width: 100%;
+    }
+
+    .quote-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-total-section {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .quote-total-value {
+        font-size: 1.75rem;
+    }
+}
