@@ -174,12 +174,11 @@ RESPOND IN VALID JSON FORMAT ONLY (no markdown, no explanation):
   } OR null
 }`;
 
-    // Call Gemini with vision support if images provided
+    // Call Gemini 2.5 Flash - supports both text and vision, optimized for speed
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY.value());
-    const modelName = imageParts.length > 0 ? "gemini-1.5-flash" : "gemini-pro";
-    const model = genAI.getGenerativeModel({ model: modelName });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    console.log('Calling Gemini API with model:', modelName);
+    console.log('Calling Gemini 2.5 Flash API...');
 
     // Build content parts (text + images)
     const contentParts = [{ text: prompt }];
