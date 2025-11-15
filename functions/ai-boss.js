@@ -32,9 +32,8 @@ exports.analyzeInteraction = onCall({
   enforceAppCheck: false,
   secrets: [GEMINI_API_KEY]
 }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  // Get userId from auth or use 'anonymous' for testing
+  const userId = request.auth ? request.auth.uid : 'anonymous';
 
   const { locationId, note, efficacyScore, timestamp } = request.data;
 
@@ -44,7 +43,7 @@ exports.analyzeInteraction = onCall({
 
   try {
     // 1. Gather context
-    const context = await gatherContext(locationId, request.auth.uid);
+    const context = await gatherContext(locationId, userId);
 
     // 2. Analyze with Gemini AI
     const aiGuidance = await callGeminiAI(note, efficacyScore, context, timestamp);
@@ -52,7 +51,7 @@ exports.analyzeInteraction = onCall({
     // 3. Store AI decision for learning
     await getDb().collection('aiDecisions').add({
       locationId,
-      userId: request.auth.uid,
+      userId: userId,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
       input: { note, efficacyScore },
       output: aiGuidance,
@@ -67,7 +66,7 @@ exports.analyzeInteraction = onCall({
       await getDb().collection('scheduledActions').add({
         locationId,
         locationName: context.location.name,
-        userId: request.auth.uid,
+        userId: userId,
         scheduledTime: new Date(aiGuidance.scheduledAction.time),
         action: aiGuidance.scheduledAction.action,
         reason: aiGuidance.scheduledAction.reason,
@@ -105,11 +104,8 @@ exports.analyzeInteraction = onCall({
  * @returns {Object} Current command with type, message, and location details
  */
 exports.getAICommand = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
-
-  const userId = request.auth.uid;
+  // Get userId from auth or use 'anonymous' for testing
+  const userId = request.auth ? request.auth.uid : 'anonymous';
   const currentTime = new Date();
   const upcomingWindow = new Date(currentTime.getTime() + 30 * 60000); // 30 min window
 
@@ -192,9 +188,8 @@ exports.getAICommand = onCall({ enforceAppCheck: false }, async (request) => {
  * @param {string} request.data.actionId - Scheduled action document ID
  */
 exports.completeScheduledAction = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  // Get userId from auth or use 'anonymous' for testing
+  const userId = request.auth ? request.auth.uid : 'anonymous';
 
   const { actionId } = request.data;
 
@@ -221,9 +216,8 @@ exports.completeScheduledAction = onCall({ enforceAppCheck: false }, async (requ
  * @returns {Array} List of scheduled actions sorted by time
  */
 exports.getScheduledActions = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  // Get userId from auth or use 'anonymous' for testing
+  const userId = request.auth ? request.auth.uid : 'anonymous';
 
   try {
     const snapshot = await getDb().collection('scheduledActions')

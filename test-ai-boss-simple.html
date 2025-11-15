@@ -80,24 +80,24 @@
     <script>
         // Firebase config
         const firebaseConfig = {
-            apiKey: "AIzaSyDHQvQDtU-L3yy5VrDFBqeQBaLd9Vxwq8A",
+            apiKey: "AIzaSyAzlCfKby79ZDvVJxfV5N7RdzoBrdFQexU",
             authDomain: "rapidpro-memphis.firebaseapp.com",
             projectId: "rapidpro-memphis",
             storageBucket: "rapidpro-memphis.firebasestorage.app",
             messagingSenderId: "161871881939",
-            appId: "1:161871881939:web:9d64d42a5f57b46e4bfa95"
+            appId: "1:161871881939:web:5e2602a6366f5eac935626"
         };
 
         firebase.initializeApp(firebaseConfig);
         const functions = firebase.functions();
         const auth = firebase.auth();
 
-        // Sign in with existing user
-        auth.signInWithEmailAndPassword("r22subcooling@gmail.com", "rapidpro2024").then(() => {
-            log('success', '✅ Authenticated as r22subcooling@gmail.com');
+        // Sign in anonymously
+        auth.signInAnonymously().then(() => {
+            log('success', '✅ Authenticated anonymously');
         }).catch(err => {
             log('error', '❌ Auth failed: ' + err.message);
-            log('info', 'You may need to login at: https://rapidpro-memphis.web.app/public/');
+            log('info', 'Anonymous auth may not be enabled. Please enable it in Firebase Console.');
         });
 
         function log(type, message) {
