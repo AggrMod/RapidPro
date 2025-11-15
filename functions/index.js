@@ -536,6 +536,174 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
 });
 
 
+/**
+ * Convert Lead to Customer
+ * Takes an "interested" prospect and converts them into a qualified lead with equipment survey
+ */
+exports.convertLeadToCustomer = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const {
+    locationId,
+    equipmentSurvey,
+    painPoints,
+    notes,
+    currentProvider,
+    assessmentDateTime,
+    contactMethod,
+    contactInfo,
+    accessNotes,
+    priority,
+    status
+  } = request.data;
+
+  if (!locationId || !equipmentSurvey || !assessmentDateTime) {
+    throw new Error('Location ID, equipment survey, and assessment date/time required');
+  }
+
+  try {
+    const userId = request.auth.uid;
+    const timestamp = admin.firestore.FieldValue.serverTimestamp();
+
+    // Create lead record
+    const leadData = {
+      locationId,
+      userId,
+      equipmentSurvey,
+      painPoints: painPoints || [],
+      notes: notes || '',
+      currentProvider: currentProvider || 'unknown',
+      assessmentDateTime,
+      contactMethod: contactMethod || 'phone',
+      contactInfo,
+      accessNotes: accessNotes || '',
+      priority: priority || 'medium',
+      status: status || 'assessment-scheduled',
+      convertedAt: timestamp,
+      createdAt: timestamp,
+      updatedAt: timestamp
+    };
+
+    const leadRef = await db.collection('leads').add(leadData);
+
+    // Update location status to "lead"
+    await db.collection('locations').doc(locationId).update({
+      status: 'lead',
+      leadId: leadRef.id,
+      priority: priority || 'medium',
+      updatedAt: timestamp
+    });
+
+    // Generate follow-up tasks
+    const followUpTasks = [];
+
+    // Task 1: Confirm assessment appointment
+    const confirmDate = new Date(assessmentDateTime);
+    confirmDate.setDate(confirmDate.getDate() - 1); // Day before
+    followUpTasks.push({
+      type: 'confirm-appointment',
+      description: `Confirm assessment appointment with ${contactInfo}`,
+      scheduledFor: confirmDate.toISOString(),
+      priority: 'high',
+      status: 'pending'
+    });
+
+    // Task 2: Prepare for assessment
+    const prepDate = new Date(assessmentDateTime);
+    prepDate.setHours(prepDate.getHours() - 2); // 2 hours before
+    followUpTasks.push({
+      type: 'prepare-assessment',
+      description: `Review equipment list and prepare tools for ${locationId}`,
+      scheduledFor: prepDate.toISOString(),
+      priority: 'high',
+      status: 'pending'
+    });
+
+    // Task 3: Conduct assessment
+    followUpTasks.push({
+      type: 'conduct-assessment',
+      description: `On-site equipment assessment at ${locationId}`,
+      scheduledFor: assessmentDateTime,
+      priority: 'critical',
+      status: 'pending'
+    });
+
+    // Task 4: Critical equipment follow-up (if any critical items)
+    const criticalEquipment = equipmentSurvey.filter(e => e.condition === 'critical');
+    if (criticalEquipment.length > 0) {
+      followUpTasks.push({
+        type: 'critical-equipment',
+        description: `URGENT: ${criticalEquipment.length} critical equipment items need immediate attention`,
+        scheduledFor: new Date().toISOString(), // Immediate
+        priority: 'critical',
+        status: 'pending'
+      });
+    }
+
+    // Create follow-up tasks in database
+    const taskPromises = followUpTasks.map(task =>
+      db.collection('followUpTasks').add({
+        ...task,
+        leadId: leadRef.id,
+        locationId,
+        userId,
+        createdAt: timestamp
+      })
+    );
+
+    await Promise.all(taskPromises);
+
+    // Create assessment reminder
+    const assessmentReminder = {
+      leadId: leadRef.id,
+      locationId,
+      userId,
+      type: 'assessment',
+      scheduledFor: assessmentDateTime,
+      contactMethod,
+      contactInfo,
+      accessNotes,
+      createdAt: timestamp
+    };
+
+    await db.collection('reminders').add(assessmentReminder);
+
+    // Update KPIs - track lead conversion
+    const kpisRef = db.collection('kpis').doc(userId);
+    const kpisDoc = await kpisRef.get();
+
+    if (kpisDoc.exists) {
+      await kpisRef.update({
+        totalLeads: admin.firestore.FieldValue.increment(1),
+        leadsThisMonth: admin.firestore.FieldValue.increment(1),
+        lastLeadConversion: timestamp
+      });
+    } else {
+      await kpisRef.set({
+        userId,
+        totalLeads: 1,
+        leadsThisMonth: 1,
+        lastLeadConversion: timestamp,
+        createdAt: timestamp
+      });
+    }
+
+    return {
+      success: true,
+      leadId: leadRef.id,
+      message: 'Lead converted successfully',
+      followUpTasks: followUpTasks.map(t => t.description),
+      assessmentReminder
+    };
+
+  } catch (error) {
+    console.error('Error converting lead:', error);
+    throw new Error('Failed to convert lead: ' + error.message);
+  }
+});
+
 // AI Boss exports
 exports.analyzeInteraction = aiBoss.analyzeInteraction;
 exports.getAICommand = aiBoss.getAICommand;
