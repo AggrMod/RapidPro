@@ -541,3 +541,244 @@ exports.analyzeInteraction = aiBoss.analyzeInteraction;
 exports.getAICommand = aiBoss.getAICommand;
 exports.completeScheduledAction = aiBoss.completeScheduledAction;
 exports.getScheduledActions = aiBoss.getScheduledActions;
+
+// ========================================
+// WORK ORDER SYSTEM - Task 8
+// ========================================
+
+/**
+ * Create Work Order from Quote
+ * Converts an accepted quote into a work order
+ */
+exports.createWorkOrder = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { quoteId, createdBy } = request.data;
+
+  try {
+    let workOrderData = {};
+
+    // If creating from quote, fetch quote data
+    if (quoteId) {
+      const quoteDoc = await db.collection('quotes').doc(quoteId).get();
+
+      if (!quoteDoc.exists) {
+        throw new Error('Quote not found');
+      }
+
+      const quote = quoteDoc.data();
+
+      // Verify quote is accepted
+      if (quote.status !== 'accepted') {
+        throw new Error('Can only create work orders from accepted quotes');
+      }
+
+      workOrderData = {
+        quoteId: quoteId,
+        customerId: quote.customerId,
+        customerName: quote.customerName,
+        customerAddress: quote.customerAddress,
+        customerPhone: quote.customerPhone,
+        equipmentType: quote.equipmentType,
+        description: quote.description,
+        estimatedCost: quote.totalCost || 0,
+        estimatedHours: quote.estimatedHours || 0,
+        partsNeeded: quote.partsIncluded || []
+      };
+
+      // Mark quote as converted
+      await db.collection('quotes').doc(quoteId).update({
+        convertedToWorkOrder: true,
+        convertedAt: admin.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Create work order
+    const workOrder = {
+      ...workOrderData,
+      status: 'draft',
+      priority: 'medium',
+      assignedTo: request.auth.uid,
+      createdBy: createdBy || request.auth.uid,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      scheduledDate: null,
+      startedAt: null,
+      completedAt: null,
+      preWorkChecklist: getDefaultChecklist(),
+      safetyNotes: '',
+      accessInstructions: '',
+      actualHours: 0,
+      actualCost: 0
+    };
+
+    const workOrderRef = await db.collection('workOrders').add(workOrder);
+
+    return {
+      success: true,
+      workOrderId: workOrderRef.id,
+      workOrder: { id: workOrderRef.id, ...workOrder },
+      message: 'Work order created successfully'
+    };
+  } catch (error) {
+    console.error('Error creating work order:', error);
+    throw new Error('Failed to create work order: ' + error.message);
+  }
+});
+
+/**
+ * Get default pre-work checklist
+ */
+function getDefaultChecklist() {
+  return [
+    { id: 1, item: 'Verify customer contact information', completed: false },
+    { id: 2, item: 'Review equipment specifications', completed: false },
+    { id: 3, item: 'Confirm all parts are available', completed: false },
+    { id: 4, item: 'Check tools and equipment needed', completed: false },
+    { id: 5, item: 'Review safety requirements', completed: false },
+    { id: 6, item: 'Verify access instructions', completed: false },
+    { id: 7, item: 'Load parts onto truck', completed: false },
+    { id: 8, item: 'Print/download work order details', completed: false }
+  ];
+}
+
+/**
+ * Get Work Orders for User
+ * Returns all work orders assigned to the current user
+ */
+exports.getWorkOrders = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { status, startDate, endDate } = request.data;
+
+  try {
+    let query = db.collection('workOrders')
+      .where('assignedTo', '==', request.auth.uid);
+
+    // Apply status filter if provided
+    if (status) {
+      query = query.where('status', '==', status);
+    }
+
+    // Order by creation date
+    query = query.orderBy('createdAt', 'desc');
+
+    const snapshot = await query.get();
+    const workOrders = [];
+
+    snapshot.forEach(doc => {
+      workOrders.push({
+        id: doc.id,
+        ...doc.data()
+      });
+    });
+
+    return {
+      success: true,
+      workOrders: workOrders,
+      count: workOrders.length
+    };
+  } catch (error) {
+    console.error('Error getting work orders:', error);
+    throw new Error('Failed to get work orders');
+  }
+});
+
+/**
+ * Update Work Order Status
+ * Updates the status and related fields of a work order
+ */
+exports.updateWorkOrderStatus = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { workOrderId, status, notes } = request.data;
+
+  if (!workOrderId || !status) {
+    throw new Error('Work order ID and status are required');
+  }
+
+  try {
+    const workOrderRef = db.collection('workOrders').doc(workOrderId);
+    const workOrderDoc = await workOrderRef.get();
+
+    if (!workOrderDoc.exists) {
+      throw new Error('Work order not found');
+    }
+
+    const updateData = {
+      status: status,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    };
+
+    // Add timestamp based on status
+    if (status === 'in_progress' && !workOrderDoc.data().startedAt) {
+      updateData.startedAt = admin.firestore.FieldValue.serverTimestamp();
+    } else if (status === 'completed') {
+      updateData.completedAt = admin.firestore.FieldValue.serverTimestamp();
+      if (notes) {
+        updateData.completionNotes = notes;
+      }
+    }
+
+    await workOrderRef.update(updateData);
+
+    return {
+      success: true,
+      message: 'Work order status updated successfully'
+    };
+  } catch (error) {
+    console.error('Error updating work order status:', error);
+    throw new Error('Failed to update work order status');
+  }
+});
+
+/**
+ * Schedule Work Order
+ * Sets the scheduled date/time for a work order
+ */
+exports.scheduleWorkOrder = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { workOrderId, scheduledDate } = request.data;
+
+  if (!workOrderId || !scheduledDate) {
+    throw new Error('Work order ID and scheduled date are required');
+  }
+
+  try {
+    await db.collection('workOrders').doc(workOrderId).update({
+      scheduledDate: admin.firestore.Timestamp.fromDate(new Date(scheduledDate)),
+      status: 'scheduled',
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    // Create reminder (24 hours before)
+    const reminderDate = new Date(scheduledDate);
+    reminderDate.setHours(reminderDate.getHours() - 24);
+
+    await db.collection('reminders').add({
+      type: 'work_order',
+      workOrderId: workOrderId,
+      userId: request.auth.uid,
+      reminderDate: admin.firestore.Timestamp.fromDate(reminderDate),
+      sent: false,
+      createdAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    return {
+      success: true,
+      message: 'Work order scheduled successfully'
+    };
+  } catch (error) {
+    console.error('Error scheduling work order:', error);
+    throw new Error('Failed to schedule work order');
+  }
+});
