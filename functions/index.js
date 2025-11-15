@@ -4,6 +4,8 @@ const admin = require('firebase-admin');
 const { getDistanceFromLatLonInKm } = require('geofire-common');
 const axios = require('axios');
 
+// AI Boss integration
+const aiBoss = require('./ai-boss');
 admin.initializeApp();
 const db = admin.firestore();
 
@@ -532,3 +534,10 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
     throw new Error('Failed to complete quest');
   }
 });
+
+
+// AI Boss exports
+exports.analyzeInteraction = aiBoss.analyzeInteraction;
+exports.getAICommand = aiBoss.getAICommand;
+exports.completeScheduledAction = aiBoss.completeScheduledAction;
+exports.getScheduledActions = aiBoss.getScheduledActions;

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Boss Test - Simple</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00ff88;
+            text-align: center;
+        }
+        .test-box {
+            background: #1a1a1a;
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        button {
+            background: #00ff88;
+            color: #0a0a0a;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #00cc66;
+        }
+        .output {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success { color: #00ff00; }
+        .error { color: #ff0000; }
+        .info { color: #00aaff; }
+    </style>
+</head>
+<body>
+    <h1>🤖 AI BOSS - Simple Test</h1>
+    <p style="text-align: center; color: #888;">
+        Direct function test (no auth required)
+    </p>
+
+    <div class="test-box">
+        <h2>Test AI Boss Function</h2>
+        <p>This will call the analyzeInteraction function directly.</p>
+        
+        <button onclick="testHotLead()">Test Hot Lead</button>
+        <button onclick="testWarmLead()">Test Warm Lead</button>
+        <button onclick="testRejection()">Test Rejection</button>
+        <button onclick="clearOutput()">Clear</button>
+        
+        <div id="output" class="output">Ready to test...</div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+
+    <script>
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyDHQvQDtU-L3yy5VrDFBqeQBaLd9Vxwq8A",
+            authDomain: "rapidpro-memphis.firebaseapp.com",
+            projectId: "rapidpro-memphis",
+            storageBucket: "rapidpro-memphis.firebasestorage.app",
+            messagingSenderId: "161871881939",
+            appId: "1:161871881939:web:9d64d42a5f57b46e4bfa95"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const functions = firebase.functions();
+        const auth = firebase.auth();
+
+        // Sign in with existing user
+        auth.signInWithEmailAndPassword("r22subcooling@gmail.com", "rapidpro2024").then(() => {
+            log('success', '✅ Authenticated as r22subcooling@gmail.com');
+        }).catch(err => {
+            log('error', '❌ Auth failed: ' + err.message);
+            log('info', 'You may need to login at: https://rapidpro-memphis.web.app/public/');
+        });
+
+        function log(type, message) {
+            const output = document.getElementById('output');
+            const timestamp = new Date().toLocaleTimeString();
+            output.innerHTML += `<span class="${type}">[${timestamp}] ${message}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+        }
+
+        async function testAnalyze(scenario, data) {
+            clearOutput();
+            log('info', `🧪 Testing: ${scenario}`);
+            log('info', '⏳ Calling analyzeInteraction...\n');
+
+            try {
+                const analyzeInteraction = functions.httpsCallable('analyzeInteraction');
+                const result = await analyzeInteraction(data);
+
+                log('success', '✅ AI Boss responded successfully!\n');
+                log('info', '📊 FULL RESPONSE:');
+                log('info', JSON.stringify(result.data, null, 2) + '\n');
+
+                log('info', '🤖 AI ANALYSIS:');
+                log('success', result.data.analysis + '\n');
+
+                log('info', '⚡ IMMEDIATE ACTION:');
+                log('success', result.data.immediateAction + '\n');
+
+                if (result.data.scheduledAction) {
+                    log('info', '⏰ SCHEDULED FOLLOW-UP:');
+                    log('success', `Time: ${result.data.scheduledAction.time}`);
+                    log('success', `Action: ${result.data.scheduledAction.action}`);
+                    log('success', `Reason: ${result.data.scheduledAction.reason}\n`);
+                }
+
+                log('info', '🎯 LEAD PRIORITY:');
+                log('success', result.data.leadPriority.toUpperCase() + '\n');
+
+                log('info', '💬 AI COMMAND:');
+                log('success', result.data.aiCommand);
+
+            } catch (error) {
+                log('error', '❌ Test failed!');
+                log('error', 'Error: ' + error.message);
+                if (error.details) {
+                    log('error', 'Details: ' + JSON.stringify(error.details, null, 2));
+                }
+            }
+        }
+
+        function testHotLead() {
+            testAnalyze('Hot Lead - Equipment Failure', {
+                locationId: 'test-hot-lead-001',
+                note: 'Manager Sarah needs refrigeration service ASAP. Walk-in cooler making loud grinding noise and temperature rising. Very concerned about food safety. Health inspection tomorrow!',
+                efficacyScore: 5,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function testWarmLead() {
+            testAnalyze('Warm Lead - Callback Requested', {
+                locationId: 'test-warm-lead-002',
+                note: 'Spoke to manager Steve. He said their current refrigeration service is unreliable. Interested in our preventative maintenance. Asked me to call back Friday afternoon between 2-4 PM to discuss details.',
+                efficacyScore: 4,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        function testRejection() {
+            testAnalyze('Rejection - Has Vendor', {
+                locationId: 'test-rejection-003',
+                note: 'Spoke to owner Mike. They already have a refrigeration company under 2-year contract. Very happy with current service. Not interested in switching.',
+                efficacyScore: 1,
+                timestamp: new Date().toISOString()
+            });
+        }
+    </script>
+</body>
+</html>
