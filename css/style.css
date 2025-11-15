@@ -10,10 +10,10 @@
     --secondary-color: #F59E0B;
     --success-color: #10B981;
     --danger-color: #EF4444;
-    --dark-bg: #F9FAFB;
-    --panel-bg: #FFFFFF;
-    --card-bg: #FFFFFF;
-    --border-color: #E5E7EB;
+    --dark-bg: #FF8C00;
+    --panel-bg: #FFA500;
+    --card-bg: #FFB84D;
+    --border-color: #FF6B00;
     --text-primary: #111827;
     --text-secondary: #6B7280;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -42,7 +42,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+    background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
 }
 
 .login-container {
