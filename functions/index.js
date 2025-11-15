@@ -299,7 +299,8 @@ exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
         locationId,
         sanitizedNotes,
         parseInt(efficacyScore),
-        new Date().toISOString()
+        new Date().toISOString(),
+        notesImageUrls || [] // Pass images for OCR analysis
       );
 
       if (aiResult.success) {
@@ -309,9 +310,19 @@ exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
           scheduledAction: aiResult.scheduledAction,
           leadPriority: aiResult.leadPriority,
           nextMissionType: aiResult.nextMissionType,
-          aiCommand: aiResult.aiCommand
+          aiCommand: aiResult.aiCommand,
+          extractedData: aiResult.extractedData || null // Include OCR data if present
         };
         console.log('AI Boss analysis completed:', aiResult.leadPriority, 'priority');
+
+        // Log extracted data
+        if (aiResult.extractedData) {
+          const equipCount = aiResult.extractedData.equipment?.length || 0;
+          const contactCount = aiResult.extractedData.contacts?.length || 0;
+          if (equipCount > 0 || contactCount > 0) {
+            console.log('Extracted from images:', equipCount, 'equipment,', contactCount, 'contacts');
+          }
+        }
       } else if (aiResult.fallbackGuidance) {
         // Use fallback guidance if AI failed
         aiGuidance = aiResult.fallbackGuidance;

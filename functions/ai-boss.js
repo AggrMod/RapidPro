@@ -6,6 +6,7 @@ const { onCall } = require('firebase-functions/v2/https');
 const { defineString } = require('firebase-functions/params');
 const admin = require('firebase-admin');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
+const axios = require('axios');
 
 // Get shared instances from main index.js
 // Note: admin.initializeApp() is called in index.js, so we just use admin here
@@ -13,16 +14,49 @@ const db = admin.firestore();
 const GEMINI_API_KEY = defineString('GEMINI_API_KEY');
 
 /**
+ * Helper: Fetch image from URL and convert to base64
+ */
+async function fetchImageAsBase64(imageUrl) {
+  try {
+    const response = await axios.get(imageUrl, {
+      responseType: 'arraybuffer',
+      timeout: 10000,
+      maxContentLength: 10 * 1024 * 1024 // 10MB max
+    });
+
+    const base64 = Buffer.from(response.data, 'binary').toString('base64');
+    const contentType = response.headers['content-type'] || 'image/jpeg';
+
+    return {
+      inlineData: {
+        data: base64,
+        mimeType: contentType
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching image:', imageUrl, error.message);
+    return null;
+  }
+}
+
+/**
  * AI Boss - Analyze Interaction and Provide Tactical Guidance (Internal)
  * This is the core AI decision engine that tells you what to do next
  * Can be called from other Cloud Functions
+ *
+ * @param {string} userId - User ID
+ * @param {string} locationId - Location ID
+ * @param {string} notesText - Text notes from interaction
+ * @param {number} efficacyScore - 1-5 efficacy score
+ * @param {string} timestamp - ISO timestamp
+ * @param {Array<string>} imageUrls - Optional array of image URLs to analyze (data plates, business cards, etc.)
  */
-async function analyzeInteractionInternal(userId, locationId, notesText, efficacyScore, timestamp) {
+async function analyzeInteractionInternal(userId, locationId, notesText, efficacyScore, timestamp, imageUrls = []) {
   if (!userId || !locationId || !notesText || efficacyScore === undefined) {
     throw new Error('userId, locationId, notesText, and efficacyScore are required');
   }
 
-  console.log('AI Boss analyzing interaction:', { locationId, efficacyScore });
+  console.log('AI Boss analyzing interaction:', { locationId, efficacyScore, imageCount: imageUrls.length });
 
   try {
     // Get location details
@@ -69,6 +103,28 @@ async function analyzeInteractionInternal(userId, locationId, notesText, efficac
       hour12: true
     });
 
+    // Process images if provided
+    let imageParts = [];
+    let imageAnalysisText = '';
+
+    if (imageUrls && imageUrls.length > 0) {
+      console.log('Processing', imageUrls.length, 'images for OCR and analysis...');
+
+      const imagePromises = imageUrls.map(url => fetchImageAsBase64(url));
+      const fetchedImages = await Promise.all(imagePromises);
+
+      imageParts = fetchedImages.filter(img => img !== null);
+
+      if (imageParts.length > 0) {
+        imageAnalysisText = `\n\n${imageParts.length} IMAGE(S) ATTACHED:
+- Analyze all images for relevant information
+- Extract text from equipment data plates (model numbers, serial numbers, manufacturer)
+- Extract contact information from business cards (name, phone, email, title)
+- Note any handwritten information or important visual details
+- Include extracted data in your analysis`;
+      }
+    }
+
     const prompt = `You are the AI Boss for a refrigeration technician doing cold calls to acquire commercial kitchen customers. Analyze this field interaction and provide clear tactical guidance.
 
 CONTEXT:
@@ -88,7 +144,7 @@ EFFICACY SCORE: ${efficacyScore}/5
 PREVIOUS INTERACTIONS AT THIS LOCATION:
 ${interactionHistory.length > 0
   ? interactionHistory.map(i => `- ${i.date.toLocaleDateString()}: "${i.note}" (Score: ${i.score}/5)`).join('\n')
-  : 'None - this is first contact'}
+  : 'None - this is first contact'}${imageAnalysisText}
 
 ANALYZE AND PROVIDE TACTICAL GUIDANCE:
 
@@ -97,6 +153,7 @@ ANALYZE AND PROVIDE TACTICAL GUIDANCE:
 3. **Should we schedule a follow-up?** (if yes, when exactly and why)
 4. **How urgent is this lead?** (critical/high/medium/low priority)
 5. **What type of mission should be next?** (scheduled-return, new-contact, follow-up)
+6. **Extract structured data from images** (if images provided)
 
 RESPOND IN VALID JSON FORMAT ONLY (no markdown, no explanation):
 {
@@ -109,15 +166,29 @@ RESPOND IN VALID JSON FORMAT ONLY (no markdown, no explanation):
   } OR null,
   "leadPriority": "critical" OR "high" OR "medium" OR "low",
   "nextMissionType": "scheduled-return" OR "new-contact" OR "follow-up",
-  "aiCommand": "string - what to display to user in commanding, motivational voice (2-4 sentences max, use emojis)"
+  "aiCommand": "string - what to display to user in commanding, motivational voice (2-4 sentences max, use emojis)",
+  "extractedData": {
+    "equipment": [{"manufacturer": "string", "model": "string", "serial": "string", "type": "string"}] OR [],
+    "contacts": [{"name": "string", "title": "string", "phone": "string", "email": "string", "company": "string"}] OR [],
+    "ocrText": "string - any other relevant text extracted from images" OR null
+  } OR null
 }`;
 
-    // Call Gemini
+    // Call Gemini with vision support if images provided
     const genAI = new GoogleGenerativeAI(GEMINI_API_KEY.value());
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const modelName = imageParts.length > 0 ? "gemini-1.5-flash" : "gemini-pro";
+    const model = genAI.getGenerativeModel({ model: modelName });
 
-    console.log('Calling Gemini API...');
-    const result = await model.generateContent(prompt);
+    console.log('Calling Gemini API with model:', modelName);
+
+    // Build content parts (text + images)
+    const contentParts = [{ text: prompt }];
+    if (imageParts.length > 0) {
+      contentParts.push(...imageParts);
+      console.log('Including', imageParts.length, 'images in analysis');
+    }
+
+    const result = await model.generateContent(contentParts);
     const response = await result.response;
     const responseText = response.text();
 
@@ -143,14 +214,15 @@ RESPOND IN VALID JSON FORMAT ONLY (no markdown, no explanation):
     console.log('AI Decision:', aiDecision.leadPriority, 'priority,', aiDecision.nextMissionType);
 
     // Store AI decision for learning
-    await db.collection('aiDecisions').add({
+    const aiDecisionRef = await db.collection('aiDecisions').add({
       locationId,
       userId: userId,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
       input: {
         note: notesText,
         efficacyScore,
-        locationName: location.name
+        locationName: location.name,
+        imageCount: imageUrls.length
       },
       output: aiDecision,
       context: {
@@ -159,6 +231,53 @@ RESPOND IN VALID JSON FORMAT ONLY (no markdown, no explanation):
         interactionCount: interactionHistory.length
       }
     });
+
+    // Store extracted equipment data in dedicated collection
+    if (aiDecision.extractedData?.equipment && aiDecision.extractedData.equipment.length > 0) {
+      console.log('Storing', aiDecision.extractedData.equipment.length, 'equipment records');
+
+      const equipmentPromises = aiDecision.extractedData.equipment.map(equip =>
+        db.collection('equipment').add({
+          locationId,
+          locationName: location.name,
+          locationAddress: location.address,
+          userId: userId,
+          manufacturer: equip.manufacturer || null,
+          model: equip.model || null,
+          serialNumber: equip.serial || null,
+          equipmentType: equip.type || 'refrigeration',
+          discoveredAt: admin.firestore.FieldValue.serverTimestamp(),
+          aiDecisionId: aiDecisionRef.id,
+          status: 'active'
+        })
+      );
+
+      await Promise.all(equipmentPromises);
+    }
+
+    // Store extracted contact data in dedicated collection
+    if (aiDecision.extractedData?.contacts && aiDecision.extractedData.contacts.length > 0) {
+      console.log('Storing', aiDecision.extractedData.contacts.length, 'contact records');
+
+      const contactPromises = aiDecision.extractedData.contacts.map(contact =>
+        db.collection('contacts').add({
+          locationId,
+          locationName: location.name,
+          locationAddress: location.address,
+          userId: userId,
+          name: contact.name || null,
+          title: contact.title || null,
+          phone: contact.phone || null,
+          email: contact.email || null,
+          company: contact.company || location.name,
+          discoveredAt: admin.firestore.FieldValue.serverTimestamp(),
+          aiDecisionId: aiDecisionRef.id,
+          isPrimary: false
+        })
+      );
+
+      await Promise.all(contactPromises);
+    }
 
     // If scheduled action exists, create it
     if (aiDecision.scheduledAction && aiDecision.scheduledAction.time) {
@@ -219,7 +338,7 @@ exports.analyzeInteraction = onCall({ enforceAppCheck: false }, async (request) 
     throw new Error('User must be authenticated');
   }
 
-  const { locationId, notesText, efficacyScore, timestamp } = request.data;
+  const { locationId, notesText, efficacyScore, timestamp, imageUrls } = request.data;
 
   if (!locationId || !notesText || efficacyScore === undefined) {
     throw new Error('locationId, notesText, and efficacyScore are required');
@@ -230,7 +349,8 @@ exports.analyzeInteraction = onCall({ enforceAppCheck: false }, async (request) 
     locationId,
     notesText,
     efficacyScore,
-    timestamp
+    timestamp,
+    imageUrls || []
   );
 });
 
