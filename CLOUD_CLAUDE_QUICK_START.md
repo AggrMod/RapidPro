@@ -4,8 +4,16 @@
 
 ---
 
-## 🎯 The One Command You Need
+## 🎯 The Commands You Need
 
+**If you added/removed dependencies:**
+```bash
+cd functions
+pnpm install    # Update lockfile
+cd ..
+```
+
+**Then deploy:**
 ```bash
 git add .
 git commit -m "Your changes"
@@ -70,8 +78,9 @@ Pushes to `main` or `dev` branch that change:
 ## 🚨 If Something Goes Wrong
 
 1. **Check GitHub Actions logs:** https://github.com/AggrMod/RapidPro/actions
-2. **Ask LOCAL Claude** (running on machine "Nova")
-3. **Ask Terry** (the user)
+2. **Read troubleshooting guide:** `AUTO_DEPLOY_TROUBLESHOOTING.md`
+3. **Ask LOCAL Claude** (running on machine "Nova")
+4. **Ask Terry** (the user)
 
 ---
 
