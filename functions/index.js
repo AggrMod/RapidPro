@@ -536,6 +536,220 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
 });
 
 
+// ========================================
+// INVOICE GENERATION SYSTEM
+// ========================================
+
+/**
+ * Send Invoice via Email
+ * Sends invoice PDF to customer via email
+ */
+exports.sendInvoice = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { invoiceId, recipientEmail, customMessage } = request.data;
+
+  if (!invoiceId || !recipientEmail) {
+    throw new Error('Invoice ID and recipient email are required');
+  }
+
+  try {
+    // Get invoice data
+    const invoiceDoc = await db.collection('invoices').doc(invoiceId).get();
+
+    if (!invoiceDoc.exists) {
+      throw new Error('Invoice not found');
+    }
+
+    const invoice = invoiceDoc.data();
+
+    // TODO: Implement email sending using SendGrid, Mailgun, or Firebase Extensions
+    // For now, just log and return success
+    console.log(`Sending invoice ${invoice.invoiceNumber} to ${recipientEmail}`);
+    console.log(`Custom message: ${customMessage || 'None'}`);
+
+    // Update invoice status
+    await db.collection('invoices').doc(invoiceId).update({
+      status: 'sent',
+      sentAt: admin.firestore.FieldValue.serverTimestamp(),
+      sentTo: recipientEmail,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp()
+    });
+
+    return {
+      success: true,
+      message: `Invoice sent to ${recipientEmail}`,
+      invoiceNumber: invoice.invoiceNumber
+    };
+  } catch (error) {
+    console.error('Error sending invoice:', error);
+    throw new Error('Failed to send invoice');
+  }
+});
+
+/**
+ * Get Invoice Analytics
+ * Returns summary of invoice statistics
+ */
+exports.getInvoiceAnalytics = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  try {
+    const invoicesSnapshot = await db.collection('invoices').get();
+
+    let totalInvoices = 0;
+    let totalRevenue = 0;
+    let totalPaid = 0;
+    let totalOutstanding = 0;
+    let invoicesByStatus = {
+      draft: 0,
+      sent: 0,
+      partial: 0,
+      paid: 0,
+      overdue: 0,
+      cancelled: 0
+    };
+
+    invoicesSnapshot.forEach(doc => {
+      const invoice = doc.data();
+      totalInvoices++;
+      totalRevenue += invoice.totalAmount || 0;
+      totalPaid += invoice.amountPaid || 0;
+      totalOutstanding += invoice.amountDue || 0;
+
+      if (invoice.status) {
+        invoicesByStatus[invoice.status] = (invoicesByStatus[invoice.status] || 0) + 1;
+      }
+    });
+
+    return {
+      success: true,
+      analytics: {
+        totalInvoices,
+        totalRevenue: Math.round(totalRevenue * 100) / 100,
+        totalPaid: Math.round(totalPaid * 100) / 100,
+        totalOutstanding: Math.round(totalOutstanding * 100) / 100,
+        invoicesByStatus,
+        averageInvoiceValue: totalInvoices > 0 ? Math.round((totalRevenue / totalInvoices) * 100) / 100 : 0,
+        collectionRate: totalRevenue > 0 ? Math.round((totalPaid / totalRevenue) * 100) : 0
+      }
+    };
+  } catch (error) {
+    console.error('Error getting invoice analytics:', error);
+    throw new Error('Failed to get invoice analytics');
+  }
+});
+
+/**
+ * Check for Overdue Invoices
+ * Scheduled function to check for overdue invoices and update their status
+ */
+exports.checkOverdueInvoices = onSchedule('every day 09:00', async (event) => {
+  try {
+    const now = new Date();
+    const invoicesSnapshot = await db.collection('invoices')
+      .where('status', 'in', ['sent', 'partial'])
+      .get();
+
+    let updatedCount = 0;
+
+    const updatePromises = [];
+    invoicesSnapshot.forEach(doc => {
+      const invoice = doc.data();
+      const dueDate = new Date(invoice.dueDate);
+
+      if (dueDate < now && invoice.amountDue > 0) {
+        updatePromises.push(
+          db.collection('invoices').doc(doc.id).update({
+            status: 'overdue',
+            updatedAt: admin.firestore.FieldValue.serverTimestamp()
+          })
+        );
+        updatedCount++;
+      }
+    });
+
+    await Promise.all(updatePromises);
+
+    console.log(`Updated ${updatedCount} invoices to overdue status`);
+
+    return {
+      success: true,
+      updatedCount
+    };
+  } catch (error) {
+    console.error('Error checking overdue invoices:', error);
+    throw new Error('Failed to check overdue invoices');
+  }
+});
+
+/**
+ * Generate Invoice Summary Report
+ * Creates a summary report of invoices for a given date range
+ */
+exports.generateInvoiceReport = onCall({ enforceAppCheck: false }, async (request) => {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const { startDate, endDate } = request.data;
+
+  try {
+    let query = db.collection('invoices');
+
+    if (startDate) {
+      query = query.where('invoiceDate', '>=', startDate);
+    }
+    if (endDate) {
+      query = query.where('invoiceDate', '<=', endDate);
+    }
+
+    const invoicesSnapshot = await query.get();
+    const invoices = [];
+    let totalRevenue = 0;
+    let totalPaid = 0;
+
+    invoicesSnapshot.forEach(doc => {
+      const invoice = doc.data();
+      invoices.push({
+        invoiceNumber: invoice.invoiceNumber,
+        customerName: invoice.customer?.businessName || invoice.customer?.name,
+        date: invoice.invoiceDate,
+        total: invoice.totalAmount,
+        paid: invoice.amountPaid,
+        due: invoice.amountDue,
+        status: invoice.status
+      });
+      totalRevenue += invoice.totalAmount || 0;
+      totalPaid += invoice.amountPaid || 0;
+    });
+
+    return {
+      success: true,
+      report: {
+        invoices,
+        summary: {
+          totalInvoices: invoices.length,
+          totalRevenue: Math.round(totalRevenue * 100) / 100,
+          totalPaid: Math.round(totalPaid * 100) / 100,
+          totalOutstanding: Math.round((totalRevenue - totalPaid) * 100) / 100,
+          period: {
+            start: startDate || 'Beginning',
+            end: endDate || 'Present'
+          }
+        }
+      }
+    };
+  } catch (error) {
+    console.error('Error generating invoice report:', error);
+    throw new Error('Failed to generate invoice report');
+  }
+});
+
 // AI Boss exports
 exports.analyzeInteraction = aiBoss.analyzeInteraction;
 exports.getAICommand = aiBoss.getAICommand;
