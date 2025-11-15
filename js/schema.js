@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "description": "Reliable preventative maintenance for commercial kitchen equipment in Memphis, TN and surrounding areas.",
     "image": "https://rapidpromemphis.com/images/logo.png",
     "url": "https://rapidpromemphis.com",
-    "telephone": "+19016560780",
+    "telephone": "+19012579417",
     "email": "R22subcooling@gmail.com",
     "address": {
       "@type": "PostalAddress",
