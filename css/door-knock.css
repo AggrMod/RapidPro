@@ -1,0 +1,479 @@
+/* Door Knock Logger Styles - Mobile First */
+
+/* Door Knock Modal Content */
+.door-knock-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.door-knock-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Location Info Display */
+.location-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+  border: 2px solid #0066cc;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.location-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.location-details {
+  flex: 1;
+}
+
+.location-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0066cc;
+  margin-bottom: 5px;
+}
+
+.location-address {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Outcome Section */
+.outcome-section {
+  margin-bottom: 25px;
+}
+
+.outcome-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Outcome Buttons - Mobile First (Large Tap Targets) */
+.outcome-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+  min-height: 100px;
+  background: #f8f9fa;
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.outcome-btn:hover {
+  background: #e9ecef;
+  border-color: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+}
+
+.outcome-btn:active {
+  transform: translateY(0);
+}
+
+.outcome-btn.selected {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  border-color: #0052a3;
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
+}
+
+.outcome-btn.outcome-btn-success.selected {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  border-color: #1e7e34;
+}
+
+.outcome-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.outcome-text {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Notes Section */
+.notes-section {
+  margin-bottom: 20px;
+}
+
+.notes-textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-size: 16px; /* Larger for mobile */
+}
+
+/* Outcome Details (shown based on selection) */
+.outcome-details {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+}
+
+/* Location Search/Selector */
+.location-search {
+  margin-bottom: 25px;
+}
+
+.location-search-input {
+  font-size: 16px;
+  padding: 15px;
+  width: 100%;
+}
+
+.location-results {
+  margin-top: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.location-result-item {
+  padding: 15px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.location-result-item:hover {
+  background: #e9ecef;
+  border-color: #0066cc;
+  transform: translateX(5px);
+}
+
+.location-result-item .location-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0066cc;
+  margin-bottom: 4px;
+}
+
+.location-result-item .location-address {
+  font-size: 14px;
+  color: #666;
+}
+
+.no-results,
+.error-message {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.error-message {
+  color: #dc3545;
+}
+
+/* Quick Location Options */
+.quick-location-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Large Buttons for Mobile */
+.btn-large {
+  min-height: 60px;
+  font-size: 16px;
+  padding: 15px 25px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Success Toast Notification */
+.success-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: slideInRight 0.3s ease;
+}
+
+.success-toast.fade-out {
+  animation: fadeOut 0.3s ease;
+  opacity: 0;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-icon {
+  font-size: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast-message {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Dashboard Button Styling */
+.btn-action {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff5500 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-action:hover {
+  background: linear-gradient(135deg, #ff5500 0%, #ff4400 100%);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .door-knock-content {
+    max-height: 100vh;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .modal-header {
+    border-radius: 0;
+  }
+
+  .door-knock-body {
+    padding: 15px;
+  }
+
+  .location-info {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .outcome-grid {
+    gap: 10px;
+  }
+
+  .outcome-btn {
+    min-height: 90px;
+    padding: 15px 10px;
+  }
+
+  .outcome-icon {
+    font-size: 28px;
+  }
+
+  .outcome-text {
+    font-size: 13px;
+  }
+
+  .success-toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+  }
+}
+
+/* Very Small Phones */
+@media (max-width: 360px) {
+  .outcome-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .outcome-btn {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-height: 70px;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .outcome-icon {
+    font-size: 32px;
+  }
+
+  .outcome-text {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+/* Landscape Mode on Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .door-knock-content {
+    max-height: 100vh;
+  }
+
+  .door-knock-body {
+    padding: 15px;
+  }
+
+  .location-info {
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+
+  .outcome-btn {
+    min-height: 70px;
+    padding: 12px;
+  }
+}
+
+/* Tablet and Desktop */
+@media (min-width: 769px) {
+  .outcome-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .outcome-btn {
+    min-height: 120px;
+    padding: 25px 20px;
+  }
+
+  .outcome-icon {
+    font-size: 40px;
+  }
+
+  .outcome-text {
+    font-size: 15px;
+  }
+}
+
+/* Accessibility - Focus States */
+.outcome-btn:focus,
+.btn:focus,
+.form-control:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .outcome-btn {
+    border-width: 4px;
+  }
+
+  .outcome-btn.selected {
+    border-width: 5px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .door-knock-content {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .location-info {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2a4a7f 100%);
+    border-color: #4a9eff;
+  }
+
+  .location-name {
+    color: #4a9eff;
+  }
+
+  .location-address {
+    color: #b0b0b0;
+  }
+
+  .outcome-label {
+    color: #e0e0e0;
+  }
+
+  .outcome-btn {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+
+  .outcome-btn:hover {
+    background: #333;
+    border-color: #4a9eff;
+  }
+
+  .outcome-details {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+
+  .location-result-item {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+
+  .form-control {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+}
