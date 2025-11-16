@@ -1,6 +1,7 @@
 // Authentication Logic
 
 let currentUser = null;
+window.currentUser = null;  // Make globally accessible
 
 // Set persistence to LOCAL so users stay logged in after refresh
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
@@ -9,6 +10,7 @@ auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
     auth.onAuthStateChanged(async (user) => {
       if (user) {
         currentUser = user;
+        window.currentUser = user;  // Update global reference
         showDashboard();
         document.getElementById('user-email').textContent = user.email;
 
@@ -27,6 +29,7 @@ auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         loadLocations();
       } else {
         currentUser = null;
+        window.currentUser = null;  // Clear global reference
         showLogin();
       }
     });
