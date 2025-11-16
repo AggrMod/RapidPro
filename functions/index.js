@@ -6,6 +6,8 @@ const axios = require('axios');
 
 // AI Boss integration
 const aiBoss = require('./ai-boss');
+// Daily Digest integration (Human-Centered AI)
+const dailyDigest = require('./daily-digest');
 admin.initializeApp();
 const db = admin.firestore();
 
@@ -709,3 +711,11 @@ exports.analyzeInteraction = aiBoss.analyzeInteraction;
 exports.getAICommand = aiBoss.getAICommand;
 exports.completeScheduledAction = aiBoss.completeScheduledAction;
 exports.getScheduledActions = aiBoss.getScheduledActions;
+
+// Daily Digest exports (Human-Centered AI Assistant)
+exports.generateDailyDigest = dailyDigest.generateDailyDigest;
+exports.getDailyDigest = dailyDigest.getDailyDigest;
+exports.dismissDailyDigest = dailyDigest.dismissDailyDigest;
+exports.recordDigestFeedback = dailyDigest.recordDigestFeedback;
+exports.getUserPreferences = dailyDigest.getUserPreferences;
+exports.updateUserPreferences = dailyDigest.updateUserPreferences;
