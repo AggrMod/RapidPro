@@ -54,7 +54,9 @@ showSuccessMessage("Lead created! Moving to next location...");
 
 **Change it to:**
 
-### Step 1: Add "Start Work?" Decision Point
+### Step 1: Add AI-Assisted Decision Point
+
+**GEMINI AI BOSS DECISION:** Give Terry the choice, but provide AI context to help him decide.
 
 After the equipment survey is complete, show this modal:
 
@@ -66,11 +68,16 @@ After the equipment survey is complete, show this modal:
 │  Customer: Memphis BBQ Company      │
 │  Issue: Walk-in cooler not cooling  │
 │                                     │
+│  🤖 AI BOSS INSIGHT:                │
+│  "Schedule clear for 3 hours.       │
+│   No priority conflicts."           │
+│                                     │
 │  What do you want to do?            │
 │                                     │
 │  ┌─────────────────────────────┐   │
 │  │  🔧 START WORK NOW          │   │
 │  │  Begin billable hours       │   │
+│  │  ✅ Recommended             │   │
 │  └─────────────────────────────┘   │
 │                                     │
 │  ┌─────────────────────────────┐   │
@@ -84,6 +91,17 @@ After the equipment survey is complete, show this modal:
 │  └─────────────────────────────┘   │
 └─────────────────────────────────────┘
 ```
+
+**AI Insight Logic (Phase 1 - Simple):**
+- Check if any active work orders exist
+- If none: "Schedule clear. No conflicts." → Recommend "Start Work Now"
+- If active: "Warning: Job in progress at [Customer]" → Recommend "Schedule Later"
+
+**Future Enhancement (Phase 2 - Smart):**
+- Check scheduled appointments in next 3 hours
+- Estimate job complexity from equipment survey
+- Calculate travel time to next location
+- Show: "2.5 hour window available. Job estimated: 1-2 hours. ✅ Safe to start"
 
 ---
 
