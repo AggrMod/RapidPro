@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAuth 2.1 Login Example - RapidPro</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo h1 {
+      color: #333;
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .logo p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 24px 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background: #e0e0e0;
+    }
+
+    .divider span {
+      background: white;
+      padding: 0 16px;
+      color: #999;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .oauth-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .oauth-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      background: white;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .oauth-btn:hover {
+      border-color: #667eea;
+      background: #f8f9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    }
+
+    .oauth-btn:active {
+      transform: translateY(0);
+    }
+
+    .oauth-btn img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .google-btn {
+      border-color: #4285f4;
+    }
+
+    .google-btn:hover {
+      border-color: #4285f4;
+      background: #f1f6ff;
+    }
+
+    .microsoft-btn {
+      border-color: #00a4ef;
+    }
+
+    .microsoft-btn:hover {
+      border-color: #00a4ef;
+      background: #f0f9ff;
+    }
+
+    .github-btn {
+      border-color: #333;
+    }
+
+    .github-btn:hover {
+      border-color: #333;
+      background: #f5f5f5;
+    }
+
+    .email-section {
+      margin-top: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .error-message {
+      background: #fee;
+      color: #c33;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .error-message.active {
+      display: block;
+    }
+
+    .info-box {
+      background: #f0f4ff;
+      border-left: 4px solid #667eea;
+      padding: 16px;
+      margin-top: 24px;
+      border-radius: 4px;
+    }
+
+    .info-box h3 {
+      color: #667eea;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .info-box ul {
+      margin-left: 20px;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .dashboard {
+      display: none;
+      text-align: center;
+    }
+
+    .dashboard.active {
+      display: block;
+    }
+
+    .user-info {
+      background: #f8f9ff;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    .user-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      border: 4px solid #667eea;
+    }
+
+    .user-name {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .user-email {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .account-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .action-btn {
+      padding: 12px;
+      border: 2px solid #667eea;
+      background: white;
+      color: #667eea;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .action-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .logout-btn {
+      background: #fee;
+      border-color: #c33;
+      color: #c33;
+    }
+
+    .logout-btn:hover {
+      background: #c33;
+      color: white;
+    }
+
+    .providers-list {
+      margin-top: 16px;
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .providers-list h4 {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .provider-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      background: #f8f9ff;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .provider-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Loading spinner */
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none;
+    }
+
+    .spinner.active {
+      display: block;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* reCAPTCHA container */
+    #recaptcha-container {
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="login-container">
+    <div class="logo">
+      <h1>🚀 RapidPro</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    <div class="error-message" id="error-message"></div>
+    <div class="spinner" id="loading-spinner"></div>
+
+    <!-- OAuth Buttons -->
+    <div class="oauth-buttons">
+      <button class="oauth-btn google-btn" onclick="handleGoogleSignIn()">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+        </svg>
+        Continue with Google
+      </button>
+
+      <button class="oauth-btn microsoft-btn" onclick="handleMicrosoftSignIn()">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="#f25022" d="M1 1h10v10H1z"/>
+          <path fill="#00a4ef" d="M13 1h10v10H13z"/>
+          <path fill="#7fba00" d="M1 13h10v10H1z"/>
+          <path fill="#ffb900" d="M13 13h10v10H13z"/>
+        </svg>
+        Continue with Microsoft
+      </button>
+
+      <button class="oauth-btn github-btn" onclick="handleGitHubSignIn()">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        Continue with GitHub
+      </button>
+    </div>
+
+    <div class="divider">
+      <span>or sign in with email</span>
+    </div>
+
+    <!-- Email/Password Form -->
+    <form class="email-section" onsubmit="handleEmailSignIn(event)">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="submit-btn">Sign In</button>
+    </form>
+
+    <!-- Info Box -->
+    <div class="info-box">
+      <h3>🔒 OAuth 2.1 Security Features</h3>
+      <ul>
+        <li>PKCE protection (RFC 9700)</li>
+        <li>Secure token management</li>
+        <li>Multi-factor authentication support</li>
+        <li>Account linking capabilities</li>
+      </ul>
+    </div>
+
+    <!-- reCAPTCHA container for MFA -->
+    <div id="recaptcha-container"></div>
+  </div>
+
+  <!-- Dashboard Screen -->
+  <div id="dashboard-screen" class="login-container dashboard">
+    <div class="logo">
+      <h1>🎯 Dashboard</h1>
+      <p>Welcome to RapidPro</p>
+    </div>
+
+    <div class="user-info">
+      <img id="user-avatar" class="user-avatar" src="" alt="User Avatar">
+      <div id="user-name" class="user-name">Loading...</div>
+      <div id="user-email" class="user-email">Loading...</div>
+    </div>
+
+    <div class="providers-list">
+      <h4>Connected Accounts:</h4>
+      <div id="providers-container"></div>
+    </div>
+
+    <div class="account-actions">
+      <button class="action-btn" onclick="handleLinkProvider('google')">
+        Link Google Account
+      </button>
+      <button class="action-btn" onclick="handleLinkProvider('microsoft')">
+        Link Microsoft Account
+      </button>
+      <button class="action-btn" onclick="handleLinkProvider('github')">
+        Link GitHub Account
+      </button>
+      <button class="action-btn" onclick="handleRefreshToken()">
+        Refresh Auth Token
+      </button>
+      <button class="logout-btn action-btn" onclick="handleSignOut()">
+        Sign Out
+      </button>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+  <!-- OAuth Implementation -->
+  <script src="oauth-implementation-2025.js"></script>
+
+  <!-- UI Handler Script -->
+  <script>
+    // ========================================================================
+    // UI EVENT HANDLERS
+    // ========================================================================
+
+    function showLoading(show = true) {
+      const spinner = document.getElementById('loading-spinner');
+      spinner.classList.toggle('active', show);
+    }
+
+    function showError(message) {
+      const errorDiv = document.getElementById('error-message');
+      errorDiv.textContent = message;
+      errorDiv.classList.add('active');
+
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        errorDiv.classList.remove('active');
+      }, 5000);
+    }
+
+    function updateDashboard(user) {
+      // Update user info
+      document.getElementById('user-name').textContent = user.displayName || 'User';
+      document.getElementById('user-email').textContent = user.email;
+
+      // Update avatar
+      const avatar = document.getElementById('user-avatar');
+      if (user.photoURL) {
+        avatar.src = user.photoURL;
+      } else {
+        avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName || user.email)}&size=80&background=667eea&color=fff`;
+      }
+
+      // Update providers list
+      const providersContainer = document.getElementById('providers-container');
+      providersContainer.innerHTML = '';
+
+      user.providerData.forEach(provider => {
+        const providerItem = document.createElement('div');
+        providerItem.className = 'provider-item';
+
+        let providerName = provider.providerId;
+        if (providerName === 'google.com') providerName = '🔵 Google';
+        else if (providerName === 'microsoft.com') providerName = '🟦 Microsoft';
+        else if (providerName === 'github.com') providerName = '⚫ GitHub';
+        else if (providerName === 'password') providerName = '📧 Email/Password';
+
+        providerItem.textContent = providerName;
+        providersContainer.appendChild(providerItem);
+      });
+    }
+
+    // ========================================================================
+    // SIGN-IN HANDLERS
+    // ========================================================================
+
+    async function handleGoogleSignIn() {
+      try {
+        showLoading(true);
+
+        // Use popup for desktop, redirect for mobile
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (isMobile) {
+          await window.OAuthAuth.signInWithGoogleRedirect();
+        } else {
+          await window.OAuthAuth.signInWithGooglePopup();
+        }
+
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    async function handleMicrosoftSignIn() {
+      try {
+        showLoading(true);
+        await window.OAuthAuth.signInWithMicrosoft();
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    async function handleGitHubSignIn() {
+      try {
+        showLoading(true);
+        await window.OAuthAuth.signInWithGitHub();
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    async function handleEmailSignIn(event) {
+      event.preventDefault();
+
+      try {
+        showLoading(true);
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    // ========================================================================
+    // ACCOUNT MANAGEMENT HANDLERS
+    // ========================================================================
+
+    async function handleLinkProvider(providerType) {
+      try {
+        showLoading(true);
+        await window.OAuthAuth.linkOAuthProvider(providerType);
+        alert(`${providerType} account linked successfully!`);
+
+        // Refresh user data
+        const user = firebase.auth().currentUser;
+        if (user) {
+          updateDashboard(user);
+        }
+
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    async function handleRefreshToken() {
+      try {
+        showLoading(true);
+        await window.OAuthAuth.refreshAuthToken();
+        alert('Auth token refreshed successfully!');
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    }
+
+    async function handleSignOut() {
+      if (confirm('Are you sure you want to sign out?')) {
+        await window.OAuthAuth.signOut();
+      }
+    }
+
+    // ========================================================================
+    // OVERRIDE GLOBAL FUNCTIONS FROM oauth-implementation-2025.js
+    // ========================================================================
+
+    // Override UI functions to work with this HTML
+    window.showLogin = function() {
+      document.getElementById('login-screen').style.display = 'block';
+      document.getElementById('dashboard-screen').classList.remove('active');
+    };
+
+    window.showDashboard = function() {
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('dashboard-screen').classList.add('active');
+
+      const user = firebase.auth().currentUser;
+      if (user) {
+        updateDashboard(user);
+      }
+    };
+
+    window.showErrorMessage = function(message) {
+      showError(message);
+    };
+
+    // ========================================================================
+    // INITIALIZE
+    // ========================================================================
+
+    // Monitor auth state for dashboard updates
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user && document.getElementById('dashboard-screen').classList.contains('active')) {
+        updateDashboard(user);
+      }
+    });
+  </script>
+
+</body>
+</html>
