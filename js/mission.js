@@ -77,6 +77,11 @@ function displayMission(mission) {
   document.getElementById('mission-distance').textContent = `${mission.distanceMiles} mi`;
   document.getElementById('mission-type').textContent = mission.type || 'commercial kitchen';
   document.getElementById('intro-script').textContent = mission.introScript;
+
+  // Update hero card with active mission
+  if (typeof updateHeroCard === 'function') {
+    updateHeroCard(mission);
+  }
 }
 
 // Complete Mission - Show Interaction Form
@@ -197,6 +202,11 @@ function resetMissionUI() {
 
   // Clear current mission
   currentMission = null;
+
+  // Update hero card to show no active mission
+  if (typeof updateHeroCard === 'function') {
+    updateHeroCard(null);
+  }
 }
 
 // Display AI tactical guidance

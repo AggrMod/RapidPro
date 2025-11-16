@@ -121,6 +121,234 @@ body {
     min-height: 1.2rem;
 }
 
+/* ========================================
+   HERO MISSION CARD (Action-Oriented Above Fold)
+   ======================================== */
+
+.hero-mission-card {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1rem 2rem;
+}
+
+.hero-content {
+    background: linear-gradient(135deg, var(--panel-bg) 0%, var(--card-bg) 100%);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+}
+
+.hero-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--success-color));
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.hero-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--success-color);
+    box-shadow: 0 0 15px var(--success-color);
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--success-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.hero-mission-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.hero-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.hero-detail-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5));
+}
+
+.hero-detail-content {
+    flex: 1;
+}
+
+.hero-detail-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.hero-detail-value {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary,
+.btn-hero-secondary {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.25rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 60px; /* Ensure 48px+ touch target */
+}
+
+.btn-hero-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0099cc 100%);
+    color: var(--dark-bg);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+.btn-hero-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Stats Toggle Button */
+.stats-toggle-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 1rem 2rem;
+}
+
+.stats-toggle-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-height: 48px; /* Touch target compliance */
+}
+
+.stats-toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+}
+
+.toggle-arrow {
+    margin-left: auto;
+    transition: transform 0.3s;
+    font-size: 0.8rem;
+}
+
+.stats-toggle-btn[aria-expanded="true"] .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+/* Collapsible KPI Grid */
+.kpi-grid.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 2rem;
+    transition: all 0.4s ease;
+}
+
+.kpi-grid.expanded {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 0 2rem 2rem 2rem;
+    transition: all 0.4s ease;
+}
+
 /* Dashboard Header */
 .dashboard-header {
     display: flex;
@@ -149,6 +377,7 @@ body {
 
 .btn-secondary {
     padding: 0.75rem 1.5rem;
+    min-height: 48px; /* Touch target compliance */
     background: transparent;
     color: var(--text-secondary);
     font-weight: 500;
@@ -168,9 +397,8 @@ body {
 /* KPI Dashboard */
 .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -178,8 +406,8 @@ body {
 .kpi-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1.5rem;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
     text-align: center;
     transition: all 0.3s;
     position: relative;
@@ -192,22 +420,29 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .kpi-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25);
     border-color: var(--primary-color);
 }
 
+.kpi-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
 .kpi-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
 }
 
 .kpi-value {
@@ -215,17 +450,32 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.kpi-subtext {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.8;
 }
 
 /* Main Content */
 .main-content {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: minmax(320px, 380px) 1.8fr;
     gap: 2rem;
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+}
+
+/* On larger screens, give map even more prominence */
+@media (min-width: 1200px) {
+    .main-content {
+        grid-template-columns: minmax(350px, 400px) 2fr;
+    }
 }
 
 /* Mission Panel */
@@ -251,6 +501,7 @@ body {
 .btn-large {
     width: 100%;
     padding: 1.5rem;
+    min-height: 60px; /* Ensure 48px+ touch target */
     font-size: 1.1rem;
     font-weight: 700;
     border: none;
@@ -513,6 +764,53 @@ body {
     .kpi-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-mission-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-mission-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .stats-toggle-container {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .kpi-grid.collapsed,
+    .kpi-grid.expanded {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main-content {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
 }
 
 @media (max-width: 640px) {
@@ -523,6 +821,19 @@ body {
     .dashboard-header {
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
+    }
+
+    .dashboard-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
 
     .rating-stars {
@@ -530,9 +841,21 @@ body {
     }
 
     .star-btn {
-        width: 40px;
-        height: 40px;
+        width: 48px; /* Touch target compliance */
+        height: 48px;
         font-size: 1.5rem;
+    }
+
+    /* Increase touch targets on mobile */
+    .btn-large {
+        min-height: 56px;
+        font-size: 1rem;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        min-height: 56px;
+        font-size: 1rem;
     }
 }
 

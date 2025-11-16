@@ -44,23 +44,81 @@
             </div>
         </header>
 
-        <!-- KPI Dashboard -->
-        <div class="kpi-grid">
+        <!-- Hero Mission Card (Action-Oriented Above Fold) -->
+        <div class="hero-mission-card" id="hero-card">
+            <div class="hero-content">
+                <div class="hero-status" id="hero-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">READY FOR DEPLOYMENT</span>
+                </div>
+                <h2 class="hero-title" id="hero-title">No Active Mission</h2>
+                <p class="hero-subtitle" id="hero-subtitle">Clock in to receive your next tactical assignment</p>
+
+                <div class="hero-mission-details hidden" id="hero-details">
+                    <div class="hero-detail-item">
+                        <span class="hero-detail-icon">📍</span>
+                        <div class="hero-detail-content">
+                            <div class="hero-detail-label">Target Location</div>
+                            <div class="hero-detail-value" id="hero-address">-</div>
+                        </div>
+                    </div>
+                    <div class="hero-detail-item">
+                        <span class="hero-detail-icon">🎯</span>
+                        <div class="hero-detail-content">
+                            <div class="hero-detail-label">Distance</div>
+                            <div class="hero-detail-value" id="hero-distance">-</div>
+                        </div>
+                    </div>
+                    <div class="hero-detail-item">
+                        <span class="hero-detail-icon">⚡</span>
+                        <div class="hero-detail-content">
+                            <div class="hero-detail-label">Priority</div>
+                            <div class="hero-detail-value" id="hero-priority">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button id="hero-action-btn" class="btn-hero-primary">
+                        <span class="btn-icon">⚡</span>
+                        CLOCK IN & GET MISSION
+                    </button>
+                    <button id="hero-secondary-btn" class="btn-hero-secondary" onclick="openMissionsListModal()">
+                        <span class="btn-icon">📋</span>
+                        VIEW ALL MISSIONS
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collapsible Stats Section -->
+        <div class="stats-toggle-container">
+            <button id="stats-toggle-btn" class="stats-toggle-btn" aria-expanded="false" aria-controls="kpi-grid">
+                <span class="toggle-icon">📊</span>
+                <span class="toggle-text">PERFORMANCE STATS</span>
+                <span class="toggle-arrow">▼</span>
+            </button>
+        </div>
+
+        <!-- KPI Dashboard (Now Collapsible) -->
+        <div class="kpi-grid collapsed" id="kpi-grid">
             <div class="kpi-card">
-                <div class="kpi-label">MISSIONS COMPLETE</div>
+                <div class="kpi-icon">✅</div>
+                <div class="kpi-label">MISSIONS COMPLETE TODAY</div>
                 <div class="kpi-value" id="kpi-completed">0</div>
+                <div class="kpi-subtext">Completed interactions</div>
             </div>
             <div class="kpi-card">
+                <div class="kpi-icon">🎯</div>
                 <div class="kpi-label">TARGET QUEUE</div>
                 <div class="kpi-value" id="kpi-pending">0</div>
+                <div class="kpi-subtext">Pending locations</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-label">AVG EFFICACY</div>
+                <div class="kpi-icon">⭐</div>
+                <div class="kpi-label">AVG EFFICACY RATING</div>
                 <div class="kpi-value" id="kpi-efficacy">0.0</div>
-            </div>
-            <div class="kpi-card">
-                <div class="kpi-label">TOTAL OPS</div>
-                <div class="kpi-value" id="kpi-total">0</div>
+                <div class="kpi-subtext">Out of 5.0 stars</div>
             </div>
         </div>
 
