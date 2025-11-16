@@ -1,7 +1,7 @@
 // First Contact Tracker - Door Knock Logger
 // Mobile-first interface for logging door-knock attempts
 
-let currentLocation = null;
+let doorKnockLocation = null;
 let userGPS = null;
 
 // Initialize GPS tracking
@@ -32,7 +32,7 @@ if (typeof window !== 'undefined') {
 function showDoorKnockLogger(locationId = null, locationData = null) {
   // If location provided, use it; otherwise show location selector
   if (locationId && locationData) {
-    currentLocation = {
+    doorKnockLocation = {
       id: locationId,
       ...locationData
     };
@@ -147,7 +147,7 @@ async function searchLocations(event) {
 
 // Select a location from search results
 function selectLocation(locationId, locationData) {
-  currentLocation = {
+  doorKnockLocation = {
     id: locationId,
     ...locationData
   };
@@ -169,7 +169,7 @@ function useCurrentGPSLocation() {
   }
 
   // Create a GPS-based location entry
-  currentLocation = {
+  doorKnockLocation = {
     id: 'gps-' + Date.now(),
     name: 'GPS Location',
     address: `${userGPS.lat.toFixed(6)}, ${userGPS.lng.toFixed(6)}`,
@@ -240,7 +240,7 @@ function submitManualLocation() {
     return;
   }
 
-  currentLocation = {
+  doorKnockLocation = {
     id: 'manual-' + Date.now(),
     name: name,
     address: address,
@@ -275,8 +275,8 @@ function showLoggerModal() {
         <div class="location-info">
           <div class="location-icon">📍</div>
           <div class="location-details">
-            <div class="location-name">${currentLocation.name}</div>
-            <div class="location-address">${currentLocation.address || 'No address'}</div>
+            <div class="location-name">${doorKnockLocation.name}</div>
+            <div class="location-address">${doorKnockLocation.address || 'No address'}</div>
           </div>
         </div>
 
@@ -410,13 +410,13 @@ async function submitDoorKnock(outcome) {
   try {
     const notes = document.getElementById('door-knock-notes')?.value || '';
     let outcomeData = {
-      locationId: currentLocation.id,
-      locationName: currentLocation.name,
-      locationAddress: currentLocation.address,
+      locationId: doorKnockLocation.id,
+      locationName: doorKnockLocation.name,
+      locationAddress: doorKnockLocation.address,
       attemptDate: new Date().toISOString(),
       outcome: outcome,
       notes: notes,
-      gps: userGPS || currentLocation.gps || null,
+      gps: userGPS || doorKnockLocation.gps || null,
       loggedBy: currentUser?.email || 'unknown'
     };
 
@@ -438,22 +438,22 @@ async function submitDoorKnock(outcome) {
     await db.collection('contactAttempts').add(outcomeData);
 
     // If location was manually entered or GPS-only, save it to locations collection
-    if (currentLocation.isManualEntry || currentLocation.isGPSOnly) {
+    if (doorKnockLocation.isManualEntry || doorKnockLocation.isGPSOnly) {
       const locationData = {
-        name: currentLocation.name,
-        address: currentLocation.address,
-        phone: currentLocation.phone || null,
-        gps: currentLocation.gps || null,
+        name: doorKnockLocation.name,
+        address: doorKnockLocation.address,
+        phone: doorKnockLocation.phone || null,
+        gps: doorKnockLocation.gps || null,
         status: outcome === 'interested' ? 'interested' : outcome === 'not_interested' ? 'rejected' : 'pending',
         firstContact: new Date().toISOString(),
-        source: currentLocation.isManualEntry ? 'manual-door-knock' : 'gps-door-knock'
+        source: doorKnockLocation.isManualEntry ? 'manual-door-knock' : 'gps-door-knock'
       };
 
       const locationRef = await db.collection('locations').add(locationData);
-      currentLocation.id = locationRef.id;
+      doorKnockLocation.id = locationRef.id;
     } else {
       // Update existing location status
-      await db.collection('locations').doc(currentLocation.id).update({
+      await db.collection('locations').doc(doorKnockLocation.id).update({
         status: outcome === 'interested' ? 'interested' : outcome === 'not_interested' ? 'rejected' : 'pending',
         lastContact: new Date().toISOString()
       });
@@ -466,7 +466,7 @@ async function submitDoorKnock(outcome) {
 
       // Launch lead conversion flow
       if (typeof initializeLeadConversion === 'function') {
-        initializeLeadConversion(currentLocation.id, currentLocation);
+        initializeLeadConversion(doorKnockLocation.id, doorKnockLocation);
       } else {
         alert('Lead conversion flow not available. Contact has been logged as interested.');
       }
@@ -532,7 +532,7 @@ function closeDoorKnockLogger() {
     }
   });
 
-  currentLocation = null;
+  doorKnockLocation = null;
   selectedOutcome = null;
 }
 
