@@ -33,6 +33,15 @@
 
     <!-- Main Dashboard -->
     <div id="dashboard-screen" class="screen">
+        <!-- Firebase Connection Status Banner -->
+        <div id="firebase-status-banner" class="connection-status-banner hidden">
+            <div class="status-content">
+                <span class="status-icon">⚠️</span>
+                <span class="status-message">Unable to connect to Firebase. Please check your internet connection.</span>
+                <button id="retry-connection-btn" class="btn-retry">Retry</button>
+            </div>
+        </div>
+
         <!-- Header -->
         <header class="dashboard-header">
             <div class="header-left">

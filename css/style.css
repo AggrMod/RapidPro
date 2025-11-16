@@ -36,6 +36,71 @@ body {
     display: block;
 }
 
+/* Firebase Connection Status Banner */
+.connection-status-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #ff3366 0%, #ff6b00 100%);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(255, 51, 102, 0.4);
+    animation: slideDown 0.3s ease-out;
+}
+
+.connection-status-banner.hidden {
+    display: none;
+}
+
+.connection-status-banner.success {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+}
+
+.connection-status-banner .status-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.connection-status-banner .status-icon {
+    font-size: 1.5rem;
+}
+
+.connection-status-banner .status-message {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.connection-status-banner .btn-retry {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.connection-status-banner .btn-retry:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 /* Login Screen */
 #login-screen.active {
     display: flex;
