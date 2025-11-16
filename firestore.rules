@@ -45,5 +45,10 @@ service cloud.firestore {
     match /workOrders/{workOrderId} {
       allow read, write: if request.auth != null;
     }
+
+    // Daily Digests - authenticated user can read/write their own
+    match /dailyDigests/{digestId} {
+      allow read, write: if request.auth != null;
+    }
   }
 }

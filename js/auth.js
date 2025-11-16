@@ -27,6 +27,11 @@ auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
         // Load dashboard data
         loadKPIs();
         loadLocations();
+
+        // Initialize daily digest (shows once per day)
+        if (typeof initializeDailyDigest === 'function') {
+          initializeDailyDigest(user);
+        }
       } else {
         currentUser = null;
         window.currentUser = null;  // Clear global reference
