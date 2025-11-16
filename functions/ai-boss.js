@@ -7,13 +7,11 @@
  */
 
 const { onCall } = require('firebase-functions/v2/https');
-const { defineSecret } = require('firebase-functions/params');
 const admin = require('firebase-admin');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Get Firestore instance - will be initialized by index.js
 const getDb = () => admin.firestore();
-const GEMINI_API_KEY = defineSecret('GEMINI_API_KEY');
 
 /**
  * analyzeInteraction - Core AI Boss Function
@@ -29,8 +27,7 @@ const GEMINI_API_KEY = defineSecret('GEMINI_API_KEY');
  * @returns {Object} AI guidance with analysis, actions, and priority
  */
 exports.analyzeInteraction = onCall({
-  enforceAppCheck: false,
-  secrets: [GEMINI_API_KEY]
+  enforceAppCheck: false
 }, async (request) => {
   // Get userId from auth or use 'anonymous' for testing
   const userId = request.auth ? request.auth.uid : 'anonymous';
@@ -371,7 +368,7 @@ IMPORTANT RULES:
 RESPOND NOW WITH VALID JSON ONLY:`;
 
   try {
-    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY.value());
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     const result = await model.generateContent(prompt);

@@ -8,7 +8,7 @@ const admin = require('firebase-admin');
 const axios = require('axios');
 
 const db = admin.firestore();
-const GEMINI_API_KEY = 'AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 // Import distance calculation (you'll need to export this from index.js)
