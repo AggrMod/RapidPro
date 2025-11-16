@@ -160,9 +160,6 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
         timestamp: new Date().toISOString()
       });
 
-      // Display AI tactical guidance
-      displayAIGuidance(aiResult.data);
-
       // Reload data
       loadKPIs();
       loadLocations();
@@ -173,13 +170,14 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
         currentMissionMarker = null;
       }
 
-      // Reset button state
-      btn.disabled = false;
-      btn.textContent = 'SUBMIT';
-      selectedEfficacyScore = 0;
-      document.querySelectorAll('.star-btn').forEach(star => star.classList.remove('active'));
-      document.getElementById('interaction-notes').value = '';
-      document.getElementById('photo-upload').value = '';
+      // Display AI tactical guidance (wrapped in try-catch to prevent blocking)
+      try {
+        displayAIGuidance(aiResult.data);
+      } catch (guidanceError) {
+        console.error('Error displaying AI guidance:', guidanceError);
+        // If modal fails, just reset and continue
+        resetMissionUI();
+      }
     }
   } catch (error) {
     console.error('Error logging interaction:', error);
