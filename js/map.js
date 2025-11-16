@@ -57,6 +57,13 @@ async function loadLocations() {
 
     snapshot.forEach(doc => {
       const location = doc.data();
+
+      // Skip locations without valid coordinates
+      if (!location.lat || !location.lng || isNaN(location.lat) || isNaN(location.lng)) {
+        console.warn(`Skipping location ${location.name} - invalid coordinates:`, location.lat, location.lng);
+        return;
+      }
+
       const icon = location.status === 'completed' ? window.completedIcon : window.pendingIcon;
 
       const marker = L.marker([location.lat, location.lng], { icon })
