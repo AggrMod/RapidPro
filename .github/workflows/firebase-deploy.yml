@@ -8,6 +8,9 @@ on:
     paths:
       - 'functions/**'
       - 'public/**'
+      - 'js/**'
+      - 'css/**'
+      - '*.html'
       - 'firebase.json'
       - 'firestore.rules'
       - 'firestore.indexes.json'
