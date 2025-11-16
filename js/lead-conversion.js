@@ -37,7 +37,7 @@ const PAIN_POINTS = [
 ];
 
 // Initialize Lead Conversion - Called when location status is "interested"
-function initializeLeadConversion(locationId, locationData) {
+async function initializeLeadConversion(locationId, locationData) {
   currentLead = {
     id: locationId,
     ...locationData,
@@ -50,8 +50,335 @@ function initializeLeadConversion(locationId, locationData) {
 
   equipmentList = [];
 
-  // Show lead conversion modal
+  // Show AI-assisted decision modal FIRST
+  await showAITacticalGuidance(locationId, locationData);
+}
+
+// Show AI Tactical Guidance Modal - AI Boss provides context for decision
+async function showAITacticalGuidance(locationId, locationData) {
+  const modal = document.createElement('div');
+  modal.id = 'ai-tactical-modal';
+  modal.className = 'modal-overlay active';
+  modal.innerHTML = `
+    <div class="modal-content ai-tactical-content">
+      <div class="modal-header ai-boss-header">
+        <h2>🤖 AI BOSS - TACTICAL GUIDANCE</h2>
+        <button class="close-btn" onclick="closeAITacticalGuidance()">×</button>
+      </div>
+
+      <div class="modal-body ai-tactical-body">
+        <div class="loading-ai">
+          <div class="spinner"></div>
+          <p>Analyzing schedule and priorities...</p>
+        </div>
+        <div id="ai-guidance-content" class="hidden"></div>
+      </div>
+
+      <div class="modal-footer ai-tactical-footer hidden" id="ai-tactical-actions">
+        <button class="btn btn-success btn-large" onclick="startWorkNow('${locationId}')">
+          <span class="btn-icon">🚀</span>
+          START WORK NOW
+        </button>
+        <button class="btn btn-primary btn-large" onclick="scheduleLater('${locationId}')">
+          <span class="btn-icon">📅</span>
+          SCHEDULE FOR LATER
+        </button>
+        <button class="btn btn-secondary" onclick="acknowledgeAndNext('${locationId}')">
+          <span class="btn-icon">✅</span>
+          ACKNOWLEDGE & NEXT MISSION
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Get AI analysis
+  try {
+    const analysis = await getAITacticalAnalysis(locationId, locationData);
+    displayAIGuidance(analysis);
+  } catch (error) {
+    console.error('Error getting AI guidance:', error);
+    displayAIGuidance({
+      recommendation: 'Unable to get AI recommendation. Make your best judgment based on customer urgency.',
+      scheduleStatus: 'Unknown schedule status',
+      priority: 'medium',
+      reasoning: 'AI analysis unavailable'
+    });
+  }
+}
+
+// Get AI Tactical Analysis from Gemini
+async function getAITacticalAnalysis(locationId, locationData) {
+  // Check if we have Gemini functions available
+  if (!window.geminiAnalyzeDecision) {
+    // Fallback to basic analysis
+    return {
+      recommendation: 'Schedule for proper assessment',
+      scheduleStatus: 'Unable to check schedule - Gemini AI not available',
+      priority: 'medium',
+      reasoning: 'New lead requires detailed equipment survey before starting work'
+    };
+  }
+
+  // Get current user's schedule and existing jobs
+  const userEmail = window.currentUser?.email || 'unknown';
+  const now = new Date();
+
+  // Check for existing scheduled jobs today
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const todayEnd = new Date(todayStart);
+  todayEnd.setDate(todayEnd.getDate() + 1);
+
+  const scheduledJobs = await db.collection('scheduledActions')
+    .where('assignedTo', '==', userEmail)
+    .where('scheduledFor', '>=', todayStart.toISOString())
+    .where('scheduledFor', '<', todayEnd.toISOString())
+    .get();
+
+  const jobCount = scheduledJobs.size;
+  const scheduleInfo = {
+    jobsToday: jobCount,
+    nextJobTime: jobCount > 0 ? scheduledJobs.docs[0].data().scheduledFor : null
+  };
+
+  // Call Gemini for decision guidance
+  const prompt = `
+TACTICAL DECISION REQUIRED:
+
+Location: ${locationData.name}
+Address: ${locationData.address}
+Current Status: Customer expressed interest during door-knock
+
+Tech Schedule Today:
+- Scheduled jobs: ${scheduleInfo.jobsToday}
+${scheduleInfo.nextJobTime ? `- Next job at: ${new Date(scheduleInfo.nextJobTime).toLocaleTimeString()}` : '- No scheduled jobs'}
+
+Question: Should the technician:
+1. START WORK NOW - Begin service immediately, start billable hours
+2. SCHEDULE FOR LATER - Proper assessment with equipment survey
+3. ACKNOWLEDGE & NEXT - Log interest, move to next door-knock target
+
+Provide:
+- Clear recommendation (one of the 3 options above)
+- Brief reasoning (1-2 sentences)
+- Schedule impact assessment
+- Priority level (critical/high/medium/low)
+
+Keep response under 100 words.
+`;
+
+  try {
+    const geminiResponse = await window.geminiAnalyzeDecision(prompt);
+
+    // Parse Gemini response
+    const recommendation = geminiResponse.includes('START WORK NOW') ? 'start_now' :
+                          geminiResponse.includes('SCHEDULE FOR LATER') ? 'schedule_later' :
+                          'acknowledge_next';
+
+    return {
+      recommendation: recommendation,
+      scheduleStatus: `${scheduleInfo.jobsToday} jobs scheduled today`,
+      priority: geminiResponse.toLowerCase().includes('critical') ? 'critical' :
+               geminiResponse.toLowerCase().includes('high') ? 'high' :
+               geminiResponse.toLowerCase().includes('low') ? 'low' : 'medium',
+      reasoning: geminiResponse,
+      rawGeminiResponse: geminiResponse
+    };
+  } catch (error) {
+    console.error('Gemini analysis failed:', error);
+    // Fallback logic
+    return {
+      recommendation: scheduleInfo.jobsToday === 0 ? 'start_now' : 'schedule_later',
+      scheduleStatus: `${scheduleInfo.jobsToday} jobs today`,
+      priority: scheduleInfo.jobsToday === 0 ? 'high' : 'medium',
+      reasoning: scheduleInfo.jobsToday === 0
+        ? 'No scheduled jobs today - available to start work immediately.'
+        : `${scheduleInfo.jobsToday} jobs already scheduled - recommend proper assessment scheduling.`
+    };
+  }
+}
+
+// Display AI Guidance
+function displayAIGuidance(analysis) {
+  const loadingDiv = document.querySelector('.loading-ai');
+  const contentDiv = document.getElementById('ai-guidance-content');
+  const actionsDiv = document.getElementById('ai-tactical-actions');
+
+  if (loadingDiv) loadingDiv.classList.add('hidden');
+  if (contentDiv) {
+    contentDiv.innerHTML = `
+      <div class="ai-recommendation ${analysis.priority}-priority">
+        <div class="recommendation-badge">
+          <span class="badge badge-${analysis.priority}">${analysis.priority.toUpperCase()} PRIORITY</span>
+        </div>
+
+        <div class="recommendation-text">
+          <h3>📊 Situation Analysis</h3>
+          <p>${analysis.reasoning}</p>
+        </div>
+
+        <div class="schedule-status">
+          <strong>📅 Your Schedule:</strong> ${analysis.scheduleStatus}
+        </div>
+
+        <div class="ai-suggestion">
+          <strong>💡 AI Recommendation:</strong>
+          <span class="recommended-action">
+            ${analysis.recommendation === 'start_now' ? '🚀 START WORK NOW' :
+              analysis.recommendation === 'schedule_later' ? '📅 SCHEDULE FOR LATER' :
+              '✅ ACKNOWLEDGE & MOVE TO NEXT'}
+          </span>
+        </div>
+
+        <div class="decision-note">
+          <em>Final decision is yours - AI provides context to help you choose the best path.</em>
+        </div>
+      </div>
+    `;
+    contentDiv.classList.remove('hidden');
+  }
+  if (actionsDiv) actionsDiv.classList.remove('hidden');
+}
+
+// Action Handlers
+async function startWorkNow(locationId) {
+  closeAITacticalGuidance();
+
+  // Create work order immediately
+  try {
+    const workOrder = {
+      locationId: locationId,
+      locationName: currentLead.name,
+      locationAddress: currentLead.address,
+      status: 'in-progress',
+      startedAt: new Date().toISOString(),
+      startedBy: window.currentUser?.email || 'unknown',
+      type: 'emergency-service',
+      billable: true,
+      notes: 'Started immediately from door-knock - customer expressed urgent need'
+    };
+
+    const workOrderRef = await db.collection('workOrders').add(workOrder);
+
+    // Update location status
+    await db.collection('locations').doc(locationId).update({
+      status: 'active-work-order',
+      currentWorkOrderId: workOrderRef.id,
+      lastUpdated: new Date().toISOString()
+    });
+
+    // Show work started confirmation
+    showWorkStartedModal(workOrderRef.id, currentLead);
+
+  } catch (error) {
+    console.error('Error starting work:', error);
+    alert('Error creating work order: ' + error.message);
+  }
+}
+
+async function scheduleLater(locationId) {
+  closeAITacticalGuidance();
+
+  // Show the full lead conversion flow (equipment survey, scheduling, etc.)
   showLeadConversionModal();
+}
+
+async function acknowledgeAndNext(locationId) {
+  closeAITacticalGuidance();
+
+  try {
+    // Update location status to interested
+    await db.collection('locations').doc(locationId).update({
+      status: 'interested',
+      followUpNeeded: true,
+      lastUpdated: new Date().toISOString()
+    });
+
+    // Log the decision
+    await db.collection('aiDecisions').add({
+      locationId: locationId,
+      decision: 'acknowledge-and-continue',
+      decidedAt: new Date().toISOString(),
+      decidedBy: window.currentUser?.email || 'unknown',
+      context: 'door-knock-interested'
+    });
+
+    // Show success and return to dashboard
+    showSuccessMessage('Lead acknowledged. Moving to next mission...');
+
+    // Reload dashboard
+    if (typeof loadKPIs === 'function') loadKPIs();
+    if (typeof loadLocations === 'function') loadLocations();
+
+  } catch (error) {
+    console.error('Error acknowledging lead:', error);
+    alert('Error logging decision: ' + error.message);
+  }
+}
+
+// Show Work Started Modal
+function showWorkStartedModal(workOrderId, leadData) {
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay active';
+  modal.innerHTML = `
+    <div class="modal-content success-modal">
+      <div class="modal-header success-header">
+        <h2>🚀 WORK STARTED</h2>
+      </div>
+
+      <div class="modal-body">
+        <div class="success-message">
+          <p><strong>Billable hours tracking started</strong></p>
+          <p>Location: ${leadData.name}</p>
+          <p>Work Order ID: <code>${workOrderId}</code></p>
+
+          <div class="work-order-actions">
+            <h3>Quick Actions:</h3>
+            <button class="btn btn-primary" onclick="openWorkOrderDetails('${workOrderId}')">
+              📋 VIEW WORK ORDER
+            </button>
+            <button class="btn btn-secondary" onclick="this.closest('.modal-overlay').remove()">
+              ✓ GOT IT
+            </button>
+          </div>
+
+          <div class="reminder-info">
+            <strong>⏱️ Remember:</strong> Clock is running! Log all work details for accurate billing.
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+// Close AI Tactical Guidance Modal
+function closeAITacticalGuidance() {
+  const modal = document.getElementById('ai-tactical-modal');
+  if (modal) {
+    modal.remove();
+  }
+}
+
+// Success message helper (if not already defined elsewhere)
+function showSuccessMessage(message) {
+  const toast = document.createElement('div');
+  toast.className = 'success-toast';
+  toast.innerHTML = `
+    <div class="toast-content">
+      <span class="toast-icon">✓</span>
+      <span class="toast-message">${message}</span>
+    </div>
+  `;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add('fade-out');
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 // Show Lead Conversion Modal
@@ -660,3 +987,7 @@ window.updatePainPoints = updatePainPoints;
 window.nextConversionStep = nextConversionStep;
 window.previousConversionStep = previousConversionStep;
 window.submitLeadConversion = submitLeadConversion;
+window.closeAITacticalGuidance = closeAITacticalGuidance;
+window.startWorkNow = startWorkNow;
+window.scheduleLater = scheduleLater;
+window.acknowledgeAndNext = acknowledgeAndNext;
