@@ -172,10 +172,20 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
         currentMissionMarker.remove();
         currentMissionMarker = null;
       }
+
+      // Reset button state
+      btn.disabled = false;
+      btn.textContent = 'SUBMIT';
+      selectedEfficacyScore = 0;
+      document.querySelectorAll('.star-btn').forEach(star => star.classList.remove('active'));
+      document.getElementById('interaction-notes').value = '';
+      document.getElementById('photo-upload').value = '';
     }
   } catch (error) {
     console.error('Error logging interaction:', error);
     alert('Error logging interaction: ' + error.message);
+  } finally {
+    // Always re-enable button after completion or error
     btn.disabled = false;
     btn.textContent = 'SUBMIT';
   }
