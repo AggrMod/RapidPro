@@ -322,13 +322,19 @@ exports.initializeUser = onCall({ enforceAppCheck: false }, async (request) => {
 
     const userDoc = await userRef.get();
     if (userDoc.exists) {
+      // Check if role exists, add if missing
+      const data = userDoc.data();
+      if (!data.role) {
+        await userRef.update({ role: 'technician' });
+      }
       return { success: true, message: 'User already initialized' };
     }
 
-    // Create user profile
+    // Create user profile WITH ROLE
     await userRef.set({
       uid: userId,
       email: request.auth.token.email,
+      role: 'technician',  // ADD THIS LINE
       currentLocationId: null,
       totalMissionsCompleted: 0,
       createdAt: admin.firestore.FieldValue.serverTimestamp()
@@ -708,6 +714,7 @@ exports.convertLeadToCustomer = onCall({ enforceAppCheck: false }, async (reques
 
 // AI Boss exports
 exports.analyzeInteraction = aiBoss.analyzeInteraction;
+exports.analyzeEquipmentPhoto = aiBoss.analyzeEquipmentPhoto;
 exports.getAICommand = aiBoss.getAICommand;
 exports.completeScheduledAction = aiBoss.completeScheduledAction;
 exports.getScheduledActions = aiBoss.getScheduledActions;

@@ -19,6 +19,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+functions/.env
+functions/.env.local
 
 # Service account keys (IMPORTANT - keep private!)
 service-account-key.json
@@ -63,3 +65,11 @@ build/
 
 # Compiled files
 *.min.js
+
+# Tree Sitter / Code Analysis Documentation
+.tree-sitter/
+docs/analysis/
+*.ast.json
+*.symbols.json
+code-analysis/
+TREE_SITTER_NOTES.md

@@ -1,54 +1,157 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // User profile - only authenticated user can read/write their own data
+    // ==========================================
+    // HELPER FUNCTIONS
+    // ==========================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function hasRole(role) {
+      return isAuthenticated() &&
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.keys().hasAny(['role']) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == role;
+    }
+
+    function isAdminOrOwner(userId) {
+      return isOwner(userId) || hasRole('admin');
+    }
+
+    // ==========================================
+    // USER PROFILES
+    // ==========================================
+
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) || hasRole('admin');
     }
-    
-    // Locations - authenticated user can read/write all
+
+    // ==========================================
+    // LOCATIONS - Shared resource
+    // ==========================================
+
     match /locations/{locationId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if isAdminOrOwner(resource.data.userId);
     }
-    
-    // Interactions - authenticated user can read/write all
+
+    // ==========================================
+    // INTERACTIONS - User owns their data
+    // ==========================================
+
     match /interactions/{interactionId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow create: if isAuthenticated() &&
+                        request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isOwner(resource.data.userId) || hasRole('admin');
     }
-    
-    // KPIs - authenticated user can read/write
+
+    // ==========================================
+    // KPIs - User specific
+    // ==========================================
+
     match /kpis/{kpiId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated() &&
+                      (kpiId == request.auth.uid || hasRole('admin'));
+      allow write: if false; // Only Cloud Functions write KPIs
     }
 
-    // Contact Attempts (door knocks) - authenticated user can read/write all
+    // ==========================================
+    // CONTACT ATTEMPTS - User owns their data
+    // ==========================================
+
     match /contactAttempts/{attemptId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow create: if isAuthenticated() &&
+                        request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isOwner(resource.data.userId);
     }
 
-    // Scheduled Actions - authenticated user can read/write all
+    // ==========================================
+    // SCHEDULED ACTIONS - User owns their data
+    // ==========================================
+
     match /scheduledActions/{actionId} {
-      allow read, write: if request.auth != null;
+      allow read, update: if isAuthenticated() &&
+                              (isOwner(resource.data.userId) || hasRole('admin'));
+      allow create, delete: if false; // Only Cloud Functions create/delete
     }
 
-    // AI Decisions - authenticated user can read/write all
+    // ==========================================
+    // AI DECISIONS - Read-only for users
+    // ==========================================
+
     match /aiDecisions/{decisionId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow write: if false; // Only Cloud Functions can write AI decisions
     }
 
-    // Daily Quests - authenticated user can read/write all
+    // ==========================================
+    // EQUIPMENT ANALYSIS - User owns their photos
+    // ==========================================
+
+    match /equipmentAnalyses/{analysisId} {
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow write: if false; // Only Cloud Functions can write analyses
+    }
+
+    // ==========================================
+    // AI RESPONSE CACHE - System only
+    // ==========================================
+
+    match /aiResponseCache/{cacheId} {
+      allow read, write: if false; // Only Cloud Functions access cache
+    }
+
+    // ==========================================
+    // TECHNICIAN STATUS - Real-time tracking
+    // ==========================================
+
+    match /technicianStatus/{userId} {
+      allow read: if isAuthenticated(); // All techs can see each other
+      allow write: if isOwner(userId);   // Can only update own status
+    }
+
+    // ==========================================
+    // DAILY QUESTS - User specific
+    // ==========================================
+
     match /dailyQuests/{questId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAuthenticated() &&
+                            (isOwner(resource.data.userId) || hasRole('admin'));
     }
 
-    // Work Orders - authenticated user can read/write all
+    // ==========================================
+    // WORK ORDERS - User specific
+    // ==========================================
+
     match /workOrders/{workOrderId} {
-      allow read, write: if request.auth != null;
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow create: if isAuthenticated() &&
+                        request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isOwner(resource.data.userId) || hasRole('admin');
     }
 
-    // Daily Digests - authenticated user can read/write their own
+    // ==========================================
+    // DAILY DIGESTS - User specific
+    // ==========================================
+
     match /dailyDigests/{digestId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isAuthenticated() &&
+                            (digestId == request.auth.uid || hasRole('admin'));
     }
   }
 }

@@ -153,12 +153,15 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
 
     if (logResult.data.success) {
       // Get AI Boss analysis
+      console.log('🔍 Calling analyzeInteraction...');
       const aiResult = await functions.httpsCallable('analyzeInteraction')({
         locationId: currentMission.id,
         note: notes,
         efficacyScore: selectedEfficacyScore,
         timestamp: new Date().toISOString()
       });
+      console.log('✅ analyzeInteraction result:', aiResult);
+      console.log('✅ aiResult.data:', aiResult.data);
 
       // Reload data
       loadKPIs();
@@ -171,10 +174,12 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
       }
 
       // Display AI tactical guidance (wrapped in try-catch to prevent blocking)
+      console.log('🎯 About to call displayMissionGuidance with:', aiResult.data);
       try {
-        displayAIGuidance(aiResult.data);
+        displayMissionGuidance(aiResult.data);
+        console.log('✅ displayMissionGuidance completed');
       } catch (guidanceError) {
-        console.error('Error displaying AI guidance:', guidanceError);
+        console.error('❌ Error displaying mission guidance:', guidanceError);
         // If modal fails, just reset and continue
         resetMissionUI();
       }
@@ -217,60 +222,86 @@ function resetMissionUI() {
   }
 }
 
-// Display AI tactical guidance
-function displayAIGuidance(aiData) {
-  // Hide interaction form
-  document.getElementById('interaction-form').classList.add('hidden');
+// Display AI tactical guidance for missions
+function displayMissionGuidance(aiData) {
+  console.log('🔍 [displayMissionGuidance] START - aiData:', aiData);
 
-  // Create AI guidance modal
-  const modal = document.createElement('div');
-  modal.className = 'ai-guidance-modal';
-  modal.innerHTML = `
-    <div class="ai-guidance-content">
-      <div class="ai-header ${getPriorityClass(aiData.leadPriority)}">
-        <span class="priority-badge">${aiData.leadPriority.toUpperCase()}</span>
-        <h2>AI BOSS TACTICAL GUIDANCE</h2>
-      </div>
+  try {
+    // Hide interaction form
+    console.log('🔍 [displayMissionGuidance] Step 1: Getting interaction-form element');
+    const form = document.getElementById('interaction-form');
+    console.log('🔍 [displayMissionGuidance] Form element:', form);
 
-      <div class="ai-section">
-        <h3>📊 ANALYSIS</h3>
-        <p>${aiData.analysis}</p>
-      </div>
+    console.log('🔍 [displayMissionGuidance] Step 2: Adding hidden class');
+    form.classList.add('hidden');
+    console.log('🔍 [displayMissionGuidance] Hidden class added successfully');
 
-      <div class="ai-section ai-command">
-        <h3>💬 YOUR ORDERS</h3>
-        <p class="command-text">${aiData.aiCommand}</p>
-      </div>
+    // Create AI guidance modal
+    console.log('🔍 [displayMissionGuidance] Step 3: Creating modal element');
+    const modal = document.createElement('div');
+    modal.className = 'ai-guidance-modal';
+    console.log('🔍 [displayMissionGuidance] Modal element created');
 
-      <div class="ai-section">
-        <h3>⚡ IMMEDIATE ACTION</h3>
-        <p>${aiData.immediateAction}</p>
-      </div>
-
-      ${aiData.scheduledAction ? `
-        <div class="ai-section scheduled-action">
-          <h3>⏰ SCHEDULED FOLLOW-UP</h3>
-          <p><strong>When:</strong> ${formatScheduledTime(aiData.scheduledAction.time)}</p>
-          <p><strong>Action:</strong> ${aiData.scheduledAction.action}</p>
-          <p><strong>Why:</strong> ${aiData.scheduledAction.reason}</p>
+    console.log('🔍 [displayMissionGuidance] Step 4: Building modal HTML');
+    modal.innerHTML = `
+      <div class="ai-guidance-content">
+        <div class="ai-header ${getPriorityClass(aiData.leadPriority)}">
+          <span class="priority-badge">${aiData.leadPriority.toUpperCase()}</span>
+          <h2>AI BOSS TACTICAL GUIDANCE</h2>
         </div>
-      ` : ''}
 
-      <div class="ai-actions">
-        <button id="ai-acknowledge-btn" class="btn-large btn-primary">
-          ✓ ACKNOWLEDGED - NEXT MISSION
-        </button>
+        <div class="ai-section">
+          <h3>📊 ANALYSIS</h3>
+          <p>${aiData.analysis}</p>
+        </div>
+
+        <div class="ai-section ai-command">
+          <h3>💬 YOUR ORDERS</h3>
+          <p class="command-text">${aiData.aiCommand}</p>
+        </div>
+
+        <div class="ai-section">
+          <h3>⚡ IMMEDIATE ACTION</h3>
+          <p>${aiData.immediateAction}</p>
+        </div>
+
+        ${aiData.scheduledAction ? `
+          <div class="ai-section scheduled-action">
+            <h3>⏰ SCHEDULED FOLLOW-UP</h3>
+            <p><strong>When:</strong> ${formatScheduledTime(aiData.scheduledAction.time)}</p>
+            <p><strong>Action:</strong> ${aiData.scheduledAction.action}</p>
+            <p><strong>Why:</strong> ${aiData.scheduledAction.reason}</p>
+          </div>
+        ` : ''}
+
+        <div class="ai-actions">
+          <button id="ai-acknowledge-btn" class="btn-large btn-primary">
+            ✓ ACKNOWLEDGED - NEXT MISSION
+          </button>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+    console.log('🔍 [displayMissionGuidance] Modal HTML built successfully');
 
-  document.body.appendChild(modal);
+    console.log('🔍 [displayMissionGuidance] Step 5: Appending modal to body');
+    document.body.appendChild(modal);
+    console.log('🔍 [displayMissionGuidance] Modal appended to DOM');
 
-  // Acknowledge button
-  document.getElementById('ai-acknowledge-btn').addEventListener('click', () => {
-    modal.remove();
-    resetMissionUI();
-  });
+    // Acknowledge button
+    console.log('🔍 [displayMissionGuidance] Step 6: Setting up acknowledge button');
+    document.getElementById('ai-acknowledge-btn').addEventListener('click', () => {
+      modal.remove();
+      resetMissionUI();
+    });
+    console.log('🔍 [displayMissionGuidance] Acknowledge button setup complete');
+
+    console.log('✅ [displayMissionGuidance] COMPLETED SUCCESSFULLY');
+
+  } catch (error) {
+    console.error('❌ [displayMissionGuidance] ERROR:', error);
+    console.error('❌ [displayMissionGuidance] Error stack:', error.stack);
+    throw error;
+  }
 }
 
 // Get CSS class for priority level

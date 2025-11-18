@@ -1,21 +1,7 @@
 {
   "indexes": [
     {
-      "collectionGroup": "interactions",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "efficacyScore",
-          "order": "DESCENDING"
-        },
-        {
-          "fieldPath": "timestamp",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "scheduledActions",
+      "collectionGroup": "aiDecisions",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -23,39 +9,21 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "status",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "scheduledTime",
+          "fieldPath": "timestamp",
           "order": "ASCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "interactions",
+      "collectionGroup": "equipmentAnalyses",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "locationId",
+          "fieldPath": "userId",
           "order": "ASCENDING"
         },
         {
           "fieldPath": "timestamp",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "locations",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "priority",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "status",
           "order": "ASCENDING"
         }
       ]
