@@ -410,6 +410,7 @@ async function submitDoorKnock(outcome) {
   try {
     const notes = document.getElementById('door-knock-notes')?.value || '';
     let outcomeData = {
+      userId: currentUser.uid,  // REQUIRED for security rules
       locationId: doorKnockLocation.id,
       locationName: doorKnockLocation.name,
       locationAddress: doorKnockLocation.address,
