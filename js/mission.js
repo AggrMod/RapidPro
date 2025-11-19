@@ -158,7 +158,8 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
         locationId: currentMission.id,
         note: notes,
         efficacyScore: selectedEfficacyScore,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        interactionId: logResult.data.interactionId  // Pass work order ID for callback tracking
       });
       console.log('✅ analyzeInteraction result:', aiResult);
       console.log('✅ aiResult.data:', aiResult.data);
@@ -176,7 +177,7 @@ document.getElementById('submit-interaction-btn').addEventListener('click', asyn
       // Display AI tactical guidance (wrapped in try-catch to prevent blocking)
       console.log('🎯 About to call displayMissionGuidance with:', aiResult.data);
       try {
-        displayMissionGuidance(aiResult.data);
+        displayMissionGuidance(aiResult.data, logResult.data.interactionId);
         console.log('✅ displayMissionGuidance completed');
       } catch (guidanceError) {
         console.error('❌ Error displaying mission guidance:', guidanceError);
@@ -223,8 +224,8 @@ function resetMissionUI() {
 }
 
 // Display AI tactical guidance for missions
-function displayMissionGuidance(aiData) {
-  console.log('🔍 [displayMissionGuidance] START - aiData:', aiData);
+function displayMissionGuidance(aiData, workOrderId = null) {
+  console.log('🔍 [displayMissionGuidance] START - aiData:', aiData, 'workOrderId:', workOrderId);
 
   try {
     // Hide interaction form
@@ -271,6 +272,7 @@ function displayMissionGuidance(aiData) {
             <p><strong>When:</strong> ${formatScheduledTime(aiData.scheduledAction.time)}</p>
             <p><strong>Action:</strong> ${aiData.scheduledAction.action}</p>
             <p><strong>Why:</strong> ${aiData.scheduledAction.reason}</p>
+            ${workOrderId ? `<p><strong>Work Order:</strong> <code>${workOrderId}</code></p>` : ''}
           </div>
         ` : ''}
 

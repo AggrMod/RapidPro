@@ -97,6 +97,7 @@ async function setCachedResponse(cacheKey, response) {
  * @param {string} request.data.note - Interaction notes from field tech
  * @param {number} request.data.efficacyScore - Rating 1-5
  * @param {string} request.data.timestamp - ISO timestamp of interaction
+ * @param {string} request.data.interactionId - Optional interaction/work order ID for callback tracking
  *
  * @returns {Object} AI guidance with analysis, actions, and priority
  */
@@ -107,7 +108,7 @@ exports.analyzeInteraction = onCall({
   // Get userId from auth or use 'anonymous' for testing
   const userId = request.auth ? request.auth.uid : 'anonymous';
 
-  const { locationId, note, efficacyScore, timestamp } = request.data;
+  const { locationId, note, efficacyScore, timestamp, interactionId } = request.data;
 
   if (!locationId || !note) {
     throw new Error('locationId and note are required');
@@ -178,7 +179,7 @@ exports.analyzeInteraction = onCall({
 
     // 6. Create scheduled action if recommended
     if (aiGuidance.scheduledAction) {
-      await getDb().collection('scheduledActions').add({
+      const scheduledActionData = {
         locationId,
         locationName: context.location.name,
         userId: userId,
@@ -187,7 +188,14 @@ exports.analyzeInteraction = onCall({
         reason: aiGuidance.scheduledAction.reason,
         status: 'pending',
         createdAt: admin.firestore.FieldValue.serverTimestamp()
-      });
+      };
+
+      // Add work order reference if provided
+      if (interactionId) {
+        scheduledActionData.workOrderId = interactionId;
+      }
+
+      await getDb().collection('scheduledActions').add(scheduledActionData);
     }
 
     // 7. Update location with AI insights (optional - skip if location doesn't exist)
