@@ -98,6 +98,16 @@ service cloud.firestore {
     }
 
     // ==========================================
+    // VOICE LOGS - User owns their voice notes
+    // ==========================================
+
+    match /voiceLogs/{logId} {
+      allow read: if isAuthenticated() &&
+                      (isOwner(resource.data.userId) || hasRole('admin'));
+      allow write: if false; // Only Cloud Functions can write voice logs
+    }
+
+    // ==========================================
     // EQUIPMENT ANALYSIS - User owns their photos
     // ==========================================
 
