@@ -1,0 +1,523 @@
+/* ==========================================================================
+   ServiceRequestForm Component - Multi-Step Wizard
+   ========================================================================== */
+
+.form {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Progress Bar */
+.progress {
+  margin-bottom: var(--space-8);
+}
+
+.progressSteps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-200);
+  color: var(--color-gray-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  transition: all var(--transition-base);
+}
+
+.progressStep.active .stepNumber {
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+}
+
+.stepLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progressStep.active .stepLabel {
+  color: var(--color-text);
+  font-weight: var(--font-medium);
+}
+
+.progressBar {
+  height: 4px;
+  background: var(--color-gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: width var(--transition-base);
+}
+
+/* Emergency Toggle */
+.emergencyToggle {
+  background: hsla(0, 84%, 60%, 0.05);
+  border: 1px solid hsla(0, 84%, 60%, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.toggleText {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+}
+
+.emergencyIcon {
+  font-size: var(--text-lg);
+}
+
+.toggle {
+  width: 52px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-300);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background var(--transition-fast);
+}
+
+.toggle.toggleActive {
+  background: var(--color-error);
+}
+
+.toggleSwitch {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.toggle.toggleActive .toggleSwitch {
+  transform: translateX(24px);
+}
+
+.emergencyNote {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  font-weight: var(--font-medium);
+}
+
+/* Step Content */
+.stepContent {
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stepTitle {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+/* Equipment Grid */
+.equipmentGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.equipmentCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.equipmentCard:hover {
+  border-color: var(--color-primary);
+  background: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.1);
+}
+
+.equipmentCard.selected {
+  border-color: var(--color-primary);
+  background: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.15);
+  box-shadow: var(--shadow-glow);
+}
+
+.equipmentIcon {
+  font-size: 2rem;
+}
+
+.equipmentLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* Issue List */
+.issueList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.issueButton {
+  padding: var(--space-4);
+  background: var(--color-gray-50);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.issueButton:hover {
+  border-color: var(--color-primary);
+  background: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.1);
+}
+
+.issueButton.selected {
+  border-color: var(--color-primary);
+  background: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.15);
+}
+
+/* Back Button */
+.backButton {
+  margin-top: var(--space-6);
+  padding: var(--space-2) var(--space-4);
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.backButton:hover {
+  color: var(--color-text);
+}
+
+/* Form Grid */
+.selectedSummary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-gray-100);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formGroup.fullWidth {
+  grid-column: span 2;
+}
+
+.formGroup label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Form Actions */
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow), var(--shadow-lg);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success State */
+.success {
+  text-align: center;
+  padding: var(--space-8);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.successIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-4);
+  background: var(--color-success);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+}
+
+.success h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.success p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.successDetails {
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailRow span {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.urgentNote {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.callLink {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--color-primary-dark);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-lg);
+}
+
+/* Emergency Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: hsla(0, 0%, 0%, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-4);
+}
+
+.modal {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  max-width: 400px;
+  text-align: center;
+  animation: slideUp var(--transition-base) ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modalIcon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.modal h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.modal p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.modalCallButton {
+  display: block;
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--color-error);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  margin-bottom: var(--space-3);
+  transition: all var(--transition-base);
+}
+
+.modalCallButton:hover {
+  background: hsl(0, 84%, 50%);
+  transform: scale(1.02);
+}
+
+.modalContinueButton {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.modalContinueButton:hover {
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form {
+    padding: var(--space-5);
+  }
+
+  .equipmentGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formGroup.fullWidth {
+    grid-column: span 1;
+  }
+
+  .formActions {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .backButton {
+    order: 1;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

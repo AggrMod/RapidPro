@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Quote Page
+   ========================================================================== */
+
+/* Hero Section */
+.hero {
+  background: var(--gradient-surface);
+  padding: var(--space-16) 0 var(--space-8);
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--color-white);
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  color: var(--color-gray-300);
+  font-size: var(--text-lg);
+}
+
+.phoneLink {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  white-space: nowrap;
+}
+
+.phoneLink:hover {
+  color: var(--color-primary-light);
+}
+
+/* Form Section */
+.formSection {
+  padding: var(--space-8) 0 var(--space-20);
+  background: var(--color-gray-50);
+  margin-top: -var(--space-4);
+}
+
+.formWrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.formContainer {
+  margin-top: calc(var(--space-8) * -1);
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+
+.sidebarCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.sidebarCard h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.benefits li {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.benefitIcon {
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+}
+
+.benefits strong {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+}
+
+.benefits p {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Contact Card */
+.contactCard {
+  background: var(--gradient-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.contactCard h4 {
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.contactCard > p {
+  color: var(--color-gray-400);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+
+.callButton {
+  display: block;
+  padding: var(--space-4);
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.callButton:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+
+.hours {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.hours p {
+  color: var(--color-gray-400);
+  font-size: var(--text-xs);
+  margin: var(--space-1) 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .formWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebarCard,
+  .contactCard {
+    flex: 1;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--space-12) 0 var(--space-6);
+  }
+
+  .title {
+    font-size: var(--text-3xl);
+  }
+
+  .sidebar {
+    flex-direction: column;
+  }
+
+  .sidebarCard,
+  .contactCard {
+    min-width: 100%;
+  }
+}
