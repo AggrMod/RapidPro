@@ -1,0 +1,56 @@
+/* Sticky Call Bar - Mobile Only */
+.stickyBar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  padding: var(--space-3);
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: var(--glass-border-dark);
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+}
+
+@media (max-width: 768px) {
+  .stickyBar {
+    display: block;
+  }
+}
+
+.stickyBar.visible {
+  transform: translateY(0);
+}
+
+.callBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-lg);
+}
+
+.callBtn:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+
+.icon {
+  font-size: 1.25rem;
+}
+
+.text {
+  letter-spacing: 0.02em;
+}

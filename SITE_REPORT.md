@@ -1,0 +1,170 @@
+# RapidPro Memphis - Site Report
+**Generated:** December 9, 2025
+
+## Live Site
+**URL:** https://rapidpromemphis.com
+**Hosting:** Netlify (via GitHub)
+**Repository:** https://github.com/AggrMod/RapidPro
+
+---
+
+## Page Status (All 200 OK ✅)
+
+### Main Pages
+| Page | URL | Status |
+|------|-----|--------|
+| Homepage | / | ✅ 200 |
+| Services | /memphis-services.html | ✅ 200 |
+| Service Areas | /memphis-service-areas.html | ✅ 200 |
+| Testimonials | /memphis-testimonials.html | ✅ 200 |
+
+### Equipment Repair Pages (with FAQ Schema)
+| Page | URL | Status |
+|------|-----|--------|
+| Commercial Oven Repair | /memphis-commercial-oven-repair.html | ✅ 200 |
+| Commercial Fryer Repair | /memphis-commercial-fryer-repair.html | ✅ 200 |
+| Commercial Griddle Repair | /memphis-commercial-griddle-repair.html | ✅ 200 |
+| Steam Table Repair | /memphis-steam-table-repair.html | ✅ 200 |
+| Commercial Dishwasher Repair | /memphis-commercial-dishwasher-repair.html | ✅ 200 |
+| Ice Machine Service | /memphis-ice-machine-service.html | ✅ 200 |
+| Walk-In Cooler Maintenance | /memphis-walk-in-cooler-maintenance.html | ✅ 200 |
+
+### Location Pages
+| Page | URL | Status |
+|------|-----|--------|
+| Germantown | /germantown-kitchen-equipment-repair.html | ✅ 200 |
+| Collierville | /collierville-restaurant-equipment-service.html | ✅ 200 |
+| Bartlett | /bartlett-commercial-appliance-repair.html | ✅ 200 |
+
+### SEO Files
+| File | URL | Status |
+|------|-----|--------|
+| Sitemap | /sitemap.xml | ✅ 200 |
+| Robots.txt | /robots.txt | ✅ 200 |
+
+---
+
+## Directory Structure
+
+```
+RapidPro/
+├── index.html                              # Homepage
+├── sitemap.xml                             # SEO sitemap
+├── robots.txt                              # SEO robots
+├── 404.html                                # Error page
+│
+├── EQUIPMENT REPAIR PAGES (with FAQ Schema)
+│   ├── memphis-commercial-oven-repair.html
+│   ├── memphis-commercial-fryer-repair.html
+│   ├── memphis-commercial-griddle-repair.html
+│   ├── memphis-steam-table-repair.html
+│   ├── memphis-commercial-dishwasher-repair.html
+│   ├── memphis-ice-machine-service.html
+│   └── memphis-walk-in-cooler-maintenance.html
+│
+├── LOCATION PAGES
+│   ├── germantown-kitchen-equipment-repair.html
+│   ├── collierville-restaurant-equipment-service.html
+│   └── bartlett-commercial-appliance-repair.html
+│
+├── SERVICE PAGES
+│   ├── memphis-services.html
+│   ├── memphis-service-areas.html
+│   └── memphis-testimonials.html
+│
+├── assets/
+│   └── images/
+│       ├── logo.png
+│       ├── hero.png
+│       ├── favicon.svg
+│       └── kitchen-cooler.svg
+│
+├── images/
+│   ├── memphis-commercial-oven-repair-technician.png
+│   ├── memphis-commercial-fryer-repair-service.png
+│   └── memphis-kitchen-equipment-repair-specialist.png
+│
+├── css/
+│   ├── style.css                           # Main styles
+│   ├── styles.css
+│   ├── funnel.css                          # Landing page styles
+│   ├── mobile-fixes.css
+│   ├── mobile-hero-fix.css
+│   ├── mobile-menu-fix.css
+│   ├── mobile-menu-button.css
+│   ├── mobile-nav.css
+│   ├── service-areas.css
+│   ├── services-page.css
+│   ├── testimonials.css
+│   ├── theme-switcher.css
+│   ├── premium-effects.css
+│   ├── 3d-effects.css
+│   └── [14 more CSS files]
+│
+├── js/
+│   ├── script.js                           # Main scripts
+│   ├── auth.js
+│   ├── dashboard.js
+│   ├── map.js
+│   ├── animations.js
+│   ├── carousel.js
+│   ├── click-to-call.js
+│   ├── theme-switcher.js
+│   └── [12 more JS files]
+│
+├── firebase.json                           # Firebase config
+├── firestore.indexes.json
+├── package.json
+└── tools/
+    └── [rank tracking tools]
+```
+
+---
+
+## SEO Features Implemented
+
+### All Equipment Pages Have:
+1. **FAQ Schema** (JSON-LD) - 5 questions each for Google featured snippets
+2. **Service Schema** - LocalBusiness structured data
+3. **Internal Linking Section** - Links to 6 related services
+4. **Meta Tags** - Title, description, keywords, Open Graph
+5. **Phone CTAs** - (901) 257-9417 throughout
+
+### Site-Wide SEO:
+- ✅ sitemap.xml with 14 prioritized pages
+- ✅ robots.txt with sitemap reference
+- ✅ Google Analytics (G-YN82WFKX62)
+- ✅ Mobile responsive design
+- ✅ Fast loading (Netlify CDN)
+
+---
+
+## Contact Information
+- **Phone:** (901) 257-9417
+- **Email:** R22subcooling@gmail.com
+- **Service Areas:** Memphis, Germantown, Collierville, Bartlett, Cordova, Southaven, Olive Branch
+
+---
+
+## Keywords Targeted
+
+### Primary (Equipment Repair):
+- commercial oven repair memphis
+- commercial fryer repair memphis
+- commercial griddle repair memphis
+- commercial dishwasher repair memphis
+- steam table repair memphis
+
+### Secondary (Maintenance):
+- restaurant equipment preventative maintenance memphis (#1 ranking)
+- commercial kitchen maintenance memphis
+- commercial kitchen equipment repair memphis
+
+### Location:
+- commercial kitchen repair germantown tn
+- restaurant equipment repair bartlett tn
+- commercial appliance repair collierville tn
+
+---
+
+*Report generated by Claude Code*
