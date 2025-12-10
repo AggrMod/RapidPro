@@ -203,11 +203,55 @@ h2 {
     opacity: 0.9;
 }
 
+/* Related Services Section */
+.related-services {
+    background: #1f2937;
+    padding: 2rem;
+    text-align: center;
+}
+
+.related-services h2 {
+    color: #f97316;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.related-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.related-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #374151;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.related-links a:hover {
+    background: #f97316;
+    color: white;
+}
+
 footer {
     background: #111827;
     color: #9ca3af;
     text-align: center;
     padding: 2rem;
+}
+
+footer a {
+    color: #9ca3af;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #f97316;
 }
 
 /* FAQ Section Styles */
