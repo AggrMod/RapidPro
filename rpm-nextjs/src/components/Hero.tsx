@@ -20,8 +20,8 @@ export default function Hero() {
         </h1>
         
         <p className={styles.subtitle}>
-          Expert repair & maintenance for ovens, fryers, dishwashers, 
-          ice machines, and walk-in coolers. Same-day service available.
+          Expert repair & maintenance for ovens, fryers, dishwashers,
+          and ice machines. Same-day service available.
         </p>
 
         <div className={styles.ctas}>
@@ -34,6 +34,10 @@ export default function Hero() {
         </div>
 
         <div className={styles.features}>
+          <div className={styles.feature}>
+            <span className={styles.featureIcon}>🕘</span>
+            <span>Mon-Fri 7AM-6PM</span>
+          </div>
           <div className={styles.feature}>
             <span className={styles.featureIcon}>⚡</span>
             <span>Same-Day Service</span>
