@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import ServiceAreaMapWrapper from "@/components/ServiceAreaMapWrapper";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -102,16 +103,10 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
+      {/* Interactive Map Section */}
       <section className={styles.mapSection}>
         <div className="container">
-          <div className={styles.mapContainer}>
-            <div className={styles.mapPlaceholder}>
-              <span className={styles.mapIcon}>📍</span>
-              <h3>Serving the Greater Memphis Area</h3>
-              <p>From downtown Memphis to the surrounding suburbs</p>
-            </div>
-          </div>
+          <ServiceAreaMapWrapper />
         </div>
       </section>
 

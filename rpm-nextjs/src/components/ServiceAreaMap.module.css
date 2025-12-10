@@ -1,0 +1,221 @@
+/* ==========================================================================
+   ServiceAreaMap Component
+   ========================================================================== */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-6);
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.mapWrapper {
+  position: relative;
+  min-height: 500px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  z-index: 1;
+}
+
+.mapPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  background: var(--color-gray-100);
+  color: var(--color-text-muted);
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-gray-200);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--space-4);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Popup Styles */
+.popup {
+  padding: var(--space-2);
+  min-width: 180px;
+}
+
+.popup h4 {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.responseTime {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-success);
+  margin-bottom: var(--space-3);
+}
+
+.clockIcon {
+  font-size: 1rem;
+}
+
+.popupLink {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.popupLink:hover {
+  color: var(--color-primary);
+}
+
+/* Sidebar */
+.sidebar {
+  padding: var(--space-6);
+  background: var(--color-gray-50);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTitle {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.locationList {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.locationItem {
+  margin-bottom: var(--space-2);
+}
+
+.locationItem a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.locationItem a:hover,
+.locationItem.active a {
+  border-color: var(--color-primary);
+  background: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.1);
+}
+
+.locationItem.featured a {
+  border-color: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.3);
+}
+
+.locationInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.locationName {
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+}
+
+.badge {
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+}
+
+.locationResponse {
+  font-size: var(--text-xs);
+  color: var(--color-success);
+  font-weight: var(--font-medium);
+}
+
+/* Sidebar CTA */
+.sidebarCta {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.sidebarCta p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.callButton {
+  display: block;
+  padding: var(--space-3);
+  background: var(--gradient-primary);
+  color: var(--color-surface-dark);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.callButton:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .mapWrapper {
+    min-height: 400px;
+  }
+
+  .map {
+    min-height: 400px;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+
+  .locationList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 640px) {
+  .locationList {
+    grid-template-columns: 1fr;
+  }
+}
