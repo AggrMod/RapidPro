@@ -9,7 +9,7 @@ interface TestimonialCardProps {
   text: string;
   date: string;
   verified: boolean;
-  source?: "google" | "direct";
+  source?: "google" | "direct" | "yelp" | "facebook";
 }
 
 export default function TestimonialCard({

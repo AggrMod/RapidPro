@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCallBar from "@/components/StickyCallBar";
+import AnnouncementBannerWrapper from "@/components/AnnouncementBannerWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -131,6 +132,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.variable}>
+        <AnnouncementBannerWrapper />
         <Header />
         <main>{children}</main>
         <Footer />
