@@ -1,0 +1,417 @@
+/* ==========================================================================
+   Location Page Template Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-surface);
+  padding: var(--space-20) 0;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.15) 0%, transparent 50%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.heroIcon {
+  display: block;
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+}
+
+.heroTitle {
+  font-size: var(--text-4xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+
+.heroSubtitle {
+  font-size: var(--text-xl);
+  color: var(--color-gray-300);
+  max-width: 600px;
+  margin: 0 auto var(--space-4);
+}
+
+.responseTime {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: hsla(0, 0%, 100%, 0.1);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  color: var(--color-gray-200);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-6);
+}
+
+.responseIcon {
+  font-size: var(--text-lg);
+}
+
+.heroCtas {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content
+   -------------------------------------------------------------------------- */
+.content {
+  padding: var(--space-16) 0;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Main Content Column
+   -------------------------------------------------------------------------- */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.descriptionCard {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.descriptionCard h2 {
+  margin-bottom: var(--space-4);
+  color: var(--color-surface);
+}
+
+.descriptionCard p {
+  font-size: var(--text-lg);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Services Section
+   -------------------------------------------------------------------------- */
+.servicesSection {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.servicesSection h2 {
+  margin-bottom: var(--space-6);
+  color: var(--color-surface);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.serviceCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.serviceCard:hover {
+  background: var(--color-white);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.serviceIcon {
+  font-size: var(--text-2xl);
+}
+
+.serviceName {
+  flex: 1;
+  font-weight: var(--font-medium);
+}
+
+.serviceArrow {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.serviceCard:hover .serviceArrow {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Areas Section
+   -------------------------------------------------------------------------- */
+.areasSection {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.areasSection h2 {
+  margin-bottom: var(--space-6);
+  color: var(--color-surface);
+}
+
+.areasGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .areasGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.areaCard {
+  padding: var(--space-4);
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+}
+
+.areaCard h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-3);
+  color: var(--color-surface);
+}
+
+.areaCard ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.areaCard li {
+  padding-left: var(--space-4);
+  position: relative;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.areaCard li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Why Section
+   -------------------------------------------------------------------------- */
+.whySection {
+  background: var(--color-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.whySection h2 {
+  margin-bottom: var(--space-6);
+  color: var(--color-surface);
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.whyItem {
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.whyIcon {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-2);
+}
+
+.whyItem h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+  color: var(--color-surface);
+}
+
+.whyItem p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar
+   -------------------------------------------------------------------------- */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+.contactCard,
+.otherAreasCard {
+  background: var(--color-white);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contactCard {
+  background: var(--gradient-surface);
+  color: var(--color-white);
+}
+
+.contactCard h3 {
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.contactCard p {
+  color: var(--color-gray-300);
+  margin-bottom: var(--space-4);
+}
+
+.phoneLink {
+  display: block;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  text-decoration: none;
+}
+
+.phoneLink:hover {
+  color: var(--color-primary-light);
+}
+
+.serviceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-gray-300);
+}
+
+/* Other Areas Card */
+.otherAreasCard h3 {
+  margin-bottom: var(--space-4);
+  color: var(--color-surface);
+}
+
+.otherAreasList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.otherAreasList li a {
+  display: block;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.otherAreasList li a:hover {
+  background: var(--color-gray-50);
+  color: var(--color-primary-dark);
+  padding-left: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   CTA Section
+   -------------------------------------------------------------------------- */
+.ctaSection {
+  background: var(--gradient-surface);
+  padding: var(--space-16) 0;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+
+.ctaSection p {
+  color: var(--color-gray-300);
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
