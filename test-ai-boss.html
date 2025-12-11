@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +14,14 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
         h1 {
             color: #00ff88;
             text-align: center;
             border-bottom: 2px solid #00ff88;
             padding-bottom: 10px;
         }
+
         .test-section {
             background: #1a1a1a;
             border: 2px solid #00ff88;
@@ -26,10 +29,12 @@
             padding: 20px;
             margin: 20px 0;
         }
+
         .test-section h2 {
             color: #ffaa00;
             margin-top: 0;
         }
+
         button {
             background: #00ff88;
             color: #0a0a0a;
@@ -41,13 +46,16 @@
             cursor: pointer;
             margin: 5px;
         }
+
         button:hover {
             background: #00cc66;
         }
+
         button:disabled {
             background: #666;
             cursor: not-allowed;
         }
+
         .output {
             background: #000;
             border: 1px solid #333;
@@ -60,32 +68,48 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+
         .success {
             color: #00ff00;
         }
+
         .error {
             color: #ff0000;
         }
+
         .warning {
             color: #ffaa00;
         }
+
         .info {
             color: #00aaff;
         }
+
         .loading {
             color: #ffaa00;
             animation: blink 1s infinite;
         }
+
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0.5; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0.5;
+            }
         }
+
         .test-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 10px;
             margin-top: 10px;
         }
+
         .status-indicator {
             display: inline-block;
             width: 10px;
@@ -93,25 +117,38 @@
             border-radius: 50%;
             margin-right: 5px;
         }
+
         .status-pending {
             background: #666;
         }
+
         .status-running {
             background: #ffaa00;
             animation: pulse 1s infinite;
         }
+
         .status-success {
             background: #00ff00;
         }
+
         .status-error {
             background: #ff0000;
         }
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
     </style>
 </head>
+
 <body>
     <h1>🤖 AI BOSS - Test Suite</h1>
     <p style="text-align: center; color: #888;">
@@ -164,11 +201,21 @@
         <div id="test5-output" class="output">Waiting for test to run...</div>
     </div>
 
+    <!-- Test 6: Photo Analysis -->
+    <div class="test-section">
+        <h2><span id="test6-status" class="status-indicator status-pending"></span>Test 6: Photo Analysis</h2>
+        <p>Analyze an equipment photo (using logo.png as sample)</p>
+        <button id="test6-btn" onclick="runTest6()">Run Test 6</button>
+        <button onclick="clearOutput('test6-output')">Clear Output</button>
+        <div id="test6-output" class="output">Waiting for test to run...</div>
+    </div>
+
     <!-- Run All Tests -->
     <div class="test-section" style="background: #2a2a2a; border-color: #ffaa00;">
         <h2>🚀 Run All Tests</h2>
         <div class="test-grid">
-            <button onclick="runAllTests()" style="background: #ffaa00; font-size: 18px; padding: 15px;">▶ Run All Tests</button>
+            <button onclick="runAllTests()" style="background: #ffaa00; font-size: 18px; padding: 15px;">▶ Run All
+                Tests</button>
             <button onclick="clearAllOutputs()" style="background: #666;">Clear All Outputs</button>
         </div>
     </div>
@@ -216,7 +263,7 @@
         }
 
         function clearAllOutputs() {
-            ['test1-output', 'test2-output', 'test3-output', 'test4-output', 'test5-output'].forEach(id => {
+            ['test1-output', 'test2-output', 'test3-output', 'test4-output', 'test5-output', 'test6-output'].forEach(id => {
                 clearOutput(id);
             });
         }
@@ -475,6 +522,63 @@
             }
         }
 
+        // Test 6: Photo Analysis
+        async function runTest6() {
+            const outputId = 'test6-output';
+            clearOutput(outputId);
+            setTestStatus(6, 'running');
+            disableButton('test6-btn');
+
+            log('info', outputId, '🧪 Starting Test 6: Photo Analysis');
+            log('info', outputId, 'Loading sample image (images/logo.png)...');
+
+            try {
+                // Load image and convert to base64
+                const response = await fetch('images/logo.png');
+                const blob = await response.blob();
+                const reader = new FileReader();
+
+                reader.onloadend = async () => {
+                    const base64data = reader.result;
+                    // Remove prefix for backend
+                    // const base64Content = base64data.split(',')[1]; 
+                    // Actually the backend wants the full data URL? No, lines 167 say: imageData.replace(/^data:image\/\w+;base64,/, '')
+                    // So we pass the full string and let backend handle it, or pass just content.
+                    // Let's pass the full string as per standard usage, backend regex handles it.
+
+                    log('info', outputId, '📸 Image loaded. Calling analyzeEquipmentPhoto...');
+
+                    try {
+                        const analyzeEquipmentPhoto = functions.httpsCallable('analyzeEquipmentPhoto');
+                        const result = await analyzeEquipmentPhoto({
+                            imageData: base64data,
+                            mimeType: blob.type,
+                            locationId: 'test-photo-loc',
+                            description: 'Test analysis of logo image'
+                        });
+
+                        log('success', outputId, '✅ Photo analysis complete!');
+                        log('info', outputId, '\n📊 RESPONSE DATA:');
+                        log('info', outputId, JSON.stringify(result.data, null, 2));
+
+                        setTestStatus(6, 'success');
+                    } catch (err) {
+                        log('error', outputId, '❌ Analysis failed: ' + err.message);
+                        setTestStatus(6, 'error');
+                    } finally {
+                        disableButton('test6-btn', false);
+                    }
+                };
+
+                reader.readAsDataURL(blob);
+
+            } catch (error) {
+                log('error', outputId, '❌ Image load failed: ' + error.message);
+                setTestStatus(6, 'error');
+                disableButton('test6-btn', false);
+            }
+        }
+
         // Run all tests sequentially
         async function runAllTests() {
             log('info', 'test1-output', '🚀 Running all tests sequentially...\n');
@@ -492,9 +596,13 @@
             await new Promise(resolve => setTimeout(resolve, 2000));
 
             await runTest5();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            await runTest6();
 
             alert('✅ All tests complete! Check the outputs above.');
         }
     </script>
 </body>
+
 </html>
