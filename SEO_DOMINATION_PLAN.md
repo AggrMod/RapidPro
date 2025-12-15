@@ -161,13 +161,19 @@ Target competitor weaknesses with these articles:
 
 ---
 
-## 🎯 Target Keywords (Prioritized by Opportunity)
+## ⚖️ LEGAL DISCLAIMER
+
+**License Scope**: Appliance repair only (refrigeration, ovens, dishwashers, etc.)
+**Marketing Strategy**: Stay 100% legal - advertise ONLY appliance repair services
+**On-site flexibility**: Handle other needs when you're there (but don't advertise it!)
+
+## 🎯 Target Keywords (Prioritized by Opportunity - LEGAL APPLIANCE REPAIR ONLY)
 
 ### Tier 1: Low Competition + High Intent (Attack First!)
-- ✅ commercial kitchen preventative maintenance memphis (YOU'RE #1!)
+- ✅ commercial appliance preventative maintenance memphis (YOU'RE #1!)
 - ✅ restaurant equipment preventative maintenance memphis (YOU'RE #1!)
-- ✅ commercial kitchen service contract memphis (NOBODY TARGETS THIS!)
-- ✅ preventative maintenance plan memphis (YOU'RE #1!)
+- ✅ commercial appliance service contract memphis (NOBODY TARGETS THIS!)
+- ✅ preventative appliance maintenance plan memphis (YOU'RE #1!)
 
 ### Tier 2: Beatable with Content
 - 🎯 emergency restaurant equipment repair memphis (#9 currently - push to #1)
