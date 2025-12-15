@@ -238,9 +238,9 @@ Target competitor weaknesses with these articles:
 - [ ] Write blog post #1 (preventative maintenance checklist)
 
 ### Week 2
-- [ ] Create Germantown service area page
-- [ ] Create Bartlett service area page
-- [ ] Create Collierville service area page
+- [x] Create Germantown service area page
+- [x] Create Bartlett service area page
+- [x] Create Collierville service area page
 - [ ] Write blog post #2 (emergency repair guide)
 - [ ] Submit to local directories (5 minimum)
 
