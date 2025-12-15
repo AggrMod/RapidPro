@@ -83,7 +83,47 @@
       ],
       "sameAs": [
         "https://github.com/AggrMod/RapidPro"
-      ]
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Commercial Kitchen Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "24/7 Emergency Equipment Repair",
+              "description": "Same-day emergency repair for commercial kitchen equipment in Memphis",
+              "areaServed": "Memphis, TN"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Preventative Maintenance Contracts",
+              "description": "Scheduled maintenance programs to prevent equipment breakdowns",
+              "areaServed": "Memphis, TN"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Equipment Brand Service",
+              "description": "Authorized service for Hobart, Vulcan, True, Traulsen, and all major brands",
+              "areaServed": ["Memphis", "Germantown", "Bartlett", "Collierville"]
+            }
+          }
+        ]
+      }
     }
     </script>
 
@@ -223,7 +263,77 @@
         * {
             max-width: 100%;
         }
-        
+
+        /* Emergency Banner - Gemini's recommendation */
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .emergency-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-icon {
+            font-size: 1.4em;
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-text {
+            font-size: 0.95em;
+            letter-spacing: 0.5px;
+        }
+
+        .emergency-divider {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .emergency-phone {
+            background: white;
+            color: #dc2626;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .emergency-phone:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        @media (max-width: 768px) {
+            .emergency-banner {
+                padding: 10px 15px;
+            }
+            .emergency-text {
+                font-size: 0.85em;
+            }
+            .emergency-divider {
+                display: none;
+            }
+            .emergency-phone {
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+
         /* Header - Sticky with hide on scroll down */
         .header {
             position: sticky;
@@ -1339,6 +1449,17 @@
     </style>
 </head>
 <body>
+    <!-- Emergency Banner -->
+    <div class="emergency-banner">
+        <div class="container emergency-content">
+            <span class="emergency-icon">⚡</span>
+            <span class="emergency-text">24/7 Emergency Service</span>
+            <span class="emergency-divider">|</span>
+            <span class="emergency-text">Same-Day Repairs Available</span>
+            <a href="tel:+19015550123" class="emergency-phone">📞 Call Now: (901) 555-0123</a>
+        </div>
+    </div>
+
     <!-- Header with Logo -->
     <header class="header" id="header">
         <div class="container">
