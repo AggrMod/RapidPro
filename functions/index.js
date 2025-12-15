@@ -81,14 +81,38 @@ exports.getNextMission = onCall({ enforceAppCheck: false }, async (request) => {
       }
     });
 
-    // Generate intro script for this location
-    const scriptResult = await generateIntroScriptInternal(nearestLocation);
+    // Generate AI Mission Intel
+    let missionIntel = {
+      suggestedOpener: `Hey, commercial kitchen maintenance plan?`,
+      briefing: 'Standard commercial target.',
+      likelyEquipment: ['Refrigeration', 'HVAC']
+    };
+
+    try {
+      const intelResult = await aiBoss.generateMissionIntel.run({
+        data: {
+          locationId: nearestLocation.id,
+          locationName: nearestLocation.name,
+          locationAddress: nearestLocation.address,
+          locationType: nearestLocation.type
+        },
+        auth: request.auth // Pass auth context
+      });
+
+      if (intelResult && intelResult.success) {
+        missionIntel = intelResult;
+      }
+    } catch (e) {
+      console.log('Error generating AI intel, using fallback:', e);
+    }
 
     return {
       success: true,
       mission: {
         ...nearestLocation,
-        introScript: scriptResult.script,
+        introScript: missionIntel.suggestedOpener,
+        aiBriefing: missionIntel.briefing,
+        likelyEquipment: missionIntel.likelyEquipment,
         distanceKm: shortestDistance.toFixed(2),
         distanceMiles: (shortestDistance * 0.621371).toFixed(2)
       }
@@ -320,13 +344,19 @@ exports.initializeUser = onCall({ enforceAppCheck: false }, async (request) => {
 
     const userDoc = await userRef.get();
     if (userDoc.exists) {
+      // Check if role exists, add if missing
+      const data = userDoc.data();
+      if (!data.role) {
+        await userRef.update({ role: 'technician' });
+      }
       return { success: true, message: 'User already initialized' };
     }
 
-    // Create user profile
+    // Create user profile WITH ROLE
     await userRef.set({
       uid: userId,
       email: request.auth.token.email,
+      role: 'technician',
       currentLocationId: null,
       totalMissionsCompleted: 0,
       createdAt: admin.firestore.FieldValue.serverTimestamp()
@@ -706,6 +736,7 @@ exports.convertLeadToCustomer = onCall({ enforceAppCheck: false }, async (reques
 
 // AI Boss exports
 exports.analyzeInteraction = aiBoss.analyzeInteraction;
+exports.analyzeEquipmentPhoto = aiBoss.analyzeEquipmentPhoto;
 exports.getAICommand = aiBoss.getAICommand;
 exports.completeScheduledAction = aiBoss.completeScheduledAction;
 exports.getScheduledActions = aiBoss.getScheduledActions;

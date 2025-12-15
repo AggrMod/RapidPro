@@ -48,6 +48,15 @@ vendor/
 dist/
 build/
 
+# Next.js
+.next/
+out/
+rpm-next/.next/
+rpm-next/out/
+rpm-nextjs/.next/
+rpm-nextjs/out/
+rpm-nextjs/public/
+
 # Temporary files
 *.tmp
 *.temp

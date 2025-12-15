@@ -40,6 +40,7 @@
                 <p class="user-info" id="user-email"></p>
             </div>
             <div class="header-right">
+                <button id="settings-btn" class="btn-icon" onclick="openSettingsModal()" title="Settings">&#9881;</button>
                 <button id="logout-btn" class="btn-secondary">LOGOUT</button>
             </div>
         </header>
@@ -228,6 +229,34 @@
         </div>
     </div>
 
+    
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content settings-modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>Account</h3>
+                    <div class="settings-item">
+                        <label>Email</label>
+                        <p id="settings-email" class="settings-value">-</p>
+                    </div>
+                    <div class="settings-item">
+                        <label>Change Password</label>
+                        <input type="password" id="new-password" class="input-field" placeholder="New Password">
+                        <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password">
+                        <button id="change-password-btn" class="btn-primary" onclick="changePassword()">UPDATE PASSWORD</button>
+                        <p id="password-error" class="error-msg"></p>
+                        <p id="password-success" class="success-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -247,5 +276,6 @@
     <script src="js/missions-list.js?v=2"></script>
     <script src="js/lead-conversion.js?v=2"></script>
     <script src="js/first-contact-tracker.js?v=2"></script>
+    <script src="js/settings.js?v=2"></script>
 </body>
 </html>

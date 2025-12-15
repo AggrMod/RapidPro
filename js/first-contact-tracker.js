@@ -461,12 +461,15 @@ async function submitDoorKnock(outcome) {
 
     // Handle outcome-specific actions
     if (outcome === 'interested') {
+      // Store locally before closing modal (which clears global)
+      const locationForConversion = { ...doorKnockLocation };
+
       // Close door knock modal
       closeDoorKnockLogger();
 
       // Launch lead conversion flow
       if (typeof initializeLeadConversion === 'function') {
-        initializeLeadConversion(doorKnockLocation.id, doorKnockLocation);
+        initializeLeadConversion(locationForConversion.id, locationForConversion);
       } else {
         alert('Lead conversion flow not available. Contact has been logged as interested.');
       }

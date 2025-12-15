@@ -1,0 +1,62 @@
+1:"$Sreact.fragment"
+2:I[82401,["/_next/static/chunks/ab071c2b72165374.js"],""]
+8:I[92725,["/_next/static/chunks/08468f21510e38f4.js","/_next/static/chunks/d3a5c22efff0a10f.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+:HL["/_next/static/chunks/f9d1d87bf2f637f2.css","style"]
+3:Tf1c,<p><br/><h1>Walk-In Cooler Not Cooling? Here's What to Check</h1></p>
+<p>A failing walk-in cooler is every restaurant owner's nightmare. With thousands of dollars of inventory at stake, quick action is essential. Here are the most common causes and what you can do.</p>
+<h2>Before You Panic: Quick Checks</h2>
+<p>Before calling for emergency service, verify these basics:</p>
+<li><strong>Check the thermostat setting</strong> - It may have been accidentally adjusted</li>
+<li><strong>Verify power supply</strong> - Check the breaker and ensure the unit is receiving power</li>
+<li><strong>Look at the door seal</strong> - A gap can prevent proper cooling</li>
+<li><strong>Check for ice buildup</strong> - Excessive frost indicates a defrost problem</li>
+<h2>7 Common Causes of Cooling Failure</h2>
+<h3>1. Dirty Condenser Coils</h3>
+<p>The most common cause of cooling problems. When condenser coils are coated with dust and grease, they can't release heat effectively.</p>
+<strong>Solution:</strong> Schedule monthly condenser cleaning or call us for a maintenance visit.
+<h3>2. Evaporator Fan Failure</h3>
+<p>If you don't hear the evaporator fan running, cold air isn't circulating properly.</p>
+<strong>Signs:</strong> Frost buildup on evaporator, warm spots in the cooler
+<h3>3. Refrigerant Leak</h3>
+<p>Low refrigerant levels prevent proper cooling and can damage your compressor.</p>
+<strong>Signs:</strong> Hissing sounds, ice on refrigerant lines, compressor running constantly
+<strong>Important:</strong> Only EPA-certified technicians can handle refrigerant repairs.
+<h3>4. Defrost System Problems</h3>
+<p>If the defrost cycle isn't working, ice builds up and blocks airflow.</p>
+<strong>Signs:</strong> Excessive frost on evaporator coils, ice blocking vents
+<h3>5. Failed Compressor</h3>
+<p>The compressor is the heart of your refrigeration system. When it fails, cooling stops.</p>
+<strong>Signs:</strong> Clicking sounds, compressor hot but not running, no cooling at all
+<h3>6. Thermostat Malfunction</h3>
+<p>A faulty thermostat can cause the system to run too little or not at all.</p>
+<strong>Signs:</strong> Temperature doesn't match setting, system won't turn on
+<h3>7. Door Seal Damage</h3>
+<p>Even small gaps in the door gasket cause significant heat gain.</p>
+<strong>Signs:</strong> Condensation around door, frost near gaps, unit running constantly
+<h2>Emergency Steps to Protect Your Inventory</h2>
+<p>If your cooler fails, take these steps immediately:</p>
+<li><strong>Don't open the door</strong> - An unopened cooler maintains temperature longer</li>
+<li><strong>Check the temperature</strong> - Use a thermometer to monitor internal temp</li>
+<li><strong>Move critical items</strong> - Transfer highly perishable items to backup refrigeration</li>
+<li><strong>Document everything</strong> - Take photos for insurance purposes</li>
+<li><strong>Call for emergency repair</strong> - The sooner, the better</li>
+<h2>Temperature Safety Guidelines</h2>
+<ul>Per FDA guidelines:
+<li>Refrigerated foods must stay below 40°F</li>
+<li>Foods above 40°F for more than 2 hours should be discarded</li>
+<li>Document temperature readings for health department records</li></ul>
+<h2>Why Choose RapidPro Memphis?</h2>
+<p>When your walk-in cooler fails, you need fast, reliable service:</p>
+<li><strong>2-hour response time</strong> in Memphis</li>
+<li><strong>24/7 emergency service</strong> available</li>
+<li><strong>EPA-certified technicians</strong> for refrigerant work</li>
+<li><strong>Common parts in stock</strong> for faster repairs</li>
+<h2>Get Help Now</h2>
+<p>Don't risk your inventory or food safety compliance. Call RapidPro Memphis at <strong>(901) 257-9417</strong> for emergency walk-in cooler repair.</p>
+<p>We're available 24/7 for refrigeration emergencies in Memphis, Germantown, Collierville, Bartlett, and surrounding areas.<br/></p>0:{"buildId":"Nke7b3CVJIZnBWIOpSB0H","rsc":["$","$1","c",{"children":[[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Walk-In Cooler Not Cooling? 7 Common Causes and What to Do\",\"description\":\"When your walk-in cooler stops working, every minute counts. Learn the most common causes and what steps to take before calling for repair.\",\"datePublished\":\"2024-11-15\",\"author\":{\"@type\":\"Organization\",\"name\":\"RapidPro Memphis\"},\"publisher\":{\"@type\":\"LocalBusiness\",\"name\":\"RapidPro Memphis\",\"telephone\":\"+1-901-257-9417\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Memphis\",\"addressRegion\":\"TN\"}},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://rapidpromemphis.com/blog/walk-in-cooler-not-cooling\"}}"}}],["$","header",null,{"className":"page-module__QDmlZa__header","children":["$","div",null,{"className":"container","children":[["$","$L2",null,{"href":"/blog","className":"page-module__QDmlZa__backLink","children":"Back to Blog"}],["$","div",null,{"className":"page-module__QDmlZa__meta","children":[["$","span",null,{"className":"page-module__QDmlZa__category","children":"Troubleshooting"}],["$","span",null,{"className":"page-module__QDmlZa__date","children":"November 14, 2024"}],["$","span",null,{"className":"page-module__QDmlZa__readTime","children":"3 min read"}]]}],["$","h1",null,{"className":"page-module__QDmlZa__title","children":"Walk-In Cooler Not Cooling? 7 Common Causes and What to Do"}],["$","p",null,{"className":"page-module__QDmlZa__excerpt","children":"When your walk-in cooler stops working, every minute counts. Learn the most common causes and what steps to take before calling for repair."}],["$","div",null,{"className":"page-module__QDmlZa__tags","children":[["$","span","refrigeration",{"className":"page-module__QDmlZa__tag","children":"refrigeration"}],["$","span","walk-in cooler",{"className":"page-module__QDmlZa__tag","children":"walk-in cooler"}],["$","span","troubleshooting",{"className":"page-module__QDmlZa__tag","children":"troubleshooting"}],["$","span","emergency repair",{"className":"page-module__QDmlZa__tag","children":"emergency repair"}]]}]]}]}],["$","article",null,{"className":"page-module__QDmlZa__article","children":["$","div",null,{"className":"container","children":["$","div",null,{"className":"page-module__QDmlZa__content","children":["$","div",null,{"className":"page-module__QDmlZa__prose","dangerouslySetInnerHTML":{"__html":"$3"}}]}]}]}],"$L4","$L5"],["$L6"],"$L7"]}],"loading":null,"isPartial":false}
+4:["$","section",null,{"className":"page-module__QDmlZa__cta","children":["$","div",null,{"className":"container","children":["$","div",null,{"className":"page-module__QDmlZa__ctaCard","children":[["$","div",null,{"className":"page-module__QDmlZa__ctaContent","children":[["$","h2",null,{"children":"Need Equipment Repair?"}],["$","p",null,{"children":"Our expert technicians are available for same-day service in Memphis and surrounding areas. Don't let equipment problems slow down your kitchen."}]]}],["$","div",null,{"className":"page-module__QDmlZa__ctaActions","children":[["$","a",null,{"href":"tel:+19012579417","className":"page-module__QDmlZa__ctaPhone","children":[["$","span",null,{"children":"Call Now"}],["$","strong",null,{"children":"(901) 257-9417"}]]}],["$","$L2",null,{"href":"/quote","className":"page-module__QDmlZa__ctaButton","children":"Request Quote"}]]}]]}]}]}]
+5:["$","section",null,{"className":"page-module__QDmlZa__related","children":["$","div",null,{"className":"container","children":[["$","h2",null,{"className":"page-module__QDmlZa__relatedTitle","children":"Related Articles"}],["$","div",null,{"className":"page-module__QDmlZa__relatedGrid","children":[["$","$L2","commercial-oven-maintenance-tips",{"href":"/blog/commercial-oven-maintenance-tips","className":"page-module__QDmlZa__relatedCard","children":[["$","div",null,{"className":"page-module__QDmlZa__relatedImage","children":["$","span",null,{"children":"Maintenance Tips"}]}],["$","div",null,{"className":"page-module__QDmlZa__relatedContent","children":[["$","h3",null,{"children":"5 Essential Commercial Oven Maintenance Tips Every Restaurant Owner Should Know"}],["$","span",null,{"className":"page-module__QDmlZa__relatedMeta","children":"2 min read"}]]}]]}],["$","$L2","ice-machine-cleaning-guide",{"href":"/blog/ice-machine-cleaning-guide","className":"page-module__QDmlZa__relatedCard","children":[["$","div",null,{"className":"page-module__QDmlZa__relatedImage","children":["$","span",null,{"children":"Maintenance Tips"}]}],["$","div",null,{"className":"page-module__QDmlZa__relatedContent","children":[["$","h3",null,{"children":"How Often Should You Clean Your Commercial Ice Machine? A Complete Guide"}],["$","span",null,{"className":"page-module__QDmlZa__relatedMeta","children":"3 min read"}]]}]]}]]}]]}]}]
+6:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/f9d1d87bf2f637f2.css","precedence":"next"}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

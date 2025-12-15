@@ -78,6 +78,32 @@ function displayMission(mission) {
   document.getElementById('mission-type').textContent = mission.type || 'commercial kitchen';
   document.getElementById('intro-script').textContent = mission.introScript;
 
+  // Display AI Intel if available
+  const existingIntel = document.getElementById('ai-mission-intel');
+  if (existingIntel) existingIntel.remove();
+
+  if (mission.aiBriefing) {
+    const intelDiv = document.createElement('div');
+    intelDiv.id = 'ai-mission-intel';
+    intelDiv.className = 'ai-intel-box';
+    intelDiv.innerHTML = `
+      <div class="intel-header">🧠 AI BOSS INTEL</div>
+      <div class="intel-body">
+        <p class="intel-briefing">"${mission.aiBriefing}"</p>
+        <div class="intel-equipment">
+          <span class="intel-label">EXPECTED EQUIPMENT:</span>
+          <div class="equipment-tags">
+            ${(mission.likelyEquipment || []).map(item => `<span class="equip-tag">${item}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Insert after intro script
+    const introScript = document.querySelector('.intro-script');
+    introScript.parentNode.insertBefore(intelDiv, introScript.nextSibling);
+  }
+
   // Update hero card with active mission
   if (typeof updateHeroCard === 'function') {
     updateHeroCard(mission);

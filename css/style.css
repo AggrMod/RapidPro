@@ -153,8 +153,15 @@ body {
 }
 
 @keyframes shimmer {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 .hero-status {
@@ -261,7 +268,8 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    min-height: 60px; /* Ensure 48px+ touch target */
+    min-height: 60px;
+    /* Ensure 48px+ touch target */
 }
 
 .btn-hero-primary {
@@ -310,7 +318,8 @@ body {
     gap: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    min-height: 48px; /* Touch target compliance */
+    min-height: 48px;
+    /* Touch target compliance */
 }
 
 .stats-toggle-btn:hover {
@@ -377,7 +386,8 @@ body {
 
 .btn-secondary {
     padding: 0.75rem 1.5rem;
-    min-height: 48px; /* Touch target compliance */
+    min-height: 48px;
+    /* Touch target compliance */
     background: transparent;
     color: var(--text-secondary);
     font-weight: 500;
@@ -501,7 +511,8 @@ body {
 .btn-large {
     width: 100%;
     padding: 1.5rem;
-    min-height: 60px; /* Ensure 48px+ touch target */
+    min-height: 60px;
+    /* Ensure 48px+ touch target */
     font-size: 1.1rem;
     font-weight: 700;
     border: none;
@@ -841,7 +852,8 @@ body {
     }
 
     .star-btn {
-        width: 48px; /* Touch target compliance */
+        width: 48px;
+        /* Touch target compliance */
         height: 48px;
         font-size: 1.5rem;
     }
@@ -999,6 +1011,7 @@ body {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -1009,6 +1022,7 @@ body {
         transform: translateY(50px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -1016,10 +1030,13 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.8;
         transform: scale(1.05);
@@ -1529,4 +1546,203 @@ body {
     .btn-small {
         width: 100%;
     }
+}
+
+/* AI Mission Intel Box */
+.ai-intel-box {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.1);
+}
+
+.ai-intel-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.intel-header {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 0.75rem 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.intel-body {
+    padding: 1rem;
+}
+
+.intel-briefing {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 1rem;
+}
+
+.intel-equipment {
+    margin-top: 1rem;
+}
+
+.intel-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.equipment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.equip-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    transition: all 0.3s;
+}
+
+.equip-tag:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Settings Button */
+.btn-icon {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.btn-icon:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+/* Settings Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.settings-modal-content {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--danger-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.settings-section h3 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.settings-item {
+    margin-bottom: 1.5rem;
+}
+
+.settings-item label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.settings-value {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.settings-item .input-field {
+    margin-bottom: 0.75rem;
+}
+
+.success-msg {
+    color: var(--success-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }

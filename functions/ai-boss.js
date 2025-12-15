@@ -9,6 +9,7 @@
 const { onCall } = require('firebase-functions/v2/https');
 const admin = require('firebase-admin');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const crypto = require('crypto');
 
 // Get Firestore instance - will be initialized by index.js
 const getDb = () => admin.firestore();
@@ -39,6 +40,26 @@ exports.analyzeInteraction = onCall({
   }
 
   try {
+    // NEW: Rate limiting
+    const hourAgo = Date.now() - 60 * 60 * 1000;
+    const recentCalls = await getDb().collection('aiDecisions')
+      .where('userId', '==', userId)
+      .where('timestamp', '>', new Date(hourAgo))
+      .count()
+      .get();
+
+    if (recentCalls.data().count >= 50) {
+      throw new Error('Rate limit exceeded. Maximum 50 AI analyses per hour.');
+    }
+
+    // NEW: Check cache first
+    const cacheKey = generateCacheKey(note, efficacyScore);
+    const cached = await getCachedResponse(cacheKey);
+
+    if (cached) {
+      return { success: true, cached: true, ...cached };
+    }
+
     // 1. Gather context (optional - use empty context if location not found)
     let context;
     try {
@@ -57,6 +78,9 @@ exports.analyzeInteraction = onCall({
 
     // 2. Analyze with Gemini AI
     const aiGuidance = await callGeminiAI(note, efficacyScore, context, timestamp);
+
+    // NEW: Cache the response
+    await setCachedResponse(cacheKey, aiGuidance);
 
     // 3. Store AI decision for learning
     await getDb().collection('aiDecisions').add({
@@ -108,6 +132,106 @@ exports.analyzeInteraction = onCall({
     // Graceful fallback - return rule-based guidance
     return generateFallbackGuidance(note, efficacyScore);
   }
+});
+
+/**
+ * analyzeEquipmentPhoto - Analyze equipment photos
+ */
+exports.analyzeEquipmentPhoto = onCall({
+  enforceAppCheck: false
+}, async (request) => {
+  const { imageData, mimeType, locationId, description } = request.data;
+  const userId = request.auth ? request.auth.uid : 'anonymous';
+
+  // Validate image
+  validateImage(imageData, mimeType);
+
+  // Rate limiting (same as text analysis)
+  const hourAgo = Date.now() - 60 * 60 * 1000;
+  const recentPhotoAnalyses = await getDb().collection('equipmentAnalyses')
+    .where('userId', '==', userId)
+    .where('timestamp', '>', new Date(hourAgo))
+    .count()
+    .get();
+
+  if (recentPhotoAnalyses.data().count >= 50) {
+    throw new Error('Rate limit exceeded. Maximum 50 photo analyses per hour.');
+  }
+
+  // Call Gemini with retry logic
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+  const imagePart = {
+    inlineData: {
+      data: imageData.replace(/^data:image\/\w+;base64,/, ''), // Remove prefix
+      mimeType: mimeType
+    }
+  };
+
+  const prompt = `You are analyzing commercial HVAC/refrigeration equipment for a field technician.
+
+Description: "${description || 'No description provided'}"
+
+Analyze this equipment photo and provide:
+
+1. IDENTIFICATION
+   - Equipment type
+   - Brand/model (if visible)
+   - Approximate age/condition
+
+2. VISIBLE ISSUES
+   - Signs of wear, damage, or malfunction
+   - Safety concerns
+   - Code violations
+
+3. MAINTENANCE RECOMMENDATIONS
+   - Immediate actions needed
+   - Parts likely required
+   - Estimated labor time
+
+4. URGENCY ASSESSMENT (1-5)
+   - 5 = Emergency (safety hazard, total failure)
+   - 4 = Urgent (high failure risk)
+   - 3 = Moderate (schedule soon)
+   - 2 = Low (routine maintenance)
+   - 1 = Informational only
+
+Respond in valid JSON:
+{
+  "equipmentType": "...",
+  "brandModel": "..." or null,
+  "visibleIssues": ["..."],
+  "safetyConcerns": ["..."],
+  "maintenanceRecommendations": ["..."],
+  "urgencyLevel": 1-5,
+  "estimatedLabor": "...",
+  "likelyPartsNeeded": ["..."]
+}`;
+
+  const result = await retryWithBackoff(async () => {
+    return await model.generateContent([prompt, imagePart]);
+  });
+
+  const responseText = result.response.text();
+  const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+
+  if (!jsonMatch) {
+    throw new Error('Invalid AI response format');
+  }
+
+  const analysis = JSON.parse(jsonMatch[0]);
+
+  // Store analysis
+  await getDb().collection('equipmentAnalyses').add({
+    locationId,
+    userId,
+    analysis,
+    timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    description
+  });
+
+  return { success: true, ...analysis };
 });
 
 /**
@@ -258,6 +382,89 @@ exports.getScheduledActions = onCall({ enforceAppCheck: false }, async (request)
  * HELPER FUNCTIONS
  */
 
+// NEW: Cache key generation with normalization
+function generateCacheKey(note, efficacyScore) {
+  const normalized = note.toLowerCase()
+    .replace(/\d{1,2}:\d{2}\s?(am|pm)?/gi, 'TIME')      // 12:30 PM → TIME
+    .replace(/\d{4}-\d{2}-\d{2}/g, 'DATE')              // 2025-11-18 → DATE
+    .replace(/\$[\d,]+(\.\d{2})?/g, 'AMOUNT')           // $3,000 → AMOUNT
+    .replace(/\d+\s?(hours?|minutes?|days?)/gi, 'DURATION')  // 2 hours → DURATION
+    .replace(/\b\d+\b/g, 'NUM')                         // other numbers → NUM
+    .trim();
+
+  return crypto.createHash('md5')
+    .update(`${normalized}-${efficacyScore}`)
+    .digest('hex');
+}
+
+// NEW: Get cached response
+async function getCachedResponse(cacheKey) {
+  const cached = await getDb().collection('aiResponseCache').doc(cacheKey).get();
+
+  if (cached.exists) {
+    const data = cached.data();
+    const age = Date.now() - data.timestamp;
+    const maxAge = 24 * 60 * 60 * 1000; // 24 hours
+
+    if (age < maxAge) {
+      console.log(`✅ Cache HIT - age: ${Math.floor(age / 1000 / 60)} minutes`);
+      return data.response;
+    }
+  }
+
+  console.log('❌ Cache MISS');
+  return null;
+}
+
+// NEW: Cache response
+async function setCachedResponse(cacheKey, response) {
+  await getDb().collection('aiResponseCache').doc(cacheKey).set({
+    response,
+    timestamp: Date.now(),
+    createdAt: admin.firestore.FieldValue.serverTimestamp()
+  });
+}
+
+// NEW: Retry logic for transient failures
+async function retryWithBackoff(fn, maxRetries = 3, baseDelay = 1000) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      const isRetryable = error.message.includes('429') ||
+        error.message.includes('503') ||
+        error.message.includes('ECONNRESET') ||
+        error.message.includes('timeout');
+
+      if (attempt === maxRetries || !isRetryable) {
+        throw error;
+      }
+
+      const delay = baseDelay * Math.pow(2, attempt - 1); // 1s, 2s, 4s
+      console.log(`⚠️ Retry attempt ${attempt}/${maxRetries} after ${delay}ms`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+}
+
+// NEW: Validate image before processing
+function validateImage(imageData, mimeType) {
+  // Check MIME type
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+  if (!allowedTypes.includes(mimeType)) {
+    throw new Error(`Invalid image type. Allowed: ${allowedTypes.join(', ')}`);
+  }
+
+  // Check size (5MB limit)
+  const base64Size = imageData.length * 0.75; // Base64 adds ~33% overhead
+  const maxSize = 5 * 1024 * 1024; // 5MB
+
+  if (base64Size > maxSize) {
+    const actualSizeMB = (base64Size / 1024 / 1024).toFixed(2);
+    throw new Error(`Image too large. Maximum size is 5MB. Your image is ${actualSizeMB}MB.`);
+  }
+}
+
 /**
  * Gather context for AI analysis
  */
@@ -328,8 +535,8 @@ EFFICACY SCORE: ${efficacyScore}/5
 
 PREVIOUS INTERACTIONS AT THIS LOCATION:
 ${context.interactionHistory.length > 0
-  ? context.interactionHistory.map(i => `- ${i.date}: "${i.note}" (Score: ${i.efficacyScore}/5)`).join('\n')
-  : 'None - this is the first contact attempt'}
+      ? context.interactionHistory.map(i => `- ${i.date}: "${i.note}" (Score: ${i.efficacyScore}/5)`).join('\n')
+      : 'None - this is the first contact attempt'}
 
 YOUR JOB:
 Analyze what just happened and provide clear, actionable tactical guidance. Be direct and commanding - you're the boss giving orders, not making suggestions.
@@ -371,7 +578,9 @@ RESPOND NOW WITH VALID JSON ONLY:`;
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    const result = await model.generateContent(prompt);
+    const result = await retryWithBackoff(async () => {
+      return await model.generateContent(prompt);
+    });
     const responseText = result.response.text();
 
     // Extract JSON from response (Gemini sometimes wraps it in markdown)
@@ -447,7 +656,110 @@ function generateFallbackGuidance(note, efficacyScore) {
 
 module.exports = {
   analyzeInteraction: exports.analyzeInteraction,
+  analyzeEquipmentPhoto: exports.analyzeEquipmentPhoto,
   getAICommand: exports.getAICommand,
   completeScheduledAction: exports.completeScheduledAction,
-  getScheduledActions: exports.getScheduledActions
+  getScheduledActions: exports.getScheduledActions,
+  generateMissionIntel: exports.generateMissionIntel
 };
+
+/**
+ * generateMissionIntel - Pre-Mission Intelligence
+ *
+ * Generates a tactical briefing BEFORE the tech visits a location.
+ * Analyzes the business name and type to predict equipment and suggest talking points.
+ */
+exports.generateMissionIntel = onCall({ enforceAppCheck: false }, async (request) => {
+    const { locationId, locationName, locationAddress, locationType } = request.data;
+    const userId = request.auth ? request.auth.uid : 'anonymous';
+
+    if (!locationName) {
+        throw new Error('Location name is required');
+    }
+
+    // Rate limiting
+    const hourAgo = Date.now() - 60 * 60 * 1000;
+    const recentCalls = await getDb().collection('aiMissionIntel')
+        .where('userId', '==', userId)
+        .where('timestamp', '>', new Date(hourAgo))
+        .count()
+        .get();
+
+    if (recentCalls.data().count >= 50) {
+        console.warn('Rate limit exceeded for mission intel. Using fallback.');
+        return generateFallbackIntel(locationName, locationType);
+    }
+
+    // Check cache
+    const cacheKey = `intel-${locationId || locationName.replace(/\s+/g, '-').toLowerCase()}`;
+    const cached = await getCachedResponse(cacheKey);
+    if (cached) {
+        return { success: true, cached: true, ...cached };
+    }
+
+    try {
+        const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+        const prompt = `You are the AI Boss providing pre-mission intelligence for a refrigeration technician.
+Target: "${locationName}"
+Address: "${locationAddress || 'Unknown'}"
+Type: "${locationType || 'Commercial Business'}"
+
+Your goal: Equip the tech with specific knowledge to impress this specific potential customer.
+
+1. PREDICT EQUIPMENT: Based on the business name (e.g., "Sushi Bar" vs "Burger King" vs "Flower Shop"), what specific refrigeration/HVAC equipment do they likely have?
+2. PAIN POINTS: What are the specific headaches for this type of business? (e.g., Florist = humidity control; Sushi = precise temps).
+3. OPENER: A generic "hello" fails. Give a custom one-liner demonstrating you understand their business.
+
+Respond in valid JSON:
+{
+  "briefing": "2-sentence hook about why they need us SPECIFICALLY.",
+  "likelyEquipment": ["Item 1", "Item 2", "Item 3"],
+  "painPoints": ["Pain 1", "Pain 2"],
+  "suggestedOpener": "The specific one-liner script to use."
+}`;
+
+        const result = await retryWithBackoff(async () => {
+            return await model.generateContent(prompt);
+        });
+
+        const responseText = result.response.text();
+        const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+
+        if (!jsonMatch) {
+            throw new Error('Invalid AI response format');
+        }
+
+        const intel = JSON.parse(jsonMatch[0]);
+
+        // Cache the result
+        await setCachedResponse(cacheKey, intel);
+
+        // Track usage
+        await getDb().collection('aiMissionIntel').add({
+            locationId: locationId || 'unknown',
+            userId,
+            timestamp: admin.firestore.FieldValue.serverTimestamp(),
+            locationName,
+            intel
+        });
+
+        return { success: true, ...intel };
+
+    } catch (error) {
+        console.error('AI Mission Intel error:', error);
+        return generateFallbackIntel(locationName, locationType);
+    }
+});
+
+function generateFallbackIntel(name, type) {
+    return {
+        success: true,
+        fallback: true,
+        briefing: `Target is ${name}. Standard commercial refrigeration setup likely.`,
+        likelyEquipment: ["Walk-in Cooler", "Reach-in Freezer", "Ice Machine"],
+        painPoints: ["High energy bills", "Health department compliance"],
+        suggestedOpener: `Hi, checking if your refrigeration equipment is ready for the upcoming season?`
+    };
+}

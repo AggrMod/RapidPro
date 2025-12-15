@@ -1,0 +1,126 @@
+[
+  {
+    "date": "2025-12-10T04:10:09.342Z",
+    "results": [
+      {
+        "keyword": "commercial kitchen equipment repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:12.177Z"
+      },
+      {
+        "keyword": "commercial oven repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:17.206Z"
+      },
+      {
+        "keyword": "restaurant equipment repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:22.220Z"
+      },
+      {
+        "keyword": "restaurant equipment preventative maintenance memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:27.226Z"
+      },
+      {
+        "keyword": "commercial kitchen maintenance memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:32.238Z"
+      },
+      {
+        "keyword": "commercial fryer repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:37.252Z"
+      },
+      {
+        "keyword": "commercial griddle repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:42.262Z"
+      },
+      {
+        "keyword": "commercial dishwasher repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:47.274Z"
+      },
+      {
+        "keyword": "steam table repair memphis",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:52.294Z"
+      },
+      {
+        "keyword": "commercial kitchen repair germantown tn",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:09:57.310Z"
+      },
+      {
+        "keyword": "restaurant equipment repair bartlett tn",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:10:02.320Z"
+      },
+      {
+        "keyword": "commercial appliance repair collierville tn",
+        "position": null,
+        "foundUrl": null,
+        "checkedAt": "2025-12-10T04:10:07.335Z"
+      }
+    ]
+  },
+  {
+    "date": "2025-12-10T21:28:00.000Z",
+    "results": [
+      {
+        "keyword": "commercial kitchen equipment repair memphis",
+        "position": "top20",
+        "found": true,
+        "checkedAt": "2025-12-10T21:28:10.000Z"
+      },
+      {
+        "keyword": "commercial oven repair memphis",
+        "position": null,
+        "found": false,
+        "checkedAt": "2025-12-10T21:28:15.000Z"
+      },
+      {
+        "keyword": "commercial fryer repair memphis",
+        "position": "top20",
+        "found": true,
+        "checkedAt": "2025-12-10T21:28:20.000Z"
+      },
+      {
+        "keyword": "restaurant equipment repair memphis",
+        "position": "top20",
+        "found": true,
+        "checkedAt": "2025-12-10T21:28:25.000Z"
+      },
+      {
+        "keyword": "commercial dishwasher repair memphis",
+        "position": null,
+        "found": false,
+        "checkedAt": "2025-12-10T21:28:30.000Z"
+      },
+      {
+        "keyword": "ice machine repair memphis",
+        "position": null,
+        "found": false,
+        "checkedAt": "2025-12-10T21:28:35.000Z"
+      },
+      {
+        "keyword": "walk-in cooler repair memphis",
+        "position": null,
+        "found": false,
+        "checkedAt": "2025-12-10T21:28:40.000Z"
+      }
+    ]
+  }
+]
