@@ -239,6 +239,7 @@ Target competitor weaknesses with these articles:
 ### Week 1
 - [x] Add Schema.org markup to all pages
 - [x] Implement emergency service messaging
+- [x] Review and commit legal compliance updates (Strict Appliance Repair messaging)
 - [ ] Add testimonials/reviews section
 - [ ] Set up Google Business Profile
 - [ ] Write blog post #1 (preventative maintenance checklist)
