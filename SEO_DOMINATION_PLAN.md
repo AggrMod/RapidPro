@@ -242,6 +242,7 @@ Target competitor weaknesses with these articles:
 - [x] Review and commit legal compliance updates (Strict Appliance Repair messaging)
 - [ ] Add testimonials/reviews section
 - [ ] Set up Google Business Profile
+- [x] Write Troubleshooting Guides (Fridge, Oven, Ice Machine)
 - [ ] Write blog post #1 (preventative maintenance checklist)
 
 ### Week 2
