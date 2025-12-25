@@ -7,11 +7,7 @@ Allow: /
 # Sitemap location
 Sitemap: https://rapidpromemphis.com/sitemap.xml
 
-# Block test/dev files
-Disallow: /test-
-Disallow: /hello-claude.html
-Disallow: /given-flowers.html
-Disallow: /image-test.html
+# Block internal files
 Disallow: /dashboard.html
 Disallow: /functions/
 Disallow: /node_modules/
