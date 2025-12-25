@@ -108,8 +108,8 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "24/7 Emergency Appliance Repair",
-              "description": "Same-day emergency repair for commercial kitchen appliances in Memphis",
+              "name": "Commercial Appliance Repair",
+              "description": "Professional repair for commercial kitchen appliances in Memphis",
               "areaServed": "Memphis, TN"
             }
           },
@@ -277,86 +277,6 @@
         /* Ensure all containers respect viewport width */
         * {
             max-width: 100%;
-        }
-
-        /* Emergency Banner - Gemini's recommendation */
-        .emergency-banner {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
-            position: relative;
-            z-index: 1000;
-        }
-
-        .emergency-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .emergency-icon {
-            font-size: 1.4em;
-            animation: pulse 2s infinite;
-        }
-
-        .emergency-text {
-            font-size: 0.95em;
-            letter-spacing: 0.5px;
-        }
-
-        .emergency-divider {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .emergency-phone {
-            background: white;
-            color: #dc2626;
-            padding: 8px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .emergency-phone:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .emergency-banner {
-                padding: 10px 15px;
-            }
-
-            .emergency-text {
-                font-size: 0.85em;
-            }
-
-            .emergency-divider {
-                display: none;
-            }
-
-            .emergency-phone {
-                width: 100%;
-                margin-top: 5px;
-            }
         }
 
         /* Header - Sticky with hide on scroll down */
@@ -1505,17 +1425,6 @@
 </head>
 
 <body>
-    <!-- Emergency Banner -->
-    <div class="emergency-banner">
-        <div class="container emergency-content">
-            <span class="emergency-icon">⚡</span>
-            <span class="emergency-text">24/7 Emergency Service</span>
-            <span class="emergency-divider">|</span>
-            <span class="emergency-text">Same-Day Repairs Available</span>
-            <a href="tel:+19012579417" class="emergency-phone">📞 Call Now: (901) 257-9417</a>
-        </div>
-    </div>
-
     <!-- Header with Logo -->
     <header class="header" id="header">
         <div class="container">
@@ -1542,8 +1451,6 @@
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="memphis-restaurant-preventative-maintenance-checklist.html" style="color: #facc15;">✓
-                            Free Checklist</a></li>
                     <li><a href="#packages">Packages</a></li>
                     <li><a href="#industries">Industries</a></li>
                     <li><a href="mailto:R22subcooling@gmail.com" class="nav-cta">Contact</a></li>
@@ -1625,7 +1532,6 @@
                     <p>Our Memphis-based technicians provide fast response times when issues do arise. Available to
                         contract customers throughout the Memphis metro area.</p>
                     <ul class="service-details">
-                        <li>24/7 emergency availability</li>
                         <li>Priority scheduling</li>
                         <li>Remote diagnostics when possible</li>
                         <li>Parts procurement assistance</li>
@@ -1684,51 +1590,6 @@
         </div>
     </section>
 
-    <!-- Equipment Repair Services Section v2 -->
-    <section class="related-services" style="padding: 60px 0; background: #f5f5f5;">
-        <div class="container" style="flex-direction: column; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <h2 style="font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 16px; color: #1f2937;">
-                Equipment Repair Services</h2>
-            <div class="elegant-divider"
-                style="width: 80px; height: 4px; background: #facc15; margin: 0 auto 32px; border-radius: 2px;"></div>
-            <p
-                style="max-width: 800px; margin: 0 auto 40px; text-align: center; font-size: 18px; color: #666; line-height: 1.8;">
-                Need immediate repair? Our EPA certified technicians provide fast, professional service for all
-                commercial kitchen equipment.</p>
-            <div class="related-links"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
-                <a href="memphis-commercial-oven-repair.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Commercial Oven Repair</span></a>
-                <a href="memphis-commercial-fryer-repair.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Commercial Fryer Repair</span></a>
-                <a href="memphis-commercial-griddle-repair.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Griddle & Flat Top Repair</span></a>
-                <a href="memphis-commercial-dishwasher-repair.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Commercial Dishwasher
-                        Repair</span></a>
-                <a href="memphis-ice-machine-service.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Ice Machine Service</span></a>
-                <a href="memphis-steam-table-repair.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Steam Table Repair</span></a>
-                <a href="memphis-walk-in-cooler-maintenance.html"
-                    style="display: block; background: white; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08);"><span
-                        style="color: #1f2937; font-weight: 600; font-size: 16px;">Walk-In Cooler Maintenance</span></a>
-                <a href="memphis-commercial-refrigeration-services.html"
-                    style="display: block; background: #e0f2fe; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #0284c7;"><span
-                        style="color: #0369a1; font-weight: 700; font-size: 16px;">❄️ Refrigeration Services</span></a>
-                <a href="memphis-commercial-cooking-equipment-repair.html"
-                    style="display: block; background: #fef2f2; padding: 20px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #dc2626;"><span
-                        style="color: #b91c1c; font-weight: 700; font-size: 16px;">🔥 Cooking Equipment</span></a>
-            </div>
-        </div>
-    </section>
-
     <!-- Service Packages Section -->
     <section class="service-packages" id="packages">
         <div class="container" style="flex-direction: column;">
@@ -1780,7 +1641,6 @@
                             <li>Filter replacement (filters included)</li>
                             <li>Advanced temperature monitoring</li>
                             <li>Health department compliance prep</li>
-                            <li>24/7 emergency phone support</li>
                             <li>Priority scheduling</li>
                             <li>Detailed digital documentation</li>
                         </ul>
@@ -1807,7 +1667,7 @@
                             <li>All filters and parts included</li>
                             <li>Real-time temperature monitoring</li>
                             <li>Complete compliance management</li>
-                            <li>24/7 emergency on-site support</li>
+                            <li>Emergency support available</li>
                             <li>Dedicated account manager</li>
                             <li>Custom maintenance scheduling</li>
                             <li>Equipment lifecycle planning</li>
