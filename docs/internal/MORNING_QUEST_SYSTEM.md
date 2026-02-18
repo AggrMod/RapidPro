@@ -213,7 +213,7 @@ Stored in Firestore: `dailyQuests/{userId}_{date}`
 ## 💡 Next Steps
 
 1. **Frontend Integration**: Add quest UI to `public/index.html`
-2. **Test with Real User**: Generate quests for `rapidpro.memphis@gmail.com`
+2. **Test with Real User**: Generate quests for `RapidPro.Memphis@gmail.com`
 3. **Add Notifications**: Firebase Cloud Messaging setup
 4. **Scheduled Function**: Test nightly generation (currently set for 9 PM)
 5. **Voice Logging**: Add speech-to-text for mission debriefs

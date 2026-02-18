@@ -55,7 +55,7 @@ function hasRole(role) {
 ```
 
 **Possible Causes:**
-1. User `rapidpro.memphis@gmail.com` may not have a user document in Firestore
+1. User `RapidPro.Memphis@gmail.com` may not have a user document in Firestore
 2. User document may exist but lack the `role` field
 3. Frontend code may be trying to write incorrect data structure
 4. Client-side Firestore write may be failing before Cloud Function is called
@@ -66,7 +66,7 @@ function hasRole(role) {
 
 ### Test 1: Dashboard Load ✅ SUCCESS
 - URL: https://rapidpro-memphis.web.app/dashboard.html
-- User: rapidpro.memphis@gmail.com (authenticated)
+- User: RapidPro.Memphis@gmail.com (authenticated)
 - Stats displayed: 23 missions, 17 pending, 3.7 avg rating
 - Map: 52 locations rendering (2 skipped due to invalid coordinates)
 
@@ -132,7 +132,7 @@ Due to the permission error, the following features remain untested:
 ## 🔧 Required Next Steps
 
 ### Step 1: Verify User Document Exists
-Check if `rapidpro.memphis@gmail.com` has a document in `/users/{uid}`:
+Check if `RapidPro.Memphis@gmail.com` has a document in `/users/{uid}`:
 ```bash
 # In Firebase Console:
 # Firestore Database → users collection → Search for user document
@@ -142,7 +142,7 @@ Check if `rapidpro.memphis@gmail.com` has a document in `/users/{uid}`:
 If user document exists but lacks `role` field:
 ```javascript
 {
-  email: "rapidpro.memphis@gmail.com",
+  email: "RapidPro.Memphis@gmail.com",
   role: "technician",  // ADD THIS
   createdAt: timestamp
 }
@@ -152,7 +152,7 @@ If user document exists but lacks `role` field:
 If no user document exists, create one:
 ```javascript
 {
-  email: "rapidpro.memphis@gmail.com",
+  email: "RapidPro.Memphis@gmail.com",
   role: "technician",
   name: "Field Technician",
   createdAt: serverTimestamp()
@@ -241,7 +241,7 @@ To claim "interaction logging works", we need to prove:
 ### Browser Environment:
 - Platform: Windows
 - URL: https://rapidpro-memphis.web.app/dashboard.html
-- User: rapidpro.memphis@gmail.com (authenticated)
+- User: RapidPro.Memphis@gmail.com (authenticated)
 - Firebase Auth: Working
 - Firestore Connection: Working
 
@@ -250,7 +250,7 @@ To claim "interaction logging works", we need to prove:
 Error: Error logging door knock: FirebaseError: Missing or insufficient permissions.
 Collection: contactAttempts
 Operation: create
-User: rapidpro.memphis@gmail.com
+User: RapidPro.Memphis@gmail.com
 ```
 
 ### Cloud Function Logs:

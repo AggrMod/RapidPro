@@ -1,7 +1,7 @@
 # Gemini Testing Todo List - RapidPro Memphis
 
 **URL**: https://rapidpro-memphis.web.app
-**Email**: `rapidpro.memphis@gmail.com`
+**Email**: `RapidPro.Memphis@gmail.com`
 **Password**: `RapidPro2025!`
 
 ---
@@ -16,7 +16,7 @@
 ---
 
 ### Test 1: Login & Authentication
-- [ ] Enter email: `rapidpro.memphis@gmail.com`
+- [ ] Enter email: `RapidPro.Memphis@gmail.com`
 - [ ] Enter password: `RapidPro2025!`
 - [ ] Click "ACCESS SYSTEM"
 - [ ] ✅ Verify dashboard loads (3-5 seconds)

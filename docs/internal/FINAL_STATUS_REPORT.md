@@ -37,7 +37,7 @@ The RapidPro Memphis gamified field operations system has been **95% deployed an
 
 ### Authentication ✅
 - [x] Email/Password authentication enabled
-- [x] Test user created: `rapidpro.memphis@gmail.com`
+- [x] Test user created: `RapidPro.Memphis@gmail.com`
 - [x] Security rules configured
 - [x] Login/logout functionality working
 
@@ -131,7 +131,7 @@ firebase deploy --only functions
 **Step 2: Test the Application**
 
 1. Navigate to: https://rapidpro-memphis.web.app
-2. Log in with: `rapidpro.memphis@gmail.com` / `RapidPro2025!`
+2. Log in with: `RapidPro.Memphis@gmail.com` / `RapidPro2025!`
 3. Click "CLOCK IN - GET MISSION"
 4. Verify you receive a mission assignment
 5. Complete the workflow to test all features

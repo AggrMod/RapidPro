@@ -14,7 +14,7 @@
 
 ### 2. Authentication
 - **Email/Password Provider**: Enabled ✅
-- **Test User Created**: rapidpro.memphis@gmail.com ✅
+- **Test User Created**: RapidPro.Memphis@gmail.com ✅
 - **Login Functionality**: Working ✅
 
 ### 3. Cloud Functions Deployment

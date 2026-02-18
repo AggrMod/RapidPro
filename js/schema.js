@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "image": "https://rapidpromemphis.com/images/logo.png",
     "url": "https://rapidpromemphis.com",
     "telephone": "+19012579417",
-    "email": "rapidpro.memphis@gmail.com",
+    "email": "RapidPro.Memphis@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Memphis",

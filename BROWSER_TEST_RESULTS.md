@@ -11,7 +11,7 @@
 ### 1. Dashboard Load ✅
 - **URL:** https://rapidpro-memphis.web.app/dashboard.html
 - **Status:** SUCCESS
-- **User:** rapidpro.memphis@gmail.com (authenticated)
+- **User:** RapidPro.Memphis@gmail.com (authenticated)
 - **Performance Stats Displayed:**
   - 23 missions completed today
   - 18 pending locations in target queue
@@ -64,7 +64,7 @@ Our new enhanced security rules are working perfectly! The rules now require:
 4. Role-based permissions enforced
 
 **Current User Status:**
-- User `rapidpro.memphis@gmail.com` is authenticated
+- User `RapidPro.Memphis@gmail.com` is authenticated
 - User document may not have `role` field set
 - Security rules are correctly blocking write without proper role
 
@@ -85,7 +85,7 @@ To enable full testing, we need to add the `role` field to existing users:
 1. Go to Firebase Console
 2. Navigate to Firestore Database
 3. Find collection: users
-4. Find document: {userId for rapidpro.memphis@gmail.com}
+4. Find document: {userId for RapidPro.Memphis@gmail.com}
 5. Add field: role = "technician" (or "admin")
 ```
 

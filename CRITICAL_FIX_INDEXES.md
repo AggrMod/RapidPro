@@ -115,7 +115,7 @@ firebase deploy --only firestore:indexes
 
 **How to Check Status:**
 1. Go to Firebase Console: https://console.firebase.google.com/project/rapidpro-memphis/firestore/indexes
-2. Sign in with project owner account: rapidpro.memphis@gmail.com
+2. Sign in with project owner account: RapidPro.Memphis@gmail.com
 3. Check index status (should show "Building" → "Enabled")
 
 ---

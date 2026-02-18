@@ -11,7 +11,7 @@
 **Live Application URL**: https://rapidpro-memphis.web.app
 
 **Test User Credentials:**
-- **Email**: `rapidpro.memphis@gmail.com`
+- **Email**: `RapidPro.Memphis@gmail.com`
 - **Password**: `RapidPro2025!`
 
 ---
@@ -29,14 +29,14 @@
    - Email input field
    - Password input field
    - "ACCESS SYSTEM" button
-3. [ ] Enter email: `rapidpro.memphis@gmail.com`
+3. [ ] Enter email: `RapidPro.Memphis@gmail.com`
 4. [ ] Enter password: `RapidPro2025!`
 5. [ ] Click "ACCESS SYSTEM" button
 6. [ ] Wait 3-5 seconds for login to complete
 
 **Expected Results:**
 - ✅ Dashboard loads successfully
-- ✅ User email displayed in header: "rapidpro.memphis@gmail.com"
+- ✅ User email displayed in header: "RapidPro.Memphis@gmail.com"
 - ✅ "FIELD OPS COMMAND" header visible
 - ✅ "LOGOUT" button visible
 - ✅ No error messages
@@ -372,7 +372,7 @@ If you have access to Firebase Console:
 
 3. **Check Authentication:**
    - Navigate to Authentication section
-   - Verify test user exists: rapidpro.memphis@gmail.com
+   - Verify test user exists: RapidPro.Memphis@gmail.com
    - Check last sign-in time
 
 ---
@@ -393,7 +393,7 @@ For context and understanding, review these files in `/home/terry/rapidpro-game/
 ### Issue: Login fails
 **Solution**:
 - Double-check credentials are typed exactly:
-  - Email: `rapidpro.memphis@gmail.com` (all lowercase)
+  - Email: `RapidPro.Memphis@gmail.com` (all lowercase)
   - Password: `RapidPro2025!` (case-sensitive, includes !)
 
 ### Issue: "User must be authenticated" error

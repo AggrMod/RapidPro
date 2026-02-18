@@ -60,7 +60,7 @@ Tested the complete user workflow:
 - Total workflow: < 5 minutes
 
 **Test Credentials**:
-- Email: rapidpro.memphis@gmail.com
+- Email: RapidPro.Memphis@gmail.com
 - Password: RapidPro2025!
 
 ---

@@ -1,8 +1,8 @@
 // Script to update email addresses across the site
-// This file documents the email change from info@rapidpromaintenance.com to rapidpro.memphis@gmail.com
+// This file documents the email change from info@rapidpromaintenance.com to RapidPro.Memphis@gmail.com
 
 const OLD_EMAIL = "info@rapidpromaintenance.com";
-const NEW_EMAIL = "rapidpro.memphis@gmail.com";
+const NEW_EMAIL = "RapidPro.Memphis@gmail.com";
 
 // Files that need to be updated:
 // - index.html (multiple occurrences)

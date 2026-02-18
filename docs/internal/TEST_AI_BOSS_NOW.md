@@ -86,7 +86,7 @@ Scheduled: {time: "2025-11-16T09:00:00Z", action: "Follow up with emergency serv
 
 Open **https://rapidpro-memphis.web.app/public/** on your phone
 
-Login with: **rapidpro.memphis@gmail.com**
+Login with: **RapidPro.Memphis@gmail.com**
 
 ### Step 2: Get a Mission
 

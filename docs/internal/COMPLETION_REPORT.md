@@ -358,7 +358,7 @@ Once you confirm the AI Boss works, I can build Phase 2:
 
 **Solution:**
 1. Login to dashboard first: https://rapidpro-memphis.web.app/public/
-2. Use email: rapidpro.memphis@gmail.com
+2. Use email: RapidPro.Memphis@gmail.com
 3. Then try test page again
 
 #### 500 Error on Function

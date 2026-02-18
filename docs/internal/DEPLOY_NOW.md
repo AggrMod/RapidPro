@@ -121,7 +121,7 @@ Total locations in database: 15
 ## 🎯 STEP 5: Test the Map
 
 1. **Visit:** https://rapidpro-memphis.web.app
-2. **Login with:** rapidpro.memphis@gmail.com
+2. **Login with:** RapidPro.Memphis@gmail.com
 3. **Press F12** to open browser console
 4. **Look for these success messages:**
 

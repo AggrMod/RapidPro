@@ -17,7 +17,7 @@
 6. Created todo list with 13 tasks
 
 ### ❌ Blocked:
-**Critical Issue:** User rapidpro.memphis@gmail.com missing `role` field in Firestore user document
+**Critical Issue:** User RapidPro.Memphis@gmail.com missing `role` field in Firestore user document
 
 **Error:** `FirebaseError: Missing or insufficient permissions` when logging interactions
 
@@ -36,7 +36,7 @@
 **Quick Fix Option - Firebase Console:**
 1. Go to: https://console.firebase.google.com/project/rapidpro-memphis/firestore/data
 2. Navigate to `users` collection
-3. Find document for rapidpro.memphis@gmail.com
+3. Find document for RapidPro.Memphis@gmail.com
 4. Add field: `role = "technician"`
 
 **OR - Code Fix (Better):**

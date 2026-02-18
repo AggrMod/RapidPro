@@ -12,7 +12,7 @@
 
 **You:**
 1. Open https://rapidpro-memphis.web.app/public/
-2. Login with rapidpro.memphis@gmail.com
+2. Login with RapidPro.Memphis@gmail.com
 3. Look at screen
 
 **AI Shows:**
