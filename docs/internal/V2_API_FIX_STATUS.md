@@ -130,7 +130,7 @@ The frontend may have cached the old function responses. Either:
 ### Step 3: Test Mission Workflow
 
 1. Navigate to: https://rapidpro-memphis.web.app
-2. Log in with: `r22subcooling@gmail.com` / `RapidPro2025!`
+2. Log in with: `rapidpro.memphis@gmail.com` / `RapidPro2025!`
 3. Click "CLOCK IN - GET MISSION"
 4. **Expected**: Mission assignment appears (no 401 error)
 5. Complete the workflow:

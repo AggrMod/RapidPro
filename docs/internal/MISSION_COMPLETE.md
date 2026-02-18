@@ -67,7 +67,7 @@ exports.getNextMission = onCall({ enforceAppCheck: false }, async (request) => {
 ### Test Performed (October 17, 2025)
 
 **1. User Login** ✅
-- Logged in as: r22subcooling@gmail.com
+- Logged in as: rapidpro.memphis@gmail.com
 - Dashboard loaded successfully
 - Initial KPIs displayed (all zeros)
 
@@ -122,7 +122,7 @@ Verified in Firestore:
 - Average Efficacy: 5.0 stars
 - Total Operations: 1
 
-**Test User**: r22subcooling@gmail.com
+**Test User**: rapidpro.memphis@gmail.com
 - KPIs initialized
 - First mission completed
 - Ready for production use
@@ -267,7 +267,7 @@ rapidpro-game/
 - **Hosting**: https://console.firebase.google.com/project/rapidpro-memphis/hosting
 
 ### Test Credentials
-- **Email**: r22subcooling@gmail.com
+- **Email**: rapidpro.memphis@gmail.com
 - **Password**: RapidPro2025!
 
 ### Local Project

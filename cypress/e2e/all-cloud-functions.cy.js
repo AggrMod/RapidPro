@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('RapidPro Memphis - All Cloud Functions Test', () => {
-  const testEmail = 'r22subcooling@gmail.com';
+  const testEmail = 'rapidpro.memphis@gmail.com';
   const testPassword = 'RapidPro2025!';
 
   let missionLocationId;

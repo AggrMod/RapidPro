@@ -7,7 +7,7 @@
 ## 📋 Changes Deployed
 
 ### 1. 🔧 Critical Fixes
-- **User Role Initialization:** Updated `initializeUser` in `functions/index.js` to explicitly set `role: 'technician'`. This fixes the "Missing or insufficient permissions" error for new/existing users like `r22subcooling@gmail.com`.
+- **User Role Initialization:** Updated `initializeUser` in `functions/index.js` to explicitly set `role: 'technician'`. This fixes the "Missing or insufficient permissions" error for new/existing users like `rapidpro.memphis@gmail.com`.
 
 ### 2. 🧠 AI Enhancements (AI Boss)
 - **Response Caching:** Implemented MD5-based caching for AI responses.

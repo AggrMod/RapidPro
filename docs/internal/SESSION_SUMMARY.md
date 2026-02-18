@@ -60,7 +60,7 @@ Tested the complete user workflow:
 - Total workflow: < 5 minutes
 
 **Test Credentials**:
-- Email: r22subcooling@gmail.com
+- Email: rapidpro.memphis@gmail.com
 - Password: RapidPro2025!
 
 ---

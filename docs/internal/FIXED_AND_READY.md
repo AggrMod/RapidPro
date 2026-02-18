@@ -33,7 +33,7 @@
    - **Test Rejection** - Already has vendor
 3. Watch the AI analyze in real-time!
 
-**Note:** This uses your existing r22subcooling@gmail.com credentials automatically.
+**Note:** This uses your existing rapidpro.memphis@gmail.com credentials automatically.
 
 ### Option 2: Full Test Suite
 
@@ -99,7 +99,7 @@ If you see: `❌ Auth failed: ...`
 
 **Solution:**
 1. Login to dashboard first: https://rapidpro-memphis.web.app/public/
-2. Use email: r22subcooling@gmail.com
+2. Use email: rapidpro.memphis@gmail.com
 3. Then try the test page again
 
 ### 500 Error on Function

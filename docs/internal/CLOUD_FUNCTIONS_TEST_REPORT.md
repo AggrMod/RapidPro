@@ -233,7 +233,7 @@ All 5 Firebase Cloud Functions (v2 API) have been **successfully deployed and te
 
 **Test Input:**
 - New user authentication
-- Email: r22subcooling@gmail.com
+- Email: rapidpro.memphis@gmail.com
 - UID: [Firebase Auth UID]
 
 **Test Steps:**
@@ -255,7 +255,7 @@ All 5 Firebase Cloud Functions (v2 API) have been **successfully deployed and te
 ```json
 {
   "uid": "[user-uid]",
-  "email": "r22subcooling@gmail.com",
+  "email": "rapidpro.memphis@gmail.com",
   "currentLocationId": null,
   "totalMissionsCompleted": 0,
   "createdAt": "2025-10-17T..."
