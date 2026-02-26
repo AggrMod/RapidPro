@@ -32,7 +32,7 @@ export function Header() {
                 }}
             >
                 <div className="container flex justify-between items-center">
-                    <Link href="/" className="text-white font-bold" style={{ fontSize: '1.5rem', letterSpacing: '-1px' }}>
+                    <Link href="/" className="text-white font-bold" style={{ fontSize: '3rem', letterSpacing: '-1px' }}>
                         RAPID<span className="text-primary">PRO</span>
                     </Link>
 
@@ -67,7 +67,7 @@ export function Header() {
                         <a href="tel:9012579417" className="hidden md:flex btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>
                             Call (901) 257-9417
                         </a>
-                        <button className="md:hidden text-white" style={{ background: 'none', border: 'none', fontSize: '1.5rem' }} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <button className="md:hidden text-white" style={{ background: 'none', border: 'none', fontSize: '3rem' }} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                             {isMobileMenuOpen ? "✕" : "☰"}
                         </button>
                     </div>
@@ -77,9 +77,9 @@ export function Header() {
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
                 <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6" style={{ background: 'hsla(224, 48%, 8%, 0.98)', backdropFilter: 'blur(20px)' }}>
-                    <Link href="/" className="text-white font-bold" style={{ fontSize: '2rem' }}>Home</Link>
-                    <Link href="/services/commercial-oven-repair" className="text-white font-bold" style={{ fontSize: '1.5rem' }}>Ovens</Link>
-                    <Link href="/services/commercial-fryer-repair" className="text-white font-bold" style={{ fontSize: '1.5rem' }}>Fryers</Link>
+                    <Link href="/" className="text-white font-bold" style={{ fontSize: '4rem' }}>Home</Link>
+                    <Link href="/services/commercial-oven-repair" className="text-white font-bold" style={{ fontSize: '3rem' }}>Ovens</Link>
+                    <Link href="/services/commercial-fryer-repair" className="text-white font-bold" style={{ fontSize: '3rem' }}>Fryers</Link>
                     <a href="tel:9012579417" className="btn btn-primary" style={{ fontSize: '1.2rem', marginTop: '2rem' }}>Call Now</a>
                 </div>
             )}

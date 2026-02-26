@@ -1,8 +1,8 @@
 /* Fix for oversized footer logo */
 .footer .logo {
   width: auto;
-  height: 60px !important; /* Fixed height for better control */
-  max-width: 200px !important; /* Maximum width to prevent oversizing */
+  height: 120px !important; /* Fixed height for better control */
+  max-width: 400px !important; /* Maximum width to prevent oversizing */
 }
 
 /* Fix for horizontal scrolling issue */
