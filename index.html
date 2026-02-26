@@ -339,20 +339,20 @@
 
         @media (max-width: 768px) {
             .emergency-banner {
-                padding: 4px 6px;
+                padding: 6px 10px;
             }
             
             .emergency-content {
-                gap: 6px;
-                flex-direction: row;
-                flex-wrap: nowrap;
+                gap: 4px;
+                flex-direction: column-reverse;
                 justify-content: center;
             }
 
             .emergency-message {
                 flex-direction: row;
                 gap: 4px;
-                width: auto;
+                width: 100%;
+                justify-content: center;
                 flex-wrap: nowrap;
             }
 
@@ -361,12 +361,13 @@
             }
 
             .emergency-text {
-                font-size: 0.7em;
+                font-size: 0.75em;
                 white-space: nowrap;
             }
 
             .emergency-divider {
-                display: none; 
+                display: inline;
+                font-size: 0.75em;
             }
             
             .emergency-text:nth-child(2) {
@@ -376,8 +377,8 @@
             .emergency-phone {
                 width: auto;
                 max-width: none;
-                padding: 4px 10px;
-                font-size: 0.7em;
+                padding: 6px 20px;
+                font-size: 0.9em;
             }
         }
 
