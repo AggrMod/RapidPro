@@ -1,6 +1,6 @@
 # Preventative Maintenance Checklist Q&A for Memphis Commercial Kitchens
 
-![Commercial kitchen preventative maintenance tools and checklist layout](../../../assets/images/troubleshooting/preventative-maintenance-checklist-tools-memphis.png)
+![Commercial kitchen preventative maintenance tools and checklist layout](../../../assets/images/troubleshooting/commercial-kitchen-preventative-maintenance-checklist-tools-memphis-tn.png)
 
 Use this as a publishable companion to your maintenance checklist page so search traffic captures both informational and service intent.
 
@@ -62,3 +62,4 @@ When temperature cannot be maintained, alarms persist, breakers trip repeatedly,
 - commercial kitchen preventative maintenance checklist memphis
 - restaurant refrigeration maintenance memphis
 - walk in cooler maintenance checklist
+

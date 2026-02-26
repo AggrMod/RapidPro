@@ -1,6 +1,6 @@
 # Commercial Ice Machine Not Making Ice in Memphis: Fast Q&A Guide
 
-![Technician diagnosing a commercial ice machine with low ice production](../../../assets/images/troubleshooting/ice-machine-no-ice-diagnostic-memphis.png)
+![Technician diagnosing a commercial ice machine with low ice production](../../../assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.png)
 
 If production drops or stops, this Q&A helps kitchen teams isolate common causes before a service call.
 
@@ -70,3 +70,4 @@ A:
 - commercial ice machine not making ice memphis
 - ice machine repair memphis tn
 - restaurant ice machine troubleshooting memphis
+

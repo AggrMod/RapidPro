@@ -1,10 +1,10 @@
 # Reach-In Cooler Not Keeping Temp in Memphis: Quick Q&A for Restaurant Teams
 
-![Technician checking a reach-in cooler temperature issue in a Memphis commercial kitchen](../../../assets/images/troubleshooting/reach-in-cooler-temp-check-memphis.png)
+![Technician checking a reach-in cooler temperature issue in a Memphis commercial kitchen](../../../assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.png)
 
 If your reach-in cooler is running but product temperature is climbing, use this quick field checklist before calling for service.
 
-![Service technician inspecting refrigeration equipment in a Memphis commercial kitchen](../../../assets/images/troubleshooting/reach-in-cooler-service-tech-memphis.png)
+![Service technician inspecting refrigeration equipment in a Memphis commercial kitchen](../../../assets/images/troubleshooting/reach-in-cooler-service-technician-commercial-kitchen-memphis-tn.png)
 
 ## Who this is for
 
@@ -83,3 +83,4 @@ High ambient kitchen temperatures and frequent door openings increase refrigerat
 - reach-in cooler not keeping temp memphis
 - commercial reach-in cooler repair memphis
 - restaurant cooler temperature problems memphis
+

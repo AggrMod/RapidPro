@@ -30,9 +30,10 @@ This folder contains SEO-ready markdown drafts focused on the highest-interest p
 
 ## Image set used
 
-- `assets/images/troubleshooting/reach-in-cooler-temp-check-memphis.png`
-- `assets/images/troubleshooting/walk-in-cooler-gasket-inspection-memphis.png`
-- `assets/images/troubleshooting/ice-machine-no-ice-diagnostic-memphis.png`
-- `assets/images/troubleshooting/refrigeration-breaker-panel-check-memphis.png`
-- `assets/images/troubleshooting/preventative-maintenance-checklist-tools-memphis.png`
-- `assets/images/troubleshooting/reach-in-cooler-service-tech-memphis.png` (extra image for homepage/supporting section)
+- `assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.png`
+- `assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.png`
+- `assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.png`
+- `assets/images/troubleshooting/commercial-refrigeration-breaker-panel-troubleshooting-memphis-tn.png`
+- `assets/images/troubleshooting/commercial-kitchen-preventative-maintenance-checklist-tools-memphis-tn.png`
+- `assets/images/troubleshooting/reach-in-cooler-service-technician-commercial-kitchen-memphis-tn.png` (extra image for homepage/supporting section)
+

@@ -1,6 +1,6 @@
 # Commercial Refrigeration Not Cooling in Memphis: Practical Q&A for Operators
 
-![Technician and kitchen staff reviewing refrigeration circuit breakers and controls](../../../assets/images/troubleshooting/refrigeration-breaker-panel-check-memphis.png)
+![Technician and kitchen staff reviewing refrigeration circuit breakers and controls](../../../assets/images/troubleshooting/commercial-refrigeration-breaker-panel-troubleshooting-memphis-tn.png)
 
 This page is designed for fast triage when prep-line, reach-in, or remote refrigeration systems stop holding temperature.
 
@@ -59,3 +59,4 @@ A:
 - commercial refrigeration not cooling memphis
 - commercial cooler repair memphis tn
 - restaurant refrigeration emergency repair memphis
+
