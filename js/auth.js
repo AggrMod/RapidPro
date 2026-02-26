@@ -2,6 +2,16 @@
 
 let currentUser = null;
 window.currentUser = null;  // Make globally accessible
+// Keep this allowlist aligned with Cloud Functions/firestore.rules.
+const INTERNAL_DASHBOARD_EMAILS = (window.INTERNAL_DASHBOARD_EMAILS || [
+  'r22subcooling@gmail.com',
+  'rapidpro.memphis@gmail.com',
+  'test@rapidpro.com'
+]).map((email) => String(email).trim().toLowerCase());
+
+function isInternalDashboardUser(email) {
+  return INTERNAL_DASHBOARD_EMAILS.includes(String(email || '').trim().toLowerCase());
+}
 
 // Set persistence to LOCAL so users stay logged in after refresh
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
@@ -9,6 +19,14 @@ auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
     // Check auth state on page load
     auth.onAuthStateChanged(async (user) => {
       if (user) {
+        const normalizedEmail = String(user.email || '').trim().toLowerCase();
+        if (!isInternalDashboardUser(normalizedEmail)) {
+          await auth.signOut();
+          showLogin();
+          document.getElementById('login-error').textContent = 'Access restricted to internal staff.';
+          return;
+        }
+
         currentUser = user;
         window.currentUser = user;  // Update global reference
         showDashboard();

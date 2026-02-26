@@ -9,6 +9,25 @@ const aiBoss = require('./ai-boss');
 admin.initializeApp();
 const db = admin.firestore();
 
+// Comma-separated allowlist. Set INTERNAL_USER_EMAILS in Firebase Functions env to override.
+const INTERNAL_USER_EMAILS = (process.env.INTERNAL_USER_EMAILS || 'r22subcooling@gmail.com,rapidpro.memphis@gmail.com,test@rapidpro.com')
+  .split(',')
+  .map((email) => email.trim().toLowerCase())
+  .filter(Boolean);
+
+function assertInternalUser(request) {
+  if (!request.auth) {
+    throw new Error('User must be authenticated');
+  }
+
+  const email = (request.auth.token?.email || '').trim().toLowerCase();
+  if (!email || !INTERNAL_USER_EMAILS.includes(email)) {
+    throw new Error('Access denied: internal users only');
+  }
+
+  return email;
+}
+
 /**
  * Calculate distance between two geographic points
  */
@@ -34,10 +53,7 @@ function deg2rad(deg) {
  * Finds the nearest pending location to the user's current position
  */
 exports.getNextMission = onCall({ enforceAppCheck: false }, async (request) => {
-  // Verify authentication
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  assertInternalUser(request);
 
   const { currentLat, currentLng } = request.data;
 
@@ -166,9 +182,7 @@ async function generateIntroScriptInternal(location) {
 }
 
 exports.generateIntroScript = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  assertInternalUser(request);
 
   const { locationId } = request.data;
 
@@ -196,9 +210,7 @@ exports.generateIntroScript = onCall({ enforceAppCheck: false }, async (request)
  * Records details of a location visit including notes, images, and efficacy rating
  */
 exports.logInteraction = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  assertInternalUser(request);
 
   const {
     locationId,
@@ -299,9 +311,7 @@ async function updateKPIsInternal(userId, newEfficacyScore) {
 }
 
 exports.getKPIs = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  assertInternalUser(request);
 
   try {
     const kpisDoc = await db.collection('kpis').doc(request.auth.uid).get();
@@ -334,9 +344,7 @@ exports.getKPIs = onCall({ enforceAppCheck: false }, async (request) => {
  * Initialize user data - called once when user first signs up
  */
 exports.initializeUser = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  const callerEmail = assertInternalUser(request);
 
   try {
     const userId = request.auth.uid;
@@ -355,7 +363,7 @@ exports.initializeUser = onCall({ enforceAppCheck: false }, async (request) => {
     // Create user profile WITH ROLE
     await userRef.set({
       uid: userId,
-      email: request.auth.token.email,
+      email: callerEmail,
       role: 'technician',
       currentLocationId: null,
       totalMissionsCompleted: 0,
@@ -382,9 +390,7 @@ exports.initializeUser = onCall({ enforceAppCheck: false }, async (request) => {
 });
 
 exports.createUser = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated to create other users');
-  }
+  assertInternalUser(request);
 
   const { email, password } = request.data;
 
@@ -392,9 +398,14 @@ exports.createUser = onCall({ enforceAppCheck: false }, async (request) => {
     throw new Error('Email and password are required');
   }
 
+  const normalizedEmail = String(email).trim().toLowerCase();
+  if (!INTERNAL_USER_EMAILS.includes(normalizedEmail)) {
+    throw new Error('Email is not in INTERNAL_USER_EMAILS allowlist');
+  }
+
   try {
     const userRecord = await admin.auth().createUser({
-      email: email,
+      email: normalizedEmail,
       password: password,
     });
     return { success: true, uid: userRecord.uid, email: userRecord.email };
@@ -437,7 +448,7 @@ async function generateMissionBriefingWithGemini(location) {
 }
 
 exports.generateDailyQuests = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) throw new Error('User must be authenticated');
+  assertInternalUser(request);
 
   const { questDate, userLat, userLng, questCount } = request.data;
   const userId = request.auth.uid;
@@ -506,7 +517,7 @@ exports.generateDailyQuests = onCall({ enforceAppCheck: false }, async (request)
 });
 
 exports.getDailyQuests = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) throw new Error('User must be authenticated');
+  assertInternalUser(request);
 
   const { questDate } = request.data;
   const userId = request.auth.uid;
@@ -525,7 +536,7 @@ exports.getDailyQuests = onCall({ enforceAppCheck: false }, async (request) => {
 });
 
 exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) throw new Error('User must be authenticated');
+  assertInternalUser(request);
 
   const { questDate, questNumber, xpEarned } = request.data;
   const userId = request.auth.uid;
@@ -571,9 +582,7 @@ exports.completeQuest = onCall({ enforceAppCheck: false }, async (request) => {
  * Takes an "interested" prospect and converts them into a qualified lead with equipment survey
  */
 exports.convertLeadToCustomer = onCall({ enforceAppCheck: false }, async (request) => {
-  if (!request.auth) {
-    throw new Error('User must be authenticated');
-  }
+  assertInternalUser(request);
 
   const {
     locationId,

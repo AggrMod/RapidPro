@@ -1,49 +1,59 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isInternalUser() {
+      return request.auth != null
+        && request.auth.token.email != null
+        && request.auth.token.email.lower() in [
+          'r22subcooling@gmail.com',
+          'rapidpro.memphis@gmail.com',
+          'test@rapidpro.com'
+        ];
+    }
+
     // User profile - only authenticated user can read/write their own data
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read, write: if isInternalUser() && request.auth.uid == userId;
     }
     
     // Locations - authenticated user can read/write all
     match /locations/{locationId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
     
     // Interactions - authenticated user can read/write all
     match /interactions/{interactionId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
     
     // KPIs - authenticated user can read/write
     match /kpis/{kpiId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
 
     // Contact Attempts (door knocks) - authenticated user can read/write all
     match /contactAttempts/{attemptId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
 
     // Scheduled Actions - authenticated user can read/write all
     match /scheduledActions/{actionId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
 
     // AI Decisions - authenticated user can read/write all
     match /aiDecisions/{decisionId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
 
     // Daily Quests - authenticated user can read/write all
     match /dailyQuests/{questId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
 
     // Work Orders - authenticated user can read/write all
     match /workOrders/{workOrderId} {
-      allow read, write: if request.auth != null;
+      allow read, write: if isInternalUser();
     }
   }
 }
