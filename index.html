@@ -288,67 +288,93 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-message {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .emergency-icon {
-            font-size: 1.4em;
+            font-size: 1.2em;
             animation: pulse 2s infinite;
         }
 
         .emergency-text {
             font-size: 0.95em;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         .emergency-divider {
             color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
         }
 
         .emergency-phone {
             background: white;
             color: #dc2626;
-            padding: 8px 20px;
-            border-radius: 25px;
+            padding: 8px 24px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 0.95em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
         }
 
         .emergency-phone:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         @media (max-width: 768px) {
             .emergency-banner {
-                padding: 10px 15px;
+                padding: 12px 16px;
+            }
+            
+            .emergency-content {
+                gap: 12px;
+                flex-direction: column;
+            }
+
+            .emergency-message {
+                flex-direction: row;
+                gap: 8px;
+                width: 100%;
             }
 
             .emergency-text {
-                font-size: 0.85em;
+                font-size: 0.9em;
+                white-space: normal;
             }
 
             .emergency-divider {
-                display: none;
+                display: none; 
+            }
+            
+            /* Stack the text on very small screens if needed, or just let it wrap naturally */
+            .emergency-text:nth-child(2) {
+                 /* 24/7 text */
+                 font-weight: 700;
             }
 
             .emergency-phone {
                 width: 100%;
-                margin-top: 5px;
+                max-width: 400px;
+                padding: 10px 0;
+                font-size: 1em;
             }
         }
 
@@ -1508,10 +1534,12 @@
     <!-- Emergency Banner -->
     <div class="emergency-banner">
         <div class="container emergency-content">
-            <span class="emergency-icon">⚡</span>
-            <span class="emergency-text">24/7 Emergency Service</span>
-            <span class="emergency-divider">|</span>
-            <span class="emergency-text">Same-Day Repairs Available</span>
+            <div class="emergency-message">
+                <span class="emergency-icon">⚡</span>
+                <span class="emergency-text">24/7 Emergency Service</span>
+                <span class="emergency-divider">|</span>
+                <span class="emergency-text">Same-Day Repairs Available</span>
+            </div>
             <a href="tel:+19012579417" class="emergency-phone">📞 Call Now: (901) 257-9417</a>
         </div>
     </div>
