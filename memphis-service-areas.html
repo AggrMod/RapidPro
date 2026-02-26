@@ -2,50 +2,36 @@
 <html lang="en">
 
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN82WFKX62"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YN82WFKX62');
+    </script>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance</title>
     <link rel="canonical" href="https://rapidpromemphis.com/memphis-service-areas.html">
-    <meta name="description"
-        content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
-    <meta name="keywords"
-        content="Memphis commercial kitchen maintenance, Memphis preventative maintenance, Memphis kitchen equipment service, Memphis appliance repair, Memphis ice machine service, restaurant equipment maintenance Memphis">
+    <meta name="description" content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="keywords" content="Memphis commercial kitchen maintenance, Memphis preventative maintenance, Memphis kitchen equipment service, Memphis appliance repair, Memphis ice machine service, restaurant equipment maintenance Memphis">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rapidpromaintenance.com/memphis-service-areas.html">
+    <meta property="og:url" content="https://rapidpromemphis.com/memphis-service-areas.html">
     <meta property="og:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
-    <meta property="og:description"
-        content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
+    <meta property="og:description" content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
     <meta property="og:image" content="assets/images/hero.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rapidpromaintenance.com/memphis-service-areas.html">
+    <meta property="twitter:url" content="https://rapidpromemphis.com/memphis-service-areas.html">
     <meta property="twitter:title" content="Memphis Commercial Kitchen Maintenance | Rapid Pro Maintenance">
-    <meta property="twitter:description"
-        content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
+    <meta property="twitter:description" content="Top-rated preventative maintenance services for commercial kitchens throughout Memphis, TN and surrounding areas including Germantown, Collierville, and Bartlett.">
     <meta property="twitter:image" content="assets/images/hero.png">
-
-
-    <!-- Theme Color for Browser -->
-    <meta name="theme-color" content="#1f2937">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/premium-effects.css">
-    <link rel="stylesheet" href="css/theme-switcher.css">
-    <link rel="stylesheet" href="css/theme-transition.css">
-    <link rel="stylesheet" href="css/preloader.css">
-    <link rel="stylesheet" href="css/custom-cursor.css">
-    <link rel="stylesheet" href="css/service-areas.css">
-    <link rel="stylesheet" href="css/click-to-call.css">
-    <link rel="stylesheet" href="css/login-button.css">
-    <link rel="stylesheet" href="css/unified-header.css">
-    <link rel="stylesheet" href="css/mobile-hero-fix.css">
-    <link rel="stylesheet" href="css/mobile-menu-button.css">
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -54,296 +40,599 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1f2937">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Loading Strategy -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/mobile-menu-fix.css">
+    <link rel="stylesheet" href="css/quick-fixes.css">
+    <link rel="stylesheet" href="css/footer-logo-fix.css">
+
+    <style>
+        /* Modern Design System - Sync with index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --header-height-desktop: 160px;
+            --header-height-mobile: 60px;
+            --primary-dark: #1f2937;
+            --accent-yellow: #facc15;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition-base: 300ms ease-out;
+            --border-radius: 8px;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+        }
+
+        /* Emergency Banner */
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 6px 0;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+            position: relative;
+            z-index: 1001;
+        }
+
+        .emergency-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .emergency-icon {
+            font-size: 1em;
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-text {
+            font-size: 0.8em;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+
+        .emergency-phone {
+            background: white;
+            color: #dc2626;
+            padding: 4px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85em;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            transition: transform var(--transition-base);
+            height: var(--header-height-desktop);
+            width: 100%;
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            transition: transform var(--transition-base);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .main-nav a {
+            padding: 14px 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-base);
+        }
+
+        .main-nav a:hover {
+            background: rgba(31, 41, 55, 0.08);
+        }
+
+        .nav-cta {
+            background: var(--accent-yellow);
+            color: var(--primary-dark) !important;
+            padding: 12px 24px !important;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Mobile Menu */
+        .hamburger-menu {
+            display: none;
+            width: 48px;
+            height: 48px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1002;
+        }
+
+        @media (max-width: 1140px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            .header {
+                height: 80px;
+            }
+
+            .logo-container {
+                height: 60px;
+            }
+
+            .main-nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                padding-top: 80px;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+                z-index: 9999;
+            }
+
+            .main-nav.active {
+                left: 0;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(2px);
+                z-index: 9998;
+            }
+
+            .menu-overlay.active {
+                display: block;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer .logo {
+            height: 80px;
+            margin-bottom: 32px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Sticky Buttons */
+        .sticky-call,
+        .sticky-email {
+            position: fixed;
+            bottom: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .sticky-call {
+            right: 20px;
+            background: #22c55e;
+        }
+
+        .sticky-email {
+            right: 90px;
+            background: #3b82f6;
+        }
+
+        @media (min-width: 1141px) {
+
+            .sticky-call,
+            .sticky-email {
+                display: none;
+            }
+        }
+
+        /* EXTRA_STYLES */
+    </style>
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-content">
-            <div class="loader-spinner">
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-circle"></div>
-                <div class="spinner-logo"></div>
-            </div>
-            <div class="loader-text">RAPID PRO MAINTENANCE</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
+    <div class="emergency-banner">
+        <div class="emergency-content">
+            <span class="emergency-icon">⚡</span>
+            <span class="emergency-text">24/7 Memphis Emergency Service</span>
+            <span class="emergency-divider">|</span>
+            <span class="emergency-text">Commercial Kitchen Experts</span>
+            <a href="tel:+19012579417" class="emergency-phone">📞 Call (901) 257-9417</a>
         </div>
     </div>
 
-    <!-- Page Transition -->
-    <div class="page-transition"></div>
-
-    <!-- Main Content -->
-    <div class="page-content">
-
-        <!-- Header with Logo -->
-        <header class="header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="logo-container">
-                        <a href="index.html">
-                            <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
-                        </a>
-                    </div>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="memphis-services.html">Services</a></li>
-                        <li><a href="memphis-service-areas.html" class="active">Memphis Areas</a></li>
-                        <li><a href="memphis-testimonials.html">Testimonials</a></li>
-                        <li><a href="mailto:RapidPro.Memphis@gmail.com" class="nav-cta">Contact</a></li>
-                        <li><a href="tel:+19012579417" class="phone-number nav-call" role="button"
-                                aria-label="Call us at (901) 257-9417">
-                                <span class="phone-icon">📞</span> (901) 257-9417
-                            </a></li>
-                    </ul>
-                </nav>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
+                </a>
             </div>
-        </header>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="memphis-services.html">Services</a></li>
+                    <li><a href="memphis-service-areas.html">Service Areas</a></li>
+                    <li><a href="memphis-testimonials.html">Testimonials</a></li>
+                    <li><a href="tel:+19012579417" class="nav-cta">Call Now</a></li>
+                </ul>
+            </nav>
+            <div class="menu-overlay" id="menu-overlay"></div>
+        </div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <!-- Video Background -->
-            <div class="video-background">
-                <video autoplay muted loop playsinline>
-                    <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="container">
-                <h1 class="fade-in">Memphis' Premier Kitchen Equipment Specialists</h1>
-                <p class="subheading fade-up">Serving Commercial Kitchens Throughout Memphis and the Mid-South</p>
-                <p class="tagline fade-up">Providing top-tier preventative maintenance to keep your equipment running
+    <main>
+        Hero Section 
+<section class="hero">
+<!-- Video Background -->
+<div class="video-background">
+<video autoplay="" loop="" muted="" playsinline="">
+<source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4"/>
+</video>
+</div>
+<div class="container">
+<h1 class="fade-in">Memphis' Premier Kitchen Equipment Specialists</h1>
+<p class="subheading fade-up">Serving Commercial Kitchens Throughout Memphis and the Mid-South</p>
+<p class="tagline fade-up">Providing top-tier preventative maintenance to keep your equipment running
                     efficiently.</p>
-                <a href="mailto:RapidPro.Memphis@gmail.com" class="btn cta fade-up">Schedule Service</a>
-            </div>
-            <div class="scroll-indicator"></div>
-        </section>
-
-        <!-- Service Areas Section -->
-        <section class="service-areas">
-            <div class="container">
-                <h2 class="fade-up">Memphis Service Areas</h2>
-                <div class="elegant-divider fade-in"></div>
-
-                <div class="areas-grid">
-                    <div class="area-card fade-up">
-                        <h3>Downtown Memphis</h3>
-                        <p>Serving restaurants, hotels, and event venues in the heart of Memphis, including Beale
+<a class="btn cta fade-up" href="mailto:RapidPro.Memphis@gmail.com">Schedule Service</a>
+</div>
+<div class="scroll-indicator"></div>
+</section>
+ Service Areas Section 
+<section class="service-areas">
+<div class="container">
+<h2 class="fade-up">Memphis Service Areas</h2>
+<div class="elegant-divider fade-in"></div>
+<div class="areas-grid">
+<div class="area-card fade-up">
+<h3>Downtown Memphis</h3>
+<p>Serving restaurants, hotels, and event venues in the heart of Memphis, including Beale
                             Street, South Main, and the Medical District.</p>
-                        <ul class="area-features">
-                            <li>Rapid response times</li>
-                            <li>Flexible scheduling for busy tourist areas</li>
-                            <li>Experience with historic buildings</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Midtown Memphis</h3>
-                        <p>Supporting the diverse culinary scene in Cooper-Young, Overton Square, and surrounding
+<ul class="area-features">
+<li>Rapid response times</li>
+<li>Flexible scheduling for busy tourist areas</li>
+<li>Experience with historic buildings</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Midtown Memphis</h3>
+<p>Supporting the diverse culinary scene in Cooper-Young, Overton Square, and surrounding
                             neighborhoods.</p>
-                        <ul class="area-features">
-                            <li>Local team familiar with the area</li>
-                            <li>Support for farm-to-table operations</li>
-                            <li>Weekend availability</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>East Memphis</h3>
-                        <p>Maintaining equipment for businesses along Poplar Avenue, White Station, and surrounding
+<ul class="area-features">
+<li>Local team familiar with the area</li>
+<li>Support for farm-to-table operations</li>
+<li>Weekend availability</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>East Memphis</h3>
+<p>Maintaining equipment for businesses along Poplar Avenue, White Station, and surrounding
                             commercial districts.</p>
-                        <ul class="area-features">
-                            <li>Corporate account management</li>
-                            <li>Multi-location service coordination</li>
-                            <li>Preventative maintenance programs</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Germantown</h3>
-                        <p>Providing reliable maintenance services to upscale establishments in Germantown's dining
+<ul class="area-features">
+<li>Corporate account management</li>
+<li>Multi-location service coordination</li>
+<li>Preventative maintenance programs</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Germantown</h3>
+<p>Providing reliable maintenance services to upscale establishments in Germantown's dining
                             districts.</p>
-                        <ul class="area-features">
-                            <li>High-end equipment specialists</li>
-                            <li>Discreet service delivery</li>
-                            <li>Strict compliance with local regulations</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Collierville</h3>
-                        <p>Supporting restaurants and food service businesses in Collierville's historic square and
+<ul class="area-features">
+<li>High-end equipment specialists</li>
+<li>Discreet service delivery</li>
+<li>Strict compliance with local regulations</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Collierville</h3>
+<p>Supporting restaurants and food service businesses in Collierville's historic square and
                             commercial corridors.</p>
-                        <ul class="area-features">
-                            <li>Punctual, professional service</li>
-                            <li>Early morning appointments available</li>
-                            <li>Comprehensive maintenance packages</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Bartlett</h3>
-                        <p>Helping food service businesses throughout Bartlett maintain operational excellence with
+<ul class="area-features">
+<li>Punctual, professional service</li>
+<li>Early morning appointments available</li>
+<li>Comprehensive maintenance packages</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Bartlett</h3>
+<p>Helping food service businesses throughout Bartlett maintain operational excellence with
                             regular maintenance.</p>
-                        <ul class="area-features">
-                            <li>Customized service schedules</li>
-                            <li>Detailed equipment reports</li>
-                            <li>Emergency availability</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Cordova</h3>
-                        <p>Keeping commercial kitchens in Cordova's growing restaurant scene running efficiently.</p>
-                        <ul class="area-features">
-                            <li>New establishment setup support</li>
-                            <li>Seasonal maintenance planning</li>
-                            <li>Energy efficiency consultation</li>
-                        </ul>
-                    </div>
-
-                    <div class="area-card fade-up">
-                        <h3>Mississippi Areas</h3>
-                        <p>Extending our services to Southaven, Olive Branch, and other nearby Mississippi communities.
+<ul class="area-features">
+<li>Customized service schedules</li>
+<li>Detailed equipment reports</li>
+<li>Emergency availability</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Cordova</h3>
+<p>Keeping commercial kitchens in Cordova's growing restaurant scene running efficiently.</p>
+<ul class="area-features">
+<li>New establishment setup support</li>
+<li>Seasonal maintenance planning</li>
+<li>Energy efficiency consultation</li>
+</ul>
+</div>
+<div class="area-card fade-up">
+<h3>Mississippi Areas</h3>
+<p>Extending our services to Southaven, Olive Branch, and other nearby Mississippi communities.
                         </p>
-                        <ul class="area-features">
-                            <li>Cross-state service coordination</li>
-                            <li>Familiarity with MS regulations</li>
-                            <li>Consistent service quality</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="map-section fade-up">
-                    <h3>Our Memphis Service Radius</h3>
-                    <p>Based in Memphis, we provide service throughout a 50-mile radius covering the entire metro area
+<ul class="area-features">
+<li>Cross-state service coordination</li>
+<li>Familiarity with MS regulations</li>
+<li>Consistent service quality</li>
+</ul>
+</div>
+</div>
+<div class="map-section fade-up">
+<h3>Our Memphis Service Radius</h3>
+<p>Based in Memphis, we provide service throughout a 50-mile radius covering the entire metro area
                         and beyond. Our strategically located team ensures prompt response times no matter where your
                         business is located.</p>
-                    <div class="map-placeholder">
-                        <p>For immediate service in any Memphis area location, contact us today:</p>
-                        <div class="contact-buttons">
-                            <a href="mailto:RapidPro.Memphis@gmail.com" class="contact-btn">
-                                <span class="contact-icon">📧</span> Email Us
+<div class="map-placeholder">
+<p>For immediate service in any Memphis area location, contact us today:</p>
+<div class="contact-buttons">
+<a class="contact-btn" href="mailto:RapidPro.Memphis@gmail.com">
+<span class="contact-icon">📧</span> Email Us
                             </a>
-                            <a href="tel:+19012579417" class="contact-btn">
-                                <span class="contact-icon">📞</span> (901) 257-9417
+<a class="contact-btn" href="tel:+19012579417">
+<span class="contact-icon">📞</span> (901) 257-9417
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Local Business Section -->
-        <section class="local-business">
-            <div class="container">
-                <h2 class="fade-up">Memphis-Owned, Memphis-Operated</h2>
-                <div class="elegant-divider fade-in"></div>
-
-                <div class="local-content">
-                    <div class="local-text fade-up">
-                        <p>As a Memphis-based business, we understand the unique challenges faced by commercial kitchens
+</div>
+</div>
+</div>
+</div>
+</section>
+ Local Business Section 
+<section class="local-business">
+<div class="container">
+<h2 class="fade-up">Memphis-Owned, Memphis-Operated</h2>
+<div class="elegant-divider fade-in"></div>
+<div class="local-content">
+<div class="local-text fade-up">
+<p>As a Memphis-based business, we understand the unique challenges faced by commercial kitchens
                             in our city. From the humidity of Mid-South summers to the specific requirements of local
                             health departments, our team brings specialized knowledge that national service companies
                             simply can't match.</p>
-
-                        <p>Our technicians aren't just passing through—they live and work in the Memphis area, allowing
+<p>Our technicians aren't just passing through—they live and work in the Memphis area, allowing
                             us to provide faster response times and more personalized service than the competition. When
                             you work with Rapid Pro Maintenance, you're supporting a local business that reinvests in
                             the Memphis economy.</p>
-
-                        <div class="local-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🏆</span>
-                                <p><strong>Voted Best Equipment Service</strong><br>Memphis Restaurant Association, 2024
+<div class="local-highlights">
+<div class="highlight-item">
+<span class="highlight-icon">🏆</span>
+<p><strong>Voted Best Equipment Service</strong><br/>Memphis Restaurant Association, 2024
                                 </p>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">🤝</span>
-                                <p><strong>Proud Member</strong><br>Memphis Chamber of Commerce</p>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-icon">❤️</span>
-                                <p><strong>Community Partner</strong><br>Memphis Food Bank Initiative</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="cta-background"></div>
-            <div class="container">
-                <div class="cta-container fade-up">
-                    <div class="cta-pattern cta-pattern-top-left"></div>
-                    <div class="cta-pattern cta-pattern-bottom-right"></div>
-
-                    <div class="cta-content">
-                        <h2 class="cta-title">Ready for Reliable Memphis Service?</h2>
-                        <p class="cta-text">Join the growing number of Memphis restaurants and food service businesses
+</div>
+<div class="highlight-item">
+<span class="highlight-icon">🤝</span>
+<p><strong>Proud Member</strong><br/>Memphis Chamber of Commerce</p>
+</div>
+<div class="highlight-item">
+<span class="highlight-icon">❤️</span>
+<p><strong>Community Partner</strong><br/>Memphis Food Bank Initiative</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ Call to Action 
+<section class="cta-section">
+<div class="cta-background"></div>
+<div class="container">
+<div class="cta-container fade-up">
+<div class="cta-pattern cta-pattern-top-left"></div>
+<div class="cta-pattern cta-pattern-bottom-right"></div>
+<div class="cta-content">
+<h2 class="cta-title">Ready for Reliable Memphis Service?</h2>
+<p class="cta-text">Join the growing number of Memphis restaurants and food service businesses
                             that trust Rapid Pro Maintenance for their equipment upkeep.</p>
-                        <div class="cta-buttons">
-                            <a href="mailto:RapidPro.Memphis@gmail.com" class="cta-btn cta-btn-primary">
-                                <span class="cta-icon">📅</span> Schedule Now
+<div class="cta-buttons">
+<a class="cta-btn cta-btn-primary" href="mailto:RapidPro.Memphis@gmail.com">
+<span class="cta-icon">📅</span> Schedule Now
                             </a>
-                            <a href="tel:+19012579417" class="cta-btn cta-btn-secondary">
-                                <span class="cta-icon">📞</span> Call Us
+<a class="cta-btn cta-btn-secondary" href="tel:+19012579417">
+<span class="cta-icon">📞</span> Call Us
                             </a>
-                        </div>
-                    </div>
-                </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ Footer
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="flex-direction: column;">
+            <a href="index.html">
+                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
+            </a>
+            <div class="contact-info">
+                <p><a href="mailto:RapidPro.Memphis@gmail.com">RapidPro.Memphis@gmail.com</a></p>
+                <p><a href="tel:+19012579417">(901) 257-9417</a></p>
+                <p>Serving Memphis, TN and surrounding areas</p>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <a href="index.html">
-                    <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in">
-                </a>
-                <div class="contact-info fade-up">
-                    <p><a href="mailto:RapidPro.Memphis@gmail.com">RapidPro.Memphis@gmail.com</a></p>
-                    <p><a href="tel:+19012579417">(901) 257-9417</a></p>
-                    <p>Serving Memphis, TN and surrounding areas</p>
-                </div>
-
-                <div class="footer-nav fade-in">
-                    <p>© 2025 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a
-                            href="index.html#services">Services</a> | <a href="memphis-service-areas.html">Memphis
-                            Service Areas</a></p>
-                    <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
-                </div>
+            <div class="footer-nav">
+                <p>© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a
+                        href="memphis-services.html">Services</a></p>
+                <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-    </div> <!-- End of page-content -->
+    <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now">📞</a>
+    <a href="mailto:RapidPro.Memphis@gmail.com" class="sticky-email" aria-label="Email us">✉️</a>
 
-    <!-- Theme Switcher Button -->
-    <button class="theme-switch" aria-label="Toggle Dark Mode">
-        <span class="theme-icon">🌙</span>
-    </button>
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const nav = document.getElementById('main-nav');
+        const overlay = document.getElementById('menu-overlay');
 
-    <!-- Sticky Call Button (Mobile) -->
-    <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now">
-        <span class="phone-icon">📞</span>
-    </a>
+        function toggleMenu() {
+            const isActive = nav.classList.contains('active');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', !isActive);
+        }
 
-    <script src="js/script.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/theme-switcher.js"></script>
-    <script src="js/performance.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/micro-interactions.js"></script>
-    <script src="js/schema.js"></script>
-    <!-- Only use the enhanced version -->
-    <script src="js/enhanced-click-to-call.js"></script>
-    <script src="js/mobile-nav.js"></script>
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Sticky Header
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) { header.classList.remove('hidden'); return; }
+            if (currentScroll > lastScroll && currentScroll > 100) { header.classList.add('hidden'); }
+            else { header.classList.remove('hidden'); }
+            lastScroll = currentScroll;
+        });
+
+        // Animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    
 </body>
 
 </html>

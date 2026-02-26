@@ -47,8 +47,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Font Loading Strategy -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="css/mobile-menu-fix.css">
@@ -104,7 +106,7 @@
             font-weight: 500;
             box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
             position: relative;
-            z-index: 1000;
+            z-index: 1001;
         }
 
         .emergency-content {
@@ -134,13 +136,20 @@
             text-decoration: none;
             font-weight: 700;
             font-size: 0.85em;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
 
         /* Header */
@@ -156,9 +165,11 @@
             width: 100%;
         }
 
-        .header.hidden { transform: translateY(-100%); }
+        .header.hidden {
+            transform: translateY(-100%);
+        }
 
-        .container {
+        .header .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -168,10 +179,24 @@
             justify-content: space-between;
         }
 
-        .logo-container { height: 140px; flex-shrink: 0; }
-        .logo { height: 100%; width: auto; display: block; transition: transform var(--transition-base); }
+        .logo-container {
+            height: 140px;
+            flex-shrink: 0;
+        }
 
-        .main-nav ul { display: flex; list-style: none; gap: 8px; }
+        .logo {
+            height: 100%;
+            width: auto;
+            display: block;
+            transition: transform var(--transition-base);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
         .main-nav a {
             padding: 14px 16px;
             color: var(--text-dark);
@@ -180,7 +205,10 @@
             border-radius: var(--border-radius);
             transition: all var(--transition-base);
         }
-        .main-nav a:hover { background: rgba(31, 41, 55, 0.08); }
+
+        .main-nav a:hover {
+            background: rgba(31, 41, 55, 0.08);
+        }
 
         .nav-cta {
             background: var(--accent-yellow);
@@ -208,9 +236,18 @@
         }
 
         @media (max-width: 1140px) {
-            .hamburger-menu { display: block; }
-            .header { height: 80px; }
-            .logo-container { height: 60px; }
+            .hamburger-menu {
+                display: block;
+            }
+
+            .header {
+                height: 80px;
+            }
+
+            .logo-container {
+                height: 60px;
+            }
+
             .main-nav {
                 position: fixed;
                 top: 0;
@@ -219,43 +256,62 @@
                 height: 100vh;
                 background: white;
                 padding-top: 80px;
-                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s ease;
+                z-index: 9999;
             }
-            .main-nav.active { left: 0; }
-            .main-nav ul { flex-direction: column; padding: 20px; }
-        }
 
-        /* Sections */
-        section { padding: 80px 0; }
-        .elegant-divider { width: 80px; height: 4px; background: var(--accent-yellow); margin: 0 auto 32px; border-radius: 2px; }
-        .services-intro { max-width: 800px; margin: 0 auto 48px; text-align: center; color: var(--text-light); }
+            .main-nav.active {
+                left: 0;
+            }
 
-        /* CTA Section */
-        .cta-section { background: var(--primary-dark); position: relative; overflow: hidden; color: white; text-align: center; }
-        .cta-container { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-        .cta-title { font-size: 2.5rem; margin-bottom: 24px; color: white; }
-        .cta-btn { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            padding: 16px 32px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 700;
-            transition: all 0.3s;
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(2px);
+                z-index: 9998;
+            }
+
+            .menu-overlay.active {
+                display: block;
+            }
         }
-        .cta-btn-primary { background: var(--accent-yellow); color: var(--primary-dark); }
-        .cta-btn-secondary { border: 2px solid white; color: white; }
 
         /* Footer */
-        .footer { background: #0f172a; color: #94a3b8; padding: 60px 0; text-align: center; }
-        .footer .logo { height: 80px; margin-bottom: 32px; }
-        .footer p { margin-bottom: 8px; }
-        .footer a { color: white; text-decoration: none; }
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer .logo {
+            height: 80px;
+            margin-bottom: 32px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
 
         /* Sticky Buttons */
-        .sticky-call, .sticky-email {
+        .sticky-call,
+        .sticky-email {
             position: fixed;
             bottom: 20px;
             width: 56px;
@@ -264,17 +320,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 999;
             text-decoration: none;
             font-size: 24px;
         }
-        .sticky-call { right: 20px; background: #22c55e; }
-        .sticky-email { right: 90px; background: #3b82f6; }
+
+        .sticky-call {
+            right: 20px;
+            background: #22c55e;
+        }
+
+        .sticky-email {
+            right: 90px;
+            background: #3b82f6;
+        }
 
         @media (min-width: 1141px) {
-            .sticky-call, .sticky-email { display: none; }
+
+            .sticky-call,
+            .sticky-email {
+                display: none;
+            }
         }
+
         /* EXTRA_STYLES */
     </style>
 </head>
@@ -297,11 +366,9 @@
                     <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
                 </a>
             </div>
-
             <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
-
             <nav class="main-nav" id="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -316,116 +383,113 @@
     </header>
 
     <main>
-        <section class="hero">
-            <img src="assets/images/commercial-dishwasher-repair.jpg" alt="Commercial dishwasher repair service in Memphis" class="hero-background">
-            <div class="hero-content">
-                <h1>Commercial Dishwasher Repair in Memphis, TN</h1>
-                <p class="tagline">Fast, Expert Service to Keep Your Kitchen Running</p>
-                <div class="cta-buttons">
-                    <a href="tel:+19012579417" class="btn-primary">Call Now: (901) 257-9417</a>
-                    <a href="mailto:RapidPro.Memphis@gmail.com?subject=Commercial%20Dishwasher%20Repair%20Memphis" class="btn-secondary">Request Quote</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="services">
-            <h2>Commercial Dishwasher Services We Offer</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>High-Temp Dishwasher Repair</h3>
-                    <p>Booster heater, heating element, and temperature control repairs for high-temp sanitizing units.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Low-Temp Dishwasher Service</h3>
-                    <p>Chemical dispenser, pump, and sanitizer system repairs for chemical-sanitizing dishwashers.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Conveyor Dishwasher Repair</h3>
-                    <p>Belt, motor, spray arm, and control system repairs for high-volume conveyor dishwashers.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Glasswasher Service</h3>
-                    <p>Specialized bar glasswasher repair including pumps, heating, and rinse systems.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="why-choose">
-            <h2>Why Choose Rapid Pro for Dishwasher Repair?</h2>
-            <ul class="benefits">
-                <li>EPA Certified Technicians - Health Code Compliant</li>
-                <li>Same-Day Emergency Service Available</li>
-                <li>Serving Memphis, Germantown, Collierville, Bartlett & Beyond</li>
-                <li>Preventative Maintenance Programs Available</li>
-                <li>Transparent Pricing - No Hidden Fees</li>
-            </ul>
-        </section>
-
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How much does commercial dishwasher repair cost in Memphis?</h3>
-                    <p>Commercial dishwasher repair typically costs $150-$450. Wash arm replacement runs $125-$200, heating element repair $175-$350. Call us at (901) 257-9417 for a free estimate.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Why is my dishwasher not cleaning properly?</h3>
-                    <p>Poor cleaning is usually caused by clogged wash arms, low water temperature, worn spray nozzles, or incorrect detergent levels. High-temp units need 180�F final rinse for sanitization.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>How often should commercial dishwashers be serviced?</h3>
-                    <p>Every 3-6 months depending on usage. High-volume restaurants need quarterly maintenance. Regular service ensures sanitization standards are met and prevents health code violations.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What dishwasher brands do you repair?</h3>
-                    <p>We repair Hobart, Jackson, CMA, Meiko, Winterhalter, Champion, Ecolab, and more. High-temp, low-temp, conveyor, door-type, and glasswashers throughout Memphis.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Why is my dishwasher not draining?</h3>
-                    <p>Usually caused by a clogged drain line, failed drain pump, blocked strainer, or kinked hose. Food debris buildup is the most common cause. Call (901) 257-9417 for same-day service.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Dirty Dishes Piling Up? We Can Help!</h2>
-            <p>A broken dishwasher can shut down your kitchen. Call now for fast, professional repair.</p>
-            <a href="tel:+19012579417" class="btn-primary btn-large">Call (901) 257-9417</a>
-        </section>
+        <main>
+<section class="hero">
+<img alt="Commercial dishwasher repair service in Memphis" class="hero-background" src="assets/images/commercial-dishwasher-repair.jpg"/>
+<div class="hero-content">
+<h1>Commercial Dishwasher Repair in Memphis, TN</h1>
+<p class="tagline">Fast, Expert Service to Keep Your Kitchen Running</p>
+<div class="cta-buttons">
+<a class="btn-primary" href="tel:+19012579417">Call Now: (901) 257-9417</a>
+<a class="btn-secondary" href="mailto:RapidPro.Memphis@gmail.com?subject=Commercial%20Dishwasher%20Repair%20Memphis">Request Quote</a>
+</div>
+</div>
+</section>
+<section class="services">
+<h2>Commercial Dishwasher Services We Offer</h2>
+<div class="service-grid">
+<div class="service-card">
+<h3>High-Temp Dishwasher Repair</h3>
+<p>Booster heater, heating element, and temperature control repairs for high-temp sanitizing units.</p>
+</div>
+<div class="service-card">
+<h3>Low-Temp Dishwasher Service</h3>
+<p>Chemical dispenser, pump, and sanitizer system repairs for chemical-sanitizing dishwashers.</p>
+</div>
+<div class="service-card">
+<h3>Conveyor Dishwasher Repair</h3>
+<p>Belt, motor, spray arm, and control system repairs for high-volume conveyor dishwashers.</p>
+</div>
+<div class="service-card">
+<h3>Glasswasher Service</h3>
+<p>Specialized bar glasswasher repair including pumps, heating, and rinse systems.</p>
+</div>
+</div>
+</section>
+<section class="why-choose">
+<h2>Why Choose Rapid Pro for Dishwasher Repair?</h2>
+<ul class="benefits">
+<li>EPA Certified Technicians - Health Code Compliant</li>
+<li>Same-Day Emergency Service Available</li>
+<li>Serving Memphis, Germantown, Collierville, Bartlett &amp; Beyond</li>
+<li>Preventative Maintenance Programs Available</li>
+<li>Transparent Pricing - No Hidden Fees</li>
+</ul>
+</section>
+<section class="faq-section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h3>How much does commercial dishwasher repair cost in Memphis?</h3>
+<p>Commercial dishwasher repair typically costs $150-$450. Wash arm replacement runs $125-$200, heating element repair $175-$350. Call us at (901) 257-9417 for a free estimate.</p>
+</div>
+<div class="faq-item">
+<h3>Why is my dishwasher not cleaning properly?</h3>
+<p>Poor cleaning is usually caused by clogged wash arms, low water temperature, worn spray nozzles, or incorrect detergent levels. High-temp units need 180�F final rinse for sanitization.</p>
+</div>
+<div class="faq-item">
+<h3>How often should commercial dishwashers be serviced?</h3>
+<p>Every 3-6 months depending on usage. High-volume restaurants need quarterly maintenance. Regular service ensures sanitization standards are met and prevents health code violations.</p>
+</div>
+<div class="faq-item">
+<h3>What dishwasher brands do you repair?</h3>
+<p>We repair Hobart, Jackson, CMA, Meiko, Winterhalter, Champion, Ecolab, and more. High-temp, low-temp, conveyor, door-type, and glasswashers throughout Memphis.</p>
+</div>
+<div class="faq-item">
+<h3>Why is my dishwasher not draining?</h3>
+<p>Usually caused by a clogged drain line, failed drain pump, blocked strainer, or kinked hose. Food debris buildup is the most common cause. Call (901) 257-9417 for same-day service.</p>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<h2>Dirty Dishes Piling Up? We Can Help!</h2>
+<p>A broken dishwasher can shut down your kitchen. Call now for fast, professional repair.</p>
+<a class="btn-primary btn-large" href="tel:+19012579417">Call (901) 257-9417</a>
+</section>
+</main>
+<section class="related-services">
+<h2>Other Commercial Kitchen Equipment Services</h2>
+<div class="related-links">
+<a href="memphis-commercial-oven-repair.html">Commercial Oven Repair</a>
+<a href="memphis-commercial-fryer-repair.html">Commercial Fryer Repair</a>
+<a href="memphis-commercial-griddle-repair.html">Griddle &amp; Flat Top Repair</a>
+<a href="memphis-steam-table-repair.html">Steam Table Service</a>
+<a href="memphis-ice-machine-service.html">Ice Machine Service</a>
+<a href="memphis-walk-in-cooler-maintenance.html">Walk-In Cooler Maintenance</a>
+</div>
+</section>
     </main>
-
-    <section class="cta-section">
-        <div class="container" style="flex-direction: column;">
-            <div class="cta-container fade-up">
-                <h2 class="cta-title">Ready to Optimize Your Kitchen?</h2>
-                <p class="cta-text">Contact us today to schedule a no-obligation assessment of your commercial kitchen equipment. Our Memphis-based team will help you keep your operation running efficiently.</p>
-                <div class="cta-buttons">
-                    <a href="mailto:RapidPro.Memphis@gmail.com" class="cta-btn cta-btn-primary"><span>📅</span> Schedule Assessment</a>
-                    <a href="tel:+19012579417" class="cta-btn cta-btn-secondary"><span>📞</span> Call (901) 257-9417</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="container" style="flex-direction: column;">
             <a href="index.html">
-                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in">
+                <img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo">
             </a>
-            <div class="contact-info fade-up">
+            <div class="contact-info">
                 <p><a href="mailto:RapidPro.Memphis@gmail.com">RapidPro.Memphis@gmail.com</a></p>
                 <p><a href="tel:+19012579417">(901) 257-9417</a></p>
                 <p>Serving Memphis, TN and surrounding areas</p>
             </div>
-            <div class="footer-nav fade-in">
-                <p>© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="memphis-services.html">Services</a></p>
+            <div class="footer-nav">
+                <p>© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a
+                        href="memphis-services.html">Services</a></p>
                 <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment specialists</p>
             </div>
         </div>
     </footer>
 
-    <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now"><span class="phone-icon">📞</span></a>
-    <a href="mailto:RapidPro.Memphis@gmail.com" class="sticky-email" aria-label="Email us"><span class="email-icon">✉️</span></a>
+    <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now">📞</a>
+    <a href="mailto:RapidPro.Memphis@gmail.com" class="sticky-email" aria-label="Email us">✉️</a>
 
     <script>
         // Mobile Menu Toggle
@@ -433,13 +497,16 @@
         const nav = document.getElementById('main-nav');
         const overlay = document.getElementById('menu-overlay');
 
-        hamburger.addEventListener('click', function () {
+        function toggleMenu() {
             const isActive = nav.classList.contains('active');
             nav.classList.toggle('active');
             hamburger.classList.toggle('active');
-            if (overlay) overlay.classList.toggle('active');
+            overlay.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', !isActive);
-        });
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
 
         // Sticky Header
         let lastScroll = 0;
@@ -491,8 +558,8 @@
       },
       "description": "Professional commercial dishwasher repair services in Memphis, TN"
     }
-    
-
+    </script>
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -541,4 +608,5 @@
     }
     </script>
 </body>
+
 </html>
