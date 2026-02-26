@@ -231,10 +231,8 @@
 
         :root {
             /* Design System Variables following 2024-2025 standards */
-            --header-height-desktop: 115px;
-            /* 20% bigger than 96px */
-            --header-height-mobile: 86px;
-            /* 20% bigger than 72px */
+            --header-height-desktop: 80px;
+            --header-height-mobile: 60px;
             --primary-dark: #1f2937;
             --accent-yellow: #facc15;
             --bg-light: #f5f5f5;
@@ -341,23 +339,30 @@
 
         @media (max-width: 768px) {
             .emergency-banner {
-                padding: 8px 10px;
+                padding: 4px 6px;
             }
             
             .emergency-content {
                 gap: 6px;
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
             }
 
             .emergency-message {
                 flex-direction: row;
-                gap: 6px;
-                width: 100%;
+                gap: 4px;
+                width: auto;
+                flex-wrap: nowrap;
+            }
+
+            .emergency-icon {
+                font-size: 0.9em;
             }
 
             .emergency-text {
-                font-size: 0.75em;
-                white-space: normal;
+                font-size: 0.7em;
+                white-space: nowrap;
             }
 
             .emergency-divider {
@@ -370,9 +375,9 @@
 
             .emergency-phone {
                 width: auto;
-                max-width: 300px;
-                padding: 6px 20px;
-                font-size: 0.85em;
+                max-width: none;
+                padding: 4px 10px;
+                font-size: 0.7em;
             }
         }
 
@@ -409,8 +414,7 @@
 
         /* Logo - MASSIVE PROMINENCE */
         .logo-container {
-            height: 103px;
-            /* 20% bigger than 86px - MASSIVE visibility */
+            height: 70px;
             flex-shrink: 0;
         }
 
@@ -1424,8 +1428,7 @@
             }
 
             .logo-container {
-                height: 77px;
-                /* 20% bigger - MASSIVE on mobile too */
+                height: 50px;
             }
 
             .hero {
