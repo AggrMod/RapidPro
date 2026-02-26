@@ -364,7 +364,7 @@
             height: var(--header-height-desktop);
             width: 100%;
             max-width: 100vw;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .header.hidden {
@@ -418,7 +418,7 @@
         }
 
         .main-nav a {
-            padding: 16px 24px;
+            padding: 14px 16px;
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
@@ -500,8 +500,8 @@
             flex-shrink: 0;
         }
 
-        /* Force mobile menu at all small screens */
-        @media (max-width: 900px) {
+        /* Off-canvas navigation for tablet and mobile */
+        @media (max-width: 1140px) {
             .hamburger-menu {
                 display: block !important;
             }
@@ -511,15 +511,16 @@
                 position: fixed !important;
                 top: 0 !important;
                 left: -100% !important;
-                width: 280px !important;
+                width: min(320px, 86vw) !important;
                 height: 100vh !important;
-                background: #ff0000 !important;
-                /* RED for debugging */
+                background: #ffffff !important;
                 z-index: 9999 !important;
                 transition: left 300ms ease-out !important;
                 overflow-y: auto !important;
-                padding-top: 86px !important;
+                padding-top: 88px !important;
                 box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1) !important;
+                align-items: flex-start !important;
+                justify-content: flex-start !important;
             }
 
             .main-nav.active {
@@ -556,6 +557,25 @@
 
             .main-nav a:hover {
                 background: #f5f5f5 !important;
+            }
+
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 9998 !important;
+                backdrop-filter: blur(2px);
+                opacity: 0;
+                transition: opacity 300ms ease-out;
+            }
+
+            .menu-overlay.active {
+                display: block !important;
+                opacity: 1;
             }
         }
 
@@ -817,6 +837,57 @@
             left: 0;
             color: var(--accent-yellow);
             font-weight: bold;
+        }
+
+        .service-qa {
+            padding: 80px 0;
+            background: #f8fafc;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .qa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .qa-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .qa-card-image {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .qa-card-body {
+            padding: 24px;
+        }
+
+        .qa-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+
+        .qa-list {
+            list-style: none;
+        }
+
+        .qa-list li {
+            margin-bottom: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .qa-list li strong {
+            color: var(--primary-dark);
         }
 
         /* Packages Section */
@@ -1333,91 +1404,6 @@
                 /* 20% bigger - MASSIVE on mobile too */
             }
 
-            /* FIXED: Mobile Navigation - Slide from LEFT properly with IMPORTANT declarations */
-            .main-nav {
-                position: fixed !important;
-                top: 0 !important;
-                left: -100% !important;
-                /* Start completely off-screen to the left */
-                width: 280px !important;
-                /* Fixed width for the menu */
-                height: 100vh !important;
-                /* Full height */
-                background: white !important;
-                transform: translateX(0) !important;
-                /* Remove transform, use left property instead */
-                transition: left 300ms ease-out !important;
-                /* Animate the left property */
-                overflow-y: auto !important;
-                padding-top: 86px !important;
-                /* Account for mobile header height */
-                z-index: 9999 !important;
-                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1) !important;
-                /* Add shadow for depth */
-            }
-
-            .main-nav.active {
-                left: 0 !important;
-                /* Slide to visible position */
-            }
-
-            .main-nav ul {
-                flex-direction: column !important;
-                padding: 20px !important;
-                gap: 0 !important;
-                align-items: stretch !important;
-                list-style: none !important;
-                margin: 0 !important;
-            }
-
-            .main-nav li {
-                width: 100% !important;
-                display: block !important;
-            }
-
-            .main-nav a {
-                display: block !important;
-                padding: 16px !important;
-                width: 100% !important;
-                border-radius: var(--border-radius) !important;
-                margin-bottom: 8px !important;
-                text-align: left !important;
-                background: transparent !important;
-                transition: background-color 300ms ease-out !important;
-                color: #1f2937 !important;
-                text-decoration: none !important;
-                font-weight: 500 !important;
-                font-size: 16px !important;
-            }
-
-            .main-nav a:hover {
-                background: #f5f5f5 !important;
-            }
-
-            .hamburger-menu {
-                display: block !important;
-            }
-
-            /* Menu Overlay */
-            .menu-overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 9998 !important;
-                backdrop-filter: blur(2px);
-                opacity: 0;
-                transition: opacity 300ms ease-out;
-            }
-
-            .menu-overlay.active {
-                display: block !important;
-                opacity: 1;
-            }
-
             .hero {
                 min-height: 80vh;
             }
@@ -1626,6 +1612,68 @@
                         <li>Production efficiency checks</li>
                     </ul>
                 </div>
+
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <img class="service-icon-image"
+                            src="assets/images/stock/memphis-commercial-beverage-station-cleaning-maintenance.jpg"
+                            alt="Beverage station service in Memphis">
+                    </div>
+                    <h3>Beverage Station Service</h3>
+                    <p>Service support for soda towers, beverage stations, and dispensing equipment in high-volume
+                        kitchens.</p>
+                    <ul class="service-details">
+                        <li>CO2 pressure checks</li>
+                        <li>Nozzle and line sanitization</li>
+                        <li>Flow-rate adjustment</li>
+                        <li>Leak diagnostics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-qa" id="equipment-qa">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="fade-up">Beverage Station & Slushy Machine Q&A</h2>
+            <div class="elegant-divider fade-in"></div>
+            <p class="services-intro fade-up">Quick checks your team can run before placing a service call, plus signs
+                it is time for onsite repair.</p>
+
+            <div class="qa-grid">
+                <article class="qa-card fade-up">
+                    <img class="qa-card-image"
+                        src="assets/images/stock/memphis-commercial-beverage-station-cleaning-maintenance.jpg"
+                        alt="Memphis commercial beverage station maintenance and cleaning">
+                    <div class="qa-card-body">
+                        <h3>Beverage Station</h3>
+                        <ul class="qa-list">
+                            <li><strong>Q:</strong> Drinks are dispensing slowly.<br><strong>A:</strong> Check syrup
+                                bag level, CO2 pressure, and clogged nozzles first.</li>
+                            <li><strong>Q:</strong> Unit leaks under the counter.<br><strong>A:</strong> Inspect quick
+                                connects and drain lines for loose fittings or cracked seals.</li>
+                            <li><strong>Q:</strong> Flavor tastes off.<br><strong>A:</strong> Run a full line
+                                sanitization cycle and replace overdue water filters.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="qa-card fade-up">
+                    <img class="qa-card-image"
+                        src="assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.png"
+                        alt="Memphis slushy machine repair and frozen drink service">
+                    <div class="qa-card-body">
+                        <h3>Slushy Machine</h3>
+                        <ul class="qa-list">
+                            <li><strong>Q:</strong> Mix stays liquid and will not freeze.<br><strong>A:</strong>
+                                Verify freeze mode, sugar ratio, and condenser airflow.</li>
+                            <li><strong>Q:</strong> Barrel motor stops turning.<br><strong>A:</strong> Check breaker
+                                status and drive coupling wear before restarting.</li>
+                            <li><strong>Q:</strong> Machine trips the breaker.<br><strong>A:</strong> Confirm a
+                                dedicated commercial circuit and call for an amp-draw test.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -1655,7 +1703,7 @@
                 <div class="industry-card fade-up">
                     <div class="industry-icon">
                         <img class="industry-icon-image"
-                            src="assets/images/troubleshooting/reach-in-cooler-service-technician-commercial-kitchen-memphis-tn.png"
+                            src="assets/images/stock/restaurants-commercial-kitchen-staff-memphis.jpg"
                             alt="Restaurant refrigeration service">
                     </div>
                     <h3>Restaurants</h3>
@@ -1664,7 +1712,7 @@
                 <div class="industry-card fade-up">
                     <div class="industry-icon">
                         <img class="industry-icon-image"
-                            src="assets/images/troubleshooting/commercial-refrigeration-breaker-panel-troubleshooting-memphis-tn.png"
+                            src="assets/images/stock/hotels-buffet-service-hospitality-memphis.jpg"
                             alt="Hotel refrigeration maintenance support">
                     </div>
                     <h3>Hotels</h3>
@@ -1673,7 +1721,7 @@
                 <div class="industry-card fade-up">
                     <div class="industry-icon">
                         <img class="industry-icon-image"
-                            src="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.png"
+                            src="assets/images/stock/grocery-retail-refrigerated-dairy-display-memphis.jpg"
                             alt="Grocery and retail walk-in cooler support">
                     </div>
                     <h3>Grocery & Retail</h3>
@@ -1682,7 +1730,7 @@
                 <div class="industry-card fade-up">
                     <div class="industry-icon">
                         <img class="industry-icon-image"
-                            src="assets/images/troubleshooting/commercial-kitchen-preventative-maintenance-checklist-tools-memphis-tn.png"
+                            src="assets/images/stock/catering-buffet-service-prep-memphis.jpg"
                             alt="Catering equipment preventative maintenance">
                     </div>
                     <h3>Catering</h3>
@@ -1748,33 +1796,46 @@
         const hamburger = document.getElementById('hamburger-menu');
         const nav = document.getElementById('main-nav');
         const overlay = document.getElementById('menu-overlay');
+        const tabletMenuBreakpoint = 1140;
+
+        function closeMenu() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
 
         hamburger.addEventListener('click', function () {
             const isActive = nav.classList.contains('active');
             nav.classList.toggle('active');
             overlay.classList.toggle('active');
             hamburger.classList.toggle('active');
-            hamburger.setAttribute('aria-expanded', !isActive);
+            hamburger.setAttribute('aria-expanded', isActive ? 'false' : 'true');
             document.body.style.overflow = isActive ? '' : 'hidden';
         });
 
         overlay.addEventListener('click', function () {
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            closeMenu();
         });
 
         // Close menu when clicking nav links
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                overlay.classList.remove('active');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                closeMenu();
             });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > tabletMenuBreakpoint) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMenu();
+            }
         });
 
         // Sticky Header - Hide on scroll down, show on scroll up
