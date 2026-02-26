@@ -1,5 +1,7 @@
 # Preventative Maintenance Checklist Q&A for Memphis Commercial Kitchens
 
+![Commercial kitchen preventative maintenance tools and checklist layout](../../../assets/images/troubleshooting/preventative-maintenance-checklist-tools-memphis.png)
+
 Use this as a publishable companion to your maintenance checklist page so search traffic captures both informational and service intent.
 
 ## Q&A

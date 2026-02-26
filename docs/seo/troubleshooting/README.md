@@ -27,3 +27,12 @@ This folder contains SEO-ready markdown drafts focused on the highest-interest p
   - `memphis-walk-in-cooler-maintenance.html`
   - `memphis-restaurant-preventative-maintenance-checklist.html`
 - Consider adding `FAQPage` JSON-LD for each published FAQ page.
+
+## Image set used
+
+- `assets/images/troubleshooting/reach-in-cooler-temp-check-memphis.png`
+- `assets/images/troubleshooting/walk-in-cooler-gasket-inspection-memphis.png`
+- `assets/images/troubleshooting/ice-machine-no-ice-diagnostic-memphis.png`
+- `assets/images/troubleshooting/refrigeration-breaker-panel-check-memphis.png`
+- `assets/images/troubleshooting/preventative-maintenance-checklist-tools-memphis.png`
+- `assets/images/troubleshooting/reach-in-cooler-service-tech-memphis.png` (extra image for homepage/supporting section)

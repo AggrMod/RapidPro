@@ -1,5 +1,7 @@
 # Walk-In Cooler Not Keeping Temp in Memphis: Manager Q&A and First Checks
 
+![Technician inspecting a walk-in cooler door gasket in a Memphis restaurant kitchen](../../../assets/images/troubleshooting/walk-in-cooler-gasket-inspection-memphis.png)
+
 When a walk-in cooler drifts above safe holding temperature, speed matters. Use this checklist to stabilize risk and collect useful diagnostics.
 
 ## Q&A
