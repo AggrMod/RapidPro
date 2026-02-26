@@ -778,6 +778,14 @@
             font-size: 32px;
         }
 
+        .service-icon-image {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
         .service-item h3 {
             font-size: 24px;
             margin-bottom: 16px;
@@ -1047,7 +1055,19 @@
         }
 
         .industry-icon {
-            font-size: 48px;
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 16px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(31, 41, 55, 0.06);
+        }
+
+        .industry-icon-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             margin-bottom: 16px;
         }
 
@@ -1577,7 +1597,9 @@
             <div class="services-grid">
                 <div class="service-item fade-up">
                     <div class="service-icon-container">
-                        <span class="service-icon">❄️</span>
+                        <img class="service-icon-image"
+                            src="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.png"
+                            alt="Reach-in cooler service in Memphis">
                     </div>
                     <h3>Reach-In Cooler Service</h3>
                     <p>Professional maintenance and repair for reach-in coolers and refrigeration units.</p>
@@ -1591,7 +1613,9 @@
 
                 <div class="service-item fade-up">
                     <div class="service-icon-container">
-                        <span class="service-icon">💧</span>
+                        <img class="service-icon-image"
+                            src="assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.png"
+                            alt="Commercial ice machine service in Memphis">
                     </div>
                     <h3>Ice Machine Service</h3>
                     <p>Keep your ice machines running efficiently with regular maintenance and repairs.</p>
@@ -1629,22 +1653,38 @@
 
             <div class="industries-grid">
                 <div class="industry-card fade-up">
-                    <div class="industry-icon">🍽️</div>
+                    <div class="industry-icon">
+                        <img class="industry-icon-image"
+                            src="assets/images/troubleshooting/reach-in-cooler-service-technician-commercial-kitchen-memphis-tn.png"
+                            alt="Restaurant refrigeration service">
+                    </div>
                     <h3>Restaurants</h3>
                 </div>
 
                 <div class="industry-card fade-up">
-                    <div class="industry-icon">🏨</div>
+                    <div class="industry-icon">
+                        <img class="industry-icon-image"
+                            src="assets/images/troubleshooting/commercial-refrigeration-breaker-panel-troubleshooting-memphis-tn.png"
+                            alt="Hotel refrigeration maintenance support">
+                    </div>
                     <h3>Hotels</h3>
                 </div>
 
                 <div class="industry-card fade-up">
-                    <div class="industry-icon">🛒</div>
+                    <div class="industry-icon">
+                        <img class="industry-icon-image"
+                            src="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.png"
+                            alt="Grocery and retail walk-in cooler support">
+                    </div>
                     <h3>Grocery & Retail</h3>
                 </div>
 
                 <div class="industry-card fade-up">
-                    <div class="industry-icon">🍴</div>
+                    <div class="industry-icon">
+                        <img class="industry-icon-image"
+                            src="assets/images/troubleshooting/commercial-kitchen-preventative-maintenance-checklist-tools-memphis-tn.png"
+                            alt="Catering equipment preventative maintenance">
+                    </div>
                     <h3>Catering</h3>
                 </div>
             </div>
