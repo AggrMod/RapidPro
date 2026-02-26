@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "image": "https://rapidpromemphis.com/images/logo.png",
     "url": "https://rapidpromemphis.com",
     "telephone": "+19012579417",
-    "email": "r22subcooling@gmail.com",
+    "email": "RapidPro.Memphis@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Memphis",
@@ -151,3 +151,4 @@ document.addEventListener("DOMContentLoaded", function() {
   script.innerHTML = JSON.stringify(schemaData);
   document.head.appendChild(script);
 });
+

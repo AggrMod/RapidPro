@@ -13,6 +13,8 @@ Disallow: /hello-claude.html
 Disallow: /given-flowers.html
 Disallow: /image-test.html
 Disallow: /dashboard.html
+Disallow: /dashboard/
+Disallow: /memphis-services-quick-fix.html
 Disallow: /functions/
 Disallow: /node_modules/
 Disallow: /tools/
