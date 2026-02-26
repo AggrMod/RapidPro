@@ -19,6 +19,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "RapidPro Memphis | Commercial Kitchen Repair Experts",
   description: "Premier commercial kitchen equipment repair in Memphis. 24/7 Service for Ovens, Fryers, Walk-ins & more. Call (901) 257-9417.",
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
