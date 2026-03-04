@@ -146,6 +146,13 @@ section {
     margin: 0 auto;
 }
 
+/* Hero must span full viewport width — override section max-width */
+section.hero {
+    max-width: 100%;
+    margin: 0;
+    padding: 6rem 2rem;
+}
+
 h2 {
     font-size: 2rem;
     text-align: center;
@@ -190,7 +197,7 @@ h2 {
     color: white;
     text-align: center;
     border-radius: 12px;
-    margin: 2rem;
+    margin: 2rem auto;
     padding: 3rem 2rem;
 }
 
@@ -201,6 +208,17 @@ h2 {
 .cta-section p {
     margin-bottom: 1.5rem;
     opacity: 0.9;
+}
+
+/* Content cards must always be visible — override JS scroll animation */
+.troubleshooting-step,
+.warning-box,
+.service-card,
+.checklist-section,
+.hub-grid,
+.benefits {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Related Services Section */
