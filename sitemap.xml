@@ -82,6 +82,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Health Inspection / Emergency -->
+  <url>
+    <loc>https://rapidpromemphis.com/memphis-health-inspection-repair.html</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Troubleshooting / Content -->
   <url>
     <loc>https://rapidpromemphis.com/memphis-commercial-oven-troubleshooting.html</loc>
