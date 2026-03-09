@@ -70,7 +70,7 @@ nav {
     z-index: 0;
 }
 
-.hero::before {
+.hero:not(:has(.video-background))::before {
     content: '';
     position: absolute;
     top: 0;
