@@ -55,6 +55,7 @@
     <!-- Design System CSS -->
     <link rel="stylesheet" href="css/main-layout.css">
     <link rel="stylesheet" href="css/funnel.css">
+    <link rel="stylesheet" href="css/preloader.css">
 
     <!-- Utilities -->
     <link rel="stylesheet" href="css/mobile-menu-fix.css">
@@ -87,7 +88,7 @@
             </button>
             <nav class="main-nav" id="main-nav">
                 <ul>
-                    <li><a href="index.html" style="font-weight: 800; color: #facc15; text-decoration: underline;">🏠 Back to Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="memphis-services.html">Services</a></li>
                     <li><a href="memphis-service-areas.html">Service Areas</a></li>
                     <li><a href="memphis-testimonials.html">Testimonials</a></li>
@@ -98,7 +99,7 @@
         </div>
     </header>
 
-    Preloader 
+    <!-- Preloader -->
 <div class="preloader">
 <div class="preloader-content">
 <div class="loader-spinner">
@@ -113,9 +114,9 @@
 </div>
 </div>
 </div>
- Page Transition 
+ <!-- Page Transition -->
 <div class="page-transition"></div>
- Main Content 
+ <!-- Main Content -->
 <div class="page-content">
 <!-- Header with Logo -->
 
@@ -132,7 +133,7 @@
 <p class="subheading fade-up">Serving Commercial Kitchens Throughout Memphis and the Mid-South</p>
 <p class="tagline fade-up">Providing top-tier preventative maintenance to keep your equipment running
                     efficiently.</p>
-<a class="btn cta fade-up" href="mailto:RapidPro.Memphis@gmail.com">Schedule Service</a>
+<a class="btn-primary fade-up" href="mailto:RapidPro.Memphis@gmail.com">Schedule Service</a>
 </div>
 <div class="scroll-indicator"></div>
 </section>
@@ -317,6 +318,8 @@
 
  Only use the enhanced version
 
+    </div><!-- .page-content -->
+
     <footer class="footer">
         <div class="container" style="display: flex; flex-direction: column; align-items: center;">
             <a href="index.html" style="text-decoration: none;">
@@ -334,13 +337,31 @@
                 <p style="margin-top:10px;font-size:0.78em;color:#999;max-width:700px;margin-left:auto;margin-right:auto;">Rapid Pro Maintenance specializes in the preventative maintenance and repair of commercial kitchen appliances and portable refrigeration. We are not a licensed Mechanical Contractor (CMC); for major structural HVAC or hardwired refrigeration installs, we recommend consulting a licensed contractor.</p>
             </div>
         </div>
-    </footer>
+    <!-- Only use the enhanced version -->
 
     <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now">📞</a>
     <a href="mailto:RapidPro.Memphis@gmail.com" class="sticky-email" aria-label="Email us">✉️</a>
 
     <script>
+        // Preloader Handling
+        window.addEventListener('load', () => {
+            const preloader = document.querySelector('.preloader');
+            const progressFill = document.querySelector('.progress-fill');
+
+            if (progressFill) {
+                progressFill.style.width = '100%';
+            }
+
+            setTimeout(() => {
+                if (preloader) {
+                    preloader.classList.add('loaded');
+                    document.querySelector('.page-content').style.opacity = '1';
+                }
+            }, 500);
+        });
+
         // Mobile Menu Toggle
+
         const hamburger = document.getElementById('hamburger-menu');
         const nav = document.getElementById('main-nav');
         const overlay = document.getElementById('menu-overlay');
