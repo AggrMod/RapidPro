@@ -13,24 +13,24 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Memphis Customer Testimonials | Rapid Pro Maintenance</title>
+    <title>Share Your Experience | Rapid Pro Maintenance</title>
     <link rel="canonical" href="https://rapidpromemphis.com/memphis-testimonials.html">
-    <meta name="description" content="Read testimonials from satisfied Memphis restaurant and commercial kitchen customers who trust Rapid Pro Maintenance for their equipment needs.">
+    <meta name="description" content="Worked with Rapid Pro Maintenance? Share your testimony so other Memphis restaurants and commercial kitchens can see what to expect.">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="keywords" content="Memphis commercial kitchen maintenance testimonials, restaurant equipment service reviews, Memphis kitchen repair customer feedback">
+    <meta name="keywords" content="Memphis commercial kitchen maintenance testimonials, leave a review, customer testimony">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rapidpromemphis.com/memphis-testimonials.html">
-    <meta property="og:title" content="Memphis Customer Testimonials | Rapid Pro Maintenance">
-    <meta property="og:description" content="Read testimonials from satisfied Memphis restaurant and commercial kitchen customers who trust Rapid Pro Maintenance for their equipment needs.">
+    <meta property="og:title" content="Share Your Experience | Rapid Pro Maintenance">
+    <meta property="og:description" content="Worked with Rapid Pro Maintenance? Share your testimony so other Memphis restaurants and commercial kitchens can see what to expect.">
     <meta property="og:image" content="assets/images/hero.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://rapidpromemphis.com/memphis-testimonials.html">
-    <meta property="twitter:title" content="Memphis Customer Testimonials | Rapid Pro Maintenance">
-    <meta property="twitter:description" content="Read testimonials from satisfied Memphis restaurant and commercial kitchen customers who trust Rapid Pro Maintenance for their equipment needs.">
+    <meta property="twitter:title" content="Share Your Experience | Rapid Pro Maintenance">
+    <meta property="twitter:description" content="Worked with Rapid Pro Maintenance? Share your testimony so other Memphis restaurants and commercial kitchens can see what to expect.">
     <meta property="twitter:image" content="assets/images/hero.png">
 
     <!-- Favicon -->
@@ -62,7 +62,43 @@
     <link rel="stylesheet" href="css/quick-fixes.css">
     <link rel="stylesheet" href="css/footer-logo-fix.css">
 
-    
+    <style>
+        .testimony-form-section { padding: 5rem 0; background: #f9fafb; }
+        .testimony-form-section .container { max-width: 720px; }
+        .testimony-form-section h2 { text-align: center; margin-bottom: 0.5rem; }
+        .testimony-form-section .lead { text-align: center; color: #4b5563; margin-bottom: 2.5rem; }
+        .testimony-form { background: #fff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-left: 4px solid #facc15; }
+        .testimony-form .field { margin-bottom: 1.25rem; }
+        .testimony-form label { display: block; font-weight: 600; margin-bottom: 0.4rem; color: #1f2937; }
+        .testimony-form input[type="text"],
+        .testimony-form input[type="email"],
+        .testimony-form textarea {
+            width: 100%; padding: 0.75rem 0.9rem; border: 1px solid #d1d5db; border-radius: 8px;
+            font: inherit; font-size: 1rem; box-sizing: border-box; background: #fff;
+        }
+        .testimony-form textarea { min-height: 140px; resize: vertical; }
+        .testimony-form input:focus, .testimony-form textarea:focus { outline: none; border-color: #facc15; box-shadow: 0 0 0 3px rgba(250,204,21,0.25); }
+        .testimony-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 540px) { .testimony-form .row { grid-template-columns: 1fr; } }
+        .star-rating { display: inline-flex; flex-direction: row-reverse; gap: 0.25rem; }
+        .star-rating input { display: none; }
+        .star-rating label { font-size: 2rem; color: #d1d5db; cursor: pointer; line-height: 1; transition: color 0.15s; margin: 0; }
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label { color: #facc15; }
+        .testimony-form .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+        .testimony-form .submit-btn {
+            display: inline-block; background: #facc15; color: #1f2937; font-weight: 700;
+            padding: 0.85rem 2rem; border: none; border-radius: 8px; font-size: 1.05rem;
+            cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .testimony-form .submit-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(250,204,21,0.4); }
+        .testimony-form .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .form-msg { margin-top: 1rem; padding: 0.9rem 1rem; border-radius: 8px; display: none; }
+        .form-msg.success { display: block; background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+        .form-msg.error   { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .privacy-note { font-size: 0.85rem; color: #6b7280; margin-top: 1rem; text-align: center; }
+    </style>
 </head>
 
 <body>
@@ -100,131 +136,104 @@
     </header>
 
     <!-- Preloader -->
-<div class="preloader">
-<div class="preloader-content">
-<div class="loader-spinner">
-<div class="spinner-circle"></div>
-<div class="spinner-circle"></div>
-<div class="spinner-circle"></div>
-<div class="spinner-logo"></div>
-</div>
-<div class="loader-text">RAPID PRO MAINTENANCE</div>
-<div class="progress-bar">
-<div class="progress-fill"></div>
-</div>
-</div>
-</div>
- <!-- Page Transition -->
-<div class="page-transition"></div>
- <!-- Main Content -->
-<div class="page-content">
-<!-- Header with Logo -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="loader-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-circle"></div>
+                <div class="spinner-logo"></div>
+            </div>
+            <div class="loader-text">RAPID PRO MAINTENANCE</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Transition -->
+    <div class="page-transition"></div>
+    <!-- Main Content -->
+    <div class="page-content">
 
-<!-- Hero Section -->
-<section class="hero">
-<!-- Video Background -->
-<div class="video-background">
-<video autoplay="" loop="" muted="" playsinline="">
-<source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4"/>
-</video>
-</div>
-<div class="container">
-<h1 class="fade-in">Memphis Customer Testimonials</h1>
-<p class="subheading fade-up">What Memphis Restaurant &amp; Kitchen Owners Say About Our Service</p>
-<p class="tagline fade-up">Real reviews from satisfied customers across Memphis and the Mid-South</p>
-<a class="btn-primary fade-up" href="mailto:RapidPro.Memphis@gmail.com">Get Your Free Quote</a>
-</div>
-<div class="scroll-indicator"></div>
-</section>
-<!-- Testimonials Section -->
-<section class="testimonials-section">
-<div class="container">
-<h2 class="fade-up">Customer Reviews</h2>
-<div class="testimonials-grid">
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>Beale Street Blues Cafe</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Rapid Pro Maintenance has been servicing our commercial kitchen for over two years. Their preventative maintenance program has saved us thousands in equipment breakdowns, especially during our busy tourist season. They understand the unique challenges of Memphis restaurants."</p>
-<div class="testimonial-author">
-<strong>Sarah Johnson</strong>
-<span>Restaurant Manager</span>
-</div>
-</div>
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>Memphis Medical Center</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Reliable, professional, and always responsive. RPM maintains our cafeteria equipment and ensures we meet all health department requirements. Their 24/7 emergency service has been a lifesaver when we've had unexpected equipment failures."</p>
-<div class="testimonial-author">
-<strong>Michael Torres</strong>
-<span>Facilities Director</span>
-</div>
-</div>
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>FedEx Forum Catering</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Managing a large venue kitchen requires absolute reliability. Rapid Pro's team keeps our equipment running smoothly through concert seasons and Grizzlies games. Their Memphis-based technicians understand our urgency and always deliver."</p>
-<div class="testimonial-author">
-<strong>David Chen</strong>
-<span>Executive Chef</span>
-</div>
-</div>
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>University of Memphis Dining</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Serving thousands of students daily requires equipment that never fails. RPM's preventative maintenance program and quick response times ensure our dining halls stay operational. They're true partners in our success."</p>
-<div class="testimonial-author">
-<strong>Lisa Anderson</strong>
-<span>Dining Services Manager</span>
-</div>
-</div>
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>Central BBQ</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Our smokers and kitchen equipment are the heart of our operation. Rapid Pro understands the BBQ business and keeps our equipment in perfect condition. Their knowledge of Memphis food service is unmatched."</p>
-<div class="testimonial-author">
-<strong>Roger Williams</strong>
-<span>Owner</span>
-</div>
-</div>
-<div class="testimonial-item fade-up">
-<div class="testimonial-header">
-<h3>Peabody Hotel</h3>
-<div class="rating">★★★★★</div>
-</div>
-<p class="testimonial-text">"Luxury hospitality demands flawless kitchen operations. RPM's professional service and attention to detail aligns perfectly with our standards. They maintain our equipment with the same care we put into serving our guests."</p>
-<div class="testimonial-author">
-<strong>Amanda Roberts</strong>
-<span>Food &amp; Beverage Director</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="cta-section">
-<div class="container">
-<h2 class="fade-up">Ready to Join Our Satisfied Customers?</h2>
-<p class="fade-up">Experience the same reliable service that Memphis businesses trust. Contact us today for a no-obligation assessment of your commercial kitchen equipment.</p>
-<div class="cta-buttons fade-up">
-<a class="btn primary" href="tel:+19012579417">Call (901) 257-9417</a>
-<a class="btn secondary" href="mailto:RapidPro.Memphis@gmail.com">Get Free Quote</a>
-</div>
-</div>
-</section>
-</div>
- Footer (same as other pages) 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="video-background">
+            <video autoplay="" loop="" muted="" playsinline="">
+                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4"/>
+            </video>
+        </div>
+        <div class="container">
+            <h1 class="fade-in">Share Your Experience</h1>
+            <p class="subheading fade-up">Tell other Memphis restaurants and kitchens how we did</p>
+            <p class="tagline fade-up">Your testimony helps neighbors find honest service they can trust.</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
 
- Scripts
+    <!-- Testimony Submission Form -->
+    <section class="testimony-form-section">
+        <div class="container">
+            <h2 class="fade-up">Leave a Testimony</h2>
+            <p class="lead fade-up">Worked with us? Take a minute to share what happened &mdash; the good, the bad, the specifics.</p>
+
+            <form id="testimony-form" class="testimony-form fade-up" novalidate>
+                <div class="row">
+                    <div class="field">
+                        <label for="t-name">Your Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="t-name" name="name" required maxlength="100" autocomplete="name">
+                    </div>
+                    <div class="field">
+                        <label for="t-business">Business or Title</label>
+                        <input type="text" id="t-business" name="business" maxlength="120" autocomplete="organization" placeholder="e.g. Owner, Beale Street Cafe">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="t-email">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="t-email" name="email" required maxlength="200" autocomplete="email" placeholder="We'll only use this to verify your testimony.">
+                </div>
+                <div class="field">
+                    <label>Rating <span aria-hidden="true">*</span></label>
+                    <div class="star-rating" role="radiogroup" aria-label="Star rating">
+                        <input type="radio" id="r5" name="rating" value="5" required><label for="r5" title="5 stars">★</label>
+                        <input type="radio" id="r4" name="rating" value="4"><label for="r4" title="4 stars">★</label>
+                        <input type="radio" id="r3" name="rating" value="3"><label for="r3" title="3 stars">★</label>
+                        <input type="radio" id="r2" name="rating" value="2"><label for="r2" title="2 stars">★</label>
+                        <input type="radio" id="r1" name="rating" value="1"><label for="r1" title="1 star">★</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="t-text">Your Testimony <span aria-hidden="true">*</span></label>
+                    <textarea id="t-text" name="text" required minlength="20" maxlength="2000" placeholder="What did we work on? How did it go? Anything specific you'd want another business to know?"></textarea>
+                </div>
+
+                <!-- Honeypot: hidden field; real humans leave it blank, bots tend to fill it. -->
+                <div class="hp" aria-hidden="true">
+                    <label>Leave this field empty<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="submit-btn">Submit Testimony</button>
+                </div>
+
+                <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
+                <p class="privacy-note">By submitting, you agree we may publish your name, business, rating, and testimony on this site. Your email is used only to verify the submission and will not be shown publicly.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="fade-up">Need Service Before You Can Review Us?</h2>
+            <p class="fade-up">Get in touch for a no-obligation assessment of your commercial kitchen equipment.</p>
+            <div class="cta-buttons fade-up">
+                <a class="btn primary" href="tel:+19012579417">Call (901) 257-9417</a>
+                <a class="btn secondary" href="mailto:RapidPro.Memphis@gmail.com">Get Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    </div><!-- .page-content -->
 
     <footer class="footer">
         <div class="container" style="display: flex; flex-direction: column; align-items: center;">
@@ -237,15 +246,12 @@
                 <p>Serving Memphis, TN and surrounding areas</p>
             </div>
             <div class="footer-nav">
-                <p>© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a
-                        href="memphis-services.html">Services</a></p>
+                <p>© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="memphis-services.html">Services</a></p>
                 <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment maintenance specialists</p>
                 <p style="margin-top:10px;font-size:0.78em;color:#999;max-width:700px;margin-left:auto;margin-right:auto;">Rapid Pro Maintenance specializes in the preventative maintenance and repair of commercial kitchen appliances and portable refrigeration. We are not a licensed Mechanical Contractor (CMC); for major structural HVAC or hardwired refrigeration installs, we recommend consulting a licensed contractor.</p>
             </div>
         </div>
     </footer>
-
-    </div><!-- .page-content -->
 
     <a href="tel:+19012579417" class="sticky-call" aria-label="Call us now">📞</a>
     <a href="mailto:RapidPro.Memphis@gmail.com" class="sticky-email" aria-label="Email us">✉️</a>
@@ -255,11 +261,7 @@
         window.addEventListener('load', () => {
             const preloader = document.querySelector('.preloader');
             const progressFill = document.querySelector('.progress-fill');
-            
-            if (progressFill) {
-                progressFill.style.width = '100%';
-            }
-            
+            if (progressFill) progressFill.style.width = '100%';
             setTimeout(() => {
                 if (preloader) {
                     preloader.classList.add('loaded');
@@ -272,7 +274,6 @@
         const hamburger = document.getElementById('hamburger-menu');
         const nav = document.getElementById('main-nav');
         const overlay = document.getElementById('menu-overlay');
-
         function toggleMenu() {
             const isActive = nav.classList.contains('active');
             nav.classList.toggle('active');
@@ -280,7 +281,6 @@
             overlay.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', !isActive);
         }
-
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
 
@@ -290,13 +290,12 @@
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             if (currentScroll <= 0) { header.classList.remove('hidden'); return; }
-            if (currentScroll > lastScroll && currentScroll > 100) { header.classList.add('hidden'); }
-            else { header.classList.remove('hidden'); }
+            if (currentScroll > lastScroll && currentScroll > 100) header.classList.add('hidden');
+            else header.classList.remove('hidden');
             lastScroll = currentScroll;
         });
 
         // Animations
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -304,16 +303,67 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up, .fade-in, .troubleshooting-step').forEach(el => {
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-up, .fade-in').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
         });
+
+        // Testimony submission
+        // Update FUNCTION_URL after `firebase deploy --only functions:submitTestimony`.
+        const FUNCTION_URL = 'https://us-central1-rapidpro-memphis.cloudfunctions.net/submitTestimony';
+
+        const form = document.getElementById('testimony-form');
+        const msg = document.getElementById('form-msg');
+        const submitBtn = form.querySelector('.submit-btn');
+
+        function showMsg(kind, text) {
+            msg.className = 'form-msg ' + kind;
+            msg.textContent = text;
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            msg.className = 'form-msg';
+            msg.textContent = '';
+
+            const data = Object.fromEntries(new FormData(form).entries());
+
+            if (!data.name || !data.email || !data.rating || !data.text) {
+                showMsg('error', 'Please fill in your name, email, rating, and testimony.');
+                return;
+            }
+            if (data.text.length < 20) {
+                showMsg('error', 'Please write at least a couple of sentences (20+ characters).');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+
+            try {
+                const res = await fetch(FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.error || `HTTP ${res.status}`);
+                }
+                form.reset();
+                showMsg('success', 'Thank you! Your testimony has been sent. We appreciate you taking the time.');
+            } catch (err) {
+                console.error('Testimony submit failed:', err);
+                showMsg('error', 'Sorry, something went wrong sending your testimony. Please call (901) 257-9417 or email RapidPro.Memphis@gmail.com.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Testimony';
+            }
+        });
     </script>
-    
 </body>
 
 </html>
