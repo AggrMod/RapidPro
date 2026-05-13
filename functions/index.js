@@ -750,5 +750,3 @@ exports.getAICommand = aiBoss.getAICommand;
 exports.completeScheduledAction = aiBoss.completeScheduledAction;
 exports.getScheduledActions = aiBoss.getScheduledActions;
 
-// Public testimony submission (HTTPS endpoint, emails RapidPro.Memphis@gmail.com)
-exports.submitTestimony = require('./submit-testimony').submitTestimony;
