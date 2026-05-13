@@ -176,7 +176,8 @@
             <h2 class="fade-up">Leave a Testimony</h2>
             <p class="lead fade-up">Worked with us? Take a minute to share what happened &mdash; the good, the bad, the specifics.</p>
 
-            <form id="testimony-form" class="testimony-form fade-up" novalidate>
+            <form id="testimony-form" class="testimony-form fade-up" name="testimony" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+                <input type="hidden" name="form-name" value="testimony">
                 <div class="row">
                     <div class="field">
                         <label for="t-name">Your Name <span aria-hidden="true">*</span></label>
@@ -206,9 +207,9 @@
                     <textarea id="t-text" name="text" required minlength="20" maxlength="2000" placeholder="What did we work on? How did it go? Anything specific you'd want another business to know?"></textarea>
                 </div>
 
-                <!-- Honeypot: hidden field; real humans leave it blank, bots tend to fill it. -->
+                <!-- Honeypot: Netlify Forms drops submissions where this field is filled. -->
                 <div class="hp" aria-hidden="true">
-                    <label>Leave this field empty<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label>
+                    <label>Leave this field empty<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
                 </div>
 
                 <div style="text-align: center;">
@@ -311,9 +312,9 @@
             observer.observe(el);
         });
 
-        // Testimony submission
-        // Update FUNCTION_URL after `firebase deploy --only functions:submitTestimony`.
-        const FUNCTION_URL = 'https://us-central1-rapidpro-memphis.cloudfunctions.net/submitTestimony';
+        // Testimony submission via Netlify Forms
+        // Submissions land in Netlify dashboard (Site -> Forms -> testimony) and
+        // can trigger email notifications configured per-form in Netlify settings.
 
         const form = document.getElementById('testimony-form');
         const msg = document.getElementById('form-msg');
@@ -344,15 +345,12 @@
             submitBtn.textContent = 'Sending…';
 
             try {
-                const res = await fetch(FUNCTION_URL, {
+                const res = await fetch('/', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(data).toString(),
                 });
-                if (!res.ok) {
-                    const err = await res.json().catch(() => ({}));
-                    throw new Error(err.error || `HTTP ${res.status}`);
-                }
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 form.reset();
                 showMsg('success', 'Thank you! Your testimony has been sent. We appreciate you taking the time.');
             } catch (err) {
