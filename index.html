@@ -831,6 +831,26 @@
             word-wrap: break-word;
         }
 
+        /* Pricing & Service Area Banner */
+        .trust-bar {
+            background: var(--white);
+            padding: 32px 0;
+        }
+
+        .trust-bar .container {
+            display: block;
+        }
+
+        .trust-bar img {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
         /* Bento Grid Layout */
         .services-grid {
             display: grid;
@@ -1666,6 +1686,18 @@
         </div>
         <div class="scroll-indicator"
             onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})"></div>
+    </section>
+
+    <!-- Pricing & Service Area Banner -->
+    <section class="trust-bar" id="pricing">
+        <div class="container">
+            <picture>
+                <source srcset="assets/images/memphis-commercial-kitchen-repair-pricing-service-area-banner.webp" type="image/webp">
+                <img src="assets/images/memphis-commercial-kitchen-repair-pricing-service-area-banner.png"
+                    alt="Rapid Pro Maintenance pricing: $75 service fee, 1-hour minimum, transparent pricing with no hidden fees, 40-mile Memphis TN service area with no travel fees"
+                    width="1584" height="672" loading="lazy">
+            </picture>
+        </div>
     </section>
 
     <!-- Memphis-Specific Services Section -->
