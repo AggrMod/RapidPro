@@ -11,6 +11,21 @@
         gtag('config', 'G-YN82WFKX62');
     </script>
 
+    <!-- Phone click tracking -->
+    <script>
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href^="tel:"]');
+        if (!link) return;
+        gtag('event', 'phone_click', {
+            event_category: 'Contact',
+            event_label: link.href.replace('tel:', ''),
+            phone_location: link.className || 'unknown',
+            link_text: link.textContent.trim(),
+            page_path: window.location.pathname
+        });
+    });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Commercial Refrigeration Memphis | Rapid Pro Maintenance</title>
