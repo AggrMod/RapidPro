@@ -13,10 +13,10 @@
 | restaurant equipment preventative maintenance memphis | #1 | General Parts #2 | **HIGH VALUE** |
 | commercial kitchen maintenance memphis tn | #3 | Mr. Appliance #1 | Close to winning |
 | commercial kitchen equipment repair memphis | #4 | Tech24 #1 | Primary target |
-| commercial oven repair memphis | Not Page 1 | Mr. Appliance, Tech24 | **CREATE PAGE** |
-| commercial fryer repair memphis | Not Page 1 | Tech24, General Parts | **CREATE PAGE** |
-| commercial refrigeration repair memphis | Not Page 1 | Memphis Ice, Frontier | Partial service only |
-| commercial dishwasher repair memphis | Not Page 1 | Hobart, Mr. Appliance | **CREATE PAGE** |
+| commercial oven repair memphis | Not Page 1 (Dec 2025) | Mr. Appliance, Tech24 | ✅ Page created (memphis-commercial-oven-repair.html) |
+| commercial fryer repair memphis | Not Page 1 (Dec 2025) | Tech24, General Parts | ✅ Page created (memphis-commercial-fryer-repair.html) |
+| commercial refrigeration repair memphis | Not Page 1 (Dec 2025) | Memphis Ice, Frontier | Partial service only |
+| commercial dishwasher repair memphis | Not Page 1 (Dec 2025) | Hobart, Mr. Appliance | ✅ Page created (memphis-commercial-dishwasher-repair.html) |
 | commercial kitchen preventative maintenance plan memphis | TOP 3 | Hobart #2 | **RPM SHOWING!** |
 
 ---
@@ -27,13 +27,13 @@
 
 | Keyword | Competition | RPM Opportunity | Top Result |
 |---------|-------------|-----------------|------------|
-| commercial griddle repair memphis | LOW | **EXCELLENT** | Gary's East (not local) |
-| commercial flat top grill repair memphis | LOW | **EXCELLENT** | Mr. Appliance generic |
-| steam table repair memphis | VERY LOW | **EXCELLENT** | No local specialist |
-| food warmer repair memphis | VERY LOW | **EXCELLENT** | No dedicated page |
-| commercial salamander broiler repair memphis | VERY LOW | **EXCELLENT** | Allied only |
-| conveyor oven repair memphis pizza | LOW | **GOOD** | SyberParts (parts only) |
-| commercial charbroiler repair memphis | LOW | **GOOD** | Gary's East (not local) |
+| commercial griddle repair memphis | LOW | **EXCELLENT** | ✅ Page created (memphis-commercial-griddle-repair.html) |
+| commercial flat top grill repair memphis | LOW | **EXCELLENT** | ✅ Covered by griddle page |
+| steam table repair memphis | VERY LOW | **EXCELLENT** | ✅ Page created (memphis-steam-table-repair.html) |
+| food warmer repair memphis | VERY LOW | **EXCELLENT** | ✅ Covered by steam table page |
+| commercial salamander broiler repair memphis | VERY LOW | **EXCELLENT** | ✅ Page created (memphis-commercial-broiler-repair.html) |
+| conveyor oven repair memphis pizza | LOW | **GOOD** | ✅ Covered by Middleby Marshall / Lincoln Impinger troubleshooting pages |
+| commercial charbroiler repair memphis | LOW | **GOOD** | ✅ Covered by broiler page (memphis-commercial-broiler-repair.html) |
 
 ### Problem-Based Keywords (FAQ SCHEMA TARGETS)
 
@@ -54,12 +54,12 @@
 | Germantown TN | kitchen equipment repair | ✅ Created |
 | Bartlett TN | commercial appliance repair | ✅ Created |
 | Collierville TN | restaurant equipment service | ✅ Created |
-| Southaven MS | commercial kitchen equipment repair | ❌ **CREATE** |
-| Cordova TN | restaurant equipment repair | ❌ **CREATE** |
-| Olive Branch MS | commercial appliance repair | ❌ **CREATE** |
-| West Memphis AR | commercial kitchen repair | ❌ **CREATE** |
-| Arlington TN | restaurant equipment maintenance | ❌ CREATE |
-| Lakeland TN | commercial appliance service | ❌ CREATE |
+| Southaven MS | commercial kitchen equipment repair | ✅ Created |
+| Cordova TN | restaurant equipment repair | ✅ Created |
+| Olive Branch MS | commercial appliance repair | ✅ Created |
+| West Memphis AR | commercial kitchen repair | ✅ Created |
+| Arlington TN | restaurant equipment maintenance | ✅ Created |
+| Lakeland TN | commercial appliance service | ✅ Created |
 
 ---
 
