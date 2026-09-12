@@ -111,38 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "86"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Marcus Johnson"
-        },
-        "reviewBody": "We're open 365 days a year serving thousands of tourists weekly. Equipment downtime isn't just inconvenient—it's catastrophic for our business. Rapid Pro keeps our kitchen running smoothly year-round with their preventative approach."
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Sarah Williams"
-        },
-        "reviewBody": "As a farm-to-table establishment, our refrigeration systems are absolutely critical. RPM helped us set up a maintenance schedule that keeps our coolers operating at peak efficiency, resulting in longer food shelf life and less waste."
-      }
-    ]
+    }
   };
 
   // Add schema to page
