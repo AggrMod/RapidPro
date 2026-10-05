@@ -16,6 +16,12 @@
   max-width: 1100px;
   margin: 32px auto 0;
   text-align: left;
+  align-items: start;
+}
+.footer .footer-col {
+  align-self: start;
+  justify-content: flex-start;
+  margin: 0;
 }
 
 .footer .footer-col h3 {
