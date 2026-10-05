@@ -72,3 +72,8 @@ rpm-nextjs/public/
 
 # Compiled files
 *.min.js
+
+# Local-only data exports (were being published by the Pages workflow)
+users.json
+auth-users.json
+_site/
