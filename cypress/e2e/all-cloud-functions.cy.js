@@ -2,7 +2,7 @@
 
 describe('RapidPro Memphis - All Cloud Functions Test', () => {
   const testEmail = 'r22subcooling@gmail.com';
-  const testPassword = 'RapidPro2025!';
+  const testPassword = Cypress.env('TEST_USER_PASSWORD');
 
   let missionLocationId;
   let userLat = 35.1495; // Memphis coordinates for testing

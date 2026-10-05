@@ -171,28 +171,6 @@
     }
     </script>
 
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://rapidpromemphis.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Memphis Commercial Kitchen Services",
-          "item": "https://rapidpromemphis.com/memphis-services.html"
-        }
-      ]
-    }
-    </script>
-
     <!-- Service Schema -->
     <script type="application/ld+json">
     {
@@ -1706,8 +1684,8 @@
         <div class="container">
             <!-- Logo container -->
             <div class="logo-container">
-                <a href="index.html">
-                    <picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo"></picture>
+                <a href="/">
+                    <picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo" width="320" height="320"></picture>
                 </a>
             </div>
 
@@ -1725,8 +1703,9 @@
             <!-- Navigation -->
             <nav class="main-nav" id="main-nav" role="navigation">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="about-terry-jamison.html">About</a></li>
+                    <li><a href="memphis-services.html">Services</a></li>
+                    <li><a href="memphis-service-areas.html">Service Areas</a></li>
                     <li><a href="memphis-restaurant-preventative-maintenance-checklist.html" style="color: #facc15;">✓
                             Free Checklist</a></li>
                     <li><a href="#packages">Packages</a></li>
@@ -1744,9 +1723,22 @@
     <section class="hero" id="about">
         <!-- Video Background -->
         <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
-            </video>
+            <video id="hero-video" autoplay muted loop playsinline preload="none" poster="videos/kitchen-perspective-poster.webp"></video>
+            <script>
+                (function () {
+                    var v = document.getElementById('hero-video');
+                    if (!v || !window.matchMedia) return;
+                    var desktop = window.matchMedia('(min-width: 768px)').matches;
+                    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (desktop && !reduced) {
+                        var s = document.createElement('source');
+                        s.src = 'videos/Kitchen_Perspective_Video_Ready.mp4';
+                        s.type = 'video/mp4';
+                        v.appendChild(s);
+                        v.load();
+                    }
+                })();
+            </script>
         </div>
         <div class="container">
             <h1>Memphis Commercial Kitchen Equipment Repair &amp; Maintenance</h1>
@@ -1782,7 +1774,7 @@
                     <div class="service-icon-container">
                         <picture><source srcset="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.webp" type="image/webp"><img class="service-icon-image"
                             src="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.png"
-                            alt="Reach-in cooler service in Memphis"></picture>
+                            alt="Reach-in cooler service in Memphis" width="52" height="52" loading="lazy"></picture>
                     </div>
                     <h3>Reach-In Cooler Service</h3>
                     <p>Professional maintenance and repair for reach-in coolers and refrigeration units.</p>
@@ -1792,14 +1784,14 @@
                         <li>Door seal inspection</li>
                         <li>Preventative maintenance</li>
                     </ul>
-                    <a href="memphis-commercial-refrigeration-services.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Learn More →</a>
+                    <a href="memphis-commercial-refrigeration-services.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Commercial refrigeration repair in Memphis →</a>
                 </div>
 
                 <div class="service-item fade-up">
                     <div class="service-icon-container">
                         <picture><source srcset="assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.webp" type="image/webp"><img class="service-icon-image"
                             src="assets/images/troubleshooting/commercial-ice-machine-not-making-ice-repair-memphis-tn.png"
-                            alt="Commercial ice machine service in Memphis"></picture>
+                            alt="Commercial ice machine service in Memphis" width="52" height="52" loading="lazy"></picture>
                     </div>
                     <h3>Ice Machine Cleaning & Sanitization</h3>
                     <p>Keep your ice machines running efficiently with regular cleaning, sanitization, and preventative maintenance.</p>
@@ -1809,14 +1801,14 @@
                         <li>Water filtration service</li>
                         <li>Production efficiency checks</li>
                     </ul>
-                    <a href="memphis-ice-machine-service.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Learn More →</a>
+                    <a href="memphis-ice-machine-service.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Ice machine repair &amp; cleaning in Memphis →</a>
                 </div>
 
                 <div class="service-item fade-up">
                     <div class="service-icon-container">
                         <picture><source srcset="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.webp" type="image/webp"><img class="service-icon-image"
                             src="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.png"
-                            alt="Walk-in cooler maintenance and repair in Memphis"></picture>
+                            alt="Walk-in cooler maintenance and repair in Memphis" width="52" height="52" loading="lazy"></picture>
                     </div>
                     <h3>Walk-In Maintenance & Hardware</h3>
                     <p>Preventative maintenance for walk-in coolers and freezers — keeping your inventory safe, your seals tight, and your operation compliant.</p>
@@ -1826,9 +1818,65 @@
                         <li>Temperature calibration</li>
                         <li>Strip curtain installation</li>
                     </ul>
-                    <a href="memphis-walk-in-cooler-maintenance.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Learn More →</a>
+                    <a href="memphis-walk-in-cooler-maintenance.html" style="display:inline-block;margin-top:10px;color:#facc15;font-size:0.9em;">Walk-in cooler &amp; freezer maintenance in Memphis →</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Additional Equipment Repair Section -->
+    <section class="memphis-services" id="more-services">
+        <div class="container" style="flex-direction: column;">
+            <h2 class="fade-up">We Also Repair</h2>
+            <div class="elegant-divider fade-in"></div>
+            <p class="services-intro fade-up">Hot-side and warewashing equipment service for Memphis commercial kitchens.</p>
+
+            <div class="services-grid">
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span style="font-size:1.8em;" aria-hidden="true">🔥</span>
+                    </div>
+                    <h3>Commercial Oven Repair</h3>
+                    <p>When a convection oven browns one side of a pan, takes too long to recover, or overshoots its setpoint, we compare the displayed temperature with the actual cavity temperature and test the probe or thermostat, fan motor, heating elements or burners, contactors, door switch, and gasket to isolate the fault. <a href="memphis-commercial-oven-repair.html" style="color:#facc15;">Commercial oven repair in Memphis →</a></p>
+                </div>
+
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span style="font-size:1.8em;" aria-hidden="true">🍟</span>
+                    </div>
+                    <h3>Fryer &amp; Griddle Repair</h3>
+                    <p>When fryer oil heats slowly or loses temperature between batches, we test the temperature probe, high-limit switch, contactors, and heating-element current draw to isolate the failed circuit. When a flat-top griddle leaves hot and cold bands, we map temperatures across the plate and compare each zone with its control setting. <a href="memphis-commercial-fryer-repair.html" style="color:#facc15;">Commercial fryer repair in Memphis →</a> | <a href="memphis-commercial-griddle-repair.html" style="color:#facc15;">Commercial griddle repair in Memphis →</a></p>
+                </div>
+
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span style="font-size:1.8em;" aria-hidden="true">🍽️</span>
+                    </div>
+                    <h3>Commercial Dishwasher Repair</h3>
+                    <p>When a dishwasher leaves residue, produces inconsistent sanitizer concentration, or fails to feed detergent, we observe the fill, wash, drain, and rinse sequence, verify water temperature and wash pressure, then inspect chemical feeds, pumps, probes, switches, and spray nozzles. <a href="memphis-commercial-dishwasher-repair.html" style="color:#facc15;">Commercial dishwasher repair in Memphis →</a></p>
+                </div>
+
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span style="font-size:1.8em;" aria-hidden="true">🚨</span>
+                    </div>
+                    <h3>Emergency Repair</h3>
+                    <p>Rapid Pro handles urgent hot-side, warewashing, ice, and refrigeration calls across Memphis and the surrounding metro. Availability depends on the active schedule, routing, safe site access, and the parts required for the specific model. <a href="memphis-emergency-commercial-kitchen-repair.html" style="color:#facc15;">24 hour emergency commercial kitchen repair in Memphis →</a></p>
+                </div>
+            </div>
+
+            <p class="services-intro fade-up" style="margin-top:32px;margin-bottom:0;">
+                <a href="memphis-service-areas.html" style="color:#facc15;">All service areas</a>:
+                <a href="germantown-kitchen-equipment-repair.html" style="color:#facc15;">Germantown</a>,
+                <a href="collierville-restaurant-equipment-service.html" style="color:#facc15;">Collierville</a>,
+                <a href="bartlett-commercial-appliance-repair.html" style="color:#facc15;">Bartlett</a>,
+                <a href="cordova-tn-restaurant-equipment-repair.html" style="color:#facc15;">Cordova</a>,
+                <a href="arlington-tn-restaurant-equipment-maintenance.html" style="color:#facc15;">Arlington</a>,
+                <a href="lakeland-tn-commercial-appliance-service.html" style="color:#facc15;">Lakeland</a>,
+                <a href="southaven-ms-commercial-kitchen-repair.html" style="color:#facc15;">Southaven</a>,
+                <a href="olive-branch-ms-commercial-appliance-repair.html" style="color:#facc15;">Olive Branch</a>, and
+                <a href="west-memphis-ar-commercial-kitchen-repair.html" style="color:#facc15;">West Memphis</a>.
+            </p>
         </div>
     </section>
 
@@ -1845,7 +1893,7 @@
                 <article class="qa-card fade-up">
                     <picture><source srcset="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.webp" type="image/webp"><img class="qa-card-image"
                         src="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.png"
-                        alt="Reach-in cooler not keeping temperature — Memphis repair guide"></picture>
+                        alt="Reach-in cooler not keeping temperature — Memphis repair guide" loading="lazy"></picture>
                     <div class="qa-card-body">
                         <h3>Reach-In Cooler</h3>
                         <ul class="qa-list">
@@ -1859,7 +1907,7 @@
                 <article class="qa-card fade-up">
                     <picture><source srcset="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.webp" type="image/webp"><img class="qa-card-image"
                         src="assets/images/troubleshooting/walk-in-cooler-door-gasket-inspection-not-keeping-temp-memphis-tn.png"
-                        alt="Walk-in cooler door gasket inspection — Memphis TN"></picture>
+                        alt="Walk-in cooler door gasket inspection — Memphis TN" loading="lazy"></picture>
                     <div class="qa-card-body">
                         <h3>Walk-In Cooler</h3>
                         <ul class="qa-list">
@@ -1942,7 +1990,7 @@
 
             <div class="fade-up">
                 <a href="tel:+19012579417" style="display:inline-block;background:#facc15;color:#111827;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;font-size:1.05em;margin-right:12px;">Call Now: (901) 257-9417</a>
-                <a href="memphis-health-inspection-repair.html" style="display:inline-block;border:2px solid #facc15;color:#facc15;font-weight:600;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:1em;">Learn More</a>
+                <a href="memphis-health-inspection-repair.html" style="display:inline-block;border:2px solid #facc15;color:#facc15;font-weight:600;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:1em;">Health inspection repair in Memphis</a>
             </div>
         </div>
     </section>
@@ -1973,7 +2021,7 @@
                     <div class="industry-icon">
                         <img class="industry-icon-image"
                             src="assets/images/stock/restaurants-commercial-kitchen-staff-memphis.jpg"
-                            alt="Restaurant refrigeration service">
+                            alt="Restaurant refrigeration service" width="88" height="88" loading="lazy">
                     </div>
                     <h3>Restaurants</h3>
                 </div>
@@ -1982,7 +2030,7 @@
                     <div class="industry-icon">
                         <img class="industry-icon-image"
                             src="assets/images/stock/hotels-buffet-service-hospitality-memphis.jpg"
-                            alt="Hotel refrigeration maintenance support">
+                            alt="Hotel refrigeration maintenance support" width="88" height="88" loading="lazy">
                     </div>
                     <h3>Hotels</h3>
                 </div>
@@ -1991,7 +2039,7 @@
                     <div class="industry-icon">
                         <img class="industry-icon-image"
                             src="assets/images/stock/grocery-retail-refrigerated-dairy-display-memphis.jpg"
-                            alt="Grocery and retail walk-in cooler support">
+                            alt="Grocery and retail walk-in cooler support" width="88" height="88" loading="lazy">
                     </div>
                     <h3>Grocery & Retail</h3>
                 </div>
@@ -2000,7 +2048,7 @@
                     <div class="industry-icon">
                         <img class="industry-icon-image"
                             src="assets/images/stock/catering-buffet-service-prep-memphis.jpg"
-                            alt="Catering equipment preventative maintenance">
+                            alt="Catering equipment preventative maintenance" width="88" height="88" loading="lazy">
                     </div>
                     <h3>Catering</h3>
                 </div>
@@ -2031,40 +2079,74 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <a href="index.html">
-                <picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo fade-in"></picture>
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <a href="/" style="text-decoration: none;">
+                <picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="Rapid Pro Maintenance" class="logo"></picture>
             </a>
-            <div class="contact-info fade-up">
+            <div class="contact-info">
                 <p><a href="mailto:RapidPro.Memphis@gmail.com">RapidPro.Memphis@gmail.com</a></p>
                 <p><a href="tel:+19012579417">(901) 257-9417</a></p>
                 <p>Serving Memphis, TN and surrounding areas</p>
             </div>
-
-            <div class="footer-nav fade-in">
-                <p>EPA Universal Certified | R290 Approved | Locally Owned & Operated</p>
-                <p style="margin-top:8px;">
-                    <a href="memphis-commercial-refrigeration-services.html">Commercial Refrigeration Maintenance</a> |
-                    <a href="memphis-ice-machine-service.html">Ice Machine Cleaning & Sanitization</a> |
-                    <a href="memphis-commercial-cooking-equipment-repair.html">Cooking Equipment</a> |
-                    <a href="memphis-commercial-oven-repair.html">Oven Repair</a> |
-                    <a href="memphis-commercial-fryer-repair.html">Fryer Repair</a> |
-                    <a href="memphis-commercial-griddle-repair.html">Griddle Repair</a> |
-                    <a href="memphis-commercial-dishwasher-repair.html">Dishwasher Repair</a> |
-                    <a href="memphis-commercial-broiler-repair.html">Broiler Repair</a> |
-                    <a href="memphis-steam-table-repair.html">Steam Table Repair</a> |
-                    <a href="memphis-emergency-commercial-kitchen-repair.html">24 Hour Emergency Repair</a>
-                </p>
-                <p style="margin-top:6px;">
-                    <a href="germantown-kitchen-equipment-repair.html">Germantown</a> |
-                    <a href="collierville-restaurant-equipment-service.html">Collierville</a> |
-                    <a href="bartlett-commercial-appliance-repair.html">Bartlett</a> |
-                    <a href="memphis-service-areas.html">All Service Areas</a> |
-                    <a href="memphis-testimonials.html">Reviews</a> |
-                    <a href="memphis-services.html">All Services</a>
-                </p>
-                <p style="margin-top:8px;">© 2026 Rapid Pro Maintenance | <a href="index.html">Home</a> | <a href="#services">Services</a> | <a
-                        href="#packages">Packages</a> | <a href="#industries">Industries</a></p>
+            <nav class="footer-links" aria-label="Footer">
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="memphis-services.html">Maintenance Plans &amp; Service Contracts</a></li>
+                        <li><a href="memphis-commercial-cooking-equipment-repair.html">Commercial Cooking Equipment Repair</a></li>
+                        <li><a href="memphis-commercial-oven-repair.html">Commercial Oven Repair</a></li>
+                        <li><a href="memphis-commercial-fryer-repair.html">Commercial Fryer Repair</a></li>
+                        <li><a href="memphis-commercial-griddle-repair.html">Commercial Griddle Repair</a></li>
+                        <li><a href="memphis-commercial-broiler-repair.html">Salamander Broiler &amp; Charbroiler Repair</a></li>
+                        <li><a href="memphis-steam-table-repair.html">Steam Table &amp; Food Warmer Repair</a></li>
+                        <li><a href="memphis-commercial-dishwasher-repair.html">Commercial Dishwasher Repair</a></li>
+                        <li><a href="memphis-commercial-refrigeration-services.html">Commercial Refrigeration Repair</a></li>
+                        <li><a href="memphis-ice-machine-service.html">Ice Machine Repair &amp; Cleaning</a></li>
+                        <li><a href="memphis-walk-in-cooler-maintenance.html">Walk-In Cooler &amp; Freezer Maintenance</a></li>
+                        <li><a href="memphis-emergency-commercial-kitchen-repair.html">24 Hour Emergency Kitchen Repair</a></li>
+                        <li><a href="memphis-health-inspection-repair.html">Health Inspection Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li><a href="memphis-service-areas.html">All Service Areas</a></li>
+                        <li><a href="germantown-kitchen-equipment-repair.html">Germantown, TN</a></li>
+                        <li><a href="collierville-restaurant-equipment-service.html">Collierville, TN</a></li>
+                        <li><a href="bartlett-commercial-appliance-repair.html">Bartlett, TN</a></li>
+                        <li><a href="cordova-tn-restaurant-equipment-repair.html">Cordova, TN</a></li>
+                        <li><a href="arlington-tn-restaurant-equipment-maintenance.html">Arlington, TN</a></li>
+                        <li><a href="lakeland-tn-commercial-appliance-service.html">Lakeland, TN</a></li>
+                        <li><a href="southaven-ms-commercial-kitchen-repair.html">Southaven, MS</a></li>
+                        <li><a href="olive-branch-ms-commercial-appliance-repair.html">Olive Branch, MS</a></li>
+                        <li><a href="west-memphis-ar-commercial-kitchen-repair.html">West Memphis, AR</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Guides</h3>
+                    <ul>
+                        <li><a href="memphis-commercial-oven-troubleshooting.html">Commercial Oven Not Heating</a></li>
+                        <li><a href="memphis-middleby-marshall-oven-troubleshooting.html">Middleby Marshall Conveyor Oven Troubleshooting</a></li>
+                        <li><a href="memphis-lincoln-impinger-oven-troubleshooting.html">Lincoln Impinger Conveyor Oven Troubleshooting</a></li>
+                        <li><a href="memphis-commercial-refrigeration-troubleshooting.html">Commercial Refrigerator Not Cooling</a></li>
+                        <li><a href="memphis-ice-machine-troubleshooting.html">Ice Machine Not Making Ice</a></li>
+                        <li><a href="memphis-restaurant-preventative-maintenance-checklist.html">Preventative Maintenance Checklist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="about-terry-jamison.html">About Terry Jamison</a></li>
+                        <li><a href="memphis-testimonials.html">Reviews &amp; Testimonials</a></li>
+                        <li><a href="tel:+19012579417">Call (901) 257-9417</a></li>
+                        <li><a href="mailto:RapidPro.Memphis@gmail.com">Email Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="footer-nav">
+                <p>EPA Universal Certified | R290 Approved | Locally Owned &amp; Operated</p>
+                <p>© 2026 Rapid Pro Maintenance | <a href="/">Home</a> | <a href="memphis-services.html">Services</a></p>
                 <p>EPA Certified | R290 Approved | Memphis' premier kitchen equipment maintenance specialists</p>
                 <p style="margin-top:10px;font-size:0.78em;color:#999;max-width:700px;margin-left:auto;margin-right:auto;">Rapid Pro Maintenance specializes in the preventative maintenance and repair of commercial kitchen appliances and portable refrigeration. We are not a licensed Mechanical Contractor (CMC); for major structural HVAC or hardwired refrigeration installs, we recommend consulting a licensed contractor.</p>
             </div>
@@ -2193,13 +2275,14 @@
             observer.observe(el);
         });
 
-        // Performance: Lazy load video
+        // Performance: Lazy load video (source is only attached on desktop, see hero)
         const video = document.querySelector('video');
-        if (video && 'IntersectionObserver' in window) {
+        if (video && video.querySelector('source') && 'IntersectionObserver' in window) {
             const videoObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        video.play();
+                        const p = video.play();
+                        if (p && p.catch) p.catch(() => {});
                         videoObserver.unobserve(video);
                     }
                 });

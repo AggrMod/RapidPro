@@ -12,7 +12,7 @@
 
 **Test User Credentials:**
 - **Email**: `RapidPro.Memphis@gmail.com`
-- **Password**: `RapidPro2025!`
+- **Password**: `[redacted - ask Terry]`
 
 ---
 
@@ -30,7 +30,7 @@
    - Password input field
    - "ACCESS SYSTEM" button
 3. [ ] Enter email: `RapidPro.Memphis@gmail.com`
-4. [ ] Enter password: `RapidPro2025!`
+4. [ ] Enter password: `[redacted - ask Terry]`
 5. [ ] Click "ACCESS SYSTEM" button
 6. [ ] Wait 3-5 seconds for login to complete
 
@@ -394,7 +394,7 @@ For context and understanding, review these files in `/home/terry/rapidpro-game/
 **Solution**:
 - Double-check credentials are typed exactly:
   - Email: `RapidPro.Memphis@gmail.com` (all lowercase)
-  - Password: `RapidPro2025!` (case-sensitive, includes !)
+  - Password: `[redacted - ask Terry]` (case-sensitive, includes !)
 
 ### Issue: "User must be authenticated" error
 **Solution**:

@@ -61,7 +61,7 @@ Tested the complete user workflow:
 
 **Test Credentials**:
 - Email: RapidPro.Memphis@gmail.com
-- Password: RapidPro2025!
+- Password: [redacted - ask Terry]
 
 ---
 

@@ -268,7 +268,7 @@ rapidpro-game/
 
 ### Test Credentials
 - **Email**: RapidPro.Memphis@gmail.com
-- **Password**: RapidPro2025!
+- **Password**: [redacted - ask Terry]
 
 ### Local Project
 - **Directory**: `/home/terry/rapidpro-game`

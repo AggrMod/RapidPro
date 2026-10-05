@@ -8,23 +8,28 @@ admin.initializeApp({
 });
 
 async function createTestUser() {
+  const email = process.env.TEST_USER_EMAIL;
+  const password = process.env.TEST_USER_PASSWORD;
+  if (!email || !password) {
+    console.error('Set TEST_USER_EMAIL and TEST_USER_PASSWORD in the environment first.');
+    process.exit(1);
+  }
   try {
     const userRecord = await admin.auth().createUser({
-      email: 'r22subcooling@gmail.com',
-      password: 'RapidPro2025!',
+      email: email,
+      password: password,
       emailVerified: true
     });
 
     console.log('✅ Successfully created test user:', userRecord.uid);
     console.log('Email:', userRecord.email);
     console.log('\nYou can now login with:');
-    console.log('Email: r22subcooling@gmail.com');
-    console.log('Password: RapidPro2025!');
+    console.log('Email:', email);
 
     process.exit(0);
   } catch (error) {
     if (error.code === 'auth/email-already-exists') {
-      console.log('ℹ️  User already exists with email: r22subcooling@gmail.com');
+      console.log('ℹ️  User already exists with email: ' + email);
       console.log('You can login with the existing credentials.');
     } else {
       console.error('❌ Error creating user:', error.message);

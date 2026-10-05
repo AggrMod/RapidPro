@@ -2,7 +2,7 @@
 
 **URL**: https://rapidpro-memphis.web.app
 **Email**: `RapidPro.Memphis@gmail.com`
-**Password**: `RapidPro2025!`
+**Password**: `[redacted - ask Terry]`
 
 ---
 
@@ -17,7 +17,7 @@
 
 ### Test 1: Login & Authentication
 - [ ] Enter email: `RapidPro.Memphis@gmail.com`
-- [ ] Enter password: `RapidPro2025!`
+- [ ] Enter password: `[redacted - ask Terry]`
 - [ ] Click "ACCESS SYSTEM"
 - [ ] ✅ Verify dashboard loads (3-5 seconds)
 - [ ] ✅ Verify email shown in header
