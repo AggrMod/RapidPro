@@ -79,6 +79,7 @@
     <link rel="stylesheet" href="css/mobile-menu-fix.css">
     <link rel="stylesheet" href="css/quick-fixes.css">
     <link rel="stylesheet" href="css/footer-logo-fix.css">
+    <link rel="stylesheet" href="css/oven-hero.css">
 
     <style>
         .faq-toc {
@@ -194,7 +195,8 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero hero-3d">
+        <div class="oven-hero-canvas" data-oven-hero aria-hidden="true"></div>
         <div class="hero-content">
             <h1>Middleby Marshall Conveyor Oven Troubleshooting</h1>
             <p class="tagline">Real answers for Middleby Marshall WOW Series pizza ovens, from a Memphis tech who works on these every week — not a generic manual.</p>
@@ -542,6 +544,8 @@
       ]
     }
     </script>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+    <script type="module" src="js/oven-hero.js"></script>
 </body>
 
 </html>
