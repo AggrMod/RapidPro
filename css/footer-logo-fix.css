@@ -118,3 +118,38 @@
 @media (max-width: 768px) {
   .header, .header .container { height: auto !important; }
 }
+
+/* Hero motion: slow Ken Burns zoom on photo heroes + staggered headline entrance.
+   Transform/opacity only (GPU, no layout shift); disabled for prefers-reduced-motion. */
+.hero { overflow: hidden; }
+.hero img.hero-background {
+  transform-origin: 65% 45%;
+  animation: rp-kenburns 20s ease-in-out 0.2s infinite alternate both;
+  will-change: transform;
+}
+@keyframes rp-kenburns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+}
+.hero .hero-content > h1,
+.hero .hero-content > .tagline,
+.hero .hero-content > p,
+.hero .hero-content > .cta-buttons {
+  animation: rp-rise 0.7s cubic-bezier(.2, .7, .2, 1) both;
+}
+.hero .hero-content > .tagline, .hero .hero-content > p { animation-delay: 0.12s; }
+.hero .hero-content > .cta-buttons { animation-delay: 0.26s; }
+@keyframes rp-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero img.hero-background,
+  .hero .hero-content > * { animation: none !important; }
+}
+/* Let the hero photos show: lighter film than the old 0.85/0.75, darker behind the text. */
+.hero:has(img.hero-background)::before {
+  background: radial-gradient(ellipse at 50% 50%, rgba(17, 24, 39, 0.72) 0%, rgba(17, 24, 39, 0.58) 55%, rgba(17, 24, 39, 0.42) 100%) !important;
+}
+.hero:has(img.hero-background) .hero-content h1,
+.hero:has(img.hero-background) .hero-content p { text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55); }
