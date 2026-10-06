@@ -1723,22 +1723,9 @@
     <section class="hero" id="about">
         <!-- Video Background -->
         <div class="video-background">
-            <video id="hero-video" autoplay muted loop playsinline preload="none" poster="videos/kitchen-perspective-poster.webp"></video>
-            <script>
-                (function () {
-                    var v = document.getElementById('hero-video');
-                    if (!v || !window.matchMedia) return;
-                    var desktop = window.matchMedia('(min-width: 768px)').matches;
-                    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    if (desktop && !reduced) {
-                        var s = document.createElement('source');
-                        s.src = 'videos/Kitchen_Perspective_Video_Ready.mp4';
-                        s.type = 'video/mp4';
-                        v.appendChild(s);
-                        v.load();
-                    }
-                })();
-            </script>
+            <video autoplay muted loop playsinline poster="videos/kitchen-perspective-poster.webp">
+                <source src="videos/Kitchen_Perspective_Video_Ready.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="container">
             <h1>Memphis Commercial Kitchen Equipment Repair &amp; Maintenance</h1>
