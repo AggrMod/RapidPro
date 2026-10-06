@@ -35,6 +35,7 @@ function init(mount) {
   const glass = new THREE.MeshStandardMaterial({ color: 0x1c2128, metalness: 0.5, roughness: 0.06, emissive: 0xffb070, emissiveIntensity: 0.03 });
   const screen = new THREE.MeshStandardMaterial({ color: 0x0b1726, emissive: 0x3aa0ff, emissiveIntensity: 0.9, roughness: 0.3 });
   const rubber = new THREE.MeshStandardMaterial({ color: 0x1b1b1b, roughness: 0.9 });
+  const badgeMat = new THREE.MeshStandardMaterial({ map: makeBadgeTexture(), roughness: 0.35, metalness: 0.3 });
   const red = new THREE.MeshStandardMaterial({ color: 0xc8202a, roughness: 0.5, metalness: 0.2 });
   const beltTex = makeBeltTexture();
   const belt = new THREE.MeshStandardMaterial({ map: beltTex, alphaMap: beltTex, transparent: true, alphaTest: 0.35, metalness: 0.8, roughness: 0.4, side: THREE.DoubleSide });
@@ -72,8 +73,7 @@ function init(mount) {
     const swPlate = box(0.11, 0.11, 0.012, steelEdge); swPlate.position.set(-0.62, y + 0.17, BODY_D / 2 + 0.006); g.add(swPlate);
     const sw = box(0.07, 0.07, 0.03, black); sw.position.set(-0.62, y + 0.17, BODY_D / 2 + 0.02); g.add(sw);
     // right: plain dark badge plate (no brand) with a red stripe, and a second switch
-    const badge = box(0.26, 0.09, 0.012, black); badge.position.set(0.6, y + 0.36, BODY_D / 2 + 0.006); g.add(badge);
-    const stripe = box(0.26, 0.014, 0.004, red); stripe.position.set(0.6, y + 0.395, BODY_D / 2 + 0.014); g.add(stripe);
+    const badge = box(0.26, 0.09, 0.012, [black, black, black, black, badgeMat, black]); badge.position.set(0.6, y + 0.36, BODY_D / 2 + 0.006); g.add(badge);
     const sw2Plate = box(0.1, 0.1, 0.012, steelEdge); sw2Plate.position.set(0.6, y + 0.18, BODY_D / 2 + 0.006); g.add(sw2Plate);
     const sw2 = box(0.06, 0.06, 0.025, black); sw2.position.set(0.6, y + 0.18, BODY_D / 2 + 0.018); g.add(sw2);
     // vent louvres on the end panels
@@ -122,6 +122,10 @@ function init(mount) {
   // floor that only catches shadow
   const floor = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), new THREE.ShadowMaterial({ opacity: 0.35 }));
   floor.rotation.x = -Math.PI / 2; floor.position.y = -0.85; floor.receiveShadow = true; scene.add(floor);
+
+  // watermark on the floor in front of the oven (part of the render, so it travels with any screenshot)
+  const mark = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 0.21), new THREE.MeshBasicMaterial({ map: makeWatermarkTexture(), transparent: true, depthWrite: false }));
+  mark.rotation.x = -Math.PI / 2; mark.position.set(0.1, 0.005, 0.78); oven.add(mark);
 
   // lights
   scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a1d24, 0.6));
@@ -186,6 +190,28 @@ function init(mount) {
       x.fillRect(0, yy, 256, 1);
     }
     const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.SRGBColorSpace;
+    return t;
+  }
+
+  function makeBadgeTexture() {
+    const c = document.createElement('canvas'); c.width = 512; c.height = 176;
+    const x = c.getContext('2d');
+    x.fillStyle = '#121418'; x.fillRect(0, 0, 512, 176);
+    x.fillStyle = '#c8202a'; x.fillRect(0, 0, 512, 22);
+    x.fillStyle = '#f5b301'; x.font = '800 72px Arial, Helvetica, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.fillText('RAPID PRO', 256, 92);
+    x.fillStyle = '#e6e8eb'; x.font = '600 30px Arial, Helvetica, sans-serif';
+    x.fillText('rapidpromemphis.com', 256, 148);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+    return t;
+  }
+
+  function makeWatermarkTexture() {
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 128;
+    const x = c.getContext('2d');
+    x.fillStyle = 'rgba(255,255,255,0.16)'; x.font = '700 64px Arial, Helvetica, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle';
+    x.fillText('RAPIDPROMEMPHIS.COM', 512, 66);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
     return t;
   }
 
