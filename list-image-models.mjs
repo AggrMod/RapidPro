@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: 'AIzaSyAPoYxvGhs2_JfMr8prnzwKiHwzbbqN-D0' });
+const ai = new GoogleGenAI({ apiKey: 'REDACTED_LEAKED_GEMINI_KEYD0' });
 
 const models = await ai.models.list();
 console.log('All available image-related models:\n');

@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 import * as fs from "node:fs";
 
-const ai = new GoogleGenAI({ apiKey: 'AIzaSyAPoYxvGhs2_JfMr8prnzwKiHwzbbqN-D0' });
+const ai = new GoogleGenAI({ apiKey: 'REDACTED_LEAKED_GEMINI_KEYD0' });
 
 // Try the experimental model
 const models = [

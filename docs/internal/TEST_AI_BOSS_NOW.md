@@ -248,7 +248,7 @@ firebase.auth().signInAnonymously().then(() => {
 firebase functions:secrets:access GEMINI_API_KEY
 ```
 
-Should output: `AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE`
+Should output: `REDACTED_LEAKED_GEMINI_KEYPE`
 
 ### Issue: AI returns fallback guidance
 

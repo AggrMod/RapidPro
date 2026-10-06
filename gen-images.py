@@ -3,7 +3,7 @@ from google import genai
 from pathlib import Path
 
 # Set API key
-os.environ['GOOGLE_API_KEY'] = 'AIzaSyAPoYxvGhs2_JfMr8prnzwKiHwzbbqN-D0'
+os.environ['GOOGLE_API_KEY'] = 'REDACTED_LEAKED_GEMINI_KEYD0'
 
 client = genai.Client()
 

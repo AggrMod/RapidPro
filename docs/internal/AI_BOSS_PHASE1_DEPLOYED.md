@@ -339,7 +339,7 @@ cd /c/Users/tjdot/RapidPro
 firebase functions:secrets:access GEMINI_API_KEY
 ```
 
-Should output: `AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE`
+Should output: `REDACTED_LEAKED_GEMINI_KEYPE`
 
 ### Issue: AI returns fallback guidance instead of Gemini
 

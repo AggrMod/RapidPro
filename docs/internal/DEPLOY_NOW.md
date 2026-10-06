@@ -32,7 +32,7 @@ firebase functions:secrets:set GEMINI_API_KEY
 
 **When prompted, paste this:**
 ```
-AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE
+REDACTED_LEAKED_GEMINI_KEYPE
 ```
 
 **What this enables:**
@@ -205,7 +205,7 @@ firebase login
 
 # 3. Set Gemini API key
 firebase functions:secrets:set GEMINI_API_KEY
-# Paste: AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE
+# Paste: REDACTED_LEAKED_GEMINI_KEYPE
 
 # 4. Deploy everything
 firebase deploy

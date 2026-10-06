@@ -328,7 +328,7 @@ Firebase Console: https://console.firebase.google.com/project/rapidpro-memphis/f
 firebase functions:secrets:access GEMINI_API_KEY
 ```
 
-Should output: `AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE`
+Should output: `REDACTED_LEAKED_GEMINI_KEYPE`
 
 ---
 

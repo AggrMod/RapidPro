@@ -60,7 +60,7 @@ https://us-central1-rapidpro-memphis.cloudfunctions.net/getScheduledActions
 # Secret is properly set and accessible
 Secret: GEMINI_API_KEY (version 2)
 Access: ✅ Granted to service account
-API Key: AIzaSyCdxHMMXI88ajTzQBzg77E-3Q8VDtGA378
+API Key: REDACTED_LEAKED_GEMINI_KEY78
 ```
 
 ### 5. ✅ Test Pages Deployed

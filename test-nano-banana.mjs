@@ -1,7 +1,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Direct API key - the linda-app pattern
-const apiKey = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY || process.env.API_KEY || 'AIzaSyAPoYxvGhs2_JfMr8prnzwKiHwzbbqN-D0';
+const apiKey = process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY || process.env.API_KEY || 'REDACTED_LEAKED_GEMINI_KEYD0';
 console.log('Using API key:', apiKey.slice(0, 10) + '...');
 const ai = new GoogleGenAI({ apiKey });
 

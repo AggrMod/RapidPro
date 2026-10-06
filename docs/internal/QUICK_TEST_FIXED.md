@@ -107,12 +107,12 @@ Look for:
 firebase functions:secrets:access GEMINI_API_KEY
 ```
 
-Should output: `AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE`
+Should output: `REDACTED_LEAKED_GEMINI_KEYPE`
 
 ### Check 3: Test Gemini API Directly
 
 ```bash
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyB6Mq0Hp2GCrwAO--bxseCEgFBiIEdBLPE" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=REDACTED_LEAKED_GEMINI_KEYPE" \
   -H 'Content-Type: application/json' \
   -d '{"contents":[{"parts":[{"text":"Say hello"}]}]}'
 ```
