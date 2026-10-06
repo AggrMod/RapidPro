@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Website Walkthrough | Rapid Pro Maintenance</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1f2937;--ink:#111827;--gold:#facc15;--gold-ink:#8a5a00;--bg:#eef0f3;--card:#fff;--line:#d9dde3;--muted:#5b6472;--red:#c8202a}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;min-height:100vh}
+.top{background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:10px 20px;flex-wrap:wrap}
+.top .brand{font-weight:700;letter-spacing:.2px}
+.top .brand small{display:block;font-weight:400;color:#c4cad4;font-size:.78rem}
+.top .count{margin-left:auto;font-variant-numeric:tabular-nums;color:#e5e7eb;font-size:.95rem}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button,.btn{font:inherit;cursor:pointer;border:1px solid #3b4658;background:#2b3646;color:#fff;border-radius:8px;min-height:44px;min-width:44px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+button:hover,.btn:hover{background:#364358}
+button:focus-visible,.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button.primary{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700}
+button.primary:hover{background:#eab908}
+button[aria-pressed=true]{background:#fff;color:var(--ink)}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bar{height:5px;background:#374151}
+.bar i{display:block;height:100%;width:0;background:var(--gold)}
+.main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:0}
+.stagewrap{padding:18px;display:flex;align-items:flex-start;justify-content:center;min-height:0;overflow:hidden;position:relative}
+.stage{position:relative;transform-origin:top left}
+.device{background:#fff;border:1px solid var(--line);box-shadow:0 10px 30px rgba(17,24,39,.18);overflow:hidden;position:relative}
+.device.desktop{border-radius:10px;width:1280px;height:800px}
+.device.phone{border-radius:34px;width:390px;height:844px;border:10px solid #111827;background:#111827}
+.device iframe{width:100%;height:100%;border:0;background:#fff;display:block}
+.device.phone iframe{border-radius:22px}
+.beforeimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;background:var(--navy);display:none}
+.device.showbefore .beforeimg{display:block}
+.badge{position:absolute;top:14px;left:14px;z-index:5;font-weight:700;font-size:.8rem;letter-spacing:.8px;text-transform:uppercase;padding:6px 12px;border-radius:999px;display:none}
+.badge.before{background:var(--red);color:#fff}
+.badge.after{background:#15803d;color:#fff}
+.badge.newp{background:var(--gold);color:var(--ink)}
+.badge.on{display:block}
+.side{background:var(--card);border-left:1px solid var(--line);padding:18px;overflow:auto;min-height:0}
+.side .grp{font-size:.74rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.side h1{font-size:1.25rem;line-height:1.25;margin:0 0 8px}
+.side .note{font-size:.98rem;line-height:1.55;margin:0 0 14px}
+.url{font-size:.8rem;color:var(--muted);word-break:break-all;margin-bottom:12px}
+.seg{display:flex;gap:6px;margin-bottom:14px}
+.seg button{background:#fff;color:var(--ink);border:1px solid var(--line);flex:1}
+.seg button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.list{border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.list h2{font-size:.8rem;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
+.list a{display:block;padding:7px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:.9rem;cursor:pointer}
+.list a:hover{background:#f1f3f6}
+.list a.on{background:var(--gold);font-weight:600}
+.list a .nw{font-size:.68rem;font-weight:700;background:var(--navy);color:#fff;border-radius:4px;padding:1px 6px;margin-left:6px}
+.intro{position:fixed;inset:0;background:rgba(17,24,39,.78);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+.intro .card{background:#fff;max-width:640px;width:100%;max-height:92vh;overflow:auto;border-radius:14px;padding:28px}
+.intro h1{margin:0 0 6px;font-size:1.6rem}
+.intro p{color:var(--muted);margin:0 0 14px;line-height:1.5}
+.intro ul{margin:0 0 20px;padding-left:20px;line-height:1.6}
+.intro li{margin:4px 0}
+.intro .row{display:flex;gap:10px;flex-wrap:wrap}
+.hide{display:none!important}
+@media (max-width:900px){
+  .main{display:flex;flex-direction:column}
+  .side{border-left:0;border-top:1px solid var(--line);overflow:visible}
+  .stagewrap{padding:10px}
+  .top{padding:8px 12px}
+  .top .count{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="brand">Rapid Pro Maintenance<small>Website walkthrough</small></div>
+  <div class="ctl" role="group" aria-label="Tour controls">
+    <button id="prev" aria-label="Previous page"><svg class="i" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button id="play" class="primary" aria-label="Pause"><svg class="i" id="playicon" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><span id="playtxt">Pause</span></button>
+    <button id="next" aria-label="Next page"><svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button id="dDesk" aria-pressed="true">Desktop</button>
+    <button id="dPhone" aria-pressed="false">Phone</button>
+  </div>
+  <div class="count" id="count">1 of 34</div>
+</div>
+<div class="bar"><i id="bar"></i></div>
+
+<div class="main">
+  <div class="stagewrap" id="wrap">
+    <div class="stage" id="stage">
+      <div class="device desktop" id="device">
+        <span class="badge" id="badge"></span>
+        <iframe id="f" title="Page preview" loading="eager"></iframe>
+        <img class="beforeimg" id="bimg" alt="How this page looked before">
+      </div>
+    </div>
+  </div>
+  <aside class="side">
+    <p class="grp" id="grp"></p>
+    <h1 id="ttl"></h1>
+    <p class="url" id="url"></p>
+    <div class="seg hide" id="seg" role="group" aria-label="Before or after">
+      <button id="bBefore" aria-pressed="false">Before</button>
+      <button id="bAfter" aria-pressed="true">After (live)</button>
+    </div>
+    <p class="note" id="note"></p>
+    <a class="btn" id="open" target="_blank" rel="noopener" style="min-height:40px;margin-bottom:6px">Open this page in a new tab</a>
+    <div class="list" id="list"></div>
+  </aside>
+</div>
+
+<div class="intro" id="intro">
+  <div class="card" role="dialog" aria-labelledby="introT">
+    <h1 id="introT">Your new website, page by page</h1>
+    <p>This tour walks through all 34 pages on their own, about 7 minutes. It pauses when you press Pause, and you can jump to any page from the list. Pages that changed show how they looked this morning, then the live page.</p>
+    <ul>
+      <li>Every inner page has its own photo that moves slowly. The home page video is exactly as it was.</li>
+      <li>Two new pages: Pizza Oven Repair (with the animated oven scene) and Range &amp; Stove Repair.</li>
+      <li>On phones the menu button was invisible; it works now, and the red banner is one slim row.</li>
+      <li>One footer on every page, a real Services directory, and a line saying regular hours are 8 to 5 with emergency calls any time.</li>
+      <li>Google can read the site again after an address mix-up, and the ad campaign is built and waiting.</li>
+    </ul>
+    <div class="row"><button class="primary" id="start">Start the tour</button><button id="startPhone">Start on phone view</button></div>
+  </div>
+</div>
+
+<script>
+var P = [
+ // [path, name, group, note, beforeImg, beforePhoneImg, isNew]
+ ["", "Home", "Main", "The video hero is untouched, as you asked. New: Services and Service Areas in the menu, a We Also Repair section (ovens, fryers and griddles, dishwashers, emergency), the customer types you serve, and a strip linking every town. The logo file went from 226 KB to 8 KB.", null, null, false],
+ ["memphis-services.html", "Services", "Main", "Before, this was a plans page with no list of services and it reused the home page video. Now it opens with an All Services directory (12 services) and the troubleshooting guides, with the plans kept below. New full-kitchen photo.", "before-services.jpg", null, false],
+ ["memphis-service-areas.html", "Service Areas", "Main", "Retitled around service areas, with links to every main service and all nine towns. New photo: an unmarked service van at a restaurant back door at dawn. The copied home video is gone.", "before-service-areas.jpg", null, false],
+ ["memphis-testimonials.html", "Testimonials", "Main", "Its own photo (plated dishes under heat lamps) instead of a copy of the home video. The contact form still needs a decision on where messages should go.", null, null, false],
+ ["memphis-commercial-cooking-equipment-repair.html", "Cooking Equipment Repair", "Cooking", "New hot-line photo. New cards for pizza oven repair, range and stove, high-speed ovens, and heat racks and holding cabinets.", null, null, false],
+ ["memphis-commercial-pizza-oven-repair.html", "Pizza Oven Repair", "Cooking", "Brand-new page for the biggest missing search. The hero is an animated 3D scene: the operator turns the oven on, it errors and smokes, he panics and calls Rapid Pro. Covers conveyor and deck ovens, makelines, heat racks and franchise inspections. This is where the pizza ads will land.", null, null, true],
+ ["memphis-commercial-range-repair.html", "Range & Stove Repair", "Cooking", "Brand-new page. Eight different searches (commercial range, stove, gas range) had no page on the site. Hero is a lit six-burner range with the slow zoom.", null, null, true],
+ ["memphis-commercial-oven-repair.html", "Commercial Oven Repair", "Cooking", "The old hero was the tired AI render. Now a double-stack convection oven photo. Added a rotisserie oven card, links to the pizza, range and guide pages, and a description that names the oven types.", "before-oven-repair.jpg", null, false],
+ ["memphis-commercial-fryer-repair.html", "Fryer Repair", "Cooking", "New hero: two gas fryers with the baskets raised, replacing the old render.", null, null, false],
+ ["memphis-commercial-griddle-repair.html", "Griddle Repair", "Cooking", "New hero: a seasoned flat-top with a scraper, replacing the old render.", null, null, false],
+ ["memphis-commercial-broiler-repair.html", "Broiler & Charbroiler Repair", "Cooking", "New hero: a salamander glowing over a charbroiler. It used a stock photo that eight other pages shared.", null, null, false],
+ ["memphis-steam-table-repair.html", "Steam Table Repair", "Cooking", "New hero: a steaming serving line, replacing a shared stock photo.", null, null, false],
+ ["memphis-commercial-dishwasher-repair.html", "Dishwasher Repair", "Cooking", "Replaced a stock photo shared by eight pages with a door-type dish machine and a rack of clean glasses. Wording now uses what customers say: dish machine, pot washer, glass washer. Switch to Phone view to see the old header (huge, no menu button) against the new one.", "before-dishwasher.jpg", "before-phone-dishwasher.jpg", false],
+ ["memphis-commercial-refrigeration-services.html", "Refrigeration Repair", "Refrigeration", "Before, a plain dark banner and a thin page. Now a refrigeration photo, a What We Repair section (reach-ins, walk-ins, prep tables and makelines, chef bases, ice machines, soft serve), common symptoms, and a call button.", "before-refrigeration-services.jpg", null, false],
+ ["memphis-ice-machine-service.html", "Ice Machine Service", "Refrigeration", "New hero showing the open machine with the evaporator. Ice machine preventative maintenance is listed at $250.", null, null, false],
+ ["memphis-walk-in-cooler-maintenance.html", "Walk-In Cooler Maintenance", "Refrigeration", "The old render is replaced by a cooler door with cold mist. The tagline now says Walk-in not holding temp? in your customers' own words.", "before-walk-in.jpg", null, false],
+ ["memphis-emergency-commercial-kitchen-repair.html", "24-Hour Emergency Repair", "Programs", "Night-time hero: one work light over a dead reach-in. Emergency wording stays; the footer now shows regular hours 8 to 5.", null, null, false],
+ ["memphis-health-inspection-repair.html", "Health Inspection Repair", "Programs", "New hero: inside a walk-in with covered pans and a thermometer, plus links to the dishwasher, refrigeration and ice pages.", null, null, false],
+ ["memphis-commercial-oven-troubleshooting.html", "Oven Not Heating (guide)", "Guides", "Was a plain dark banner. Now a convection oven photo, a breadcrumb, and links through to oven repair.", "before-oven-troubleshooting.jpg", null, false],
+ ["memphis-middleby-marshall-oven-troubleshooting.html", "Middleby Marshall Guide", "Guides", "Animated 3D double-stack conveyor oven built from your photos, with Rapid Pro badges instead of the manufacturer's logo. Real symptoms and fixes written from your own tickets.", null, null, false],
+ ["memphis-lincoln-impinger-oven-troubleshooting.html", "Lincoln Impinger Guide", "Guides", "New hero: a pizza coming out on the conveyor belt, and a link to the new pizza oven page.", null, null, false],
+ ["about-terry-jamison.html", "About Terry Jamison", "Guides", "Hero is gauges, a multimeter and tools on a counter. No generated person, so nobody is passed off as you.", null, null, false],
+ ["memphis-commercial-refrigeration-troubleshooting.html", "Refrigerator Not Cooling (guide)", "Guides", "Your only page-one page. Retitled for repair searches, with a Need it fixed today call button above the checks and links into the refrigeration pages.", null, null, false],
+ ["memphis-ice-machine-troubleshooting.html", "Ice Machine Not Making Ice (guide)", "Guides", "New hero of an ice machine over a full bin, with a call block and links both ways to the ice machine service page.", null, null, false],
+ ["memphis-restaurant-preventative-maintenance-checklist.html", "Maintenance Checklist", "Guides", "New hero: a blank checklist with a probe thermometer and tools. The page now has the standard header and menu.", null, null, false],
+ ["germantown-kitchen-equipment-repair.html", "Germantown, TN", "Service areas", "An upscale restaurant kitchen. Each town now gets its own kind of kitchen.", null, null, false],
+ ["collierville-restaurant-equipment-service.html", "Collierville, TN", "Service areas", "A cafe and bakery kitchen with a deck oven.", null, null, false],
+ ["bartlett-commercial-appliance-repair.html", "Bartlett, TN", "Service areas", "A sports bar kitchen with fryers, a flat-top and a reach-in. The old photo was the tired render.", "before-bartlett.jpg", null, false],
+ ["southaven-ms-commercial-kitchen-repair.html", "Southaven, MS", "Service areas", "A family restaurant kitchen with a long range and a walk-in door.", null, null, false],
+ ["cordova-tn-restaurant-equipment-repair.html", "Cordova, TN", "Service areas", "A pizza shop kitchen with a conveyor oven and a prep table.", null, null, false],
+ ["olive-branch-ms-commercial-appliance-repair.html", "Olive Branch, MS", "Service areas", "A barbecue kitchen with a smoker cabinet.", null, null, false],
+ ["west-memphis-ar-commercial-kitchen-repair.html", "West Memphis, AR", "Service areas", "A diner kitchen with a long griddle and a milkshake machine, in morning light.", null, null, false],
+ ["arlington-tn-restaurant-equipment-maintenance.html", "Arlington, TN", "Service areas", "A school or institutional cafeteria kitchen with tilting kettles and a steam line.", null, null, false],
+ ["lakeland-tn-commercial-appliance-service.html", "Lakeland, TN", "Service areas", "A banquet kitchen with holding cabinets and a dessert plating station.", null, null, false]
+];
+var N = P.length, DWELL = 13000, BEFORE_MS = 4500, TOUR = 'assets/tour/';
+var st = {i: 0, device: 'desktop', playing: false, phase: 'after', t0: 0, elapsed: 0, last: 0};
+var $ = function (id) { return document.getElementById(id); };
+var f = $('f'), dev = $('device'), stage = $('stage'), wrap = $('wrap');
+
+// sidebar list
+(function () {
+  var html = '', g = '';
+  P.forEach(function (p, i) {
+    if (p[2] !== g) { g = p[2]; html += '<h2>' + g + '</h2>'; }
+    html += '<a data-i="' + i + '" tabindex="0" role="button">' + p[1] + (p[6] ? '<span class="nw">NEW</span>' : '') + '</a>';
+  });
+  $('list').innerHTML = html;
+  $('list').addEventListener('click', function (e) { var a = e.target.closest('a[data-i]'); if (a) { go(+a.dataset.i); } });
+  $('list').addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { var a = e.target.closest('a[data-i]'); if (a) { e.preventDefault(); go(+a.dataset.i); } } });
+})();
+
+function fit() {
+  var w = wrap.clientWidth - (window.innerWidth <= 900 ? 20 : 36);
+  var h = (window.innerWidth <= 900 ? Math.min(window.innerHeight * 0.6, 640) : wrap.clientHeight - 36);
+  var dw = dev.offsetWidth, dh = dev.offsetHeight;
+  var s = Math.min(w / dw, h / dh, 1);
+  stage.style.transform = 'scale(' + s + ')';
+  stage.style.width = dw + 'px'; stage.style.height = dh + 'px';
+  wrap.style.height = window.innerWidth <= 900 ? (dh * s + 20) + 'px' : '';
+  wrap.style.minHeight = window.innerWidth <= 900 ? '' : '0';
+  stage.style.marginBottom = ((dh * s) - dh) + 'px';
+  stage.style.marginRight = ((dw * s) - dw) + 'px';
+}
+window.addEventListener('resize', fit);
+
+function setDevice(d) {
+  st.device = d;
+  dev.className = 'device ' + d + (dev.classList.contains('showbefore') ? ' showbefore' : '');
+  $('dDesk').setAttribute('aria-pressed', d === 'desktop');
+  $('dPhone').setAttribute('aria-pressed', d === 'phone');
+  fit();
+  go(st.i, true);
+}
+
+function beforeFor(p) { return st.device === 'phone' ? (p[5] || null) : p[4]; }
+
+function showPhase(ph) {
+  var p = P[st.i], img = beforeFor(p);
+  st.phase = ph;
+  var showB = ph === 'before' && img;
+  dev.classList.toggle('showbefore', !!showB);
+  if (showB) { $('bimg').src = TOUR + img; }
+  $('bBefore').setAttribute('aria-pressed', !!showB);
+  $('bAfter').setAttribute('aria-pressed', !showB);
+  var b = $('badge'); b.className = 'badge';
+  if (showB) { b.textContent = 'Before (this morning)'; b.classList.add('before', 'on'); }
+  else if (img) { b.textContent = 'After (live site)'; b.classList.add('after', 'on'); }
+  else if (p[6]) { b.textContent = 'New page'; b.classList.add('newp', 'on'); }
+}
+
+function go(i, keepPlaying) {
+  st.i = (i + N) % N;
+  var p = P[st.i], url = '/' + p[0];
+  $('count').textContent = (st.i + 1) + ' of ' + N;
+  $('grp').textContent = p[2] + (p[6] ? ' · new page' : '');
+  $('ttl').textContent = p[1];
+  $('url').textContent = 'rapidpromemphis.com/' + p[0];
+  $('note').textContent = p[3];
+  $('open').href = url;
+  var img = beforeFor(p);
+  $('seg').classList.toggle('hide', !img);
+  Array.prototype.forEach.call(document.querySelectorAll('#list a'), function (a) { a.classList.toggle('on', +a.dataset.i === st.i); });
+  var on = document.querySelector('#list a.on'); if (on && on.scrollIntoView) { on.scrollIntoView({block: 'nearest'}); }
+  f.onload = function () { startScroll(); };
+  f.src = url + (p[0] ? '?tour=1' : '');
+  st.elapsed = 0; st.last = performance.now();
+  showPhase(img ? 'before' : 'after');
+  $('bar').style.width = '0%';
+}
+
+function total() { var img = beforeFor(P[st.i]); return DWELL + (img ? BEFORE_MS : 0); }
+
+var scrollMax = 0, scrollStart = 0;
+function startScroll() {
+  try { var d = f.contentDocument; scrollMax = Math.max(0, Math.min(3000, d.documentElement.scrollHeight - f.clientHeight)); f.contentWindow.scrollTo(0, 0); } catch (e) { scrollMax = 0; }
+}
+
+function loop(now) {
+  requestAnimationFrame(loop);
+  if (!st.playing) { st.last = now; return; }
+  st.elapsed += now - st.last; st.last = now;
+  var T = total(), hasB = !!beforeFor(P[st.i]);
+  if (hasB && st.phase === 'before' && st.elapsed >= BEFORE_MS) { showPhase('after'); }
+  $('bar').style.width = Math.min(100, (st.elapsed / T) * 100) + '%';
+  if (st.phase === 'after' && scrollMax > 0) {
+    var a = hasB ? BEFORE_MS : 0, k = Math.max(0, Math.min(1, (st.elapsed - a - 1200) / (DWELL - 2400)));
+    try { f.contentWindow.scrollTo(0, scrollMax * (k * k * (3 - 2 * k))); } catch (e) {}
+  }
+  if (st.elapsed >= T) { go(st.i + 1, true); }
+}
+requestAnimationFrame(loop);
+
+function setPlaying(v) {
+  st.playing = v; st.last = performance.now();
+  $('playtxt').textContent = v ? 'Pause' : 'Play';
+  $('play').setAttribute('aria-label', v ? 'Pause' : 'Play');
+  $('playicon').innerHTML = v ? '<path d="M8 5v14M16 5v14"/>' : '<path d="M7 4l12 8-12 8z"/>';
+}
+$('play').onclick = function () { setPlaying(!st.playing); };
+$('prev').onclick = function () { go(st.i - 1); };
+$('next').onclick = function () { go(st.i + 1); };
+$('dDesk').onclick = function () { setDevice('desktop'); };
+$('dPhone').onclick = function () { setDevice('phone'); };
+$('bBefore').onclick = function () { setPlaying(false); if (beforeFor(P[st.i])) { showPhase('before'); } };
+$('bAfter').onclick = function () { showPhase('after'); };
+document.addEventListener('keydown', function (e) {
+  if (e.target.closest && e.target.closest('button,a,summary')) { if (e.key === ' ') { return; } }
+  if (e.key === ' ') { e.preventDefault(); setPlaying(!st.playing); }
+  else if (e.key === 'ArrowRight') { go(st.i + 1); }
+  else if (e.key === 'ArrowLeft') { go(st.i - 1); }
+});
+function begin(d) { $('intro').classList.add('hide'); setDevice(d); setPlaying(true); }
+$('start').onclick = function () { begin('desktop'); };
+$('startPhone').onclick = function () { begin('phone'); };
+// preview first page behind the intro
+fit(); go(0);
+</script>
+</body>
+</html>
