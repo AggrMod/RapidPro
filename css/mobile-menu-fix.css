@@ -153,6 +153,44 @@
     }
 }
 
+/* Inner-page menu button (.hamburger-menu with three spans).
+   It had no styles anywhere, so on phones it rendered as a 4x4px empty box and the menu could not be opened. */
+.hamburger-menu { display: none; }
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        margin-left: auto;
+        background: none;
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1002;
+    }
+    .hamburger-menu:focus-visible { outline: 3px solid #f5b301; outline-offset: 2px; }
+    .hamburger-menu span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        border-radius: 3px;
+        background: #1f2937;
+        transition: transform 200ms ease-out, opacity 200ms ease-out;
+    }
+    .hamburger-menu.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+    .hamburger-menu.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hamburger-menu span, .main-nav { transition: none !important; }
+}
+
 /* Dark theme support for mobile menu */
 [data-theme="dark"] .menu-overlay {
     background: rgba(0, 0, 0, 0.7);
