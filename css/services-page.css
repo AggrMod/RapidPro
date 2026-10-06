@@ -442,3 +442,9 @@
     padding: 2rem 1.5rem;
   }
 }
+/* Line icons on the dark icon circles: gold strokes, sized to the circle */
+.service-icon-container { color: #facc15; }
+.service-icon-container .rp-icon { width: 28px; height: 28px; }
+/* Service names in the All Services directory: brand navy, underline only on hover */
+#all-services .service-item h3 a { color: #1f2937; text-decoration: none; }
+#all-services .service-item h3 a:hover, #all-services .service-item h3 a:focus-visible { color: #8a5a00; text-decoration: underline; }
