@@ -8,6 +8,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
+        try { if (!/^America\//.test(Intl.DateTimeFormat().resolvedOptions().timeZone || '')) window['ga-disable-G-YN82WFKX62'] = true; } catch (e) {}
         gtag('config', 'G-YN82WFKX62');
     </script>
 
