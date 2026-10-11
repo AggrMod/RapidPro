@@ -51,3 +51,7 @@
 .hero .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
 .hero .hero-actions .cta-btn { font-size: 18px; }
 .hero .hero-price { margin-top: 14px; color: rgba(255, 255, 255, 0.85); font-size: 15px; }
+
+/* FAQ blocks had `margin: 32px` (no auto), so on screens wider than ~1270px they hugged the left edge
+   while the rest of the page was centered (18 pages). */
+@media (min-width: 1265px) { section.faq-section { margin-left: auto !important; margin-right: auto !important; } }
