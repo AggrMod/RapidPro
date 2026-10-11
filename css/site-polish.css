@@ -1,0 +1,53 @@
+/* Sitewide desktop polish (Terry 10/10: "the desktop needs ux ui"). Loaded on every public page through
+   the @import at the top of call-bar.css, so no page needs its own <link>. */
+
+/* Footer logo: the old white-out filter turned the opaque PNG into a blank gray square. Show the real
+   logo on a white badge instead. */
+.footer img.logo {
+  filter: none !important;
+  opacity: 1 !important;
+  height: 84px !important;
+  width: auto !important;
+  max-width: none !important;
+  background: #fff;
+  border-radius: 14px;
+  padding: 8px 12px;
+  box-sizing: content-box;
+}
+
+@media (min-width: 1025px) {
+  /* A slimmer sticky header: 160px of white was eating a fifth of a laptop screen. */
+  html:root { --header-height-desktop: 116px; }
+  .header .logo-container { height: 112px !important; display: flex; align-items: center; }
+  .header .logo-container .logo, .header .logo { height: 112px !important; width: auto !important; }
+
+  /* One row, everything on the same center line. */
+  .header .main-nav ul { align-items: center; }
+
+  /* Phone button in the home page nav: was wrapping onto two lines in a clipped dark tab. */
+  .header .main-nav a.nav-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 18px !important;
+    margin: 0;
+    white-space: nowrap;
+    background: #1f2937;
+    border: 0;
+    border-radius: 8px;
+    color: #fff !important;
+    font-weight: 700;
+  }
+  .header .main-nav a.nav-call:hover { background: #2d3748; transform: none; box-shadow: none; }
+  .header .main-nav a.nav-call::after { display: none !important; }
+  .header .main-nav a.nav-call .phone-icon { display: inline-flex; font-size: 18px; }
+
+  /* "Free Checklist" was yellow text on white (unreadable). Keep it standing out, in a readable amber. */
+  .header .main-nav a[href*="preventative-maintenance-checklist"] { color: #b45309 !important; font-weight: 600; }
+}
+
+/* Home hero call row (index.html): call is the main action, the price sits right under it. */
+.hero .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+.hero .hero-actions .cta-btn { font-size: 18px; }
+.hero .hero-price { margin-top: 14px; color: rgba(255, 255, 255, 0.85); font-size: 15px; }
