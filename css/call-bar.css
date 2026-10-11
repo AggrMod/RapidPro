@@ -1,84 +1,62 @@
-/* Phone call bar: the page's one action stays one thumb-tap away while a visitor reads.
-   Upgrades the old round .sticky-call button (unstyled on most pages) into a full-width bar on phones.
-   js/call-bar.js tucks it away while another call button is already on screen. */
+/* Floating phone button: a round amber phone icon pinned bottom-right on phones, on every page,
+   visible from the first screen down (Terry 10/10: it must show above the fold — never tuck it).
+   Markup: <a class="sticky-call" href="tel:..."><svg .rp-icon/><span class="sc-text">…</span><span class="sc-sub">…</span></a>
+   The text spans stay in the DOM (visually hidden) so screen readers announce "Call (901) 257-9417". */
 :root {
   --cb-navy: #1f2937;
   --cb-amber: #f59e0b;
   --cb-amber-press: #d97706;
-  --cb-ink: #111827;
-  --cb-sub: #cbd5e1;
 }
 
-a.sticky-call[href] .sc-text { display: none; }
+a.sticky-call[href] .sc-text,
+a.sticky-call[href] .sc-sub {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 @media (min-width: 769px) {
   a.sticky-call[href] { display: none !important; }
 }
 
 @media (max-width: 768px) {
-  body { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
-
   a.sticky-email[href] { display: none !important; }
 
   a.sticky-call[href] {
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    left: auto;
     top: auto;
     z-index: 1000;
-    width: auto;
-    height: auto;
+    width: 64px;
+    height: 64px;
     margin: 0;
-    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
-    border-radius: 0;
-    background: var(--cb-navy);
-    box-shadow: 0 -6px 18px rgba(17, 24, 39, 0.28);
+    padding: 0;
+    border-radius: 50%;
+    background: var(--cb-amber);
+    color: var(--cb-navy);
+    border: 3px solid #fff;
+    box-shadow: 0 6px 18px rgba(17, 24, 39, 0.35);
     display: flex !important;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-    text-decoration: none;
-    animation: none;
-    transform: translateY(0);
-    transition: transform 0.22s ease-out;
-    -webkit-tap-highlight-color: transparent;
-  }
-  a.sticky-call[href]:hover { transform: none; background: var(--cb-navy); }
-
-  a.sticky-call[href].is-tucked { transform: translateY(calc(100% + 24px)); }
-
-  a.sticky-call[href] .sc-text {
-    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    min-height: 48px;
-    border-radius: 10px;
-    background: var(--cb-amber);
-    color: var(--cb-ink);
-    font-weight: 800;
-    font-size: 1.125rem;
-    letter-spacing: 0.01em;
+    text-decoration: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none;
+    -webkit-tap-highlight-color: transparent;
   }
-  a.sticky-call[href]:active .sc-text { background: var(--cb-amber-press); }
-  a.sticky-call[href]:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+  a.sticky-call[href]:hover { background: var(--cb-amber); }
+  a.sticky-call[href]:active { background: var(--cb-amber-press); }
+  a.sticky-call[href]:focus-visible { outline: 3px solid var(--cb-navy); outline-offset: 3px; }
 
-  a.sticky-call[href] .sc-text .rp-icon { width: 1.15em; height: 1.15em; }
   a.sticky-call[href] > .rp-icon,
-  a.sticky-call[href] > .phone-icon,
+  a.sticky-call[href] > .phone-icon { display: inline-flex !important; width: 28px; height: 28px; font-size: 28px; }
+  a.sticky-call[href] > .phone-icon .rp-icon { width: 28px; height: 28px; }
   a.sticky-call[href] > .sc-emoji { display: none !important; }
-
-  a.sticky-call[href] .sc-sub {
-    color: var(--cb-sub);
-    font-size: 0.8125rem;
-    text-align: center;
-    line-height: 1.2;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  a.sticky-call[href] { transition: none; }
 }
 
 @media print {

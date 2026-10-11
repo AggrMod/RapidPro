@@ -1,18 +1,7 @@
-// Tuck the phone call bar (css/call-bar.css) away while another call button is already on screen,
-// so phones never show two "Call" buttons at once. Without this script the bar simply stays up.
+// The floating phone button (css/call-bar.css) stays on screen at all times on phones, above the fold
+// included (Terry 10/10). This file used to hide it while another Call button was visible; it now only
+// clears any leftover hidden state so cached pages from that version still show the button.
 (function () {
   var bar = document.querySelector('a.sticky-call');
-  if (!bar || !('IntersectionObserver' in window)) return;
-  var others = [].slice.call(document.querySelectorAll('a[href^="tel:"]')).filter(function (a) {
-    return a !== bar && a.offsetParent !== null && !a.closest('footer, .footer');
-  });
-  if (!others.length) return;
-  var onScreen = new Set();
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) onScreen.add(e.target); else onScreen.delete(e.target);
-    });
-    bar.classList.toggle('is-tucked', onScreen.size > 0);
-  }, { rootMargin: '0px 0px -90px 0px' });
-  others.forEach(function (a) { io.observe(a); });
+  if (bar) bar.classList.remove('is-tucked');
 })();
