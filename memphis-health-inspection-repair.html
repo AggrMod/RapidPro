@@ -9,6 +9,8 @@
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         try { if (!/^America\//.test(Intl.DateTimeFormat().resolvedOptions().timeZone || '')) window['ga-disable-G-YN82WFKX62'] = true; } catch (e) {}
+        if (!/^(www\.)?rapidpromemphis\.com$/.test(location.hostname)) window['ga-disable-G-YN82WFKX62'] = true; // test copies never count
+        try { if (/[?&]notrack=1/.test(location.search)) localStorage.setItem('rpmNoTrack', '1'); if (/[?&]notrack=0/.test(location.search)) localStorage.removeItem('rpmNoTrack'); if (localStorage.getItem('rpmNoTrack')) window['ga-disable-G-YN82WFKX62'] = true; } catch (e) {} // owner's own phone
         gtag('config', 'G-YN82WFKX62');
     </script>
 
