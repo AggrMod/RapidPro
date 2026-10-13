@@ -55,3 +55,6 @@
 /* FAQ blocks had `margin: 32px` (no auto), so on screens wider than ~1270px they hugged the left edge
    while the rest of the page was centered (18 pages). */
 @media (min-width: 1265px) { section.faq-section { margin-left: auto !important; margin-right: auto !important; } }
+
+/* Top red bar link: 18px tall was too small to tap on phones. Padding enlarges the target; the negative margin keeps the bar the same height. */
+.emergency-content a { display: inline-block; padding: 12px 0; margin: -12px 0; }
