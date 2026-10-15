@@ -819,6 +819,14 @@
             gap: 24px;
         }
 
+        /* Four cards per service row: 2 x 2 on tablet and desktop instead of 3 + 1 (10/14) */
+        @media (min-width: 769px) {
+            #services .services-grid,
+            #more-services .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         .service-item {
             background: var(--bg-light);
             border-radius: 12px;
@@ -1716,9 +1724,24 @@
         <div class="container" style="flex-direction: column;">
             <h2 class="fade-up">Our Services</h2>
             <div class="elegant-divider fade-in"></div>
-            <p class="services-intro fade-up">Professional service for reach-in coolers and ice machines.</p>
+            <p class="services-intro fade-up">Conveyor pizza ovens, reach-in coolers, ice machines and walk-in doors.</p>
 
             <div class="services-grid">
+                <div class="service-item fade-up">
+                    <div class="service-icon-container">
+                        <span style="font-size:1.8em;" aria-hidden="true"><svg class="rp-icon" aria-hidden="true"><use href="assets/icons.svg#flame"></use></svg></span>
+                    </div>
+                    <h3>Conveyor Pizza Oven Repair</h3>
+                    <p>Belt stopped, oven won't heat, or pizzas coming out wrong? Our techs repair Middleby Marshall and Lincoln Impinger conveyor ovens and deck pizza ovens.</p>
+                    <ul class="service-details">
+                        <li>Belt jams and conveyor drives</li>
+                        <li>Speed controllers and motors</li>
+                        <li>Burners, ignition and blowers</li>
+                        <li>Oven inspections and planned maintenance</li>
+                    </ul>
+                    <a href="memphis-commercial-pizza-oven-repair.html" style="display:inline-block;margin-top:10px;color:#8a5a00;font-weight:600;font-size:0.95em;">Conveyor pizza oven repair in Memphis →</a>
+                </div>
+
                 <div class="service-item fade-up">
                     <div class="service-icon-container">
                         <picture><source srcset="assets/images/troubleshooting/reach-in-cooler-not-keeping-temperature-door-gasket-check-memphis-tn.webp" type="image/webp"><img class="service-icon-image"
