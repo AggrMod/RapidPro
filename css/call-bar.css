@@ -63,3 +63,22 @@ a.sticky-call[href] .sc-sub {
 @media print {
   a.sticky-call[href] { display: none !important; }
 }
+
+/* Price + 40-mile range on the first screen, phones only (Clarity 10/20: phone visitors stop around the
+   average fold, above the hero's price box). Markup: <p class="banner-price"> as the last child of the red
+   .emergency-banner on every sitemap page. Same sentence as .hero-price, so the price says one thing. */
+.emergency-banner .banner-price { display: none; }
+@media screen and (max-width: 768px) {
+  .emergency-banner .banner-price {
+    display: block;
+    margin: 3px 0 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+}
