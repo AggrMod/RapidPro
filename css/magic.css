@@ -109,3 +109,32 @@
   .hero a[href^="tel:"]::before, .cta-section a[href^="tel:"]::before,
   .hero .hero-price::after, a.sticky-call[href]::after { animation: none !important; }
 }
+
+/* ---- Phones: what matters sits above the fold (Clarity 10/20) ----
+   Clarity's average fold on phones lands around 600px, and most phone visitors never scroll
+   past it. So on phones the hero reads: headline, one line of what we fix, the Call button, then
+   the price and 40-mile line right under it, then the second button. Same content, reordered and
+   tightened; desktop is untouched. Only text moves between the buttons, so tab order is unchanged. */
+@media screen and (max-width: 768px) {
+  /* Service pages: drop the dead space above the headline. */
+  .hero:not(.hero-3d) { padding-top: 28px; padding-bottom: 40px; min-height: 0; }
+  .hero .hero-content { display: flex; flex-direction: column; align-items: stretch; }
+  .hero .hero-content > .cta-buttons { display: contents; }
+  .hero .hero-content > h1 { order: 1; }
+  .hero .hero-content > .tagline { order: 2; margin-bottom: 18px; }
+  .hero .hero-content > .cta-buttons > a[href^="tel:"] { order: 3; margin: 0; }
+  .hero .hero-content > .hero-price { order: 4; align-self: center; margin: 12px auto 14px; }
+  .hero .hero-content > .cta-buttons > a:not([href^="tel:"]) { order: 5; margin: 0; }
+
+  /* Home page: headline, what we fix, Call, price, then the rest. */
+  .hero > .container > .hero-actions { display: contents; }
+  .hero > .container > h1 { order: 1; }
+  .hero > .container > .subheading { order: 2; }
+  .hero > .container > .hero-actions > a[href^="tel:"] { order: 3; margin: 0; }
+  .hero > .container > .hero-price { order: 4; margin: 0 auto; }
+  .hero > .container > .hero-actions > a:not([href^="tel:"]) { order: 5; margin: 0; }
+  .hero > .container > .tagline { order: 6; }
+  .hero > .container > .slogan { order: 7; }
+  /* room for the scroll hint under the slogan (it used to sit on the price box) */
+  .hero > .container { padding-bottom: 72px; }
+}
