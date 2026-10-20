@@ -52,3 +52,14 @@
     .hero.hero-3d .cta-buttons { justify-content: center; }
     .hero.hero-3d .hero-caption { display: none; }
 }
+
+/* Pizza page on phones (Clarity 10/20): headline, Call and price first, the 3D oven story right under
+   them. The oven on top pushed the Call button below the first screen. Scoped to the story hero
+   (data-oven-story), so the Middleby guide's oven hero keeps its layout; browsers without :has()
+   keep the layout above. */
+@media (max-width: 767px) {
+    .hero.hero-3d:has(> [data-oven-story]) { justify-content: flex-start; padding: 28px 32px 0; }
+    .hero.hero-3d:has(> [data-oven-story]) .oven-hero-canvas { position: relative; inset: auto; order: 2; align-self: stretch; max-width: none; height: 320px; margin: 20px -32px 0; }
+    .hero.hero-3d:has(> [data-oven-story]) .hero-content { order: 1; }
+    .hero.hero-3d:has(> [data-oven-story])::before { background: none; }
+}
