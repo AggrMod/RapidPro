@@ -40,7 +40,7 @@ jobs:
           set -e
           rm -rf _site && mkdir _site
           for f in *.html; do
-            case "$f" in test-*|hello-claude.html|given-flowers.html|image-test.html|dashboard.html|template.html) ;; *) cp "$f" _site/ ;; esac
+            case "$f" in test-*|hello-claude.html|given-flowers.html|image-test.html|dashboard.html|template.html|rpm-website-walkthrough.html) ;; *) cp "$f" _site/ ;; esac
           done
           cp -r css js assets images videos _site/
           cp CNAME robots.txt sitemap.xml site.webmanifest favicon.ico *.png _site/
