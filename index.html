@@ -653,9 +653,10 @@
             transform: translateY(50%) rotate(-45deg);
         }
 
-        /* Hero Section - 100vh desktop */
+        /* Hero Section: as tall as its content. A full-screen (100vh) hero centered the text, which left empty space
+           above the headline and put the Call button and price under the average desktop fold (Clarity 10/20). */
         .hero {
-            min-height: 100vh;
+            padding: 40px 0 48px;
             display: flex;
             align-items: center;
             position: relative;
@@ -756,6 +757,17 @@
             border-radius: 50%;
             transform: translateX(-50%);
             animation: scroll 2s infinite;
+        }
+
+        /* Desktop: a tighter stack, so the headline, the Call button and the price share the first screen
+           (Clarity 10/20). Phones have their own order in css/magic.css. */
+        @media (min-width: 769px) {
+            .hero .container { gap: 12px; }
+            .hero h1 { margin-bottom: 4px; }
+            .hero .tagline { margin-bottom: 0; }
+            .hero .slogan { margin-bottom: 8px; }
+            /* the next section now starts on the first screen, so the scroll hint has nothing left to point at */
+            .scroll-indicator { display: none; }
         }
 
         /* Services Section */
