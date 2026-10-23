@@ -87,7 +87,7 @@
   pointer-events: none;
 }
 
-/* ---- pulsating-button: the floating phone button on phones gives off a slow pulse ---- */
+/* ---- pulsating-button: the call bar on phones pulses twice when the page opens ---- */
 @keyframes mu-pulse {
   0%   { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.55); }
   70%  { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
@@ -98,8 +98,8 @@
     content: '';
     position: absolute;
     inset: -3px;
-    border-radius: 50%;
-    animation: mu-pulse 2.4s ease-out 1.2s infinite;
+    border-radius: inherit;
+    animation: mu-pulse 2.4s ease-out 1.2s 2; /* twice, then still: motion onset draws the eye; a forever-loop doesn't (WCAG 2.2.2) */
     pointer-events: none;
   }
 }

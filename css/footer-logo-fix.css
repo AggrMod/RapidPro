@@ -99,7 +99,9 @@
   .emergency-content { flex-wrap: nowrap !important; justify-content: space-between !important; gap: 10px !important; padding: 0 !important; }
   .emergency-icon, .emergency-divider, .emergency-text ~ .emergency-text { display: none !important; }
   .emergency-text { font-size: 0.8rem !important; white-space: nowrap; letter-spacing: 0 !important; }
-  .emergency-phone { width: auto !important; margin: 0 !important; display: inline-flex !important; align-items: center; min-height: 40px; padding: 6px 14px !important; font-size: 0.85rem !important; white-space: nowrap; }
+  .emergency-phone { width: auto !important; margin: 0 !important; display: inline-flex !important; align-items: center; min-height: 40px; padding: 6px 14px !important; font-size: 0.85rem !important; white-space: nowrap; position: relative; }
+  /* 48px tap area without making the red bar taller (the hero below keeps its place) */
+  .emergency-phone::before { content: ""; position: absolute; left: 0; right: 0; top: -4px; bottom: -4px; }
 }
 
 /* Phones: keep the call button fully on screen, one row on the home page too,
